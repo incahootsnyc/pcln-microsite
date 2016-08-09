@@ -9,7 +9,7 @@ var appInitializationPromise = require('../app');
 appInitializationPromise.then(function (app) {
   var debug = require('debug')('pcln-microsite:server');
   var http = require('http');
-  var port = normalizePort(process.env.PORT || '3000');
+  var port = normalizePort(process.env.PORT || '2525');
 
   /**
    * Get port from environment and store in Express.
@@ -90,6 +90,6 @@ appInitializationPromise.then(function (app) {
       : 'port ' + addr.port;
     debug('Listening on ' + bind);
   }
-  
+
 });
 

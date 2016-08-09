@@ -9,5 +9,14 @@
 
 	<body>
 		Hello World! this is my <%= title %> App!
+
+		<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post">
+			<div><input name="title" type="text" placeholder="title" /></div>
+			<div><input name="image" type="file" /></div>
+			<div><input type="submit" value="Upload" /></div>
+		</form>
 	</body>
+
+	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="javascripts/upload.js"></script>
 </html>

@@ -8,7 +8,7 @@ var ejs = require('ejs');
 var fs = require('fs-extra');
 var Promise = require('promise');
 var items = []; // files, directories, symlinks, etc
-var routes = [];
+var requirePaths = [];
 
 var initializationPromise = new Promise(function (fulfill, reject) {
   
@@ -21,19 +21,19 @@ var initializationPromise = new Promise(function (fulfill, reject) {
         var extensionStart = item.indexOf('.js');
         var routeDirectoryStart = item.indexOf('/routes');
         if (extensionStart > -1) {
-          routes.push('.' + item.substring(routeDirectoryStart, extensionStart));
+          requirePaths.push('.' + item.substring(routeDirectoryStart, extensionStart));
         }
       });
 
-      var expessApp = initializeApplication(routes);
+      var expressApp = initializeApplication(requirePaths);
 
-      fulfill(expessApp);
+      fulfill(expressApp);
     });
 
 });
 
 
-function initializeApplication (routes) {
+function initializeApplication (requirePaths) {
   var app = express();
 
   // view engine setup
@@ -50,9 +50,9 @@ function initializeApplication (routes) {
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
 
-  routes.forEach(function (route) {
-      var routeModule = require(route);
-      app.use('/', routeModule);
+  requirePaths.forEach(function (path) {
+      var routeModule = require(path);
+      app.use(routeModule);
   });
 
   // catch 404 and forward to error handler

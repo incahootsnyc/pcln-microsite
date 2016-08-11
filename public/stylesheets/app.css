@@ -1,8 +1,10 @@
+/* line 5, ../../scss/modules/_navigation.scss */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* line 10, ../../scss/modules/_navigation.scss */
 a {
   color: #00B7FF;
 }

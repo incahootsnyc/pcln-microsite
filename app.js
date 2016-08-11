@@ -5,90 +5,63 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
-var fs = require('fs-extra');
 var Promise = require('promise');
-var items = []; // files, directories, symlinks, etc
-var requirePaths = [];
+var fileDirectoryHelper = require('./helpers/nodejs-recursive-directory');
+var routerFileTree = fileDirectoryHelper.getFilesRecursive(path.join(__dirname, 'routes'));
+var routerFilePaths = fileDirectoryHelper.getRequirePathsRecursive(routerFileTree);
 
-var initializationPromise = new Promise(function (fulfill, reject) {
-  
-  fs.walk('./routes')
-    .on('data', function (item) {
-      items.push(item.path)
-    })
-    .on('end', function () {
-      items.forEach(function (item) {
-        var extensionStart = item.indexOf('.js');
-        var routeDirectoryStart = item.indexOf('/routes');
-        if (extensionStart > -1) {
-          requirePaths.push('.' + item.substring(routeDirectoryStart, extensionStart));
-        }
-      });
+var app = express();
 
-      var expressApp = initializeApplication(requirePaths);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+app.engine('html', ejs.renderFile);
 
-      fulfill(expressApp);
-    });
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
+routerFilePaths.forEach(function (filePath) {
+    var router = require('./routes/' + filePath);
+    app.use(router);
 });
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-function initializeApplication (requirePaths) {
-  var app = express();
+// error handlers
 
-  // view engine setup
-  app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'html');
-  app.engine('html', ejs.renderFile);
-
-
-  // uncomment after placing your favicon in /public
-  //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-  app.use(logger('dev'));
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(cookieParser());
-  app.use(express.static(path.join(__dirname, 'public')));
-
-  requirePaths.forEach(function (path) {
-      var routeModule = require(path);
-      app.use(routeModule);
-  });
-
-  // catch 404 and forward to error handler
-  app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
-
-  // error handlers
-
-  // development error handler
-  // will print stacktrace
-  if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-      res.status(err.status || 500);
-      res.render('error', {
-        message: err.message,
-        error: err
-      });
-    });
-  }
-
-  // production error handler
-  // no stacktraces leaked to user
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: {}
+      error: err
     });
   });
-
-  
-  return app;
 }
 
-module.exports = initializationPromise;
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
+module.exports = app;
+
+
 

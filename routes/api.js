@@ -1,7 +1,7 @@
 var express = require('express');
 var multer  = require('multer')
 var router = express.Router();
-var upload = multer();
+var upload = multer({ dest: 'tmp/uploads/' });
 
 /* GET home page. */
 router.post('/api/upload', upload.single('image'), function (req, res) {

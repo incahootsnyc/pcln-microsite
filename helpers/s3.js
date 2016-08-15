@@ -18,7 +18,7 @@ var s3 = {
 		});
 	},
 
-	getBucket: function (argument) {
+	getBucket: function () {
 		return state.s3Bucket;
 	}
 }

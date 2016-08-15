@@ -11,10 +11,13 @@ router.get('/', function(req, res, next) {
 		collection.find().toArray(function (err, imageList) {
 	
 			var imageUrls = [];
+			var s3bucket = s3.getBucket();
 
 			imageList.forEach(function (imageObj) {
-				var params = { Key: imageObj.name };
-				imageUrls.push(s3.getBucket().getSignedUrl('getObject', params));
+				if (imageObj.name) {
+					var params = { Key: imageObj.name };
+					imageUrls.push(s3bucket.getSignedUrl('getObject', params));
+				}
 			});
 		
 			res.render('index', { 

@@ -30,7 +30,7 @@ router.post('/api/upload', upload.single('image'), function (req, res) {
         	message = 'Error uploading data';
         } else {
         	message = 'Successfully uploaded data';
-        	db.get().collection('imagePosts').insert(imagePost, function(err, confirmation) {
+        	db.get().collection('imagePosts').insert(imagePostObj, function(err, confirmation) {
         		res.json({
 		        	message: message
 				});

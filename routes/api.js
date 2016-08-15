@@ -5,7 +5,7 @@ var upload = multer();
 var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
 var db = require('../helpers/db');
-var imagePost = require('../helpers/imagePost');
+var imagePost = require('../helpers/image-post');
 
 
 /* GET home page. */

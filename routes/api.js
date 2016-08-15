@@ -25,7 +25,9 @@ router.post('/api/upload', upload.single('image'), function (req, res) {
 	
 	var params = {
         Key: uniqueFileName,
-        Body: imageFile.buffer
+        Body: imageFile.buffer,
+        //allows view access for image src tags
+        ACL:'public-read'
     };
 
     s3bucket.putObject(params, function (error, response) {

@@ -5,7 +5,7 @@ var upload = multer();
 var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
 var db = require('../helpers/db');
-var imagePost = require('../helpers/image-post');
+var imagePost = require('../helpers/imagePost');
 
 
 /* GET home page. */
@@ -19,7 +19,7 @@ router.post('/api/upload', upload.single('image'), function (req, res) {
         Body: imageFile.buffer
     };
 
-    var imagePost = imagePost.generate({
+    var imagePostObj = imagePost.generate({
     	name: uniqueFileName,
     	title: body.title
     });

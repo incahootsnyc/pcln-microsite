@@ -12,6 +12,10 @@
 
 	<body>
 
+		<% for(var i=0; i < images.length; i++) { %>
+		   <img src="<%= images[i] %>">
+		<% } %>
+
 		<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post">
 			<div><input name="title" type="text" placeholder="title" /></div>
 			<div><input name="image" type="file" /></div>

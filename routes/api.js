@@ -2,20 +2,11 @@ var express = require('express');
 var multer  = require('multer');
 var router = express.Router();
 var upload = multer();
-var AWS = require('aws-sdk');
+var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
+var db = require('../helpers/db');
+var imagePost = require('../helpers/image-post');
 
-AWS.config.update({
-	region: 'us-east-1',
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-});
-
-var s3bucket = new AWS.S3({
-	params: {
-		Bucket: 'pcln-images-bucket'
-	}
-});
 
 /* GET home page. */
 router.post('/api/upload', upload.single('image'), function (req, res) {
@@ -25,22 +16,26 @@ router.post('/api/upload', upload.single('image'), function (req, res) {
 	
 	var params = {
         Key: uniqueFileName,
-        Body: imageFile.buffer,
-        //allows view access for image src tags
-        ACL:'public-read'
+        Body: imageFile.buffer
     };
 
-    s3bucket.putObject(params, function (error, response) {
+    var imagePost = imagePost.generate({
+    	name: uniqueFileName,
+    	title: body.title
+    });
+
+    s3.getBucket().putObject(params, function (error, response) {
     	var message;
         if (error) {
         	message = 'Error uploading data';
         } else {
         	message = 'Successfully uploaded data';
+        	db.get().collection('imagePosts').insert(imagePost, function(err, confirmation) {
+        		res.json({
+		        	message: message
+				});
+        	});
         }
-
-        res.json({
-        	message: message
-		});
     });
 
 	

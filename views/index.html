@@ -38,11 +38,6 @@
 			</header>
 
 			<aside class="sidebar">
-				<!-- 	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post">
-				<div><input name="title" type="text" placeholder="title" /></div>
-				<div><input name="image" type="file" /></div>
-				<div><input type="submit" value="Upload" /></div>
-			</form> -->
 
 				<template>
 					<% include /templates/upload-modal.html %>
@@ -60,7 +55,7 @@
 
 				</div>
 
-				<button class="button--primary sidebar__submit-pic">SUBMIT A PIC</button>
+				<button id="upload-image" class="button--primary sidebar__submit-pic">SUBMIT A PIC</button>
 
 				<div class="sidebar__categories">
 					<strong>Check out what everyone else has uploaded</strong>

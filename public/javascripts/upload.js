@@ -33,5 +33,3 @@ plcnPicMe.uploadEventDelegate = (function () {
 	
 
 })();
-
-plcnPicMe.uploadEventDelegate.addSubmitEvent()

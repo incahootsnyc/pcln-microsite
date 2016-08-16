@@ -23,6 +23,7 @@ var upload = multer({
 
 /* POST image. */
 router.post('/api/upload', function (req, res) {
+    var defaultErrorMessage = 'Error uploading image! :O';
 
     upload(req, res, function (err) {
         var imageFile = req.file;
@@ -44,17 +45,17 @@ router.post('/api/upload', function (req, res) {
             s3.getBucket().putObject(params, function (error, response) {
                 
                 if (error) {
-                    res.json({ message: 'Error uploading image! :O' });
+                    res.json({ message: defaultErrorMessage });
                 } else {
                     db.get().collection('imagePosts').insert(imagePostObj, function (err, confirmation) {
-                        if (err) { res.json({ message: 'Uh Oh, something went wrong! :O' }); }
+                        if (err) { res.json({ message: defaultErrorMessage }); }
                         res.json({ message: 'Successfully uploaded data! :D' });
                     });
                 }
 
             });
         } else {
-            res.json({ message: err.message });
+            res.json({ message: (err && err.message) || defaultErrorMessage });
         }
     });
 	

@@ -1,3 +1,15 @@
 <div id="upload-modal">
-	<form id="upload-form"></form>
+
+	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
+		<div>
+			<input name="title" type="text" placeholder="title" />
+		</div>
+		<!-- TODO: clean up inline styles -->
+		<div class="drag-n-drop" style="height: 100px;width: 100px;border: 1px dashed #000;">
+			<img src="" heigh="100" width="100">
+		</div>
+		<div><input name="image" type="file" id="file"/></div>
+		<div><input type="submit" value="Upload" /></div>
+	</form>
+
 </div>

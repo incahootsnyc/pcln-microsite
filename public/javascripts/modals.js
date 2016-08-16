@@ -17,9 +17,24 @@
 	}
 
 	$('#upload-image').click(function (e) {
-		var $uploadModal = grabTemplateByName('upload-modal');
+		var $uploadModal = $('#upload-modal');
 
-		plcnPicMe.uploadEventDelegate.addSubmitEvent($uploadModal.find('form'));
+		// if first time creating modal, add events
+		// otherwise just show existing modal
+		if ($uploadModal.length < 1) {
+			var $uploadModal = grabTemplateByName('upload-modal');
+			var $uploadForm = $uploadModal.find('form');
+
+			// assign events for modal
+			if (plcnPicMe.supportsDragAndDrop) {
+				plcnPicMe.uploadEventDelegate.addDragAndDropCapabilities($uploadForm);
+			}
+
+			plcnPicMe.uploadEventDelegate.addImagePreviewEvent($uploadForm);
+			plcnPicMe.uploadEventDelegate.addSubmitEvent($uploadForm);
+		} else {
+			$uploadModal.show();
+		}
 	});
 
 	$('#delete-image').click(function (e) {

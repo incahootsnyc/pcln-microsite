@@ -7,71 +7,75 @@
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/css-starter-min.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
 	</head>
 
 	<body>
+		<div class="content-container">
+			<header class="header">
+				 <div class="header__logo">
+				 	<img src="/images/dummylogo.png"/>
+				 </div>
 
+				 <nav class="navbar--user">
+				 	<ul class="navbar--user__list">
+				 		<li class="navbar--user__item">Hi {Tanya}</li>
+				 		<li class="navbar--user__item">|<a class="navbar--user__link" href="">My Pics</a>|</li>
+				 		<li class="navbar--user__item"><a class="navbar--user__link" href="">Sign Out</a></li>
+				 	</ul>	
+				 </nav>	
 
-		<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post">
-			<div><input name="title" type="text" placeholder="title" /></div>
-			<div><input name="image" type="file" /></div>
-			<div><input type="submit" value="Upload" /></div>
-		</form>
+				 <nav class="navbar--main">
+				 	<ul class="navbar--main__list">
+				 		<li class="navbar--main__item"><a href="" class="navbar__link">Home</a></li>
+				 		<li class="navbar--main__item"><a href="" class="navbar__link">Contest Info & Prizes</a></li>
+				 		<li class="navbar--main__item"><a href="" class="navbar__link">Terms and Conditions</a></li>
+				 	</ul>	
+				 </nav>	
+				 
+			</header>
 
+			<aside class="sidebar">
+				<!-- 	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post">
+				<div><input name="title" type="text" placeholder="title" /></div>
+				<div><input name="image" type="file" /></div>
+				<div><input type="submit" value="Upload" /></div>
+			</form> -->
 
-		<header>
-			 <div class="header__logo">
-			 </div>
+				<template>
+					<% include /templates/upload-modal.html %>
+					<% include /templates/upload-success.html %>
+					<% include /templates/delete-confirm.html %>
+				</template>
 
-			 
-			 <nav class="navbar">
-			 	<ul class="navbar__list">
-			 		<li class="navbar__item">
-			 			<a href="" classs="navbar__link">Home</a>
-			 		</li>
-			 		<li class="navbar__list">
-			 			<a class="navbar__link" href="">Contest Info & Prizes</a>
-			 		</li>
-			 		<li class="navbar__list">
-			 			<a href="" class="navbar__link">Terms & Conditions </a>
-			 		</li>		
-			 	</ul>	
-			 </nav>	
-		</header>
+				<div class="sidebar__contest-info">
+					<strong>	Enter now for a chance to win </strong>
+					<ul>
+						<li>Contest Info</li>
+						<li>Contest Info</li>
+						<li>Contest Info</li>
+					</ul>
 
-		<aside class="sidebar">
+				</div>
 
-			<template>
-				<% include /templates/upload-modal.html %>
-				<% include /templates/upload-success.html %>
-				<% include /templates/delete-confirm.html %>
-			</template>
+				<button class="button--primary sidebar__submit-pic">SUBMIT A PIC</button>
 
-			<div class="sidebar__contest-info">
-				<strong>	Enter now for a chance to win </strong>
-				<ul>
-					<li>Contest Info</li>
-					<li>Contest Info</li>
-					<li>Contest Info</li>
-				</ul>
+				<div class="sidebar__categories">
+					<strong>Check out what everyone else has uploaded</strong>
+					<ul>
+						<li>Category One</li>
+						<li>Category One</li>
+						<li>Category One</li>
+						<li>Category One</li>
+						<li>Category One</li>
+						<li>Category One</li>
+					</ul>
 
-				<button>Submit</button>
+				</div>	
 
-			</div>
-
-			<div class="sidebar__categories">
-				<strong>Check out what everyone else has uploaded</strong>
-				<ul>
-					<li>Category One</li>
-					<li>Category One</li>
-					<li>Category One</li>
-					<li>Category One</li>
-					<li>Category One</li>
-					<li>Category One</li>
-				</ul>
-
-			</div>	
+			</aside>
 
 			<main>
 
@@ -80,37 +84,9 @@
 				<% } else if (isTerms) { %>
 					<% include /partials/terms.html %>
 				<% } %>
-
-				<div>
-					<h1>Submissions</h1>
-					<select>
-						  <option value="newest">Newest</option>
-						  <option value="popular">Popular</option> 
-					</select>
-				</div>	
-				<div>
-					<ul>
-						<li><img src="/images/placeholder-img.png"/></li>
-						<li><img src="/images/placeholder-img.png"/></li>
-						<li><img src="/images/placeholder-img.png"/></li>
-						<li><img src="/images/placeholder-img.png"/></li>
-						<li><img src="/images/placeholder-img.png"/></li>
-				</div>	
-
-			</main>	
-
-
-
-
-
-
-
-
-
-
-		</aside>	
-
-	
+		
+			</main>
+		</div>
 	</body>
 
 	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>

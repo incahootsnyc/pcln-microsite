@@ -1,12 +1,32 @@
-nav {
+.header {
+	position: relative;
 
+	&__logo {
+
+	}
 }
 
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.navbar--user, .navbar--main {
+
+	&__item {
+		display: inline-block;
+	}
 }
 
-a {
-  color: #00B7FF;
+.navbar--user {
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: 10px;
+
+
+	&__link {
+		padding: 0 8px;
+	}
+}
+
+.image-tile {
+	width: 120px;
+	height: 120px;
 }

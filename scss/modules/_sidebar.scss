@@ -1,0 +1,40 @@
+.sidebar {
+	background-color: $black-5;
+	padding: 10px;
+
+	&__contest-info {
+		display: none;
+	}
+
+	&__categories {
+		display: none;
+	}
+
+	&__submit-pic {
+		background-color: $orange-2;
+		margin: auto;
+		width: 172px;
+		font-weight: bold;
+		display: block;
+	
+		&:hover {
+			background-color: red;
+		}	
+	}
+
+	@media (min-width: 500px) {
+		width: 30%;
+		max-width: 320px;
+		float: left;
+
+		&__contest-info {
+			display: block;
+		}
+
+		&__categories {
+			display: block;
+		}
+	}
+
+}
+

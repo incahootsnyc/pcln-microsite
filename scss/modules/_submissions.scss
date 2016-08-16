@@ -1,0 +1,25 @@
+.submissions {
+	padding: 20px 0;
+	background: $black-5;
+
+	h1 {
+		font-size: 18px;
+		display: inline-block;
+	}
+
+	&__img {
+		width: 145px;
+		padding: 5px;
+		height: 145px;
+	}
+
+	&__img-container {
+		display: inline-block;
+	}
+
+	&__sort {
+		float: right;
+		margin: 0 20px;
+	}	
+
+}

@@ -22,7 +22,9 @@ router.get('/', function(req, res, next) {
 		
 			res.render('index', { 
 		  	title: 'PCLN Photo Contest', 
-		  	images: imageUrls 
+		  	images: imageUrls,
+		  	isHome: true,
+		  	isTerms: false
 		  });
 
 		});

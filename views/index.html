@@ -12,9 +12,6 @@
 
 	<body>
 
-		<% for(var i=0; i < images.length; i++) { %>
-		   <img src="<%= images[i] %>">
-		<% } %>
 
 		<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post">
 			<div><input name="title" type="text" placeholder="title" /></div>
@@ -70,6 +67,13 @@
 			</div>	
 
 			<main>
+
+				<% if (isHome) { %>
+					<% include /partials/home.html %>
+				<% } else if (isTerms) { %>
+					<% include /partials/terms.html %>
+				<% } %>
+
 				<div>
 					<h1>Submissions</h1>
 					<select>

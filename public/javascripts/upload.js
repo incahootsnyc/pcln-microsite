@@ -1,26 +1,37 @@
-(function () {
+var plcnPicMe = plcnPicMe || {};
 
-	$('#upload-form').submit(function (e) {
-		e.preventDefault();
 
-	  	var formData = new FormData(this);
+plcnPicMe.uploadEventDelegate = (function () {
 
-	  	var requestConfig = {
-			url: '/api/upload',
-			type: 'POST',
-			data: formData,
-			contentType: false,
-			processData: false,
-			success: function (response) {
-					console.log(response);
-				}
-			};
+	return {
+		addSubmitEvent: addSubmitEventFn
+	};
 
-		$.ajax(requestConfig);
+	function addSubmitEventFn ($form) {
+		$form.submit(function (e) {
+			e.preventDefault();
 
-		return false;
+		  	var formData = new FormData(this);
 
-	});
+		  	var requestConfig = {
+				url: '/api/upload',
+				type: 'POST',
+				data: formData,
+				contentType: false,
+				processData: false,
+				success: function (response) {
+						console.log(response);
+					}
+				};
+
+			$.ajax(requestConfig);
+
+			return false;
+
+		});
+	}
+	
 
 })();
 
+plcnPicMe.uploadEventDelegate.addSubmitEvent()

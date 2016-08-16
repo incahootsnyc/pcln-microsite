@@ -41,6 +41,13 @@
 		</header>
 
 		<aside class="sidebar">
+
+			<template>
+				<% include /templates/upload-modal.html %>
+				<% include /templates/upload-success.html %>
+				<% include /templates/delete-confirm.html %>
+			</template>
+
 			<div class="sidebar__contest-info">
 				<strong>	Enter now for a chance to win </strong>
 				<ul>
@@ -107,5 +114,8 @@
 	</body>
 
 	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="javascripts/init.js"></script>
 	<script type="text/javascript" src="javascripts/upload.js"></script>
+	<script type="text/javascript" src="javascripts/modals.js"></script>
+
 </html>

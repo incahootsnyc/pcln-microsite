@@ -1,14 +1,15 @@
-var plcnPicMe = plcnPicMe || {};
+var pclnPicMe = pclnPicMe || {};
 
 
-plcnPicMe.uploadEventDelegate = (function () {
+pclnPicMe.uploadModalDelegate = (function () {
 
 	var droppedFile = false;
 
 	return {
 		addSubmitEvent: addSubmitEventFn,
 		addDragAndDropCapabilities: addDragAndDropCapabilitiesFn,
-		addImagePreviewEvent: addImagePreviewEventFn
+		addImagePreviewEvent: addImagePreviewEventFn,
+		addCloseEvent: addCloseEventFn
 	};
 
 	// form submit event for upload modal
@@ -100,6 +101,17 @@ plcnPicMe.uploadEventDelegate = (function () {
 		    }
 		    reader.readAsDataURL(filePreview);		   
 		}
+	}
+
+
+	function addCloseEventFn ($uploadModal) {
+
+		var $uploadClose = $uploadModal.find('#upload-modal-close');
+
+
+			$uploadClose.click(function(){
+				$uploadModal.hide();
+			});
 	}
 	
 

@@ -1,6 +1,6 @@
 .sidebar {
 	background-color: $black-5;
-	padding: 10px;
+	padding: 20px 0 10px 0;
 
 	&__contest-info {
 		display: none;
@@ -22,17 +22,32 @@
 		}	
 	}
 
-	@media (min-width: 500px) {
-		width: 30%;
-		max-width: 320px;
+	@media (min-width: 540px) {
+		width: 40%;
+		height: 100vh;
+		padding: 20px;
 		float: left;
+
 
 		&__contest-info {
 			display: block;
 		}
 
+
+		&__submit-pic {
+			width: 90%;
+			margin: 30px auto;
+			max-width: 250px; 
+		}
+
 		&__categories {
 			display: block;
+		}
+
+		&__close {
+			position: absolute;
+			right: 10px;
+			top: 10px;
 		}
 	}
 

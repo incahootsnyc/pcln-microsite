@@ -1,3 +1,13 @@
-$black: #333;
 $orange-2: #ff9600;
+
+$black: #333;
 $black-5: #f2f2f2;
+$black-20: #ccc;
+$black-40: #999;
+
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}

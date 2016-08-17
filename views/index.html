@@ -13,7 +13,7 @@
 	</head>
 
 	<body>
-		<div class="content-container">
+		<div class="main-container">
 			<header class="header">
 				 <div class="header__logo">
 				 	<img src="/images/dummylogo.png"/>
@@ -30,58 +30,59 @@
 				 <nav class="navbar--main">
 				 	<ul class="navbar--main__list">
 				 		<li class="navbar--main__item"><a href="" class="navbar__link">Home</a></li>
-				 		<li class="navbar--main__item"><a href="" class="navbar__link">Contest Info & Prizes</a></li>
-				 		<li class="navbar--main__item"><a href="" class="navbar__link">Terms and Conditions</a></li>
+				 		<li class="navbar--main__item"><a href="/contest-info" class="navbar__link">Contest Info & Prizes</a></li>
+				 		<li class="navbar--main__item"><a href="/terms" class="navbar__link">Terms and Conditions</a></li>
 				 	</ul>	
 				 </nav>	
 				 
 			</header>
+			<div class="content-container group">
+				<aside class="sidebar">
 
-			<aside class="sidebar">
+					<template>
+						<% include /templates/upload-modal.html %>
+						<% include /templates/upload-success.html %>
+						<% include /templates/delete-confirm.html %>
+					</template>
 
-				<template>
-					<% include /templates/upload-modal.html %>
-					<% include /templates/upload-success.html %>
-					<% include /templates/delete-confirm.html %>
-				</template>
+					<div class="sidebar__contest-info">
+						<strong>Enter now for a chance to win </strong>
+						<ul>
+							<li>Contest Info</li>
+							<li>Contest Info</li>
+							<li>Contest Info</li>
+						</ul>
 
-				<div class="sidebar__contest-info">
-					<strong>	Enter now for a chance to win </strong>
-					<ul>
-						<li>Contest Info</li>
-						<li>Contest Info</li>
-						<li>Contest Info</li>
-					</ul>
+					</div>
 
-				</div>
+					<button id="upload-image" class="button--primary sidebar__submit-pic">SUBMIT A PIC</button>
 
-				<button id="upload-image" class="button--primary sidebar__submit-pic">SUBMIT A PIC</button>
+					<div class="sidebar__categories">
+						<strong>Check out what everyone else has uploaded</strong>
+						<ul>
+							<li>Category One</li>
+							<li>Category One</li>
+							<li>Category One</li>
+							<li>Category One</li>
+							<li>Category One</li>
+							<li>Category One</li>
+						</ul>
 
-				<div class="sidebar__categories">
-					<strong>Check out what everyone else has uploaded</strong>
-					<ul>
-						<li>Category One</li>
-						<li>Category One</li>
-						<li>Category One</li>
-						<li>Category One</li>
-						<li>Category One</li>
-						<li>Category One</li>
-					</ul>
+					</div>	
 
-				</div>	
-
-			</aside>
+				</aside>
 
 
-			<main>
+				<main class="main">
 
-				<% if (isHome) { %>
-					<% include /partials/home.html %>
-				<% } else if (isTerms) { %>
-					<% include /partials/terms.html %>
-				<% } %>
-		
-			</main>
+					<% if (isHome) { %>
+						<% include /partials/home.html %>
+					<% } else if (isTerms) { %>
+						<% include /partials/terms.html %>
+					<% } %>
+			
+				</main>
+			</div>
 		</div>
 	</body>
 

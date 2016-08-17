@@ -1,15 +1,71 @@
-<div id="upload-modal">
+<div id="upload-modal" class="modal">
+	<strong class="modal__headline">Submit a pic</strong>
+	<span id="upload-modal-close" class="modal__close">X</span>
+
 
 	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
-		<div>
-			<input name="title" type="text" placeholder="title" />
-		</div>
+	
 		<!-- TODO: clean up inline styles -->
-		<div class="drag-n-drop" style="height: 100px;width: 100px;border: 1px dashed #000;">
-			<img src="" heigh="100" width="100">
+		<div class="drag-n-drop modal__dragimage" style="height: 100px;width: 100px;border: 1px dashed #000;">
+			<img src="" height="100" width="100">
 		</div>
-		<div><input name="image" type="file" id="file"/></div>
-		<div><input type="submit" value="Upload" /></div>
+
+		<div class="modal__browseimage"><input name="image" type="file" id="file"/></div>
+
+		<div class="upload__tags">
+			<strong>Tags</strong> 
+			<ul>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+				<li class="modal__category">
+					<input type="checkbox" name="category" value="tag1">
+					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+				</li>
+			</ul>
+		</div>	
+
+		<div>
+			<strong>Location</strong>
+			<input name="title" type="text" placeholder="Where did you take this pic?" />
+		</div>
+
+		<div class="modal__terms">
+			<input type="checkbox" name="category" value="tag1">
+			<label class="modal__checkbox-label" for="">I agree to the terms & conditions.</label>
+		</div>
+
+
+		<div><input type="submit" value="Submit a Pic" /></div>
 	</form>
 
 </div>

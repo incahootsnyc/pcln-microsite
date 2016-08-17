@@ -1,6 +1,19 @@
+/* line 9, ../../scss/partials/_variables.scss */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* line 1, ../../scss/modules/_global.scss */
+.main-container {
+  max-width: 1440px;
+  min-width: 320px;
+}
+
+/* line 7, ../../scss/modules/_global.scss */
 .content-container {
-  max-width: 1200px;
+  position: relative;
 }
 
 /* line 1, ../../scss/modules/_navigation.scss */
@@ -8,24 +21,33 @@
   position: relative;
 }
 
-/* line 12, ../../scss/modules/_navigation.scss */
+/* line 10, ../../scss/modules/_navigation.scss */
+.navbar--user, .navbar--main {
+  display: none;
+}
+@media (min-width: 540px) {
+  /* line 10, ../../scss/modules/_navigation.scss */
+  .navbar--user, .navbar--main {
+    display: inline-block;
+  }
+}
+/* line 17, ../../scss/modules/_navigation.scss */
 .navbar--user__item, .navbar--main__item {
   display: inline-block;
 }
 
-/* line 17, ../../scss/modules/_navigation.scss */
+/* line 22, ../../scss/modules/_navigation.scss */
 .navbar--user {
-  display: inline-block;
   position: absolute;
   right: 20px;
   top: 10px;
 }
-/* line 24, ../../scss/modules/_navigation.scss */
+/* line 28, ../../scss/modules/_navigation.scss */
 .navbar--user__link {
   padding: 0 8px;
 }
 
-/* line 29, ../../scss/modules/_navigation.scss */
+/* line 33, ../../scss/modules/_navigation.scss */
 .image-tile {
   width: 120px;
   height: 120px;
@@ -34,7 +56,7 @@
 /* line 1, ../../scss/modules/_sidebar.scss */
 .sidebar {
   background-color: #f2f2f2;
-  padding: 10px;
+  padding: 20px 0 10px 0;
 }
 /* line 5, ../../scss/modules/_sidebar.scss */
 .sidebar__contest-info {
@@ -56,45 +78,143 @@
 .sidebar__submit-pic:hover {
   background-color: red;
 }
-@media (min-width: 500px) {
+@media (min-width: 540px) {
   /* line 1, ../../scss/modules/_sidebar.scss */
   .sidebar {
-    width: 30%;
-    max-width: 320px;
+    width: 40%;
+    height: 100vh;
+    padding: 20px;
     float: left;
   }
-  /* line 30, ../../scss/modules/_sidebar.scss */
+  /* line 32, ../../scss/modules/_sidebar.scss */
   .sidebar__contest-info {
     display: block;
   }
-  /* line 34, ../../scss/modules/_sidebar.scss */
+  /* line 37, ../../scss/modules/_sidebar.scss */
+  .sidebar__submit-pic {
+    width: 90%;
+    margin: 30px auto;
+    max-width: 250px;
+  }
+  /* line 43, ../../scss/modules/_sidebar.scss */
   .sidebar__categories {
     display: block;
   }
+  /* line 47, ../../scss/modules/_sidebar.scss */
+  .sidebar__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 }
 
-/* line 1, ../../scss/modules/_submissions.scss */
+/* line 1, ../../scss/modules/_main.scss */
 .submissions {
-  padding: 20px 0;
   background: #f2f2f2;
+  min-height: 100vh;
 }
-/* line 5, ../../scss/modules/_submissions.scss */
+/* line 5, ../../scss/modules/_main.scss */
+.submissions__header {
+  padding: 10px;
+}
+/* line 9, ../../scss/modules/_main.scss */
 .submissions h1 {
   font-size: 18px;
   display: inline-block;
 }
-/* line 10, ../../scss/modules/_submissions.scss */
+/* line 14, ../../scss/modules/_main.scss */
 .submissions__img {
-  width: 145px;
-  padding: 5px;
-  height: 145px;
+  width: 140px;
+  height: 140px;
+  box-shadow: 1px -1px 4px 0px #999;
 }
-/* line 16, ../../scss/modules/_submissions.scss */
+/* line 20, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
+  font-size: 10px;
+  margin: 9px;
 }
-/* line 20, ../../scss/modules/_submissions.scss */
+/* line 26, ../../scss/modules/_main.scss */
+.submissions__username {
+  font-size: 10px;
+}
+/* line 30, ../../scss/modules/_main.scss */
+.submissions__likes {
+  float: right;
+}
+/* line 34, ../../scss/modules/_main.scss */
 .submissions__sort {
   float: right;
   margin: 0 20px;
+}
+
+/* line 42, ../../scss/modules/_main.scss */
+.main {
+  float: left;
+}
+@media (min-width: 540px) {
+  /* line 42, ../../scss/modules/_main.scss */
+  .main {
+    width: 60%;
+    float: left;
+  }
+}
+
+/* line 1, ../../scss/modules/_upload-modal.scss */
+.modal {
+  position: absolute;
+  top: 55px;
+  background-color: #fff;
+  width: 100%;
+  padding: 20px;
+  height: 100vh;
+}
+/* line 10, ../../scss/modules/_upload-modal.scss */
+.modal__headline {
+  color: #ff9600;
+  font-size: 18px;
+}
+/* line 15, ../../scss/modules/_upload-modal.scss */
+.modal__checkbox-label {
+  display: inline-block;
+  color: #999;
+}
+/* line 20, ../../scss/modules/_upload-modal.scss */
+.modal__category {
+  padding: 5px 0;
+  width: 47%;
+  display: inline-block;
+}
+
+@media (min-width: 540px) {
+  /* line 31, ../../scss/modules/_upload-modal.scss */
+  .modal {
+    border-radius: 8px;
+    border: 1px solid black;
+    max-width: 540px;
+    padding: 20px 40px 40px 40px;
+    position: relative;
+    z-index: 100;
+    top: -700px;
+    margin: auto;
+    height: 100%;
+  }
+  /* line 42, ../../scss/modules/_upload-modal.scss */
+  .modal__category {
+    width: 32%;
+  }
+  /* line 46, ../../scss/modules/_upload-modal.scss */
+  .modal__dragimage {
+    display: inline-block;
+  }
+  /* line 50, ../../scss/modules/_upload-modal.scss */
+  .modal__browseimage {
+    display: inline-block;
+  }
+  /* line 54, ../../scss/modules/_upload-modal.scss */
+  .modal__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 }

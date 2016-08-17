@@ -1,0 +1,49 @@
+.submissions {
+	background: $black-5;
+	min-height: 100vh;
+
+	&__header {
+		padding: 10px;
+	}
+
+	h1 {
+		font-size: 18px;
+		display: inline-block;
+	}
+
+	&__img {
+		width: 140px;
+		height: 140px;
+		box-shadow: 1px -1px 4px 0px $black-40;
+	}
+
+	&__img-container {
+		display: inline-block;
+		font-size: 10px;
+		margin: 9px;
+	}
+
+	&__username {
+		font-size: 10px;
+	}
+	
+	&__likes {
+		float: right;
+	}
+
+	&__sort {
+		float: right;
+		margin: 0 20px;
+	}
+
+
+}
+
+.main {
+	float: left;
+
+	@media (min-width: 540px) {
+		width: 60%;
+		float: left;
+	}
+}

@@ -1,0 +1,66 @@
+.modal {
+	position: absolute;
+	top: 55px;
+	background-color: #fff;
+	width: 100%;
+	padding: 20px;
+	height: 100vh;
+
+
+	&__headline {
+		color: $orange-2;
+		font-size: 18px;
+	}
+
+	&__checkbox-label {
+		display: inline-block;
+		color: $black-40;
+	}
+
+	&__category {
+		padding: 5px 0;
+		width: 47%;
+		display: inline-block;
+	}
+
+}
+
+
+@media (min-width: 540px) {
+
+	.modal {
+		border-radius: 8px;
+		border: 1px solid black;
+		max-width: 540px;
+		padding: 20px 40px 40px 40px;
+		position: relative;
+		z-index: 100;
+		top: -700px;
+		margin: auto;
+		height: 100%;
+
+		&__category {
+			width: 32%;
+		}
+
+		&__dragimage {
+			display: inline-block;
+		}
+
+		&__browseimage {
+			display: inline-block;
+		}
+
+		&__close {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+		
+
+	}
+
+
+}
+
+

@@ -8,6 +8,11 @@
 
 
 .navbar--user, .navbar--main {
+	display: none;
+
+	@media (min-width: 540px) {
+		display: inline-block;
+	}
 
 	&__item {
 		display: inline-block;
@@ -15,7 +20,6 @@
 }
 
 .navbar--user {
-	display: inline-block;
 	position: absolute;
 	right: 20px;
 	top: 10px;

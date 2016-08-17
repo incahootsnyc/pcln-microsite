@@ -25,13 +25,15 @@
 			var $uploadModal = grabTemplateByName('upload-modal');
 			var $uploadForm = $uploadModal.find('form');
 
+
 			// assign events for modal
-			if (plcnPicMe.supportsDragAndDrop) {
-				plcnPicMe.uploadEventDelegate.addDragAndDropCapabilities($uploadForm);
+			if (pclnPicMe.supportsDragAndDrop) {
+				pclnPicMe.uploadModalDelegate.addDragAndDropCapabilities($uploadForm);
 			}
 
-			plcnPicMe.uploadEventDelegate.addImagePreviewEvent($uploadForm);
-			plcnPicMe.uploadEventDelegate.addSubmitEvent($uploadForm);
+			pclnPicMe.uploadModalDelegate.addCloseEvent($uploadModal);
+			pclnPicMe.uploadModalDelegate.addImagePreviewEvent($uploadForm);
+			pclnPicMe.uploadModalDelegate.addSubmitEvent($uploadForm);
 		} else {
 			$uploadModal.show();
 		}

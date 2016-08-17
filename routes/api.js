@@ -8,6 +8,7 @@ var imagePost = require('../helpers/image-post');
 var imageFormatter = require('../helpers/image-formatter');
 var async = require('async');
 var sizeOf = require('image-size');
+var config = require('../config');
 
 var upload = multer({
     limits: { fileSize: 5000000 },

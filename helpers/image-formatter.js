@@ -1,7 +1,5 @@
 var im = require("imagemagick");
 var fs = require('fs');
-var config = require('../config');
-
 
 var imageFormatter = {
 	resize: function (imConfig, writePath, imagePath, pathType, callback) {

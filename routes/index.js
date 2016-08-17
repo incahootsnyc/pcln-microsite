@@ -17,18 +17,18 @@ router.get('/', function(req, res, next) {
 				if (imageObj.name) {
 					var params = { Key: imageObj.name };
 					imagePosts.push({
-						url: s3bucket.getSignedUrl('getObject', params),
+						url: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
 						uniqueName: imageObj.name
 					});
 				}
 			});
 		
 			res.render('index', { 
-		  	title: 'PCLN Photo Contest', 
-		  	images: imagePosts,
-		  	isHome: true,
-		  	isTerms: false
-		  });
+			  	title: 'PCLN Photo Contest', 
+			  	images: imagePosts,
+			  	isHome: true,
+			  	isTerms: false
+			});
 
 		});
 	})

@@ -15,14 +15,13 @@
 	<body>
 		<div class="main-container">
 			<header class="header">
-				 <div class="header__logo">
-				 	<img src="/images/dummylogo.png"/>
-				 </div>
+				 
+				 	<img class="header__logo" src="/images/logo.svg"/>
+				 
 
 				 <nav class="navbar--user">
 				 	<ul class="navbar--user__list">
 				 		<li class="navbar--user__item">Hi {Tanya}</li>
-				 		<li class="navbar--user__item">|<a class="navbar--user__link" href="">My Pics</a>|</li>
 				 		<li class="navbar--user__item"><a class="navbar--user__link" href="">Sign Out</a></li>
 				 	</ul>	
 				 </nav>	
@@ -30,6 +29,7 @@
 				 <nav class="navbar--main">
 				 	<ul class="navbar--main__list">
 				 		<li class="navbar--main__item"><a href="" class="navbar__link">Home</a></li>
+				 		<li class="navbar--main__item"><a href="" class="navbar__link">My Pics</a></li>
 				 		<li class="navbar--main__item"><a href="/contest-info" class="navbar__link">Contest Info & Prizes</a></li>
 				 		<li class="navbar--main__item"><a href="/terms" class="navbar__link">Terms and Conditions</a></li>
 				 	</ul>	
@@ -43,6 +43,7 @@
 						<% include /templates/upload-modal.html %>
 						<% include /templates/upload-success.html %>
 						<% include /templates/delete-confirm.html %>
+						<% include /templates/update-modal.html %>
 					</template>
 
 					<div class="sidebar__contest-info">

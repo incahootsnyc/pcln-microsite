@@ -1,4 +1,4 @@
-/* line 9, ../../scss/partials/_variables.scss */
+/* line 13, ../../scss/partials/_variables.scss */
 .group:after {
   content: "";
   display: table;
@@ -19,35 +19,41 @@
 /* line 1, ../../scss/modules/_navigation.scss */
 .header {
   position: relative;
+  padding: 10px;
+}
+/* line 5, ../../scss/modules/_navigation.scss */
+.header__logo {
+  width: 220px;
+  vertical-align: middle;
 }
 
-/* line 10, ../../scss/modules/_navigation.scss */
+/* line 12, ../../scss/modules/_navigation.scss */
 .navbar--user, .navbar--main {
   display: none;
 }
 @media (min-width: 540px) {
-  /* line 10, ../../scss/modules/_navigation.scss */
+  /* line 12, ../../scss/modules/_navigation.scss */
   .navbar--user, .navbar--main {
     display: inline-block;
   }
 }
-/* line 17, ../../scss/modules/_navigation.scss */
+/* line 19, ../../scss/modules/_navigation.scss */
 .navbar--user__item, .navbar--main__item {
   display: inline-block;
 }
 
-/* line 22, ../../scss/modules/_navigation.scss */
+/* line 24, ../../scss/modules/_navigation.scss */
 .navbar--user {
   position: absolute;
   right: 20px;
   top: 10px;
 }
-/* line 28, ../../scss/modules/_navigation.scss */
+/* line 30, ../../scss/modules/_navigation.scss */
 .navbar--user__link {
   padding: 0 8px;
 }
 
-/* line 33, ../../scss/modules/_navigation.scss */
+/* line 35, ../../scss/modules/_navigation.scss */
 .image-tile {
   width: 120px;
   height: 120px;
@@ -160,7 +166,7 @@
   }
 }
 
-/* line 1, ../../scss/modules/_upload-modal.scss */
+/* line 1, ../../scss/modules/_modal.scss */
 .modal {
   position: absolute;
   top: 55px;
@@ -169,25 +175,45 @@
   padding: 20px;
   height: 100vh;
 }
-/* line 10, ../../scss/modules/_upload-modal.scss */
+/* line 10, ../../scss/modules/_modal.scss */
 .modal__headline {
   color: #ff9600;
   font-size: 18px;
+  display: block;
 }
-/* line 15, ../../scss/modules/_upload-modal.scss */
+/* line 16, ../../scss/modules/_modal.scss */
 .modal__checkbox-label {
   display: inline-block;
   color: #999;
 }
-/* line 20, ../../scss/modules/_upload-modal.scss */
+/* line 21, ../../scss/modules/_modal.scss */
 .modal__category {
   padding: 5px 0;
   width: 47%;
   display: inline-block;
 }
+/* line 27, ../../scss/modules/_modal.scss */
+.modal__browse-input {
+  display: none;
+}
+/* line 31, ../../scss/modules/_modal.scss */
+.modal__browse-label {
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #666;
+  border: 1px solid #999;
+}
+/* line 39, ../../scss/modules/_modal.scss */
+.modal__img-dragbox {
+  height: 140px;
+  display: block;
+  width: 140px;
+  border: 1px dashed #999;
+}
 
 @media (min-width: 540px) {
-  /* line 31, ../../scss/modules/_upload-modal.scss */
+  /* line 51, ../../scss/modules/_modal.scss */
   .modal {
     border-radius: 8px;
     border: 1px solid black;
@@ -199,19 +225,19 @@
     margin: auto;
     height: 100%;
   }
-  /* line 42, ../../scss/modules/_upload-modal.scss */
+  /* line 62, ../../scss/modules/_modal.scss */
   .modal__category {
     width: 32%;
   }
-  /* line 46, ../../scss/modules/_upload-modal.scss */
+  /* line 66, ../../scss/modules/_modal.scss */
   .modal__dragimage {
     display: inline-block;
   }
-  /* line 50, ../../scss/modules/_upload-modal.scss */
+  /* line 70, ../../scss/modules/_modal.scss */
   .modal__browseimage {
     display: inline-block;
   }
-  /* line 54, ../../scss/modules/_upload-modal.scss */
+  /* line 74, ../../scss/modules/_modal.scss */
   .modal__close {
     position: absolute;
     right: 10px;

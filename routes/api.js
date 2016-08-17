@@ -49,7 +49,8 @@ router.post('/api/upload', function (req, res) {
                 } else {
                     db.get().collection('imagePosts').insert(imagePostObj, function (err, confirmation) {
                         if (err) { res.json({ message: defaultErrorMessage }); }
-                        res.json({ message: 'Successfully uploaded data! :D' });
+
+                        res.json({ message: 'Successfully uploaded image! :D' });
                     });
                 }
 
@@ -59,6 +60,24 @@ router.post('/api/upload', function (req, res) {
         }
     });
 	
+});
+
+router.get('/api/remove/:uniqueName', function (req, res) {
+
+    db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (err, results) {
+
+        if (err) {
+            res.json({ message: defaultErrorMessage });
+        } else {
+            s3.getBucket().deleteObject({ Key: req.params.uniqueName }, function (err, data) {
+                if (err) { res.json({ message: defaultErrorMessage }); }
+
+                res.json({ message: 'Successfully deleted image! :D' });
+            });
+        }
+
+    }); 
+    
 });
 
 module.exports = router;

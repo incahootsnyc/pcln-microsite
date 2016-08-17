@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
-var Promise = require('promise');
 var fileDirectoryHelper = require('./helpers/nodejs-recursive-directory');
 var routerFileTree = fileDirectoryHelper.getFilesRecursive(path.join(__dirname, 'routes'));
 var routerFilePaths = fileDirectoryHelper.getRequirePathsRecursive(routerFileTree);

@@ -5,9 +5,9 @@ var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
 var db = require('../helpers/db');
 var imagePost = require('../helpers/image-post');
-var im = require("imagemagick");
-var fs = require('fs');
-var config = require('../config');
+var imageFormatter = require('../helpers/image-formatter');
+var async = require('async');
+var sizeOf = require('image-size');
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -27,64 +27,82 @@ var upload = multer({
 router.post('/api/upload', function (req, res) {
     var defaultErrorMessage = 'Error uploading image! :O';
 
-    upload(req, res, function (err) {
+    upload(req, res, function (error) {
         var imageFile = req.file;
 
         if (imageFile) {
+
             var body = req.body;
             var uniqueFileName = utils.generateUniqueName(imageFile.originalname);
-            
+            var thumbPath = '/uploads/thumbnails/thumb-' + uniqueFileName;
+            var detailPath = '/uploads/details/detail-' + uniqueFileName; 
+            var dimensions = sizeOf(imageFile.buffer);
+            var parallelRequests = [putImageInBucket, resizeImageForThumbnail];
             var params = {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-
             var imagePostObj = imagePost.generate({
                 name: uniqueFileName,
                 title: body.title
             });
 
-            s3.getBucket().putObject(params, function (error, response) {
-                
-                if (error) {
+            if (dimensions.width > 1000 || dimensions.height > 1000) {
+                parallelRequests.push(resizeImageForDetails);
+            }
+
+            async.parallel(parallelRequests, saveImagePostAndRespond);
+
+            function putImageInBucket (callback){ 
+                s3.getBucket().putObject(params, function (error, response) {
+            
+                    if (error) {
+                        callback(error, null);
+                    } else {
+                        callback();
+                    }
+
+                });
+            }
+
+            function resizeImageForThumbnail (callback) {
+                var imageConfig = {
+                    srcData: imageFile.buffer,
+                    strip: false,
+                    width: 140,
+                    height: "140!",
+                    customArgs: [ 
+                         "-gravity", "center"
+                    ]
+                };
+
+                imageFormatter.resize(imageConfig, config.rootDirectory + '/public' + thumbPath, thumbPath, 'thumbNailPath', callback);
+            }
+
+            function resizeImageForDetails (callback) {
+                var imageConfig = {
+                    srcData: imageFile.buffer,
+                    width: 1000
+                };
+
+                imageFormatter.resize(imageConfig, config.rootDirectory + '/public' + detailPath, detailPath, 'detailPath', callback);            
+            }
+
+            function saveImagePostAndRespond (error, results) {
+               if (error) {
                     res.json({ message: defaultErrorMessage });
                 } else {
-                    var imageConfig = {
-                        srcData: imageFile.buffer,
-                        strip: false,
-                        width: 140,
-                        height: "140^",
-                        customArgs: [ 
-                             "-gravity", "center"
-                            ,"-extent", "173x173"
-                        ]
-                    };
 
-                    im.resize(imageConfig, function (err, stdout, stderr) {
-                        var thumbPath = '/uploads/thumbnails/thumb-' + uniqueFileName;
+                    db.get().collection('imagePosts').insert(imagePostObj, function (error, confirmation) {
+                        if (error) { res.json({ message: defaultErrorMessage }); }
 
-                        fs.writeFile(config.rootDirectory + '/public' + thumbPath, stdout, 'binary', function (err) {
-                            if(err) {
-                                return console.log(err);
-                            }
-
-                            imagePostObj.thumbNailPath = thumbPath;
-
-                            db.get().collection('imagePosts').insert(imagePostObj, function (err, confirmation) {
-                                if (err) { res.json({ message: defaultErrorMessage }); }
-
-                                res.json({ message: 'Successfully uploaded image! :D' });
-                            });
-                        }); 
-
+                        res.json({ message: 'Successfully uploaded image! :D' });
                     });
-
-                    
                 }
+            }
 
-            });
         } else {
-            res.json({ message: (err && err.message) || defaultErrorMessage });
+            res.json({ message: (error && error.message) || defaultErrorMessage });
         }
     });
 	
@@ -92,13 +110,13 @@ router.post('/api/upload', function (req, res) {
 
 router.get('/api/remove/:uniqueName', function (req, res) {
 
-    db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (err, results) {
+    db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
 
-        if (err) {
+        if (error) {
             res.json({ message: defaultErrorMessage });
         } else {
-            s3.getBucket().deleteObject({ Key: req.params.uniqueName }, function (err, data) {
-                if (err) { res.json({ message: defaultErrorMessage }); }
+            s3.getBucket().deleteObject({ Key: req.params.uniqueName }, function (error, data) {
+                if (error) { res.json({ message: defaultErrorMessage }); }
 
                 res.json({ message: 'Successfully deleted image! :D' });
             });

@@ -17,7 +17,8 @@ router.get('/', function(req, res, next) {
 				if (imageObj.name) {
 					var params = { Key: imageObj.name };
 					imagePosts.push({
-						url: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
+						thumbUrl: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
+						detailsUrl: imageObj.detailPath || s3bucket.getSignedUrl('getObject', params),
 						uniqueName: imageObj.name
 					});
 				}

@@ -10,22 +10,25 @@ router.get('/', function(req, res, next) {
 
 		collection.find().toArray(function (err, imageList) {
 	
-			var imageUrls = [];
+			var imagePosts = [];
 			var s3bucket = s3.getBucket();
 
 			imageList.forEach(function (imageObj) {
 				if (imageObj.name) {
 					var params = { Key: imageObj.name };
-					imageUrls.push(s3bucket.getSignedUrl('getObject', params));
+					imagePosts.push({
+						url: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
+						uniqueName: imageObj.name
+					});
 				}
 			});
 		
 			res.render('index', { 
-		  	title: 'PCLN Photo Contest', 
-		  	images: imageUrls,
-		  	isHome: true,
-		  	isTerms: false
-		  });
+			  	title: 'PCLN Photo Contest', 
+			  	images: imagePosts,
+			  	isHome: true,
+			  	isTerms: false
+			});
 
 		});
 	})

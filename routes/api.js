@@ -5,7 +5,9 @@ var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
 var db = require('../helpers/db');
 var imagePost = require('../helpers/image-post');
-
+var im = require("imagemagick");
+var fs = require('fs');
+var config = require('../config');
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -47,10 +49,37 @@ router.post('/api/upload', function (req, res) {
                 if (error) {
                     res.json({ message: defaultErrorMessage });
                 } else {
-                    db.get().collection('imagePosts').insert(imagePostObj, function (err, confirmation) {
-                        if (err) { res.json({ message: defaultErrorMessage }); }
-                        res.json({ message: 'Successfully uploaded data! :D' });
+                    var imageConfig = {
+                        srcData: imageFile.buffer,
+                        strip: false,
+                        width: 140,
+                        height: "140^",
+                        customArgs: [ 
+                             "-gravity", "center"
+                            ,"-extent", "173x173"
+                        ]
+                    };
+
+                    im.resize(imageConfig, function (err, stdout, stderr) {
+                        var thumbPath = '/uploads/thumbnails/thumb-' + uniqueFileName;
+
+                        fs.writeFile(config.rootDirectory + '/public' + thumbPath, stdout, 'binary', function (err) {
+                            if(err) {
+                                return console.log(err);
+                            }
+
+                            imagePostObj.thumbNailPath = thumbPath;
+
+                            db.get().collection('imagePosts').insert(imagePostObj, function (err, confirmation) {
+                                if (err) { res.json({ message: defaultErrorMessage }); }
+
+                                res.json({ message: 'Successfully uploaded image! :D' });
+                            });
+                        }); 
+
                     });
+
+                    
                 }
 
             });
@@ -59,6 +88,24 @@ router.post('/api/upload', function (req, res) {
         }
     });
 	
+});
+
+router.get('/api/remove/:uniqueName', function (req, res) {
+
+    db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (err, results) {
+
+        if (err) {
+            res.json({ message: defaultErrorMessage });
+        } else {
+            s3.getBucket().deleteObject({ Key: req.params.uniqueName }, function (err, data) {
+                if (err) { res.json({ message: defaultErrorMessage }); }
+
+                res.json({ message: 'Successfully deleted image! :D' });
+            });
+        }
+
+    }); 
+    
 });
 
 module.exports = router;

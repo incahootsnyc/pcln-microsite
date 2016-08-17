@@ -77,7 +77,7 @@ router.post('/api/upload', function (req, res) {
                     ]
                 };
 
-                imageFormatter.resize(imageConfig, config.rootDirectory + '/public' + thumbPath, thumbPath, 'thumbNailPath', callback);
+                imageFormatter.resize(imageConfig, imagePostObj, config.rootDirectory + '/public' + thumbPath, thumbPath, 'thumbNailPath', callback);
             }
 
             function resizeImageForDetails (callback) {
@@ -86,7 +86,7 @@ router.post('/api/upload', function (req, res) {
                     width: 1000
                 };
 
-                imageFormatter.resize(imageConfig, config.rootDirectory + '/public' + detailPath, detailPath, 'detailPath', callback);            
+                imageFormatter.resize(imageConfig, imagePostObj, config.rootDirectory + '/public' + detailPath, detailPath, 'detailPath', callback);            
             }
 
             function saveImagePostAndRespond (error, results) {

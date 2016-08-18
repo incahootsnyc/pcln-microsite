@@ -1,0 +1,30 @@
+<div class="submissions">
+	<div class="submissions__header">	
+		<h1>Submissions</h1>
+		<select class="submissions__sort">
+			  <option value="newest">Newest</option>
+			  <option value="popular">Popular</option> 
+		</select>
+	</div>
+	<div>
+	<ul>
+	<% for(var i=0; i < images.length; i++) { %>
+		<li class="submissions__img-container">
+
+			<img class="submissions__img" data-id="<%= images[i].uniqueName %>" src="<%= images[i].url %>">
+			 <div class="submission__info">
+			 <span class="submissions__username"><a href="">Val Geyvandvos</a></span> <span class="submissions__likes">Likes: 100</span>
+			</div>
+		</li>
+	<% } %>
+	</ul>
+
+	<!-- 
+	<ul>
+		<li><img src="/images/placeholder-img.png"/></li>
+		<li><img src="/images/placeholder-img.png"/></li>
+		<li><img src="/images/placeholder-img.png"/></li>
+		<li><img src="/images/placeholder-img.png"/></li>
+		<li><img src="/images/placeholder-img.png"/></li> -->
+	</div>	
+</div>

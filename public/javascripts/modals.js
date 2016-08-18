@@ -5,14 +5,23 @@
 	var templateDictionary = {
 		'upload-modal': 0,
 		'upload-success': 1,
-		'delete-confirm': 2
+		'delete-confirm': 2,
+		'update-modal': 3
 	};
 
 	function grabTemplateByName (name) {
-		var templateHtml = $('template').html();
+		var templateHtml = $('template').html().trim();
 		var $template = $(templateHtml);
+
+		var allTemplates = [];
+		for (var i = 0; i < $template.length; i++) {
+			if ($template[i].nodeName != '#text') {
+				allTemplates.push($template[i]);
+			}
+		}
+
 		var index = templateDictionary[name];
-		var $templatePartial = $($template[index])
+		var $templatePartial = $(allTemplates[index])
 		return $templatePartial.appendTo('body');
 	}
 
@@ -24,6 +33,10 @@
 		if ($uploadModal.length < 1) {
 			var $uploadModal = grabTemplateByName('upload-modal');
 			var $uploadForm = $uploadModal.find('form');
+
+			grabTemplateByName('delete-confirm');
+			grabTemplateByName('upload-success');
+			grabTemplateByName('update-modal');
 
 
 			// assign events for modal

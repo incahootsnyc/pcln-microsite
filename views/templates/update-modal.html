@@ -1,24 +1,12 @@
 <div id="upload-modal" class="modal">
-	<strong class="modal__headline">Submit a pic</strong>
+	<strong class="modal__headline">My Pic</strong>
 	<img class="modal__close" id="upload-modal-close" src="/images/close.svg"/>
-
-
 	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
 	
 		<!-- TODO: clean up inline styles -->
-		
-		<div class="modal__img-select">
-			<div class="drag-n-drop modal__img-dragbox">
-				<img src="" height="140" width="140">
-			</div>
+		<img src="">	
 
-			<div class="modal__browseimage">
-				<label class="modal__browse-label">Browse
-				<input class="modal__browse-input" name="image" type="file" id="file"/></label>
-			</div>
-		</div>
-
-		<div class="modal__img-tags">
+		<div class="upload__tags">
 			<strong>Tags</strong> 
 			<ul>
 				<li class="modal__category">
@@ -60,12 +48,18 @@
 			</ul>
 		</div>	
 
-		<div class="modal__img-location">
+		<div>
 			<strong>Location</strong>
 			<input name="title" type="text" placeholder="Where did you take this pic?" />
 		</div>
 
-		<button class="button--primary" type="submit">Submit</button>
+		<div class="modal__terms">
+			<input type="checkbox" name="category" value="tag1">
+			<label class="modal__checkbox-label" for="">I agree to the terms & conditions.</label>
+		</div>
+
+
+		<div><input type="submit" value="Submit a Pic" /></div>
 	</form>
 
 </div>

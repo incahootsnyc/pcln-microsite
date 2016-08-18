@@ -10,6 +10,7 @@
 	&__headline {
 		color: $orange-2;
 		font-size: 18px;
+		display: block;
 	}
 
 	&__checkbox-label {
@@ -21,6 +22,25 @@
 		padding: 5px 0;
 		width: 47%;
 		display: inline-block;
+	}
+
+	&__browse-input {
+		display: none;
+	}
+
+	&__browse-label {
+		padding: 5px 20px;
+		border-radius: 5px;
+		background-color: $black-5;
+		color: $black-60;
+		border: 1px solid $black-40;
+	}
+
+	&__img-dragbox {
+		height: 140px;
+		display: block;
+		width: 140px;
+		border: 1px dashed $black-40;
 	}
 
 }

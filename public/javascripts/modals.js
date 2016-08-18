@@ -34,14 +34,22 @@
 			pclnPicMe.uploadModalDelegate.addCloseEvent($uploadModal);
 			pclnPicMe.uploadModalDelegate.addImagePreviewEvent($uploadForm);
 			pclnPicMe.uploadModalDelegate.addSubmitEvent($uploadForm);
+			showModalWithOverlay($uploadModal);
 		} else {
-			$uploadModal.show();
+			showModalWithOverlay($uploadModal);
 		}
 	});
 
 	$('#delete-image').click(function (e) {
 		var $deleteModal = grabTemplateByName('delete-confirm');
 	});
+
+
+	function showModalWithOverlay($modal) {
+		var overlay = $('#overlay');
+		overlay.show();
+		$modal.show();
+	}
 
 })();
 

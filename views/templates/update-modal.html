@@ -1,65 +1,75 @@
-<div id="upload-modal" class="modal">
-	<strong class="modal__headline">My Pic</strong>
-	<img class="modal__close" id="upload-modal-close" src="/images/close.svg"/>
+<div id="update-modal" class="modal--lg">
+	<strong class="modal--lg__headline">Submit a pic</strong>
+	<img class="modal--lg__close" id="upload-modal-close" src="/images/close.svg"/>
+
+
 	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
 	
 		<!-- TODO: clean up inline styles -->
-		<img src="">	
+		
+		<div class="modal--lg__img-select">
+			<img class="modal--lg__img-preview"/>
 
-		<div class="upload__tags">
-			<strong>Tags</strong> 
+
+			<!-- <div class="drag-n-drop modal--lg__img-dragbox">
+				<img class="modal--lg__dragbox-cloud" src="/images/cloud.png"/>
+				<img src="">
+			</div> -->
+
+			<!-- <div class="modal--lg__img-browse">
+				<label class="modal--lg__browse-label">Browse
+				<input class="modal--lg__browse-input" name="image" type="file" id="file"/></label>
+			</div> -->
+		</div>
+
+		<div class="modal--lg__img-tags">
+			<strong class="modal--lg__subheadline">Tags</strong> 
 			<ul>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
-				<li class="modal__category">
+				<li class="modal--lg__category">
 					<input type="checkbox" name="category" value="tag1">
-					<label class="modal__checkbox-label" for="">Tag 1 Number</label>
+					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
 				</li>
 			</ul>
 		</div>	
 
-		<div>
-			<strong>Location</strong>
-			<input name="title" type="text" placeholder="Where did you take this pic?" />
+		<div class="modal--lg__img-location">
+			<strong class="modal--lg__subheadline">Location</strong>
+			<input name="title" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
 		</div>
 
-		<div class="modal__terms">
-			<input type="checkbox" name="category" value="tag1">
-			<label class="modal__checkbox-label" for="">I agree to the terms & conditions.</label>
-		</div>
-
-
-		<div><input type="submit" value="Submit a Pic" /></div>
+		<button class="modal--lg__button disabled" type="submit">Submit</button>
 	</form>
 
 </div>

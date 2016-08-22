@@ -107,10 +107,12 @@ pclnPicMe.uploadModalDelegate = (function () {
 	function addCloseEventFn ($uploadModal) {
 
 		var $uploadClose = $uploadModal.find('#upload-modal-close');
+		var $overlay = $('#overlay');
 
 
 			$uploadClose.click(function(){
 				$uploadModal.hide();
+				$overlay.hide();
 			});
 	}
 	

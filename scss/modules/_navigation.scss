@@ -1,38 +1,74 @@
 .header {
-	position: relative;
-	padding: 10px;
+	position: fixed;
+	z-index: 100;
+	background-color: $white;
+	width: 100%;
+	top: 0;
+	left: 0;
 
 	&__logo {
 		width: 220px;
 		vertical-align: middle;
+		margin: 10px;
 	}
 }
-
 
 .navbar--user, .navbar--main {
 	display: none;
+}
 
-	@media (min-width: 540px) {
+
+//Desktop styles
+
+@media (min-width: 540px) {
+
+	.header {
+		height: 110px;
+		
+		&__logo {
+			width: 275px;
+			margin: 20px;
+		}
+	}
+
+	.navbar--main, .navbar--user {
 		display: inline-block;
+
+		&__item {
+			display: inline-block;
+		}
 	}
 
-	&__item {
-		display: inline-block;
+	.navbar--user {
+		position: absolute;
+		right: 20px;
+		top: 10px;
+
+		&__link {
+			padding: 0 8px;
+		}
 	}
-}
 
-.navbar--user {
-	position: absolute;
-	right: 20px;
-	top: 10px;
+	.navbar--main {
+		vertical-align: bottom;
+		padding-bottom: 5px;
+		margin: 0 20px;
 
+		&__link {
+			padding: 0 10px;
+			padding-bottom: 10px;
+			color: $black-40;
+			font-size: 16px;
 
-	&__link {
-		padding: 0 8px;
+		&:hover {
+			border-bottom: 5px solid $blue-3;
+		}
 	}
-}
 
-.image-tile {
-	width: 120px;
-	height: 120px;
-}
+	}
+}	
+
+
+
+
+

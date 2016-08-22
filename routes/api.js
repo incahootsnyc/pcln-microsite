@@ -155,22 +155,11 @@ router.get('/api/like/:uniqueName', function (req, res) {
 
 router.get('/api/fetchPosts/:pageNum', function (req, res) {
 
-    var sortType = req.query.sort ? req.query.sort  : 'newest';
+    var searchConfig = utils.getSortAndFilterConfig(req, true);
 
     db.get().collection('imagePosts', function (err, collection) {
 
-        var options = {  
-            'skip': (config.itemsPerPage * (pageNum-1)),
-            'limit': config.itemsPerPage 
-        };
-
-        if (sortType == 'popular') {
-            options['sort'] =[[ 'likesCount', 'desc' ]];
-        } else {
-            options['sort'] =[[ 'datetime', 'desc' ]];
-        }
-
-        collection.find({}, options).toArray(function (err, imageList) {
+        collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
     
             var imagePosts = [];
 

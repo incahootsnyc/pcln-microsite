@@ -22,7 +22,8 @@ var imagePost = {
 			uniqueName: imageObj.name,
 			datetime: imageObj.datetime,
 			tags: imageObj.tags,
-			likes: imageObj.likes
+			likes: imageObj.likes,
+			likesCount: imageObj.likesCount
 		};
 	} 
 };

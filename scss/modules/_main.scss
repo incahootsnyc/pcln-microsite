@@ -19,6 +19,10 @@
 		display: inline-block;
 	}
 
+	&__container {
+		text-align: center;
+	}
+
 	&__img {
 		width: 140px;
 		height: 140px;
@@ -44,19 +48,27 @@
 		margin: 0 20px;
 	}
 
-
 }
 
-.main {
 
-	@media (min-width: 540px) {
-		width: 60%;
-		float: right;
+@media (min-width: 540px) {
 
+	.submissions {
+		&__container {
+			text-align: left;
+		}
 	}
 
-	@media (min-width: 801px) {
+	.main {
+		width: 60%;
+		float: right;
+	}
+}
+
+
+@media (min-width: 801px) {
+
+	.main {
 		width: calc(100% - 320px);
-		
 	}
 }

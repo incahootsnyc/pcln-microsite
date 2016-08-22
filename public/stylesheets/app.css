@@ -58,7 +58,7 @@ input[type="text"] {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#f2f2f2', GradientType=0 );
 }
 
-@media (min-width: 540px) {
+@media (min-width: 841px) {
   /* line 24, ../../scss/modules/_global.scss */
   .content-container {
     top: 110px;
@@ -79,57 +79,99 @@ input[type="text"] {
   vertical-align: middle;
   margin: 10px;
 }
+/* line 15, ../../scss/modules/_navigation.scss */
+.header__hamburger-icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  z-index: 500;
+}
 
-/* line 16, ../../scss/modules/_navigation.scss */
+/* line 23, ../../scss/modules/_navigation.scss */
 .navbar--user, .navbar--main {
   display: none;
 }
 
-@media (min-width: 540px) {
-  /* line 25, ../../scss/modules/_navigation.scss */
+/* line 27, ../../scss/modules/_navigation.scss */
+.navbar--mobile {
+  display: none;
+  background-color: #f2f2f2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+}
+/* line 37, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item {
+  padding: 10px 30px;
+}
+/* line 40, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item + li {
+  border-top: 1px solid #ccc;
+}
+/* line 44, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item:hover {
+  background-color: #60AFD7;
+}
+/* line 49, ../../scss/modules/_navigation.scss */
+.navbar--mobile__title {
+  font-weight: normal;
+  font-size: 18px;
+  padding: 10px 30px;
+  display: block;
+  border-bottom: 2px solid #ccc;
+}
+
+@media (min-width: 841px) {
+  /* line 63, ../../scss/modules/_navigation.scss */
   .header {
     height: 110px;
   }
-  /* line 28, ../../scss/modules/_navigation.scss */
+  /* line 66, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
+  /* line 71, ../../scss/modules/_navigation.scss */
+  .header__hamburger-icon {
+    display: none;
+  }
 
-  /* line 34, ../../scss/modules/_navigation.scss */
+  /* line 77, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
   }
-  /* line 37, ../../scss/modules/_navigation.scss */
+  /* line 80, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 42, ../../scss/modules/_navigation.scss */
+  /* line 85, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     right: 20px;
     top: 10px;
   }
-  /* line 47, ../../scss/modules/_navigation.scss */
+  /* line 90, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 8px;
   }
 
-  /* line 52, ../../scss/modules/_navigation.scss */
+  /* line 95, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 57, ../../scss/modules/_navigation.scss */
+  /* line 100, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 10px;
     color: #999;
     font-size: 16px;
   }
-  /* line 63, ../../scss/modules/_navigation.scss */
+  /* line 106, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
@@ -167,7 +209,7 @@ input[type="text"] {
   .sidebar {
     width: 40%;
     position: fixed;
-    top: 110px;
+    top: 71px;
     max-width: 320px;
     height: 100vh;
     padding: 20px;
@@ -199,6 +241,12 @@ input[type="text"] {
     top: 10px;
   }
 }
+@media (min-width: 841px) {
+  /* line 71, ../../scss/modules/_sidebar.scss */
+  .sidebar {
+    top: 110px;
+  }
+}
 /* line 3, ../../scss/modules/_main.scss */
 .submissions__header {
   padding: 20px 10px 15px 20px;
@@ -217,45 +265,53 @@ input[type="text"] {
   display: inline-block;
 }
 /* line 22, ../../scss/modules/_main.scss */
+.submissions__container {
+  text-align: center;
+}
+/* line 26, ../../scss/modules/_main.scss */
 .submissions__img {
   width: 140px;
   height: 140px;
   box-shadow: 1px -1px 4px 0px #999;
 }
-/* line 28, ../../scss/modules/_main.scss */
+/* line 32, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
   font-size: 10px;
   margin: 9px;
 }
-/* line 34, ../../scss/modules/_main.scss */
+/* line 38, ../../scss/modules/_main.scss */
 .submissions__username {
   font-size: 10px;
 }
-/* line 38, ../../scss/modules/_main.scss */
+/* line 42, ../../scss/modules/_main.scss */
 .submissions__likes {
   float: right;
 }
-/* line 42, ../../scss/modules/_main.scss */
+/* line 46, ../../scss/modules/_main.scss */
 .submissions__sort {
   float: right;
   margin: 0 20px;
 }
 
 @media (min-width: 540px) {
-  /* line 50, ../../scss/modules/_main.scss */
+  /* line 57, ../../scss/modules/_main.scss */
+  .submissions__container {
+    text-align: left;
+  }
+
+  /* line 62, ../../scss/modules/_main.scss */
   .main {
     width: 60%;
     float: right;
   }
 }
 @media (min-width: 801px) {
-  /* line 50, ../../scss/modules/_main.scss */
+  /* line 71, ../../scss/modules/_main.scss */
   .main {
     width: calc(100% - 320px);
   }
 }
-
 /* line 1, ../../scss/modules/_modal.scss */
 .modal-overlay {
   position: absolute;

@@ -32,7 +32,7 @@
 	.sidebar {
 		width: 40%;
 		position: fixed;
-		top: 110px;
+		top: 71px;
 		max-width: 320px;
 		height: 100vh;
 		padding: 20px;
@@ -64,5 +64,11 @@
 			right: 10px;
 			top: 10px;
 		}
+	}
+}
+
+@media (min-width: 841px) {
+	.sidebar {
+		top: 110px;
 	}
 }

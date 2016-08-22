@@ -2,8 +2,8 @@
 	<div class="submissions__header">	
 		<h1>Submissions</h1>
 		<select class="submissions__sort">
-			  <option value="newest">Newest</option>
-			  <option value="popular">Popular</option> 
+			  <option value="newest" <%= sort == "newest" ? "selected" : "" %>>Newest</option>
+			  <option value="popular" <%= sort == "popular" ? "selected" : "" %>>Popular</option> 
 		</select>
 	</div>
 	<div>

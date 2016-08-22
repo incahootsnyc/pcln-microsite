@@ -20,6 +20,7 @@ pclnPicMe.uploadModalDelegate = (function () {
 			e.preventDefault();
 
 		  	var formData = new FormData(this);
+		  	formData.append('datetime', Date.now());
 
 		  	if (droppedFile) {
 			    formData.append($fileInput.attr('name'), droppedFile);

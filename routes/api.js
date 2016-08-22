@@ -43,9 +43,10 @@ router.post('/api/upload', function (req, res) {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-            var imagePostObj = imagePost.generate({
+            var imagePostObj = imagePost.generateForDB({
                 name: uniqueFileName,
-                title: body.title
+                location: body.location,
+                datetime: body.datetime
             });
 
             if (dimensions.width > 1000 || dimensions.height > 1000) {
@@ -110,6 +111,7 @@ router.post('/api/upload', function (req, res) {
 });
 
 router.get('/api/remove/:uniqueName', function (req, res) {
+    var defaultErrorMessage = 'Error removing image! :O';
 
     db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
 
@@ -121,6 +123,22 @@ router.get('/api/remove/:uniqueName', function (req, res) {
 
                 res.json({ message: 'Successfully deleted image! :D' });
             });
+        }
+
+    }); 
+    
+});
+
+router.get('/api/like/:uniqueName', function (req, res) {
+    var defaultErrorMessage = 'Error liking image! :O';
+    var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
+
+    db.get().collection('imagePosts').update({ name: req.params.uniqueName }, { '$push': addedLike } , function (error, item) {
+
+        if (error) {
+            res.json({ message: defaultErrorMessage });
+        } else {
+            res.json({ liked: true });
         }
 
     }); 

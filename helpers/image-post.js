@@ -7,7 +7,8 @@ var imagePost = {
     		location: options.location,
     		tags: options.tags || [],
     		datetime: options.datetime,
-    		likes: []
+    		likes: [],
+    		likesCount: 0
 		};
 	},
 	mapForClient: function (imageObj) {

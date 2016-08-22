@@ -4,7 +4,7 @@ var router = express.Router();
 var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
 var db = require('../helpers/db');
-var imagePost = require('../helpers/image-post');
+var imagePostHelper = require('../helpers/image-post');
 var imageFormatter = require('../helpers/image-formatter');
 var async = require('async');
 var sizeOf = require('image-size');
@@ -43,7 +43,7 @@ router.post('/api/upload', function (req, res) {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-            var imagePostObj = imagePost.generateForDB({
+            var imagePostObj = imagePostHelper.generateForDB({
                 name: uniqueFileName,
                 location: body.location,
                 datetime: body.datetime
@@ -133,16 +133,62 @@ router.get('/api/like/:uniqueName', function (req, res) {
     var defaultErrorMessage = 'Error liking image! :O';
     var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
 
-    db.get().collection('imagePosts').update({ name: req.params.uniqueName }, { '$push': addedLike } , function (error, item) {
-
+    db.get().collection('imagePosts').findOne({ name: req.params.uniqueName }, function (error, item) {
         if (error) {
             res.json({ message: defaultErrorMessage });
         } else {
-            res.json({ liked: true });
+            item.likes.push(addedLike);
+            item.likesCount = item.likes.length;
+
+            db.get().collection('imagePosts').save(item, function (error, result) {
+                if (error) {
+                    res.json({ message: defaultErrorMessage });
+                } else {
+                    res.json({ liked: true });
+                }
+            });
         }
 
     }); 
     
 });
+
+router.get('/api/fetchPosts/:pageNum', function (req, res) {
+
+    var sortType = req.query.sort ? req.query.sort  : 'newest';
+
+    db.get().collection('imagePosts', function (err, collection) {
+
+        var options = {  
+            'skip': (config.itemsPerPage * (pageNum-1)),
+            'limit': config.itemsPerPage 
+        };
+
+        if (sortType == 'popular') {
+            options['sort'] =[[ 'likesCount', 'desc' ]];
+        } else {
+            options['sort'] =[[ 'datetime', 'desc' ]];
+        }
+
+        collection.find({}, options).toArray(function (err, imageList) {
+    
+            var imagePosts = [];
+
+            imageList.forEach(function (imageObj) {
+                if (imageObj.name) {
+                    imagePosts.push(imagePostHelper.mapForClient(imageObj));
+                }
+            });
+        
+            res.json({ 
+                images: imagePosts,
+            });
+
+        });
+    })
+
+    
+});
+
 
 module.exports = router;

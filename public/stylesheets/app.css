@@ -592,45 +592,47 @@ label:hover:before {
   /* line 154, ../../scss/modules/_modal.scss */
   .modal--lg__category {
     width: 29%;
+    height: 30px;
+    vertical-align: text-bottom;
   }
-  /* line 158, ../../scss/modules/_modal.scss */
+  /* line 162, ../../scss/modules/_modal.scss */
   .modal--lg__img-dragbox {
     height: 142px;
     width: 142px;
   }
-  /* line 163, ../../scss/modules/_modal.scss */
+  /* line 167, ../../scss/modules/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 167, ../../scss/modules/_modal.scss */
+  /* line 171, ../../scss/modules/_modal.scss */
   .modal--lg__browseimage {
     display: inline-block;
   }
-  /* line 171, ../../scss/modules/_modal.scss */
+  /* line 176, ../../scss/modules/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 175, ../../scss/modules/_modal.scss */
+  /* line 180, ../../scss/modules/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
   }
-  /* line 181, ../../scss/modules/_modal.scss */
+  /* line 186, ../../scss/modules/_modal.scss */
   .modal--lg__button {
     width: 200px;
   }
-  /* line 185, ../../scss/modules/_modal.scss */
+  /* line 190, ../../scss/modules/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     vertical-align: bottom;
     padding: 20px;
   }
-  /* line 191, ../../scss/modules/_modal.scss */
+  /* line 196, ../../scss/modules/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 200, ../../scss/modules/_modal.scss */
+/* line 205, ../../scss/modules/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -638,18 +640,18 @@ label:hover:before {
   margin: auto;
   border-radius: 8px;
 }
-/* line 216, ../../scss/modules/_modal.scss */
+/* line 221, ../../scss/modules/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 221, ../../scss/modules/_modal.scss */
+/* line 226, ../../scss/modules/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 228, ../../scss/modules/_modal.scss */
+/* line 233, ../../scss/modules/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -658,43 +660,43 @@ label:hover:before {
 }
 
 @media (min-width: 540px) {
-  /* line 238, ../../scss/modules/_modal.scss */
+  /* line 243, ../../scss/modules/_modal.scss */
   .modal--sm {
     width: 350px;
   }
 }
-/* line 244, ../../scss/modules/_modal.scss */
+/* line 249, ../../scss/modules/_modal.scss */
 .modal--details {
   background-color: rgba(255, 255, 255, 0);
   max-width: 800px;
   box-shadow: none;
   height: auto;
 }
-/* line 256, ../../scss/modules/_modal.scss */
+/* line 261, ../../scss/modules/_modal.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 260, ../../scss/modules/_modal.scss */
+/* line 265, ../../scss/modules/_modal.scss */
 .modal--details__container {
   max-width: 700px;
   margin: auto;
   position: relative;
 }
-/* line 266, ../../scss/modules/_modal.scss */
+/* line 271, ../../scss/modules/_modal.scss */
 .modal--details__img-categories {
   display: inline-block;
 }
-/* line 270, ../../scss/modules/_modal.scss */
+/* line 275, ../../scss/modules/_modal.scss */
 .modal--details__likes {
   display: inline-block;
 }
-/* line 274, ../../scss/modules/_modal.scss */
+/* line 279, ../../scss/modules/_modal.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 280, ../../scss/modules/_modal.scss */
+/* line 285, ../../scss/modules/_modal.scss */
 .modal--details__img-info {
   position: absolute;
   bottom: 5px;
@@ -705,9 +707,13 @@ label:hover:before {
   max-height: 91px;
   background: rgba(31, 28, 26, 0.7);
 }
+/* line 296, ../../scss/modules/_modal.scss */
+.modal--details__edit {
+  color: #60AFD7;
+}
 
 @media (min-width: 540px) {
-  /* line 297, ../../scss/modules/_modal.scss */
+  /* line 306, ../../scss/modules/_modal.scss */
   .modal--details__img-info {
     font-size: 16px;
   }

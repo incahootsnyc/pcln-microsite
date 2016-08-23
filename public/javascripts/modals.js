@@ -6,7 +6,8 @@
 		'upload-modal': 0,
 		'upload-success': 1,
 		'delete-confirm': 2,
-		'update-modal': 3
+		'update-modal': 3,
+		'details-modal': 4
 	};
 
 	function grabTemplateByName (name) {
@@ -31,13 +32,8 @@
 		// if first time creating modal, add events
 		// otherwise just show existing modal
 		if ($uploadModal.length < 1) {
-			var $uploadModal = grabTemplateByName('upload-modal');
+			$uploadModal = grabTemplateByName('upload-modal');
 			var $uploadForm = $uploadModal.find('form');
-
-			grabTemplateByName('delete-confirm');
-			grabTemplateByName('upload-success');
-			grabTemplateByName('update-modal');
-
 
 			// assign events for modal
 			if (pclnPicMe.supportsDragAndDrop) {
@@ -56,6 +52,19 @@
 	$('#delete-image').click(function (e) {
 		var $deleteModal = grabTemplateByName('delete-confirm');
 	});
+
+	$('#image-list').on('click', '.submissions__img', function () {
+		var $_this = $(this);
+		var postId = $_this.data('id');
+		var $detailsModal = $('#details-modal');
+
+		if ($detailsModal.length < 1) {
+			$detailsModal = grabTemplateByName('details-modal');
+			showModalWithOverlay($detailsModal);
+		} else {
+			showModalWithOverlay($detailsModal);
+		}
+    });
 
 
 	function showModalWithOverlay($modal) {

@@ -31,7 +31,7 @@
 
 	.sidebar {
 		width: 40%;
-		position: fixed;
+		//position: fixed;
 		top: 71px;
 		max-width: 320px;
 		height: 100vh;
@@ -57,7 +57,6 @@
 			background-color: $black-40;
 		}
 
-
 		&__submit-pic {
 			width: 90%;
 			margin: 30px auto 40px;
@@ -66,6 +65,10 @@
 
 		&__categories {
 			display: block;
+		}
+
+		&__categories__label {
+			color: $blue-2;
 		}
 
 		&__categories__title {
@@ -82,6 +85,18 @@
 			position: absolute;
 			right: 10px;
 			top: 10px;
+		}
+
+		[type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
+			display: none;
+		}
+
+		[type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
+			padding-left: 0;
+		}
+
+		[type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after {
+			content: '';
 		}
 	}
 }

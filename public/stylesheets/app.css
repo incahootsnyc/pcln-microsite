@@ -24,7 +24,16 @@
   background-color: #ccc;
 }
 
-/* line 23, ../../scss/partials/_patterns.scss */
+/* line 19, ../../scss/partials/_patterns.scss */
+.headline--orange, .contest-info__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline {
+  font-size: 20px;
+  color: #ff9600;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* line 30, ../../scss/partials/_patterns.scss */
 input[type="text"] {
   box-shadow: none;
   border: 1px solid #999;
@@ -204,7 +213,6 @@ input[type="text"] {
   /* line 32, ../../scss/modules/_sidebar.scss */
   .sidebar {
     width: 40%;
-    position: fixed;
     top: 71px;
     max-width: 320px;
     height: 100vh;
@@ -229,35 +237,51 @@ input[type="text"] {
     display: block;
     background-color: #999;
   }
-  /* line 61, ../../scss/modules/_sidebar.scss */
+  /* line 60, ../../scss/modules/_sidebar.scss */
   .sidebar__submit-pic {
     width: 90%;
     margin: 30px auto 40px;
     max-width: 250px;
   }
-  /* line 67, ../../scss/modules/_sidebar.scss */
+  /* line 66, ../../scss/modules/_sidebar.scss */
   .sidebar__categories {
     display: block;
   }
-  /* line 71, ../../scss/modules/_sidebar.scss */
+  /* line 70, ../../scss/modules/_sidebar.scss */
+  .sidebar__categories__label {
+    color: #0a84c1;
+  }
+  /* line 74, ../../scss/modules/_sidebar.scss */
   .sidebar__categories__title {
     color: #666;
     display: inline-block;
     margin-bottom: 10px;
   }
-  /* line 77, ../../scss/modules/_sidebar.scss */
+  /* line 80, ../../scss/modules/_sidebar.scss */
   .sidebar__categories__item {
     padding: 5px 10px;
   }
-  /* line 81, ../../scss/modules/_sidebar.scss */
+  /* line 84, ../../scss/modules/_sidebar.scss */
   .sidebar__close {
     position: absolute;
     right: 10px;
     top: 10px;
   }
+  /* line 90, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:not(:checked) + label:before, .sidebar [type="checkbox"]:checked + label:before {
+    display: none;
+  }
+  /* line 94, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:not(:checked) + label, .sidebar [type="checkbox"]:checked + label {
+    padding-left: 0;
+  }
+  /* line 98, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:not(:checked) + label:after, .sidebar [type="checkbox"]:checked + label:after {
+    content: '';
+  }
 }
 @media (min-width: 841px) {
-  /* line 90, ../../scss/modules/_sidebar.scss */
+  /* line 105, ../../scss/modules/_sidebar.scss */
   .sidebar {
     top: 110px;
   }
@@ -346,6 +370,11 @@ input[type="text"] {
     width: calc(100% - 320px);
   }
 }
+/* line 1, ../../scss/modules/_info-terms.scss */
+.contest-info {
+  padding: 30px 30px;
+}
+
 /* line 1, ../../scss/modules/_modal.scss */
 .modal-overlay {
   position: absolute;
@@ -396,42 +425,34 @@ input[type="text"] {
   top: 10px;
 }
 
-/* line 47, ../../scss/modules/_modal.scss */
-.modal__headline, .modal--lg__headline, .modal--sm__headline {
-  color: #ff9600;
-  font-size: 20px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-/* line 62, ../../scss/modules/_modal.scss */
+/* line 59, ../../scss/modules/_modal.scss */
 .modal--lg {
   width: 100%;
   height: 100vh;
 }
-/* line 78, ../../scss/modules/_modal.scss */
+/* line 75, ../../scss/modules/_modal.scss */
 .modal--lg__subheadline {
   font-size: 18px;
   color: #666;
   display: inline-block;
   margin: 20px 0 10px;
 }
-/* line 85, ../../scss/modules/_modal.scss */
+/* line 82, ../../scss/modules/_modal.scss */
 .modal--lg__checkbox-label {
   display: inline-block;
   color: #666;
   font-size: 14px;
 }
-/* line 91, ../../scss/modules/_modal.scss */
+/* line 88, ../../scss/modules/_modal.scss */
 .modal--lg__category {
   margin: 10px 14px 0 0;
   display: inline-block;
 }
-/* line 96, ../../scss/modules/_modal.scss */
+/* line 93, ../../scss/modules/_modal.scss */
 .modal--lg__browse-input {
   display: none;
 }
-/* line 100, ../../scss/modules/_modal.scss */
+/* line 97, ../../scss/modules/_modal.scss */
 .modal--lg__dragbox-cloud {
   position: absolute;
   left: 0;
@@ -441,12 +462,12 @@ input[type="text"] {
   margin: auto;
   z-index: -5;
 }
-/* line 114, ../../scss/modules/_modal.scss */
+/* line 111, ../../scss/modules/_modal.scss */
 .modal--lg__img-preview {
   width: 80px;
   height: 80px;
 }
-/* line 120, ../../scss/modules/_modal.scss */
+/* line 117, ../../scss/modules/_modal.scss */
 .modal--lg__browse-label {
   padding: 5px 20px;
   border-radius: 5px;
@@ -454,7 +475,7 @@ input[type="text"] {
   color: #666;
   border: 1px solid #999;
 }
-/* line 128, ../../scss/modules/_modal.scss */
+/* line 125, ../../scss/modules/_modal.scss */
 .modal--lg__img-dragbox {
   height: 82px;
   width: 82px;
@@ -462,64 +483,64 @@ input[type="text"] {
   border: 1px dashed #999;
   position: relative;
 }
-/* line 137, ../../scss/modules/_modal.scss */
+/* line 134, ../../scss/modules/_modal.scss */
 .modal--lg__button {
   margin: 30px 0 10px 0;
 }
-/* line 142, ../../scss/modules/_modal.scss */
+/* line 139, ../../scss/modules/_modal.scss */
 .modal--lg__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 153, ../../scss/modules/_modal.scss */
+  /* line 150, ../../scss/modules/_modal.scss */
   .modal--lg {
     max-width: 540px;
     top: 50px;
     height: 570px;
   }
-  /* line 158, ../../scss/modules/_modal.scss */
+  /* line 155, ../../scss/modules/_modal.scss */
   .modal--lg__category {
     width: 29%;
   }
-  /* line 162, ../../scss/modules/_modal.scss */
+  /* line 159, ../../scss/modules/_modal.scss */
   .modal--lg__img-dragbox {
     height: 142px;
     width: 142px;
   }
-  /* line 167, ../../scss/modules/_modal.scss */
+  /* line 164, ../../scss/modules/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 171, ../../scss/modules/_modal.scss */
+  /* line 168, ../../scss/modules/_modal.scss */
   .modal--lg__browseimage {
     display: inline-block;
   }
-  /* line 175, ../../scss/modules/_modal.scss */
+  /* line 172, ../../scss/modules/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 179, ../../scss/modules/_modal.scss */
+  /* line 176, ../../scss/modules/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
   }
-  /* line 185, ../../scss/modules/_modal.scss */
+  /* line 182, ../../scss/modules/_modal.scss */
   .modal--lg__button {
     width: 200px;
   }
-  /* line 189, ../../scss/modules/_modal.scss */
+  /* line 186, ../../scss/modules/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     vertical-align: bottom;
     padding: 20px;
   }
-  /* line 195, ../../scss/modules/_modal.scss */
+  /* line 192, ../../scss/modules/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 204, ../../scss/modules/_modal.scss */
+/* line 201, ../../scss/modules/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -527,18 +548,18 @@ input[type="text"] {
   margin: auto;
   border-radius: 8px;
 }
-/* line 220, ../../scss/modules/_modal.scss */
+/* line 217, ../../scss/modules/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 225, ../../scss/modules/_modal.scss */
+/* line 222, ../../scss/modules/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 232, ../../scss/modules/_modal.scss */
+/* line 229, ../../scss/modules/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -547,20 +568,20 @@ input[type="text"] {
 }
 
 @media (min-width: 540px) {
-  /* line 242, ../../scss/modules/_modal.scss */
+  /* line 239, ../../scss/modules/_modal.scss */
   .modal--sm {
     width: 350px;
   }
 }
 /* Base for label styling */
-/* line 249, ../../scss/modules/_modal.scss */
+/* line 246, ../../scss/modules/_modal.scss */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
 }
 
-/* line 254, ../../scss/modules/_modal.scss */
+/* line 251, ../../scss/modules/_modal.scss */
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
@@ -569,7 +590,7 @@ input[type="text"] {
 }
 
 /* checkbox aspect */
-/* line 262, ../../scss/modules/_modal.scss */
+/* line 259, ../../scss/modules/_modal.scss */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
   content: '';
@@ -584,7 +605,7 @@ input[type="text"] {
 }
 
 /* checked mark aspect */
-/* line 273, ../../scss/modules/_modal.scss */
+/* line 270, ../../scss/modules/_modal.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: '✔';
@@ -598,20 +619,20 @@ input[type="text"] {
 }
 
 /* checked mark aspect changes */
-/* line 285, ../../scss/modules/_modal.scss */
+/* line 282, ../../scss/modules/_modal.scss */
 [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
   transform: scale(0);
 }
 
-/* line 289, ../../scss/modules/_modal.scss */
+/* line 286, ../../scss/modules/_modal.scss */
 [type="checkbox"]:checked + label:after {
   opacity: 1;
   transform: scale(1);
 }
 
 /* disabled checkbox */
-/* line 294, ../../scss/modules/_modal.scss */
+/* line 291, ../../scss/modules/_modal.scss */
 [type="checkbox"]:disabled:not(:checked) + label:before,
 [type="checkbox"]:disabled:checked + label:before {
   box-shadow: none;
@@ -619,25 +640,25 @@ input[type="text"] {
   background-color: #ddd;
 }
 
-/* line 300, ../../scss/modules/_modal.scss */
+/* line 297, ../../scss/modules/_modal.scss */
 [type="checkbox"]:disabled:checked + label:after {
   color: #999;
 }
 
-/* line 303, ../../scss/modules/_modal.scss */
+/* line 300, ../../scss/modules/_modal.scss */
 [type="checkbox"]:disabled + label {
   color: #aaa;
 }
 
 /* accessibility */
-/* line 307, ../../scss/modules/_modal.scss */
+/* line 304, ../../scss/modules/_modal.scss */
 [type="checkbox"]:checked:focus + label:before,
 [type="checkbox"]:not(:checked):focus + label:before {
   border: 1px dotted blue;
 }
 
 /* hover style just for information */
-/* line 313, ../../scss/modules/_modal.scss */
+/* line 310, ../../scss/modules/_modal.scss */
 label:hover:before {
   border: 1px solid #4778d9 !important;
 }

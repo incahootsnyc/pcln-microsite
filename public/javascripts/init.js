@@ -32,9 +32,7 @@ function bindGlobalEvents () {
 
 function bindLikeEvent () {
 
-    var likeButton = $('.submissions__like-icon');
-
-    likeButton.on('click', function () {
+    $('#image-list').on('click', '.submissions__like-icon', function () {
       var $_this = $(this);
       var postId = $_this.closest('.submissions__img-container').find('.submissions__img').data('id');
 

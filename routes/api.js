@@ -135,7 +135,7 @@ router.get('/api/like/:uniqueName', function (req, res) {
     var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
 
     db.get().collection('imagePosts').findOne({ name: req.params.uniqueName }, function (error, item) {
-        if (error) {
+        if (error || !item) {
             res.json({ message: defaultErrorMessage });
         } else {
             item.likes.push(addedLike);

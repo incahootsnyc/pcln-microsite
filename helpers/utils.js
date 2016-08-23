@@ -36,7 +36,7 @@ function getSortAndFilter (req) {
   }
 
   if (filterTags && filterTags.length > 0) {
-    queryOptions['tags'] = { '$in' : filterTags };
+    queryOptions['tags'] = { '$all' : filterTags };
   }
 
   return {

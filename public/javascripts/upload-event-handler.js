@@ -1,7 +1,7 @@
 var pclnPicMe = pclnPicMe || {};
 
 
-pclnPicMe.uploadModalDelegate = (function () {
+pclnPicMe.uploadEventHandler = (function () {
 
 	var droppedFile = false;
 

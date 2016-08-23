@@ -1,12 +1,12 @@
 var s3 = require('./s3');
 
 var imagePost = {
-	generateForDB: function (options) {
+	generateForDB: function (name, postBody) {
 		return {
-			name: options.name,
-    		location: options.location,
-    		tags: options.tags || [],
-    		datetime: options.datetime,
+			name: name,
+    		location: postBody.location,
+    		tags: postBody.category || [],
+    		datetime: postBody.datetime,
     		likes: [],
     		likesCount: 0
 		};

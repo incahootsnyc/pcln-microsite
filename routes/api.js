@@ -155,26 +155,45 @@ router.get('/api/like/:uniqueName', function (req, res) {
 
 router.get('/api/fetchPosts/:pageNum', function (req, res) {
 
-    var searchConfig = utils.getSortAndFilterConfig(req, true);
+    var searchConfig = utils.getSortAndFilterConfig(req);
+    async.parallel([getMoreImages, getCollectionCount], processImagePostDataAndRespond);
 
-    db.get().collection('imagePosts', function (err, collection) {
+    function getMoreImages (callback) {
+        db.get().collection('imagePosts', function (err, collection) {
 
-        collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
-    
-            var imagePosts = [];
-
-            imageList.forEach(function (imageObj) {
-                if (imageObj.name) {
-                    imagePosts.push(imagePostHelper.mapForClient(imageObj));
-                }
-            });
+            collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
         
-            res.json({ 
-                images: imagePosts,
-            });
+                var imagePosts = [];
 
+                imageList.forEach(function (imageObj) {
+                    if (imageObj.name) {
+                        imagePosts.push(imagePostHelper.mapForClient(imageObj));
+                    }
+                });
+
+                callback(null, imagePosts);
+
+            });
         });
-    })
+    }
+
+    function getCollectionCount (callback) {
+        db.get().collection('imagePosts').count({}, function (error, numOfDocs) {
+            callback(null, numOfDocs);
+        });
+    }
+
+    function processImagePostDataAndRespond (error, aggregatedResponse) {
+        if (error) {
+            res.json({ message: error });
+        } else {
+            res.json({ 
+                images: aggregatedResponse[0],
+                totalPostCount: aggregatedResponse[1]
+            });
+        }
+       
+    }
 
     
 });

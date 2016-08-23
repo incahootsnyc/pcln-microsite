@@ -1,6 +1,5 @@
 var config = require('../config');
 
-
 function generateGuid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -19,15 +18,15 @@ function generateUniqueName (fileName) {
 	return imageNameWithoutExtension + generateGuid() + fileExtension;
 }
 
-function getSortAndFilter (req, pageNum) {
+function getSortAndFilter (req) {
   var sortType = req.query.sort ? req.query.sort  : 'newest';
   var filterTags = req.query.tags ? req.query.tags.split(',') : undefined;
 
   var sortOptions = {  'limit': config.itemsPerPage };
   var queryOptions = {};
 
-  if (pageNum) {
-    sortOptions['skip'] = (config.itemsPerPage * (pageNum-1));
+  if (req.params.pageNum) {
+    sortOptions['skip'] = (config.itemsPerPage * req.params.pageNum);
   }
 
   if (sortType == 'popular') {

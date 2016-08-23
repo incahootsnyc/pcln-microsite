@@ -4,6 +4,7 @@ var db = require('../helpers/db');
 var _ = require('lodash');
 var utils = require('../helpers/utils');
 var imagePostHelper = require('../helpers/image-post');
+var config = require('../config');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -23,8 +24,11 @@ router.get('/', function (req, res, next) {
 			});
 		
 			res.render('index', { 
-			  	title: 'PCLN Photo Contest', 
-			  	images: imagePosts,
+			  	title: 'PCLN Photo Contest',
+			  	initData: {
+			  		images: imagePosts,
+			  		pageSize: config.itemsPerPage
+			  	},
 			  	isHome: true,
 			  	isTerms: false,
 			  	sort: searchConfig.sortType

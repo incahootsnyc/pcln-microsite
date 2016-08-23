@@ -2,7 +2,7 @@ var pclnPicMe = pclnPicMe || {};
 
 // grab initial data set from global value dropped into index.html template by EJS
 pclnPicMe.pageSize = initialResultset.pageSize;
-pclnPicMe.resultset = initialResultset.images
+pclnPicMe.resultset = initialResultset.images;
 
 // check support for drag and drop images
 // https://css-tricks.com/drag-and-drop-file-uploading/
@@ -22,7 +22,12 @@ pclnPicMe.updateQueryStringParameter = function (uri, key, value) {
   else {
     return uri + separator + key + "=" + value;
   }
-}
+};
+
+pclnPicMe.getParameterByName = function (name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+};
 
 pclnPicMe.registerLike = function (postId, $likeValueContainer) {
   var requestConfig = {
@@ -38,4 +43,4 @@ pclnPicMe.registerLike = function (postId, $likeValueContainer) {
     };
 
     $.ajax(requestConfig);
-}
+};

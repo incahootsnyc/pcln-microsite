@@ -204,7 +204,6 @@ input[type="text"] {
   /* line 32, ../../scss/modules/_sidebar.scss */
   .sidebar {
     width: 40%;
-    position: fixed;
     top: 71px;
     max-width: 320px;
     height: 100vh;
@@ -229,35 +228,47 @@ input[type="text"] {
     display: block;
     background-color: #999;
   }
-  /* line 61, ../../scss/modules/_sidebar.scss */
+  /* line 60, ../../scss/modules/_sidebar.scss */
   .sidebar__submit-pic {
     width: 90%;
     margin: 30px auto 40px;
     max-width: 250px;
   }
-  /* line 67, ../../scss/modules/_sidebar.scss */
+  /* line 66, ../../scss/modules/_sidebar.scss */
   .sidebar__categories {
     display: block;
   }
-  /* line 71, ../../scss/modules/_sidebar.scss */
+  /* line 70, ../../scss/modules/_sidebar.scss */
   .sidebar__categories__title {
     color: #666;
     display: inline-block;
     margin-bottom: 10px;
   }
-  /* line 77, ../../scss/modules/_sidebar.scss */
+  /* line 76, ../../scss/modules/_sidebar.scss */
   .sidebar__categories__item {
     padding: 5px 10px;
   }
-  /* line 81, ../../scss/modules/_sidebar.scss */
+  /* line 80, ../../scss/modules/_sidebar.scss */
   .sidebar__close {
     position: absolute;
     right: 10px;
     top: 10px;
   }
+  /* line 86, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:not(:checked) + label:before, .sidebar [type="checkbox"]:checked + label:before {
+    display: none;
+  }
+  /* line 90, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:not(:checked) + label, .sidebar [type="checkbox"]:checked + label {
+    padding-left: 0;
+  }
+  /* line 94, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:not(:checked) + label:after, .sidebar [type="checkbox"]:checked + label:after {
+    content: '';
+  }
 }
 @media (min-width: 841px) {
-  /* line 90, ../../scss/modules/_sidebar.scss */
+  /* line 101, ../../scss/modules/_sidebar.scss */
   .sidebar {
     top: 110px;
   }

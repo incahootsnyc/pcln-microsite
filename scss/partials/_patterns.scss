@@ -20,14 +20,11 @@
 
 //checkbox pattern
 
-input[type=checkbox] {
-	display: none;
-}
-
-
 input[type="text"] {
 	box-shadow: none;
 	border: 1px solid $black-40;
 	height: 40px;
 	border-radius: 3px;
 }
+
+

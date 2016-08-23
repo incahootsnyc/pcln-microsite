@@ -43,6 +43,15 @@
 			display: block;
 		}
 
+		&__contest-info__main {
+			color: $blue-2;
+		}
+
+		&__contest-info__secondary {
+			padding-top: 20px;
+			color: $black-60;
+		}
+
 		&__hr {
 			display: block;
 			background-color: $black-40;
@@ -51,12 +60,22 @@
 
 		&__submit-pic {
 			width: 90%;
-			margin: 30px auto;
+			margin: 30px auto 40px;
 			max-width: 250px; 
 		}
 
 		&__categories {
 			display: block;
+		}
+
+		&__categories__title {
+			color: $black-60;
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+
+		&__categories__item {
+			padding: 5px 10px;
 		}
 
 		&__close {

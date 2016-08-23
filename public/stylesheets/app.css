@@ -272,48 +272,59 @@ input[type="text"] {
 .submissions__img {
   width: 140px;
   height: 140px;
+  margin-bottom: 2px;
   box-shadow: 1px -1px 4px 0px #999;
   -webkit-transition: box-shadow 0s ease-in;
   transition: box-shadow 0s ease-in;
 }
-/* line 32, ../../scss/modules/_main.scss */
+/* line 33, ../../scss/modules/_main.scss */
 .submissions__img:hover {
   box-shadow: 0px 0px 4px 0px #999;
 }
-/* line 37, ../../scss/modules/_main.scss */
+/* line 38, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
   font-size: 10px;
   margin: 9px;
 }
-/* line 43, ../../scss/modules/_main.scss */
+/* line 44, ../../scss/modules/_main.scss */
 .submissions__username {
-  font-size: 10px;
+  display: inline-block;
+  width: 45%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: middle;
 }
-/* line 47, ../../scss/modules/_main.scss */
+/* line 53, ../../scss/modules/_main.scss */
 .submissions__likes {
-  float: right;
+  text-align: right;
 }
-/* line 51, ../../scss/modules/_main.scss */
+/* line 57, ../../scss/modules/_main.scss */
+.submissions__like-icon {
+  vertical-align: middle;
+  padding: 0 5px;
+}
+/* line 62, ../../scss/modules/_main.scss */
 .submissions__sort {
   float: right;
   margin: 0 20px;
 }
 
 @media (min-width: 540px) {
-  /* line 62, ../../scss/modules/_main.scss */
+  /* line 73, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
   }
 
-  /* line 67, ../../scss/modules/_main.scss */
+  /* line 78, ../../scss/modules/_main.scss */
   .main {
     width: 60%;
     float: right;
   }
 }
 @media (min-width: 801px) {
-  /* line 76, ../../scss/modules/_main.scss */
+  /* line 87, ../../scss/modules/_main.scss */
   .main {
     width: calc(100% - 320px);
   }

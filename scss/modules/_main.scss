@@ -25,6 +25,7 @@
 	&__img {
 		width: 140px;
 		height: 140px;
+		margin-bottom: 2px;
 		box-shadow: 1px -1px 4px 0px $black-40;
 		-webkit-transition: box-shadow 0s ease-in;
 		transition: box-shadow 0s ease-in;
@@ -41,11 +42,21 @@
 	}
 
 	&__username {
-		font-size: 10px;
+	    display: inline-block;
+	    width: 45%;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    vertical-align: middle;
 	}
 	
 	&__likes {
-		float: right;
+		text-align: right;
+	}
+
+	&__like-icon {
+		vertical-align: middle;
+		padding: 0 5px;
 	}
 
 	&__sort {

@@ -23,3 +23,33 @@ pclnPicMe.updateQueryStringParameter = function (uri, key, value) {
     return uri + separator + key + "=" + value;
   }
 }
+
+bindGlobalEvents();
+
+function bindGlobalEvents () {
+  bindLikeEvent();
+}
+
+function bindLikeEvent () {
+
+    var likeButton = $('.submissions__like-icon');
+
+    likeButton.on('click', function () {
+      var $_this = $(this);
+      var postId = $_this.closest('.submissions__img-container').find('.submissions__img').data('id');
+
+      var requestConfig = {
+        url: '/api/like/' + postId,
+        type: 'GET',
+        success: function (response) {
+          if (response.message) {
+            //whoops
+          } else {
+            $_this.siblings('.like-value').text(response.likes);
+          }
+        }
+      };
+
+      $.ajax(requestConfig);
+    });
+}

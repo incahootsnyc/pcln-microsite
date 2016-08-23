@@ -145,7 +145,7 @@ router.get('/api/like/:uniqueName', function (req, res) {
                 if (error) {
                     res.json({ message: defaultErrorMessage });
                 } else {
-                    res.json({ liked: true });
+                    res.json({ likes: item.likesCount });
                 }
             });
         }

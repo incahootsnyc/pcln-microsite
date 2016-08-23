@@ -104,9 +104,11 @@
 		<div id="overlay" class="modal-overlay"></div>
 	</body>
 
-	<script type="text/javascript">
-		var initialResultset = <%- JSON.stringify(initData) %>;
-	</script>
+	<% if (isHome) { %>
+		<script type="text/javascript">
+			var initialResultset = <%- JSON.stringify(initData) %>;
+		</script>
+	<% } %>
 
 	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="javascripts/header.js"></script>

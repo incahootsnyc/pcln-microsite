@@ -72,9 +72,10 @@ router.post('/api/upload', function (req, res) {
                     srcData: imageFile.buffer,
                     strip: false,
                     width: 140,
-                    height: "140!",
+                    height: "140^",
                     customArgs: [ 
-                         "-gravity", "center"
+                         "-gravity", "center",
+                         "-extent", "140x140"
                     ]
                 };
 

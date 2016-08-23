@@ -6,4 +6,10 @@
 		window.location.href = url;
 
 	});
+
+	// $('.sidebar__categories li').click(function (e) {
+	// 	var tags = 'test,test1';
+	// 	var url = pclnPicMe.updateQueryStringParameter(window.location.href, 'tags', tags);
+	// 	window.location.href = url;
+	// }); 
 })();

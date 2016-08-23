@@ -26,6 +26,10 @@ pclnPicMe.uploadModalDelegate = (function () {
 			    formData.append($fileInput.attr('name'), droppedFile);
 			}
 
+			// if (!validForm($form, droppedFile)) {
+			// 	return false;
+			// }
+
 		  	var requestConfig = {
 				url: '/api/upload',
 				type: 'POST',
@@ -37,7 +41,7 @@ pclnPicMe.uploadModalDelegate = (function () {
 
 						// clear form values for new upload
 						$form[0].reset();
-						$form.find('img').attr('src', '');
+						$form.find('img#preview').attr('src', '');
 						droppedFile = false;
 					}
 				};
@@ -98,7 +102,7 @@ pclnPicMe.uploadModalDelegate = (function () {
 			// read file and set it as source of image when finished
 			var reader = new FileReader();
 		    reader.onload = function (event) {
-		        $form.find('img').attr('src', event.target.result);
+		        $form.find('img#preview').attr('src', event.target.result);
 		    }
 		    reader.readAsDataURL(filePreview);		   
 		}
@@ -115,6 +119,11 @@ pclnPicMe.uploadModalDelegate = (function () {
 				$uploadModal.hide();
 				$overlay.hide();
 			});
+	}
+
+
+	function validForm ($form, droppedFile) {
+		console.log($form);
 	}
 	
 

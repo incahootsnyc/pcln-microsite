@@ -1,7 +1,8 @@
 var pclnPicMe = pclnPicMe || {};
 
 // grab initial data set from global value dropped into index.html template by EJS
-pclnPicMe.initData = initialResultset;
+pclnPicMe.pageSize = initialResultset.pageSize;
+pclnPicMe.resultset = initialResultset.images
 
 // check support for drag and drop images
 // https://css-tricks.com/drag-and-drop-file-uploading/

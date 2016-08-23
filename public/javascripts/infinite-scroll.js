@@ -1,7 +1,7 @@
 (function () {
 
 	var pageNumber = 1;
-	var loadedResults = pageSize = pclnPicMe.initData.pageSize;
+	var loadedResults = pageSize = pclnPicMe.pageSize;
 	var loadMoreResults = true;
 	var isLoading = false;
 
@@ -19,6 +19,7 @@
 					isLoading = false;
 
 					pageNumber++;
+					pclnPicMe.resultset = pclnPicMe.resultset.concat(response.images);
 					response.images.forEach(function (imageObject) {
 						$(buildListItemHTML(imageObject)).appendTo('#image-list');
 					});

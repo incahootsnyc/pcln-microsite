@@ -10,22 +10,6 @@
 		'details-modal': 4
 	};
 
-	function grabTemplateByName (name) {
-		var templateHtml = $('template').html().trim();
-		var $template = $(templateHtml);
-
-		var allTemplates = [];
-		for (var i = 0; i < $template.length; i++) {
-			if ($template[i].nodeName != '#text') {
-				allTemplates.push($template[i]);
-			}
-		}
-
-		var index = templateDictionary[name];
-		var $templatePartial = $(allTemplates[index])
-		return $templatePartial.appendTo('body');
-	}
-
 	$('#upload-image').click(function (e) {
 		var $uploadModal = $('#upload-modal');
 
@@ -43,6 +27,7 @@
 			pclnPicMe.uploadModalDelegate.addCloseEvent($uploadModal);
 			pclnPicMe.uploadModalDelegate.addImagePreviewEvent($uploadForm);
 			pclnPicMe.uploadModalDelegate.addSubmitEvent($uploadForm);
+
 			showModalWithOverlay($uploadModal);
 		} else {
 			showModalWithOverlay($uploadModal);
@@ -55,22 +40,56 @@
 
 	$('#image-list').on('click', '.submissions__img', function () {
 		var $_this = $(this);
-		var postId = $_this.data('id');
 		var $detailsModal = $('#details-modal');
+		var imagePostData = pclnPicMe.resultset.find(function (imagePost) {
+			return imagePost.uniqueName == $_this.data('id');
+		});
 
 		if ($detailsModal.length < 1) {
 			$detailsModal = grabTemplateByName('details-modal');
-			showModalWithOverlay($detailsModal);
+
+			pclnPicMe.detailsModalDelegate.addCloseEvent($detailsModal);
+			pclnPicMe.detailsModalDelegate.addLikeEvent($detailsModal);
+			pclnPicMe.detailsModalDelegate.addShiftLeftEvent($detailsModal);
+			pclnPicMe.detailsModalDelegate.addShiftRightEvent($detailsModal);
+
+			showModalWithOverlay($detailsModal, imagePostData);
+
 		} else {
-			showModalWithOverlay($detailsModal);
+			showModalWithOverlay($detailsModal, imagePostData);
 		}
     });
 
 
-	function showModalWithOverlay($modal) {
+	function grabTemplateByName (name) {
+		var templateHtml = $('template').html().trim();
+		var $template = $(templateHtml);
+
+		var allTemplates = [];
+		for (var i = 0; i < $template.length; i++) {
+			if ($template[i].nodeName != '#text') {
+				allTemplates.push($template[i]);
+			}
+		}
+
+		var index = templateDictionary[name];
+		var $templatePartial = $(allTemplates[index])
+		return $templatePartial.appendTo('body');
+	}
+
+	function showModalWithOverlay($modal, imageData) {
 		var overlay = $('#overlay');
+
+		if (imageData) {
+			populateDetailsModal($modal, imageData);
+		}
+
 		overlay.show();
 		$modal.show();
+	}
+
+	function populateDetailsModal ($modal, imageData) {
+		// set details info here
 	}
 
 })();

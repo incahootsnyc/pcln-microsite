@@ -17,9 +17,9 @@ router.get('/', function (req, res, next) {
 	
 			var imagePosts = [];
 
-			imageList.forEach(function (imageObj) {
+			imageList.forEach(function (imageObj, index) {
 				if (imageObj.name) {
-					imagePosts.push(imagePostHelper.mapForClient(imageObj));
+					imagePosts.push(imagePostHelper.mapForClient(imageObj, index));
 				}
 			});
 		

@@ -2,7 +2,7 @@ var pclnPicMe = pclnPicMe || {};
 
 // grab initial data set from global value dropped into index.html template by EJS
 pclnPicMe.pageSize = initialResultset.pageSize;
-pclnPicMe.resultset = initialResultset.images
+pclnPicMe.resultset = initialResultset.images;
 
 // check support for drag and drop images
 // https://css-tricks.com/drag-and-drop-file-uploading/
@@ -22,32 +22,25 @@ pclnPicMe.updateQueryStringParameter = function (uri, key, value) {
   else {
     return uri + separator + key + "=" + value;
   }
-}
+};
 
-bindGlobalEvents();
+pclnPicMe.getParameterByName = function (name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+};
 
-function bindGlobalEvents () {
-  bindLikeEvent();
-}
-
-function bindLikeEvent () {
-
-    $('#image-list').on('click', '.submissions__like-icon', function () {
-      var $_this = $(this);
-      var postId = $_this.closest('.submissions__img-container').find('.submissions__img').data('id');
-
-      var requestConfig = {
-        url: '/api/like/' + postId,
-        type: 'GET',
-        success: function (response) {
-          if (response.message) {
-            //whoops
-          } else {
-            $_this.siblings('.like-value').text(response.likes);
-          }
+pclnPicMe.registerLike = function (postId, $likeValueContainer) {
+  var requestConfig = {
+      url: '/api/like/' + postId,
+      type: 'GET',
+      success: function (response) {
+        if (response.message) {
+          //whoops
+        } else {
+          $likeValueContainer.text(response.likes);
         }
-      };
+      }
+    };
 
-      $.ajax(requestConfig);
-    });
-}
+    $.ajax(requestConfig);
+};

@@ -1,5 +1,5 @@
 .sidebar {
-	background-color: $black-5;
+	background-color: rgba(255, 255, 255, 0.4);
 	padding: 20px 0 10px 0;
 
 	&__contest-info {
@@ -10,20 +10,30 @@
 		display: none;
 	}
 
-	&__submit-pic {
-		background-color: $orange-2;
-		margin: auto;
-		width: 172px;
-		font-weight: bold;
-		display: block;
-	
-		&:hover {
-			background-color: red;
-		}	
+	&__hr {
+		display: none;
 	}
 
-	@media (min-width: 540px) {
+	&__submit-pic {
+		@extend .button;
+		background-color: $orange-2;
+		margin: auto;
+		width: 200px;
+	
+		&:hover {
+			background-color: #DD8201;
+		}	
+	}
+}
+
+
+@media (min-width: 540px) {
+
+	.sidebar {
 		width: 40%;
+		position: fixed;
+		top: 71px;
+		max-width: 320px;
 		height: 100vh;
 		padding: 20px;
 		float: left;
@@ -31,6 +41,11 @@
 
 		&__contest-info {
 			display: block;
+		}
+
+		&__hr {
+			display: block;
+			background-color: $black-40;
 		}
 
 
@@ -50,6 +65,10 @@
 			top: 10px;
 		}
 	}
-
 }
 
+@media (min-width: 841px) {
+	.sidebar {
+		top: 110px;
+	}
+}

@@ -1,31 +1,131 @@
+.modal-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #000;
+	z-index: 50;
+	opacity: .5;
+	width: 100%;
+	height: 100vh;
+	z-index: 200;
+	display: none;
+
+	@media (max-width: 540px) {
+		display: none !important;
+	}
+}
+
+
+
+
+
 .modal {
 	position: absolute;
-	top: 55px;
-	background-color: #fff;
-	width: 100%;
+	top: 85px;
+	background-color: $white;
+	display: none;
 	padding: 20px;
+	z-index: 100;
+	display: none;
+
+	@media (min-width: 540px) {
+		border-radius: 8px;
+		padding: 20px 40px;
+		box-shadow: 5px -2px 10px 3px #6b6868;
+		left: 0;
+		right: 0;
+		z-index: 300;
+		margin: auto;
+	}
+
+}
+
+.modal__close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.modal__headline {
+	color: $orange-2;
+	font-size: 20px;
+	display: inline-block;
+	margin-bottom: 10px;
+
+}
+
+
+
+
+
+
+
+
+.modal--lg {
+	@extend .modal;
+	//position: absolute;
+	//top: 85px;
+	//background-color: #fff;
+	width: 100%;
+	//padding: 20px;
 	height: 100vh;
+	//z-index: 100;
+	//display:none;
 
 
 	&__headline {
-		color: $orange-2;
+		@extend .modal__headline;
+	}
+
+	&__subheadline {
 		font-size: 18px;
-		display: block;
+		color: $black-60;
+		display: inline-block;
+		margin: 20px 0 10px;
 	}
 
 	&__checkbox-label {
 		display: inline-block;
-		color: $black-40;
+		color: $black-60;
+		font-size: 14px;
+	}
+
+	&__checkbox-span {
+		width: 25px;
+	    border: 1px solid $black-40;
+	    display: inline-block;
+	    height: 25px;
+	    border-radius: 3px;
+	    vertical-align: middle;
+	    margin-right: 5px;
 	}
 
 	&__category {
-		padding: 5px 0;
-		width: 47%;
+		margin: 10px 14px 0 0;
 		display: inline-block;
 	}
 
 	&__browse-input {
 		display: none;
+	}
+
+	&__dragbox-cloud {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 36%;
+		width: 40px;
+		margin: auto;
+	}
+
+	&__close {
+		@extend .modal__close;
+	}
+
+	&__img-preview {
+		width: 80px;
+		height: 80px;
+		box-shadow: 1px -1px 4px 0px $black-40;
 	}
 
 	&__browse-label {
@@ -37,30 +137,42 @@
 	}
 
 	&__img-dragbox {
-		height: 140px;
-		display: block;
-		width: 140px;
+		height: 80px;
+		width: 80px;
+		display: inline-block;
 		border: 1px dashed $black-40;
+		position: relative;
+	}
+
+	
+	&__button {
+		@extend .button;
+		margin: 30px 0 10px 0;
+	}
+
+	&__error-message {
+		color: $red;
 	}
 
 }
 
 
+
+
 @media (min-width: 540px) {
 
-	.modal {
-		border-radius: 8px;
-		border: 1px solid black;
+	.modal--lg {
 		max-width: 540px;
-		padding: 20px 40px 40px 40px;
-		position: relative;
-		z-index: 100;
-		top: -700px;
-		margin: auto;
-		height: 100%;
+		top: 50px;
+		height:  570px;
 
 		&__category {
-			width: 32%;
+			width: 29%;
+		}
+
+		&__img-dragbox {
+			height: 140px;
+			width: 140px;
 		}
 
 		&__dragimage {
@@ -71,16 +183,76 @@
 			display: inline-block;
 		}
 
-		&__close {
-			position: absolute;
-			right: 10px;
-			top: 10px;
+		&__dragbox-cloud {
+			width: auto;
 		}
-		
+
+		&__img-preview {
+			width: 140px;
+			height: 140px;
+			box-shadow: 1px -1px 4px 0px $black-40;
+		}
+
+		&__button {
+			width: 200px;
+		}
+
+		&__img-browse {
+			display: inline-block;
+			vertical-align: bottom;
+			padding: 20px;
+		}
+
+		&__input {
+			width: 320px;
+		}
 
 	}
 
+}
 
+
+.modal--sm {
+	@extend .modal;
+	width: 290px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border-radius: 8px;
+
+	&__close {
+		@extend .modal__close;
+	}
+
+	&__headline {
+		@extend .modal__headline;
+	}
+
+	&__text {
+		width: 80%;
+		padding-bottom: 20px;
+	}
+
+	&__button--cancel {
+		@extend .button;
+		background-color: $black-40;
+		width: 120px;	
+		display: inline-block;
+	}
+
+	&__button--confirm {
+		@extend .button;
+		background-color: $blue-3;
+		width: 120px;
+		display: inline-block;
+		margin-right: 5px;
+	}
+}
+
+@media (min-width: 540px) {
+	.modal--sm {
+		width: 350px;
+	}
 }
 
 

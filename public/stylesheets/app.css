@@ -1,8 +1,39 @@
-/* line 13, ../../scss/partials/_variables.scss */
+/* line 20, ../../scss/partials/_variables.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
+}
+
+/* line 3, ../../scss/partials/_patterns.scss */
+.button, .sidebar__submit-pic, .modal--lg__button, .modal--sm__button--cancel, .modal--sm__button--confirm {
+  font-weight: bold;
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 3px;
+  height: 42px;
+  border: none;
+  width: 100%;
+  transition: background-color 1s;
+}
+
+/* line 15, ../../scss/partials/_patterns.scss */
+.disabled {
+  background-color: #ccc;
+}
+
+/* line 23, ../../scss/partials/_patterns.scss */
+input[type=checkbox] {
+  display: none;
+}
+
+/* line 28, ../../scss/partials/_patterns.scss */
+input[type="text"] {
+  box-shadow: none;
+  border: 1px solid #999;
+  height: 40px;
+  border-radius: 3px;
 }
 
 /* line 1, ../../scss/modules/_global.scss */
@@ -13,55 +44,141 @@
 
 /* line 7, ../../scss/modules/_global.scss */
 .content-container {
+  top: 70px;
   position: relative;
+  min-height: 100vh;
+  background: #cccccc;
+  background: #d9d9d9;
+  background: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #d9d9d9), color-stop(14%, #f2f2f2), color-stop(100%, #f2f2f2));
+  background: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
+  background: -o-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
+  background: -ms-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
+  background: linear-gradient(to bottom, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#f2f2f2', GradientType=0 );
 }
 
+@media (min-width: 841px) {
+  /* line 24, ../../scss/modules/_global.scss */
+  .content-container {
+    top: 110px;
+  }
+}
 /* line 1, ../../scss/modules/_navigation.scss */
 .header {
-  position: relative;
-  padding: 10px;
+  position: fixed;
+  z-index: 100;
+  background-color: #ffffff;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
-/* line 5, ../../scss/modules/_navigation.scss */
+/* line 9, ../../scss/modules/_navigation.scss */
 .header__logo {
   width: 220px;
   vertical-align: middle;
+  margin: 10px;
+}
+/* line 15, ../../scss/modules/_navigation.scss */
+.header__hamburger-icon {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  z-index: 500;
 }
 
-/* line 12, ../../scss/modules/_navigation.scss */
+/* line 23, ../../scss/modules/_navigation.scss */
 .navbar--user, .navbar--main {
   display: none;
 }
-@media (min-width: 540px) {
-  /* line 12, ../../scss/modules/_navigation.scss */
-  .navbar--user, .navbar--main {
+
+/* line 27, ../../scss/modules/_navigation.scss */
+.navbar--mobile {
+  display: none;
+  background-color: #f2f2f2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+}
+/* line 37, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item {
+  padding: 10px 30px;
+}
+/* line 40, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item + li {
+  border-top: 1px solid #ccc;
+}
+/* line 44, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item:hover {
+  background-color: #60AFD7;
+}
+/* line 49, ../../scss/modules/_navigation.scss */
+.navbar--mobile__title {
+  font-weight: normal;
+  font-size: 18px;
+  padding: 10px 30px;
+  display: block;
+  border-bottom: 2px solid #ccc;
+}
+
+@media (min-width: 841px) {
+  /* line 63, ../../scss/modules/_navigation.scss */
+  .header {
+    height: 110px;
+  }
+  /* line 66, ../../scss/modules/_navigation.scss */
+  .header__logo {
+    width: 275px;
+    margin: 20px;
+  }
+  /* line 71, ../../scss/modules/_navigation.scss */
+  .header__hamburger-icon {
+    display: none;
+  }
+
+  /* line 77, ../../scss/modules/_navigation.scss */
+  .navbar--main, .navbar--user {
     display: inline-block;
   }
-}
-/* line 19, ../../scss/modules/_navigation.scss */
-.navbar--user__item, .navbar--main__item {
-  display: inline-block;
-}
+  /* line 80, ../../scss/modules/_navigation.scss */
+  .navbar--main__item, .navbar--user__item {
+    display: inline-block;
+  }
 
-/* line 24, ../../scss/modules/_navigation.scss */
-.navbar--user {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-}
-/* line 30, ../../scss/modules/_navigation.scss */
-.navbar--user__link {
-  padding: 0 8px;
-}
+  /* line 85, ../../scss/modules/_navigation.scss */
+  .navbar--user {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  /* line 90, ../../scss/modules/_navigation.scss */
+  .navbar--user__link {
+    padding: 0 8px;
+  }
 
-/* line 35, ../../scss/modules/_navigation.scss */
-.image-tile {
-  width: 120px;
-  height: 120px;
+  /* line 95, ../../scss/modules/_navigation.scss */
+  .navbar--main {
+    vertical-align: bottom;
+    padding-bottom: 5px;
+    margin: 0 20px;
+  }
+  /* line 100, ../../scss/modules/_navigation.scss */
+  .navbar--main__link {
+    padding: 0 10px;
+    padding-bottom: 10px;
+    color: #999;
+    font-size: 16px;
+  }
+  /* line 106, ../../scss/modules/_navigation.scss */
+  .navbar--main__link:hover {
+    border-bottom: 5px solid #60AFD7;
+  }
 }
-
 /* line 1, ../../scss/modules/_sidebar.scss */
 .sidebar {
-  background-color: #f2f2f2;
+  background-color: rgba(255, 255, 255, 0.4);
   padding: 20px 0 10px 0;
 }
 /* line 5, ../../scss/modules/_sidebar.scss */
@@ -73,174 +190,348 @@
   display: none;
 }
 /* line 13, ../../scss/modules/_sidebar.scss */
+.sidebar__hr {
+  display: none;
+}
+/* line 17, ../../scss/modules/_sidebar.scss */
 .sidebar__submit-pic {
   background-color: #ff9600;
   margin: auto;
-  width: 172px;
-  font-weight: bold;
-  display: block;
+  width: 200px;
 }
-/* line 20, ../../scss/modules/_sidebar.scss */
+/* line 23, ../../scss/modules/_sidebar.scss */
 .sidebar__submit-pic:hover {
-  background-color: red;
+  background-color: #DD8201;
 }
+
 @media (min-width: 540px) {
-  /* line 1, ../../scss/modules/_sidebar.scss */
+  /* line 32, ../../scss/modules/_sidebar.scss */
   .sidebar {
     width: 40%;
+    position: fixed;
+    top: 71px;
+    max-width: 320px;
     height: 100vh;
     padding: 20px;
     float: left;
   }
-  /* line 32, ../../scss/modules/_sidebar.scss */
+  /* line 42, ../../scss/modules/_sidebar.scss */
   .sidebar__contest-info {
     display: block;
   }
-  /* line 37, ../../scss/modules/_sidebar.scss */
+  /* line 46, ../../scss/modules/_sidebar.scss */
+  .sidebar__hr {
+    display: block;
+    background-color: #999;
+  }
+  /* line 52, ../../scss/modules/_sidebar.scss */
   .sidebar__submit-pic {
     width: 90%;
     margin: 30px auto;
     max-width: 250px;
   }
-  /* line 43, ../../scss/modules/_sidebar.scss */
+  /* line 58, ../../scss/modules/_sidebar.scss */
   .sidebar__categories {
     display: block;
   }
-  /* line 47, ../../scss/modules/_sidebar.scss */
+  /* line 62, ../../scss/modules/_sidebar.scss */
   .sidebar__close {
     position: absolute;
     right: 10px;
     top: 10px;
   }
 }
-
-/* line 1, ../../scss/modules/_main.scss */
-.submissions {
-  background: #f2f2f2;
-  min-height: 100vh;
+@media (min-width: 841px) {
+  /* line 71, ../../scss/modules/_sidebar.scss */
+  .sidebar {
+    top: 110px;
+  }
 }
-/* line 5, ../../scss/modules/_main.scss */
+/* line 3, ../../scss/modules/_main.scss */
 .submissions__header {
-  padding: 10px;
+  padding: 20px 10px 15px 20px;
+  background: rgba(242, 242, 242, 0.46);
+  background: -moz-linear-gradient(top, rgba(242, 242, 242, 0.46) 0%, #f2f2f2 52%, #f2f2f2 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242, 242, 242, 0.46)), color-stop(52%, #f2f2f2), color-stop(100%, #f2f2f2));
+  background: -webkit-linear-gradient(top, rgba(242, 242, 242, 0.46) 0%, #f2f2f2 52%, #f2f2f2 100%);
+  background: -o-linear-gradient(top, rgba(242, 242, 242, 0.46) 0%, #f2f2f2 52%, #f2f2f2 100%);
+  background: -ms-linear-gradient(top, rgba(242, 242, 242, 0.46) 0%, #f2f2f2 52%, #f2f2f2 100%);
+  background: linear-gradient(to bottom, rgba(242, 242, 242, 0.46) 0%, #f2f2f2 52%, #f2f2f2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2', GradientType=0 );
 }
-/* line 9, ../../scss/modules/_main.scss */
+/* line 16, ../../scss/modules/_main.scss */
 .submissions h1 {
   font-size: 18px;
   display: inline-block;
 }
-/* line 14, ../../scss/modules/_main.scss */
+/* line 21, ../../scss/modules/_main.scss */
+.submissions__container {
+  text-align: center;
+}
+/* line 25, ../../scss/modules/_main.scss */
 .submissions__img {
   width: 140px;
   height: 140px;
   box-shadow: 1px -1px 4px 0px #999;
+  -webkit-transition: box-shadow 0s ease-in;
+  transition: box-shadow 0s ease-in;
 }
-/* line 20, ../../scss/modules/_main.scss */
+/* line 32, ../../scss/modules/_main.scss */
+.submissions__img:hover {
+  box-shadow: 0px 0px 4px 0px #999;
+}
+/* line 37, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
   font-size: 10px;
   margin: 9px;
 }
-/* line 26, ../../scss/modules/_main.scss */
+/* line 43, ../../scss/modules/_main.scss */
 .submissions__username {
   font-size: 10px;
 }
-/* line 30, ../../scss/modules/_main.scss */
+/* line 47, ../../scss/modules/_main.scss */
 .submissions__likes {
   float: right;
 }
-/* line 34, ../../scss/modules/_main.scss */
+/* line 51, ../../scss/modules/_main.scss */
 .submissions__sort {
   float: right;
   margin: 0 20px;
 }
 
-/* line 42, ../../scss/modules/_main.scss */
-.main {
-  float: left;
-}
 @media (min-width: 540px) {
-  /* line 42, ../../scss/modules/_main.scss */
+  /* line 62, ../../scss/modules/_main.scss */
+  .submissions__container {
+    text-align: left;
+  }
+
+  /* line 67, ../../scss/modules/_main.scss */
   .main {
     width: 60%;
-    float: left;
+    float: right;
+  }
+}
+@media (min-width: 801px) {
+  /* line 76, ../../scss/modules/_main.scss */
+  .main {
+    width: calc(100% - 320px);
+  }
+}
+/* line 1, ../../scss/modules/_modal.scss */
+.modal-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  z-index: 50;
+  opacity: .5;
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  display: none;
+}
+@media (max-width: 540px) {
+  /* line 1, ../../scss/modules/_modal.scss */
+  .modal-overlay {
+    display: none !important;
   }
 }
 
-/* line 1, ../../scss/modules/_modal.scss */
-.modal {
+/* line 22, ../../scss/modules/_modal.scss */
+.modal, .modal--lg, .modal--sm {
   position: absolute;
-  top: 55px;
-  background-color: #fff;
-  width: 100%;
+  top: 85px;
+  background-color: #ffffff;
+  display: none;
   padding: 20px;
-  height: 100vh;
-}
-/* line 10, ../../scss/modules/_modal.scss */
-.modal__headline {
-  color: #ff9600;
-  font-size: 18px;
-  display: block;
-}
-/* line 16, ../../scss/modules/_modal.scss */
-.modal__checkbox-label {
-  display: inline-block;
-  color: #999;
-}
-/* line 21, ../../scss/modules/_modal.scss */
-.modal__category {
-  padding: 5px 0;
-  width: 47%;
-  display: inline-block;
-}
-/* line 27, ../../scss/modules/_modal.scss */
-.modal__browse-input {
+  z-index: 100;
   display: none;
 }
-/* line 31, ../../scss/modules/_modal.scss */
-.modal__browse-label {
+@media (min-width: 540px) {
+  /* line 22, ../../scss/modules/_modal.scss */
+  .modal, .modal--lg, .modal--sm {
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 5px -2px 10px 3px #6b6868;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    margin: auto;
+  }
+}
+
+/* line 43, ../../scss/modules/_modal.scss */
+.modal__close, .modal--lg__close, .modal--sm__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* line 49, ../../scss/modules/_modal.scss */
+.modal__headline, .modal--lg__headline, .modal--sm__headline {
+  color: #ff9600;
+  font-size: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* line 64, ../../scss/modules/_modal.scss */
+.modal--lg {
+  width: 100%;
+  height: 100vh;
+}
+/* line 80, ../../scss/modules/_modal.scss */
+.modal--lg__subheadline {
+  font-size: 18px;
+  color: #666;
+  display: inline-block;
+  margin: 20px 0 10px;
+}
+/* line 87, ../../scss/modules/_modal.scss */
+.modal--lg__checkbox-label {
+  display: inline-block;
+  color: #666;
+  font-size: 14px;
+}
+/* line 93, ../../scss/modules/_modal.scss */
+.modal--lg__checkbox-span {
+  width: 25px;
+  border: 1px solid #999;
+  display: inline-block;
+  height: 25px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+/* line 103, ../../scss/modules/_modal.scss */
+.modal--lg__category {
+  margin: 10px 14px 0 0;
+  display: inline-block;
+}
+/* line 108, ../../scss/modules/_modal.scss */
+.modal--lg__browse-input {
+  display: none;
+}
+/* line 112, ../../scss/modules/_modal.scss */
+.modal--lg__dragbox-cloud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 36%;
+  width: 40px;
+  margin: auto;
+}
+/* line 125, ../../scss/modules/_modal.scss */
+.modal--lg__img-preview {
+  width: 80px;
+  height: 80px;
+  box-shadow: 1px -1px 4px 0px #999;
+}
+/* line 131, ../../scss/modules/_modal.scss */
+.modal--lg__browse-label {
   padding: 5px 20px;
   border-radius: 5px;
   background-color: #f2f2f2;
   color: #666;
   border: 1px solid #999;
 }
-/* line 39, ../../scss/modules/_modal.scss */
-.modal__img-dragbox {
-  height: 140px;
-  display: block;
-  width: 140px;
+/* line 139, ../../scss/modules/_modal.scss */
+.modal--lg__img-dragbox {
+  height: 80px;
+  width: 80px;
+  display: inline-block;
   border: 1px dashed #999;
+  position: relative;
+}
+/* line 148, ../../scss/modules/_modal.scss */
+.modal--lg__button {
+  margin: 30px 0 10px 0;
+}
+/* line 153, ../../scss/modules/_modal.scss */
+.modal--lg__error-message {
+  color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 51, ../../scss/modules/_modal.scss */
-  .modal {
-    border-radius: 8px;
-    border: 1px solid black;
+  /* line 164, ../../scss/modules/_modal.scss */
+  .modal--lg {
     max-width: 540px;
-    padding: 20px 40px 40px 40px;
-    position: relative;
-    z-index: 100;
-    top: -700px;
-    margin: auto;
-    height: 100%;
+    top: 50px;
+    height: 570px;
   }
-  /* line 62, ../../scss/modules/_modal.scss */
-  .modal__category {
-    width: 32%;
+  /* line 169, ../../scss/modules/_modal.scss */
+  .modal--lg__category {
+    width: 29%;
   }
-  /* line 66, ../../scss/modules/_modal.scss */
-  .modal__dragimage {
+  /* line 173, ../../scss/modules/_modal.scss */
+  .modal--lg__img-dragbox {
+    height: 140px;
+    width: 140px;
+  }
+  /* line 178, ../../scss/modules/_modal.scss */
+  .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 70, ../../scss/modules/_modal.scss */
-  .modal__browseimage {
+  /* line 182, ../../scss/modules/_modal.scss */
+  .modal--lg__browseimage {
     display: inline-block;
   }
-  /* line 74, ../../scss/modules/_modal.scss */
-  .modal__close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+  /* line 186, ../../scss/modules/_modal.scss */
+  .modal--lg__dragbox-cloud {
+    width: auto;
+  }
+  /* line 190, ../../scss/modules/_modal.scss */
+  .modal--lg__img-preview {
+    width: 140px;
+    height: 140px;
+    box-shadow: 1px -1px 4px 0px #999;
+  }
+  /* line 196, ../../scss/modules/_modal.scss */
+  .modal--lg__button {
+    width: 200px;
+  }
+  /* line 200, ../../scss/modules/_modal.scss */
+  .modal--lg__img-browse {
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 20px;
+  }
+  /* line 206, ../../scss/modules/_modal.scss */
+  .modal--lg__input {
+    width: 320px;
+  }
+}
+/* line 215, ../../scss/modules/_modal.scss */
+.modal--sm {
+  width: 290px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 8px;
+}
+/* line 231, ../../scss/modules/_modal.scss */
+.modal--sm__text {
+  width: 80%;
+  padding-bottom: 20px;
+}
+/* line 236, ../../scss/modules/_modal.scss */
+.modal--sm__button--cancel {
+  background-color: #999;
+  width: 120px;
+  display: inline-block;
+}
+/* line 243, ../../scss/modules/_modal.scss */
+.modal--sm__button--confirm {
+  background-color: #60AFD7;
+  width: 120px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+@media (min-width: 540px) {
+  /* line 253, ../../scss/modules/_modal.scss */
+  .modal--sm {
+    width: 350px;
   }
 }

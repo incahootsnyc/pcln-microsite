@@ -1,38 +1,116 @@
 .header {
-	position: relative;
-	padding: 10px;
+	position: fixed;
+	z-index: 100;
+	background-color: $white;
+	width: 100%;
+	top: 0;
+	left: 0;
 
 	&__logo {
 		width: 220px;
 		vertical-align: middle;
+		margin: 10px;
+	}
+
+	&__hamburger-icon {
+		position: absolute;
+		right: 10px;
+		top: 15px;
+		z-index: 500;
 	}
 }
-
 
 .navbar--user, .navbar--main {
 	display: none;
+}
 
-	@media (min-width: 540px) {
-		display: inline-block;
-	}
+.navbar--mobile {
+	display: none;
+	background-color: $black-5;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 320px;
+	height: 100vh;
+
 
 	&__item {
+		padding: 10px 30px;
+
+		+ li {
+			border-top: 1px solid $black-20;
+		}
+
+		&:hover {
+			background-color: $blue-3;
+		}
+	}
+
+	&__title {
+		font-weight: normal;
+		font-size: 18px;
+		padding: 10px 30px;
+		display: block;
+		border-bottom: 2px solid $black-20;
+	}
+}
+
+
+//Desktop styles
+
+@media (min-width: 841px) {
+
+	.header {
+		height: 110px;
+		
+		&__logo {
+			width: 275px;
+			margin: 20px;
+		}
+
+		&__hamburger-icon {
+			display: none;
+		}	
+	}
+
+
+	.navbar--main, .navbar--user {
 		display: inline-block;
+
+		&__item {
+			display: inline-block;
+		}
 	}
-}
 
-.navbar--user {
-	position: absolute;
-	right: 20px;
-	top: 10px;
+	.navbar--user {
+		position: absolute;
+		right: 20px;
+		top: 10px;
 
-
-	&__link {
-		padding: 0 8px;
+		&__link {
+			padding: 0 8px;
+		}
 	}
-}
 
-.image-tile {
-	width: 120px;
-	height: 120px;
-}
+	.navbar--main {
+		vertical-align: bottom;
+		padding-bottom: 5px;
+		margin: 0 20px;
+
+		&__link {
+			padding: 0 10px;
+			padding-bottom: 10px;
+			color: $black-40;
+			font-size: 16px;
+
+			&:hover {
+				border-bottom: 5px solid $blue-3;
+			}
+		}
+	}
+}	
+
+
+
+
+

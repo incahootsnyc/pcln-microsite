@@ -11,7 +11,7 @@ var imagePost = {
     		likesCount: 0
 		};
 	},
-	mapForClient: function (imageObj) {
+	mapForClient: function (imageObj, imageObjIndex) {
 		var s3bucket = s3.getBucket();
 		var params = { Key: imageObj.name };
 
@@ -23,7 +23,8 @@ var imagePost = {
 			datetime: imageObj.datetime,
 			tags: imageObj.tags,
 			likes: imageObj.likes,
-			likesCount: imageObj.likesCount
+			likesCount: imageObj.likesCount,
+			index: imageObjIndex
 		};
 	} 
 };

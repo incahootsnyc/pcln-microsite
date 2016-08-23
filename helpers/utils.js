@@ -1,3 +1,6 @@
+var config = require('../config');
+
+
 function generateGuid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -16,6 +19,35 @@ function generateUniqueName (fileName) {
 	return imageNameWithoutExtension + generateGuid() + fileExtension;
 }
 
+function getSortAndFilter (req, pageNum) {
+  var sortType = req.query.sort ? req.query.sort  : 'newest';
+  var filterTags = req.query.tags ? req.query.tags.split(',') : undefined;
+
+  var sortOptions = {  'limit': config.itemsPerPage };
+  var queryOptions = {};
+
+  if (pageNum) {
+    sortOptions['skip'] = (config.itemsPerPage * (pageNum-1));
+  }
+
+  if (sortType == 'popular') {
+    sortOptions['sort'] = [[ 'likesCount', 'desc' ]];
+  } else {
+    sortOptions['sort'] = [[ 'datetime', 'desc' ]];
+  }
+
+  if (filterTags && filterTags.length > 0) {
+    queryOptions['tags'] = { '$in' : filterTags };
+  }
+
+  return {
+    sort: sortOptions,
+    query: queryOptions,
+    sortType: sortType
+  };
+}
+
 module.exports = {
-	generateUniqueName: generateUniqueName
+	generateUniqueName: generateUniqueName,
+  getSortAndFilterConfig: getSortAndFilter
 }

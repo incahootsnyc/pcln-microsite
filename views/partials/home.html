@@ -2,8 +2,8 @@
 	<div class="submissions__header">	
 		<h1>Submissions</h1>
 		<select class="submissions__sort">
-			  <option value="newest">Newest</option>
-			  <option value="popular">Popular</option> 
+			  <option value="newest" <%= sort == "newest" ? "selected" : "" %>>Newest</option>
+			  <option value="popular" <%= sort == "popular" ? "selected" : "" %>>Popular</option> 
 		</select>
 	</div>
 	<div class="submissions__container">
@@ -13,8 +13,9 @@
 
 			<img class="submissions__img" data-id="<%= images[i].uniqueName %>" src="<%= images[i].thumbUrl %>">
 			 <div class="submission__info">
-			 
-			 <span class="submissions__username"><a href="">Val Geyvandvos</a></span> <span class="submissions__likes"><img src="/images/like.svg">Likes: 100</span>
+
+			 <span class="submissions__username"><a href="">Val Geyvandvos</a></span> <span class="submissions__likes">Likes: <%= images[i].likesCount %></span>
+
 			</div>
 		</li>
 	<% } %>

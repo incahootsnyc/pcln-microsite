@@ -4,7 +4,7 @@ var router = express.Router();
 var s3 = require('../helpers/s3');
 var utils = require('../helpers/utils');
 var db = require('../helpers/db');
-var imagePost = require('../helpers/image-post');
+var imagePostHelper = require('../helpers/image-post');
 var imageFormatter = require('../helpers/image-formatter');
 var async = require('async');
 var sizeOf = require('image-size');
@@ -43,9 +43,10 @@ router.post('/api/upload', function (req, res) {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-            var imagePostObj = imagePost.generate({
+            var imagePostObj = imagePostHelper.generateForDB({
                 name: uniqueFileName,
-                title: body.title
+                location: body.location,
+                datetime: body.datetime
             });
 
             if (dimensions.width > 1000 || dimensions.height > 1000) {
@@ -110,6 +111,7 @@ router.post('/api/upload', function (req, res) {
 });
 
 router.get('/api/remove/:uniqueName', function (req, res) {
+    var defaultErrorMessage = 'Error removing image! :O';
 
     db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
 
@@ -126,5 +128,56 @@ router.get('/api/remove/:uniqueName', function (req, res) {
     }); 
     
 });
+
+router.get('/api/like/:uniqueName', function (req, res) {
+    var defaultErrorMessage = 'Error liking image! :O';
+    var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
+
+    db.get().collection('imagePosts').findOne({ name: req.params.uniqueName }, function (error, item) {
+        if (error) {
+            res.json({ message: defaultErrorMessage });
+        } else {
+            item.likes.push(addedLike);
+            item.likesCount = item.likes.length;
+
+            db.get().collection('imagePosts').save(item, function (error, result) {
+                if (error) {
+                    res.json({ message: defaultErrorMessage });
+                } else {
+                    res.json({ liked: true });
+                }
+            });
+        }
+
+    }); 
+    
+});
+
+router.get('/api/fetchPosts/:pageNum', function (req, res) {
+
+    var searchConfig = utils.getSortAndFilterConfig(req, true);
+
+    db.get().collection('imagePosts', function (err, collection) {
+
+        collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
+    
+            var imagePosts = [];
+
+            imageList.forEach(function (imageObj) {
+                if (imageObj.name) {
+                    imagePosts.push(imagePostHelper.mapForClient(imageObj));
+                }
+            });
+        
+            res.json({ 
+                images: imagePosts,
+            });
+
+        });
+    })
+
+    
+});
+
 
 module.exports = router;

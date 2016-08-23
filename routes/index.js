@@ -1,26 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../helpers/db');
-var s3 = require('../helpers/s3');
+var _ = require('lodash');
+var utils = require('../helpers/utils');
+var imagePostHelper = require('../helpers/image-post');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
+
+	var searchConfig = utils.getSortAndFilterConfig(req);
 
 	db.get().collection('imagePosts', function (err, collection) {
 
-		collection.find().toArray(function (err, imageList) {
+		collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
 	
 			var imagePosts = [];
-			var s3bucket = s3.getBucket();
 
 			imageList.forEach(function (imageObj) {
 				if (imageObj.name) {
-					var params = { Key: imageObj.name };
-					imagePosts.push({
-						thumbUrl: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
-						detailsUrl: imageObj.detailPath || s3bucket.getSignedUrl('getObject', params),
-						uniqueName: imageObj.name
-					});
+					imagePosts.push(imagePostHelper.mapForClient(imageObj));
 				}
 			});
 		
@@ -28,7 +26,8 @@ router.get('/', function(req, res, next) {
 			  	title: 'PCLN Photo Contest', 
 			  	images: imagePosts,
 			  	isHome: true,
-			  	isTerms: false
+			  	isTerms: false,
+			  	sort: searchConfig.sortType
 			});
 
 		});

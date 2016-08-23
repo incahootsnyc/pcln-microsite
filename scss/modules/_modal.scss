@@ -45,10 +45,7 @@
 }
 
 .modal__headline {
-	color: $orange-2;
-	font-size: 20px;
-	display: inline-block;
-	margin-bottom: 10px;
+	@extend .headline--orange;
 
 }
 
@@ -72,7 +69,7 @@
 
 
 	&__headline {
-		@extend .modal__headline;
+		@extend .headline--orange;
 	}
 
 	&__subheadline {
@@ -214,7 +211,7 @@
 	}
 
 	&__headline {
-		@extend .modal__headline;
+		@extend .headline--orange;
 	}
 
 	&__text {

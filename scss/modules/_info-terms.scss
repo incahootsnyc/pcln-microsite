@@ -1,0 +1,8 @@
+.contest-info {
+	padding: 40px 30px;
+
+	&__headline {
+		@extend .headline--orange;
+	}
+
+}

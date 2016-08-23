@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 20, ../../scss/partials/_variables.scss */
 .group:after {
   content: "";
@@ -24,11 +25,6 @@
 }
 
 /* line 23, ../../scss/partials/_patterns.scss */
-input[type=checkbox] {
-  display: none;
-}
-
-/* line 28, ../../scss/partials/_patterns.scss */
 input[type="text"] {
   box-shadow: none;
   border: 1px solid #999;
@@ -405,16 +401,6 @@ input[type="text"] {
   color: #666;
   font-size: 14px;
 }
-/* line 91, ../../scss/modules/_modal.scss */
-.modal--lg__checkbox-span {
-  width: 25px;
-  border: 1px solid #999;
-  display: inline-block;
-  height: 25px;
-  border-radius: 3px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
 /* line 101, ../../scss/modules/_modal.scss */
 .modal--lg__category {
   margin: 10px 14px 0 0;
@@ -544,4 +530,93 @@ input[type="text"] {
   .modal--sm {
     width: 350px;
   }
+}
+/* Base for label styling */
+/* line 259, ../../scss/modules/_modal.scss */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+/* line 264, ../../scss/modules/_modal.scss */
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+/* line 272, ../../scss/modules/_modal.scss */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #aaa;
+  background: #f8f8f8;
+  border-radius: 3px;
+}
+
+/* checked mark aspect */
+/* line 283, ../../scss/modules/_modal.scss */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  font-size: 24px;
+  line-height: 0.8;
+  color: #60AFD7;
+  transition: all .2s;
+}
+
+/* checked mark aspect changes */
+/* line 295, ../../scss/modules/_modal.scss */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* line 299, ../../scss/modules/_modal.scss */
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* disabled checkbox */
+/* line 304, ../../scss/modules/_modal.scss */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+/* line 310, ../../scss/modules/_modal.scss */
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+
+/* line 313, ../../scss/modules/_modal.scss */
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+/* accessibility */
+/* line 317, ../../scss/modules/_modal.scss */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 1px dotted blue;
+}
+
+/* hover style just for information */
+/* line 323, ../../scss/modules/_modal.scss */
+label:hover:before {
+  border: 1px solid #4778d9 !important;
 }

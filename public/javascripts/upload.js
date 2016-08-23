@@ -39,10 +39,7 @@ pclnPicMe.uploadModalDelegate = (function () {
 				success: function (response) {
 						alert(response.message);
 
-						// clear form values for new upload
-						$form[0].reset();
-						$form.find('img#preview').attr('src', '');
-						droppedFile = false;
+						clearUploadForm($form);
 					}
 				};
 
@@ -118,11 +115,18 @@ pclnPicMe.uploadModalDelegate = (function () {
 			$uploadClose.click(function(){
 				$uploadModal.hide();
 				$overlay.hide();
+				clearUploadForm($uploadModal.find('form'));
 			});
 	}
 
+	function clearUploadForm ($form) {
+		$form[0].reset();
+		$form.find('img#preview').attr('src', '');
+		droppedFile = false;
+	}
 
-	function validForm ($form, droppedFile) {
+
+	function validForm ($form) {
 		console.log($form);
 	}
 	

@@ -17,8 +17,6 @@
 
 
 
-
-
 .modal {
 	position: absolute;
 	top: 85px;
@@ -116,6 +114,7 @@
 		top: 36%;
 		width: 40px;
 		margin: auto;
+		z-index: -5;
 	}
 
 	&__close {
@@ -125,7 +124,7 @@
 	&__img-preview {
 		width: 80px;
 		height: 80px;
-		box-shadow: 1px -1px 4px 0px $black-40;
+		// box-shadow: 1px -1px 4px 0px $black-40;
 	}
 
 	&__browse-label {
@@ -137,8 +136,8 @@
 	}
 
 	&__img-dragbox {
-		height: 80px;
-		width: 80px;
+		height: 82px;
+		width: 82px;
 		display: inline-block;
 		border: 1px dashed $black-40;
 		position: relative;
@@ -171,8 +170,8 @@
 		}
 
 		&__img-dragbox {
-			height: 140px;
-			width: 140px;
+			height: 142px;
+			width: 142px;
 		}
 
 		&__dragimage {
@@ -190,7 +189,7 @@
 		&__img-preview {
 			width: 140px;
 			height: 140px;
-			box-shadow: 1px -1px 4px 0px $black-40;
+			// box-shadow: 1px -1px 4px 0px $black-40;
 		}
 
 		&__button {

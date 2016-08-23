@@ -338,7 +338,7 @@ input[type="text"] {
   }
 }
 
-/* line 22, ../../scss/modules/_modal.scss */
+/* line 20, ../../scss/modules/_modal.scss */
 .modal, .modal--lg, .modal--sm {
   position: absolute;
   top: 85px;
@@ -349,7 +349,7 @@ input[type="text"] {
   display: none;
 }
 @media (min-width: 540px) {
-  /* line 22, ../../scss/modules/_modal.scss */
+  /* line 20, ../../scss/modules/_modal.scss */
   .modal, .modal--lg, .modal--sm {
     border-radius: 8px;
     padding: 20px 40px;
@@ -361,14 +361,14 @@ input[type="text"] {
   }
 }
 
-/* line 43, ../../scss/modules/_modal.scss */
+/* line 41, ../../scss/modules/_modal.scss */
 .modal__close, .modal--lg__close, .modal--sm__close {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-/* line 49, ../../scss/modules/_modal.scss */
+/* line 47, ../../scss/modules/_modal.scss */
 .modal__headline, .modal--lg__headline, .modal--sm__headline {
   color: #ff9600;
   font-size: 20px;
@@ -376,25 +376,25 @@ input[type="text"] {
   margin-bottom: 10px;
 }
 
-/* line 64, ../../scss/modules/_modal.scss */
+/* line 62, ../../scss/modules/_modal.scss */
 .modal--lg {
   width: 100%;
   height: 100vh;
 }
-/* line 80, ../../scss/modules/_modal.scss */
+/* line 78, ../../scss/modules/_modal.scss */
 .modal--lg__subheadline {
   font-size: 18px;
   color: #666;
   display: inline-block;
   margin: 20px 0 10px;
 }
-/* line 87, ../../scss/modules/_modal.scss */
+/* line 85, ../../scss/modules/_modal.scss */
 .modal--lg__checkbox-label {
   display: inline-block;
   color: #666;
   font-size: 14px;
 }
-/* line 93, ../../scss/modules/_modal.scss */
+/* line 91, ../../scss/modules/_modal.scss */
 .modal--lg__checkbox-span {
   width: 25px;
   border: 1px solid #999;
@@ -404,16 +404,16 @@ input[type="text"] {
   vertical-align: middle;
   margin-right: 5px;
 }
-/* line 103, ../../scss/modules/_modal.scss */
+/* line 101, ../../scss/modules/_modal.scss */
 .modal--lg__category {
   margin: 10px 14px 0 0;
   display: inline-block;
 }
-/* line 108, ../../scss/modules/_modal.scss */
+/* line 106, ../../scss/modules/_modal.scss */
 .modal--lg__browse-input {
   display: none;
 }
-/* line 112, ../../scss/modules/_modal.scss */
+/* line 110, ../../scss/modules/_modal.scss */
 .modal--lg__dragbox-cloud {
   position: absolute;
   left: 0;
@@ -421,14 +421,14 @@ input[type="text"] {
   top: 36%;
   width: 40px;
   margin: auto;
+  z-index: -5;
 }
-/* line 125, ../../scss/modules/_modal.scss */
+/* line 124, ../../scss/modules/_modal.scss */
 .modal--lg__img-preview {
   width: 80px;
   height: 80px;
-  box-shadow: 1px -1px 4px 0px #999;
 }
-/* line 131, ../../scss/modules/_modal.scss */
+/* line 130, ../../scss/modules/_modal.scss */
 .modal--lg__browse-label {
   padding: 5px 20px;
   border-radius: 5px;
@@ -436,73 +436,72 @@ input[type="text"] {
   color: #666;
   border: 1px solid #999;
 }
-/* line 139, ../../scss/modules/_modal.scss */
+/* line 138, ../../scss/modules/_modal.scss */
 .modal--lg__img-dragbox {
-  height: 80px;
-  width: 80px;
+  height: 82px;
+  width: 82px;
   display: inline-block;
   border: 1px dashed #999;
   position: relative;
 }
-/* line 148, ../../scss/modules/_modal.scss */
+/* line 147, ../../scss/modules/_modal.scss */
 .modal--lg__button {
   margin: 30px 0 10px 0;
 }
-/* line 153, ../../scss/modules/_modal.scss */
+/* line 152, ../../scss/modules/_modal.scss */
 .modal--lg__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 164, ../../scss/modules/_modal.scss */
+  /* line 163, ../../scss/modules/_modal.scss */
   .modal--lg {
     max-width: 540px;
     top: 50px;
     height: 570px;
   }
-  /* line 169, ../../scss/modules/_modal.scss */
+  /* line 168, ../../scss/modules/_modal.scss */
   .modal--lg__category {
     width: 29%;
   }
-  /* line 173, ../../scss/modules/_modal.scss */
+  /* line 172, ../../scss/modules/_modal.scss */
   .modal--lg__img-dragbox {
-    height: 140px;
-    width: 140px;
+    height: 142px;
+    width: 142px;
   }
-  /* line 178, ../../scss/modules/_modal.scss */
+  /* line 177, ../../scss/modules/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 182, ../../scss/modules/_modal.scss */
+  /* line 181, ../../scss/modules/_modal.scss */
   .modal--lg__browseimage {
     display: inline-block;
   }
-  /* line 186, ../../scss/modules/_modal.scss */
+  /* line 185, ../../scss/modules/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 190, ../../scss/modules/_modal.scss */
+  /* line 189, ../../scss/modules/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
-    box-shadow: 1px -1px 4px 0px #999;
   }
-  /* line 196, ../../scss/modules/_modal.scss */
+  /* line 195, ../../scss/modules/_modal.scss */
   .modal--lg__button {
     width: 200px;
   }
-  /* line 200, ../../scss/modules/_modal.scss */
+  /* line 199, ../../scss/modules/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     vertical-align: bottom;
     padding: 20px;
   }
-  /* line 206, ../../scss/modules/_modal.scss */
+  /* line 205, ../../scss/modules/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 215, ../../scss/modules/_modal.scss */
+/* line 214, ../../scss/modules/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -510,18 +509,18 @@ input[type="text"] {
   margin: auto;
   border-radius: 8px;
 }
-/* line 231, ../../scss/modules/_modal.scss */
+/* line 230, ../../scss/modules/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 236, ../../scss/modules/_modal.scss */
+/* line 235, ../../scss/modules/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 243, ../../scss/modules/_modal.scss */
+/* line 242, ../../scss/modules/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -530,7 +529,7 @@ input[type="text"] {
 }
 
 @media (min-width: 540px) {
-  /* line 253, ../../scss/modules/_modal.scss */
+  /* line 252, ../../scss/modules/_modal.scss */
   .modal--sm {
     width: 350px;
   }

@@ -11,6 +11,7 @@
 	width: 100%;
 	background-color: $orange-2;
 	transition: background-color 1s;
+	cursor: pointer;
 }
 
 .disabled {
@@ -18,7 +19,7 @@
 }
 
 .ishidden {
-	display: none;
+	display: none !important;
 }
 
 .headline--orange {

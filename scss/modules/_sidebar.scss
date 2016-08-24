@@ -30,13 +30,13 @@
 @media (min-width: 540px) {
 
 	.sidebar {
-		width: 40%;
+		width: 30%;
 		//position: fixed;
-		top: 71px;
+		top: 0;
 		max-width: 320px;
-		height: 100vh;
+		height: 100%;
 		padding: 20px;
-		float: left;
+		position: absolute;
 
 
 		&__contest-info {
@@ -101,8 +101,8 @@
 	}
 }
 
-@media (min-width: 841px) {
-	.sidebar {
-		top: 110px;
-	}
-}
+// @media (min-width: 841px) {
+// 	.sidebar {
+// 		top: 110px;
+// 	}
+// }

@@ -18,20 +18,21 @@
   width: 100%;
   background-color: #ff9600;
   transition: background-color 1s;
+  cursor: pointer;
 }
 
-/* line 16, ../../scss/partials/_patterns.scss */
+/* line 17, ../../scss/partials/_patterns.scss */
 .disabled {
   background-color: #ccc;
 }
 
-/* line 20, ../../scss/partials/_patterns.scss */
+/* line 21, ../../scss/partials/_patterns.scss */
 .ishidden {
-  display: none;
+  display: none !important;
 }
 
-/* line 24, ../../scss/partials/_patterns.scss */
-.headline--orange, .contest-info__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline {
+/* line 25, ../../scss/partials/_patterns.scss */
+.headline--orange, .contest-info__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline {
   font-size: 20px;
   color: #ff9600;
   display: inline-block;
@@ -39,7 +40,7 @@
   font-weight: bold;
 }
 
-/* line 35, ../../scss/partials/_patterns.scss */
+/* line 36, ../../scss/partials/_patterns.scss */
 input[type="text"] {
   box-shadow: none;
   border: 1px solid #999;
@@ -59,7 +60,7 @@ input[type="text"] {
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
-  padding-left: 30px;
+  padding-left: 35px;
   cursor: pointer;
 }
 
@@ -70,16 +71,16 @@ input[type="text"] {
   content: '';
   position: absolute;
   left: 0;
-  top: 2px;
-  width: 17px;
-  height: 17px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
+  top: 0px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #999;
+  background: #ffffff;
   border-radius: 3px;
 }
 
 /* checked mark aspect */
-/* line 26, ../../scss/partials/_checkbox.scss */
+/* line 28, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
   content: '✔';
@@ -93,20 +94,20 @@ input[type="text"] {
 }
 
 /* checked mark aspect changes */
-/* line 38, ../../scss/partials/_checkbox.scss */
+/* line 40, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:not(:checked) + label:after {
   opacity: 0;
   transform: scale(0);
 }
 
-/* line 42, ../../scss/partials/_checkbox.scss */
+/* line 44, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:checked + label:after {
   opacity: 1;
   transform: scale(1);
 }
 
 /* disabled checkbox */
-/* line 47, ../../scss/partials/_checkbox.scss */
+/* line 49, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:disabled:not(:checked) + label:before,
 [type="checkbox"]:disabled:checked + label:before {
   box-shadow: none;
@@ -114,25 +115,25 @@ input[type="text"] {
   background-color: #ddd;
 }
 
-/* line 53, ../../scss/partials/_checkbox.scss */
+/* line 55, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:disabled:checked + label:after {
   color: #999;
 }
 
-/* line 56, ../../scss/partials/_checkbox.scss */
+/* line 58, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:disabled + label {
   color: #aaa;
 }
 
 /* accessibility */
-/* line 60, ../../scss/partials/_checkbox.scss */
+/* line 62, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:checked:focus + label:before,
 [type="checkbox"]:not(:checked):focus + label:before {
   border: 1px dotted blue;
 }
 
 /* hover style just for information */
-/* line 66, ../../scss/partials/_checkbox.scss */
+/* line 68, ../../scss/partials/_checkbox.scss */
 label:hover:before {
   border: 1px solid #4778d9 !important;
 }
@@ -307,12 +308,12 @@ label:hover:before {
 @media (min-width: 540px) {
   /* line 32, ../../scss/modules/_sidebar.scss */
   .sidebar {
-    width: 40%;
-    top: 71px;
+    width: 30%;
+    top: 0;
     max-width: 320px;
-    height: 100vh;
+    height: 100%;
     padding: 20px;
-    float: left;
+    position: absolute;
   }
   /* line 42, ../../scss/modules/_sidebar.scss */
   .sidebar__contest-info {
@@ -375,12 +376,6 @@ label:hover:before {
     content: '';
   }
 }
-@media (min-width: 841px) {
-  /* line 105, ../../scss/modules/_sidebar.scss */
-  .sidebar {
-    top: 110px;
-  }
-}
 /* line 3, ../../scss/modules/_main.scss */
 .submissions__header {
   padding: 20px 10px 15px 30px;
@@ -414,14 +409,15 @@ label:hover:before {
 /* line 33, ../../scss/modules/_main.scss */
 .submissions__img:hover {
   box-shadow: 0px 0px 4px 0px #999;
+  cursor: pointer;
 }
-/* line 38, ../../scss/modules/_main.scss */
+/* line 39, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
   font-size: 10px;
   margin: 6px;
 }
-/* line 44, ../../scss/modules/_main.scss */
+/* line 45, ../../scss/modules/_main.scss */
 .submissions__username {
   display: inline-block;
   width: 45%;
@@ -430,37 +426,53 @@ label:hover:before {
   overflow: hidden;
   vertical-align: middle;
 }
-/* line 53, ../../scss/modules/_main.scss */
+/* line 54, ../../scss/modules/_main.scss */
 .submissions__likes {
   text-align: right;
 }
-/* line 57, ../../scss/modules/_main.scss */
-.submissions__like-icon {
-  vertical-align: middle;
-  padding: 0 5px;
+/* line 58, ../../scss/modules/_main.scss */
+.submissions__icon-container {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin: 0 5px;
+  background-color: #0a84c1;
+  border-radius: 50%;
+  transition: background-color .5s;
 }
-/* line 62, ../../scss/modules/_main.scss */
+/* line 68, ../../scss/modules/_main.scss */
+.submissions__icon-container:hover {
+  background-color: #999;
+  cursor: pointer;
+}
+/* line 75, ../../scss/modules/_main.scss */
+.submissions__like-icon {
+  width: 12px;
+  vertical-align: text-bottom;
+  margin: 3px;
+}
+/* line 81, ../../scss/modules/_main.scss */
 .submissions__sort {
   float: right;
   margin: 0 20px;
 }
 
 @media (min-width: 540px) {
-  /* line 73, ../../scss/modules/_main.scss */
+  /* line 92, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
   }
 
-  /* line 80, ../../scss/modules/_main.scss */
+  /* line 99, ../../scss/modules/_main.scss */
   .main {
-    width: 60%;
+    width: 70%;
     float: right;
   }
 }
-@media (min-width: 801px) {
-  /* line 89, ../../scss/modules/_main.scss */
+@media (min-width: 1066px) {
+  /* line 108, ../../scss/modules/_main.scss */
   .main {
     width: calc(100% - 320px);
   }
@@ -468,8 +480,76 @@ label:hover:before {
 /* line 1, ../../scss/modules/_info-terms.scss */
 .contest-info {
   padding: 40px 30px;
+  position: relative;
+}
+/* line 15, ../../scss/modules/_info-terms.scss */
+.contest-info__tips {
+  display: none;
+}
+/* line 18, ../../scss/modules/_info-terms.scss */
+.contest-info__tips__column {
+  width: 49%;
+  display: inline-block;
+  max-width: 275px;
+}
+/* line 24, ../../scss/modules/_info-terms.scss */
+.contest-info__tips__img {
+  width: 100%;
+}
+/* line 28, ../../scss/modules/_info-terms.scss */
+.contest-info__tips__img img {
+  width: inherit;
+  padding: 5px 10px 5px 0;
+}
+/* line 34, ../../scss/modules/_info-terms.scss */
+.contest-info__tips__headline {
+  font-weight: bold;
+  font-size: 20px;
+  color: #666;
 }
 
+/* line 56, ../../scss/modules/_info-terms.scss */
+.contest-prizes__tier-title {
+  background-color: #0a84c1;
+  color: #ffffff;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: bold;
+}
+/* line 66, ../../scss/modules/_info-terms.scss */
+.contest-prizes__tier-prize {
+  font-size: 20px;
+  padding: 5px 0 20px 5px;
+  color: #666;
+}
+
+@media (min-width: 540px) {
+  /* line 76, ../../scss/modules/_info-terms.scss */
+  .contest-info__container {
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 340px);
+  }
+
+  /* line 83, ../../scss/modules/_info-terms.scss */
+  .contest-info__tips {
+    display: block;
+    margin: auto;
+  }
+
+  /* line 88, ../../scss/modules/_info-terms.scss */
+  .contest-prizes {
+    position: absolute;
+    padding: 40px 20px;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.4);
+    top: 0px;
+    right: 20px;
+    height: 100%;
+  }
+}
 /* line 1, ../../scss/modules/_modal.scss */
 .modal-overlay {
   position: absolute;

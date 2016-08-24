@@ -26,6 +26,11 @@
 }
 
 /* line 20, ../../scss/partials/_patterns.scss */
+.ishidden {
+  display: none;
+}
+
+/* line 24, ../../scss/partials/_patterns.scss */
 .headline--orange, .contest-info__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline {
   font-size: 20px;
   color: #ff9600;
@@ -34,7 +39,7 @@
   font-weight: bold;
 }
 
-/* line 31, ../../scss/partials/_patterns.scss */
+/* line 35, ../../scss/partials/_patterns.scss */
 input[type="text"] {
   box-shadow: none;
   border: 1px solid #999;
@@ -134,11 +139,10 @@ label:hover:before {
 
 /* line 1, ../../scss/modules/_global.scss */
 .main-container {
-  max-width: 1440px;
   min-width: 320px;
 }
 
-/* line 7, ../../scss/modules/_global.scss */
+/* line 6, ../../scss/modules/_global.scss */
 .content-container {
   top: 70px;
   position: relative;
@@ -155,7 +159,7 @@ label:hover:before {
 }
 
 @media (min-width: 841px) {
-  /* line 24, ../../scss/modules/_global.scss */
+  /* line 23, ../../scss/modules/_global.scss */
   .content-container {
     top: 110px;
   }
@@ -510,7 +514,7 @@ label:hover:before {
 }
 
 /* line 40, ../../scss/modules/_modal.scss */
-.modal__close, .modal--lg__close, .modal--sm__close, .modal--details__close {
+.modal__close, .modal--lg__close, .modal--sm__close {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -678,31 +682,49 @@ label:hover:before {
   box-shadow: none;
   height: auto;
 }
-/* line 264, ../../scss/modules/_modal.scss */
+/* line 260, ../../scss/modules/_modal.scss */
+.modal--details__close {
+  position: absolute;
+  right: 12px;
+  top: -15px;
+}
+/* line 266, ../../scss/modules/_modal.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 268, ../../scss/modules/_modal.scss */
+/* line 270, ../../scss/modules/_modal.scss */
+.modal--details__arrow-right, .modal--details__arrow-left {
+  display: none;
+}
+/* line 274, ../../scss/modules/_modal.scss */
+.modal--details__arrow-right {
+  right: 0;
+}
+/* line 278, ../../scss/modules/_modal.scss */
+.modal--details__arrow-left {
+  left: 0;
+}
+/* line 282, ../../scss/modules/_modal.scss */
 .modal--details__container {
   max-width: 700px;
   margin: auto;
   position: relative;
 }
-/* line 274, ../../scss/modules/_modal.scss */
+/* line 288, ../../scss/modules/_modal.scss */
 .modal--details__img-categories {
   display: inline-block;
 }
-/* line 278, ../../scss/modules/_modal.scss */
+/* line 292, ../../scss/modules/_modal.scss */
 .modal--details__likes {
   display: inline-block;
 }
-/* line 282, ../../scss/modules/_modal.scss */
+/* line 296, ../../scss/modules/_modal.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 288, ../../scss/modules/_modal.scss */
+/* line 302, ../../scss/modules/_modal.scss */
 .modal--details__img-info {
   position: absolute;
   bottom: 5px;
@@ -713,14 +735,21 @@ label:hover:before {
   max-height: 91px;
   background: rgba(31, 28, 26, 0.7);
 }
-/* line 299, ../../scss/modules/_modal.scss */
+/* line 313, ../../scss/modules/_modal.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
 
 @media (min-width: 540px) {
-  /* line 309, ../../scss/modules/_modal.scss */
+  /* line 323, ../../scss/modules/_modal.scss */
   .modal--details__img-info {
     font-size: 16px;
+  }
+  /* line 327, ../../scss/modules/_modal.scss */
+  .modal--details__arrow-right, .modal--details__arrow-left {
+    position: absolute;
+    display: block;
+    padding: 5px;
+    top: 40%;
   }
 }

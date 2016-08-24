@@ -50,7 +50,8 @@ pclnPicMe.updateEventHandler = (function () {
 	function addCloseEventFn ($updateModal) {
 		var $updateClose = $updateModal.find('#update-modal-close');
 
-		$updateClose.click(function(){
+		$updateClose.click(function () {
+			$('body').css('overflow-y', '');
 			$updateModal.hide();
 		});
 	}

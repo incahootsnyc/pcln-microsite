@@ -89,8 +89,11 @@
     		$modal.hide();
     		if ($updateModal.length < 1) {
 				$updateModal = grabTemplateByName('update-modal');
+				var $updateForm = $updateModal.find('form');
 
 				pclnPicMe.updateEventHandler.addCloseEvent($updateModal);
+				pclnPicMe.updateEventHandler.addSubmitEvent($updateForm);
+				pclnPicMe.updateEventHandler.addValidationEvent($updateForm);
 
 				showModal($updateModal, { updateImageData: imagePostData } );
 			} else {

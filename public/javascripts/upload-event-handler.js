@@ -1,6 +1,12 @@
 pclnPicMe.uploadEventHandler = (function () {
 
 	var droppedFile = false;
+	var validationDictionary = {
+		'map': ['#image-error', '#category-error', '#location-error'],
+		'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return this.map[0]; },
+		'category[]': function (value) { if (!(value && value.length > 0)) return this.map[1]; },
+		'location': function (value) { if (!(value && value.length > 0)) return this.map[2]; }
+    };
 
 	return {
 		addSubmitEvent: addSubmitEventFn,
@@ -24,7 +30,7 @@ pclnPicMe.uploadEventHandler = (function () {
 			    formData.append($fileInput.attr('name'), droppedFile);
 			}
 
-			if (!isValidForm($form, formData, true)) {
+			if (!pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile, true)) {
 				return false;
 			}
 
@@ -35,9 +41,7 @@ pclnPicMe.uploadEventHandler = (function () {
 				contentType: false,
 				processData: false,
 				success: function (response) {
-						alert(response.message);
-
-						clearUploadForm($form);
+						window.location.href = '/';
 					}
 				};
 
@@ -120,7 +124,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form.change(function () {
 			var formData = new FormData(this);
 
-			isValidForm($form, formData);
+			pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile);
 		});
 
 	}
@@ -131,48 +135,6 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form.find('button[type="submit"]').addClass('disabled');
 		$form.parent().find('.modal--lg__error-message').addClass('ishidden');
 		droppedFile = false;
-	}
-
-	function isValidForm ($form, formData, isSubmitting) {
-		var possibleErrorsIds = ['#image-error', '#category-error', '#location-error'];
-		var errorsToDisplay = [];
-		var isValid = false;
-		var validationDictionary = {
-			'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return possibleErrorsIds[0]; },
-			'category[]': function (value) { if (!(value && value.length > 0)) return possibleErrorsIds[1]; },
-			'location': function (value) { if (!(value && value.length > 0)) return possibleErrorsIds[2]; }
-		};
-
-		for (var key in validationDictionary) {
-			var value = formData.get(key);
-			var error = validationDictionary[key](value);
-			if (error) {
-				errorsToDisplay.push(error);
-			}
-		}
-
-		isValid = errorsToDisplay.length == 0;
-
-		if (isSubmitting) {
-			possibleErrorsIds.forEach(function (errorId) {
-				if (errorsToDisplay.indexOf(errorId) > -1) {
-					$(errorId).removeClass('ishidden');
-				} else {
-					$(errorId).addClass('ishidden');
-				}
-			});
-		} else {
-			possibleErrorsIds.forEach(function (errorId) {
-				if (errorsToDisplay.indexOf(errorId) < 0) {
-					$(errorId).addClass('ishidden');
-				}
-			});
-		}
-
-		$form.find('button[type="submit"]').toggleClass('disabled', !isValid);
-
-		return isValid;
-
 	}
 	
 

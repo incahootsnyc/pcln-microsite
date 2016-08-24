@@ -85,8 +85,11 @@
 	}
 
 	&__category {
-		margin: 10px 14px 0 0;
-		display: inline-block;
+		margin: 5px 0;
+	    display: inline-block;
+	    width: 49%;
+	    vertical-align: bottom;
+	    height: 34px;
 	}
 
 	&__browse-input {
@@ -132,11 +135,12 @@
 	
 	&__button {
 		@extend .button;
-		margin: 30px 0 10px 0;
+		margin: 30px 0 10px 0;		
 	}
 
 	&__error-message {
 		color: $red;
+		display: none;
 	}
 
 }
@@ -152,12 +156,11 @@
 		height:  570px;
 
 		&__category {
-			    width: 29%;
-			    height: 30px;
-			    vertical-align: text-bottom;
+		    width: 29%;
+		    height: 30px;
+		    vertical-align: text-bottom;
+		    margin: 5px;
 		}
-
-
 
 		&__img-dragbox {
 			height: 142px;
@@ -188,9 +191,9 @@
 		}
 
 		&__img-browse {
-			display: inline-block;
-			vertical-align: bottom;
-			padding: 20px;
+			    display: inline-block;
+    			vertical-align: bottom;
+  				padding: 20px 20px 52px
 		}
 
 		&__input {

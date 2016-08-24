@@ -258,11 +258,25 @@
 
 
 	&__close {
-		@extend .modal__close;
+		position: absolute;
+		right: 12px;
+		top: -15px;
 	}
 
 	&__img {
 		width: 100%;
+	}
+
+	&__arrow-right, &__arrow-left {
+		display: none;
+	}
+
+	&__arrow-right {
+		right: 0;
+	}
+
+	&__arrow-left {
+		left: 0;
 	}
 
 	&__container {
@@ -308,6 +322,13 @@
 
 		&__img-info {
 			font-size: 16px;
+		}
+
+		&__arrow-right, &__arrow-left {
+			position: absolute;
+			display: block;
+			padding: 5px;
+			top: 40%
 		}
 	}
 }	

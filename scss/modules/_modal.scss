@@ -16,7 +16,6 @@
 }
 
 
-
 .modal {
 	position: absolute;
 	top: 85px;
@@ -153,8 +152,12 @@
 		height:  570px;
 
 		&__category {
-			width: 29%;
+			    width: 29%;
+			    height: 30px;
+			    vertical-align: text-bottom;
 		}
+
+
 
 		&__img-dragbox {
 			height: 142px;
@@ -168,6 +171,7 @@
 		&__browseimage {
 			display: inline-block;
 		}
+
 
 		&__dragbox-cloud {
 			width: auto;
@@ -242,76 +246,68 @@
 }
 
 
-/* Base for label styling */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  position: absolute;
-  left: -9999px;
-}
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-}
+.modal--details {
+	@extend .modal;
+	background-color: rgba(255, 255, 255, 0);
+	max-width: 800px;
+	box-shadow: none;
+	height: auto;
 
-/* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left:0; top: 2px;
-  width: 17px; height: 17px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 3px;
-}
-/* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: '✔';
-  position: absolute;
-  top: 0px; 
-  left: 3px;
-  font-size: 24px;
-  line-height: 0.8;
-  color: $blue-3;
-  transition: all .2s;
-}
-/* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0);
-}
-[type="checkbox"]:checked + label:after {
-  opacity: 1;
-  transform: scale(1);
-}
-/* disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
-  box-shadow: none;
-  border-color: #bbb;
-  background-color: #ddd;
-}
-[type="checkbox"]:disabled:checked + label:after {
-  color: #999;
-}
-[type="checkbox"]:disabled + label {
-  color: #aaa;
-}
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  border: 1px dotted blue;
-}
 
-/* hover style just for information */
-label:hover:before {
-  border: 1px solid #4778d9!important;
+	&__close {
+		@extend .modal__close;
+	}
+
+	&__img {
+		width: 100%;
+	}
+
+	&__container {
+		max-width: 700px;
+		margin: auto;
+		position: relative;
+	}
+
+	&__img-categories {
+		display: inline-block;
+	}
+
+	&__likes {
+		display: inline-block;
+	}
+
+	&__like-content {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+	}
+
+	&__img-info {
+		position: absolute;
+	    bottom: 5px;
+	    padding: 10px;
+	    color: #ffffff;
+	    font-size: 10px;
+	    width: 100%;
+	    max-height: 91px;
+	    background: rgba(31, 28, 26, 0.7);
+	}
+
+	&__edit {
+		color: $blue-3;
+	}
 }
 
 
+@media (min-width: 540px) {
+	
+	.modal--details {
+
+		&__img-info {
+			font-size: 16px;
+		}
+	}
+}	
 
 
 

@@ -7,7 +7,7 @@
 }
 
 /* line 3, ../../scss/partials/_patterns.scss */
-.button, .sidebar__submit-pic, .modal--lg__button, .modal--sm__button--cancel, .modal--sm__button--confirm {
+.button, .sidebar__submit-pic, .modal--lg__button, .modal--sm__button--cancel, .modal--sm__button--confirm, .modal--signin__button {
   font-weight: bold;
   display: block;
   color: #ffffff;
@@ -32,23 +32,23 @@
 }
 
 /* line 25, ../../scss/partials/_patterns.scss */
-.headline--orange, .contest-info__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline {
+.headline--orange, .contest-info__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline, .modal--signin__headline {
   font-size: 20px;
   color: #ff9600;
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
 /* line 37, ../../scss/partials/_patterns.scss */
-input[type="text"] {
+input[type="text"], input[type="password"] {
   box-shadow: none;
   border: 1px solid #999;
   height: 40px;
   border-radius: 3px;
 }
 
-/* line 46, ../../scss/partials/_patterns.scss */
+/* line 44, ../../scss/partials/_patterns.scss */
 .fade-in-on-load {
   animation-duration: 1.5s;
   animation-name: fadeInOnLoad;
@@ -598,16 +598,16 @@ body {
 }
 
 /* line 17, ../../scss/modules/_modal.scss */
-.modal, .modal--lg, .modal--sm, .modal--details {
+.modal, .modal--lg, .modal--sm, .modal--details, .modal--signin {
   position: absolute;
-  top: 75px;
+  top: 60px;
   background-color: #ffffff;
   padding: 20px;
   z-index: 100;
 }
 @media (min-width: 540px) {
   /* line 17, ../../scss/modules/_modal.scss */
-  .modal, .modal--lg, .modal--sm, .modal--details {
+  .modal, .modal--lg, .modal--sm, .modal--details, .modal--signin {
     border-radius: 8px;
     padding: 20px 40px;
     box-shadow: 5px -2px 10px 3px #6b6868;
@@ -742,19 +742,20 @@ body {
   /* line 191, ../../scss/modules/_modal.scss */
   .modal--lg__button {
     width: 200px;
+    display: inline-block;
   }
-  /* line 195, ../../scss/modules/_modal.scss */
+  /* line 196, ../../scss/modules/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     vertical-align: bottom;
     padding: 20px 20px 52px;
   }
-  /* line 201, ../../scss/modules/_modal.scss */
+  /* line 202, ../../scss/modules/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 210, ../../scss/modules/_modal.scss */
+/* line 211, ../../scss/modules/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -762,18 +763,18 @@ body {
   margin: auto;
   border-radius: 8px;
 }
-/* line 226, ../../scss/modules/_modal.scss */
+/* line 227, ../../scss/modules/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 231, ../../scss/modules/_modal.scss */
+/* line 232, ../../scss/modules/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 238, ../../scss/modules/_modal.scss */
+/* line 239, ../../scss/modules/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -782,19 +783,19 @@ body {
 }
 
 @media (min-width: 540px) {
-  /* line 248, ../../scss/modules/_modal.scss */
+  /* line 249, ../../scss/modules/_modal.scss */
   .modal--sm {
     width: 350px;
   }
 }
-/* line 254, ../../scss/modules/_modal.scss */
+/* line 255, ../../scss/modules/_modal.scss */
 .modal--details {
   background-color: rgba(255, 255, 255, 0);
   max-width: 800px;
   box-shadow: none;
   height: auto;
 }
-/* line 262, ../../scss/modules/_modal.scss */
+/* line 263, ../../scss/modules/_modal.scss */
 .modal--details__close {
   position: absolute;
   right: 12px;
@@ -803,51 +804,51 @@ body {
   opacity: 1;
   transition: opacity .5s;
 }
-/* line 271, ../../scss/modules/_modal.scss */
+/* line 272, ../../scss/modules/_modal.scss */
 .modal--details__close:hover {
   opacity: .6;
 }
-/* line 276, ../../scss/modules/_modal.scss */
+/* line 277, ../../scss/modules/_modal.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 280, ../../scss/modules/_modal.scss */
+/* line 281, ../../scss/modules/_modal.scss */
 .modal--details__category {
   padding-right: 10px;
 }
-/* line 284, ../../scss/modules/_modal.scss */
+/* line 285, ../../scss/modules/_modal.scss */
 .modal--details__arrow-right, .modal--details__arrow-left {
   display: none;
 }
-/* line 288, ../../scss/modules/_modal.scss */
+/* line 289, ../../scss/modules/_modal.scss */
 .modal--details__arrow-right {
   right: 0;
 }
-/* line 292, ../../scss/modules/_modal.scss */
+/* line 293, ../../scss/modules/_modal.scss */
 .modal--details__arrow-left {
   left: 0;
 }
-/* line 296, ../../scss/modules/_modal.scss */
+/* line 297, ../../scss/modules/_modal.scss */
 .modal--details__container {
   max-width: 700px;
   margin: auto;
   position: relative;
 }
-/* line 302, ../../scss/modules/_modal.scss */
+/* line 303, ../../scss/modules/_modal.scss */
 .modal--details__img-categories {
   display: inline-block;
 }
-/* line 306, ../../scss/modules/_modal.scss */
+/* line 307, ../../scss/modules/_modal.scss */
 .modal--details__likes {
   display: inline-block;
 }
-/* line 310, ../../scss/modules/_modal.scss */
+/* line 311, ../../scss/modules/_modal.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 316, ../../scss/modules/_modal.scss */
+/* line 317, ../../scss/modules/_modal.scss */
 .modal--details__img-info {
   position: absolute;
   bottom: 5px;
@@ -865,17 +866,17 @@ body {
   background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 }
-/* line 334, ../../scss/modules/_modal.scss */
+/* line 335, ../../scss/modules/_modal.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
 
 @media (min-width: 540px) {
-  /* line 344, ../../scss/modules/_modal.scss */
+  /* line 345, ../../scss/modules/_modal.scss */
   .modal--details__img-info {
     font-size: 16px;
   }
-  /* line 348, ../../scss/modules/_modal.scss */
+  /* line 349, ../../scss/modules/_modal.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
     position: absolute;
     cursor: pointer;
@@ -885,8 +886,55 @@ body {
     opacity: 1;
     transition: opacity .5s;
   }
-  /* line 357, ../../scss/modules/_modal.scss */
+  /* line 358, ../../scss/modules/_modal.scss */
   .modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
     opacity: .6;
+  }
+}
+/* line 366, ../../scss/modules/_modal.scss */
+.modal--signin {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+}
+/* line 372, ../../scss/modules/_modal.scss */
+.modal--signin__container {
+  max-width: 320px;
+  margin: auto;
+}
+/* line 377, ../../scss/modules/_modal.scss */
+.modal--signin__logo {
+  width: 100%;
+  padding: 20px 0 40px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 387, ../../scss/modules/_modal.scss */
+.modal--signin__bottom {
+  padding-top: 30px;
+}
+/* line 391, ../../scss/modules/_modal.scss */
+.modal--signin__input {
+  margin: 5px 0;
+}
+/* line 395, ../../scss/modules/_modal.scss */
+.modal--signin__button {
+  background-color: #0a84c1;
+  margin-top: 20px;
+}
+/* line 400, ../../scss/modules/_modal.scss */
+.modal--signin__button:hover {
+  background-color: #60AFD7;
+}
+/* line 405, ../../scss/modules/_modal.scss */
+.modal--signin__error-message {
+  color: #b01408;
+}
+
+@media (min-width: 540px) {
+  /* line 411, ../../scss/modules/_modal.scss */
+  .modal--signin {
+    width: 350px;
+    height: 500px;
+    top: 70px;
   }
 }

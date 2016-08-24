@@ -26,7 +26,7 @@
 	font-size: 20px;
 	color: $orange-2;
 	display: inline-block;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	font-weight: bold;
 }
 
@@ -34,14 +34,12 @@
 
 //checkbox pattern
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
 	box-shadow: none;
 	border: 1px solid $black-40;
 	height: 40px;
 	border-radius: 3px;
 }
-
-
 
 .fade-in-on-load {
  animation-duration: 1.5s; 

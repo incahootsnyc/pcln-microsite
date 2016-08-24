@@ -5,10 +5,6 @@ pclnPicMe.updateEventHandler = (function () {
 		populateUpdateModal: populateUpdateModalFn
 	};
 
-	function populateUpdateModalFn () {
-
-	}
-
 	function addCloseEventFn ($updateModal) {
 		var $updateClose = $updateModal.find('#update-modal-close');
 		var $overlay = $('#overlay');
@@ -18,7 +14,14 @@ pclnPicMe.updateEventHandler = (function () {
 			$overlay.hide();
 		});
 	}
-	
+
+	function populateUpdateModalFn ($modal, imageData) {
+		$modal.find('.modal--lg__img-preview').attr('src', imageData.thumbUrl);
+		$modal.find('.modal--lg__input').val(imageData.location);
+		imageData.tags.forEach(function (tag) {
+			$modal.find('#' + tag).prop('checked', true);
+		});
+	}
 
 })();
 

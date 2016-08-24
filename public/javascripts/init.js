@@ -25,5 +25,30 @@
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
+  pclnPicMe.lazyLoad = function (start) {
+    var imgContainers = $('.submissions__img');
+
+    for (var i = start || 0; i < pclnPicMe.resultset.length; i++) {
+      loadImagesAsync(pclnPicMe.resultset[i], i)
+    };
+
+    function loadImagesAsync (image, i) {
+      var imgElem = imgContainers[i];
+      var downloadingImage = new Image();
+      downloadingImage.onload = function(){
+          var _this = this;
+          imgElem.className += ' fade-in-on-load';
+          imgElem.src = _this.src;
+      };
+
+      downloadingImage.src = image.thumbUrl;
+    }
+  }
+
+  setTimeout(function () {
+    pclnPicMe.lazyLoad();
+  }, 1000);
+  
+
 
 })();

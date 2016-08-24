@@ -22,6 +22,7 @@
 					pclnPicMe.resultset = pclnPicMe.resultset.concat(response.images);
 					response.images.forEach(function (imageObject) {
 						$(buildListItemHTML(imageObject)).appendTo('#image-list');
+						pclnPicMe.lazyLoad(loadedResults);
 					});
 				}
 			};
@@ -33,7 +34,7 @@
 
 	function buildListItemHTML (imagePostObject) {
 		var itemHTML = '<li class="submissions__img-container">' + 
-					'<img class="submissions__img" data-id="' + imagePostObject.uniqueName + '" src="' + imagePostObject.thumbUrl + '">' + 
+					'<img class="submissions__img" data-id="' + imagePostObject.uniqueName + '" src="">' + 
 		 			'<div class="submission__info">' + 
 		 				'<span class="submissions__username"><a href="">Val Geyvandvos</a></span>' +
 		 				'<span class="submissions__likes"><img class="submissions__like-icon" src="/images/hand.svg"/>Likes: <span class="like-value">' + imagePostObject.likesCount + '</span></span>' +

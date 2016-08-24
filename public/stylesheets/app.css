@@ -405,6 +405,7 @@ label:hover:before {
   box-shadow: 1px -1px 4px 0px #c3bfbf;
   -webkit-transition: box-shadow 0s ease-in;
   transition: box-shadow 0s ease-in;
+  background: url(/images/rolling.gif) 50% no-repeat;
 }
 /* line 33, ../../scss/modules/_main.scss */
 .submissions__img:hover {
@@ -832,3 +833,15 @@ label:hover:before {
     top: 40%;
   }
 }
+
+.fade-in-on-load {
+  animation-duration: 1.5s; 
+  animation-name: fadeInOnLoad;
+}
+
+@keyframes fadeInOnLoad {
+  0%,50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+

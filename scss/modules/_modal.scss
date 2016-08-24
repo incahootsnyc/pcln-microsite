@@ -16,7 +16,7 @@
 
 .modal {
 	position: absolute;
-	top: 60px;
+	top: 0;
 	background-color: $white;
 	padding: 20px;
 	z-index: 100;
@@ -60,16 +60,9 @@
 
 .modal--lg {
 	@extend .modal;
-	//position: absolute;
-	//top: 85px;
-	//background-color: #fff;
 	width: 100%;
-	//padding: 20px;
 	height: 100vh;
-	//z-index: 100;
-	//display:none;
-
-
+	
 	&__headline {
 		@extend .headline--orange;
 	}

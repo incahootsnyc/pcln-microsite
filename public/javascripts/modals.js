@@ -57,10 +57,10 @@
 
 			addEditEventListener($detailsModal);
 
-			showModalWithOverlay($detailsModal, imagePostData);
+			showModalWithOverlay($detailsModal, { detailsImageData: imagePostData } );
 
 		} else {
-			showModalWithOverlay($detailsModal, imagePostData);
+			showModalWithOverlay($detailsModal, { detailsImageData: imagePostData });
 		}
     });
 
@@ -79,16 +79,22 @@
     function addEditEventListener ($modal) {
     	$modal.find('.modal--details__edit').click(function (e) {
     		e.preventDefault();
-    		
-    		var $updateModal = $('#update-modal');
-    		$modal.hide();
 
+    		var $currentTarget = $(e.currentTarget);
+    		var $updateModal = $('#update-modal');
+    		var imagePostData = pclnPicMe.resultset.find(function (imagePost) {
+				return imagePost.uniqueName == $currentTarget.parents('.modal--details__container').attr('data-id');
+			});
+
+    		$modal.hide();
     		if ($updateModal.length < 1) {
 				$updateModal = grabTemplateByName('update-modal');
 
-				showModalWithOverlay($updateModal);
+				pclnPicMe.updateEventHandler.addCloseEvent($updateModal);
+
+				showModalWithOverlay($updateModal, { updateImageData: imagePostData } );
 			} else {
-				showModalWithOverlay($updateModal);
+				showModalWithOverlay($updateModal, { updateImageData: imagePostData } );
 			}
     	});
     }
@@ -109,11 +115,13 @@
 		return $templatePartial.appendTo('body');
 	}
 
-	function showModalWithOverlay($modal, imageData) {
+	function showModalWithOverlay($modal, options) {
 		var overlay = $('#overlay');
 
-		if (imageData) {
-			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, imageData);
+		if (options && options.detailsImageData) {
+			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, options.detailsImageData);
+		} else if (options && options.updateImageData) {
+			pclnPicMe.updateEventHandler.populateUpdateModal($modal, options.updateImageData);
 		}
 
 		overlay.show();

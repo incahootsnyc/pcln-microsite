@@ -27,6 +27,7 @@
 			pclnPicMe.uploadEventHandler.addCloseEvent($uploadModal);
 			pclnPicMe.uploadEventHandler.addImagePreviewEvent($uploadForm);
 			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadForm);
+			pclnPicMe.uploadEventHandler.addValidationEvent($uploadForm);
 
 			showModalWithOverlay($uploadModal);
 		} else {

@@ -9,7 +9,8 @@ pclnPicMe.uploadEventHandler = (function () {
 		addSubmitEvent: addSubmitEventFn,
 		addDragAndDropCapabilities: addDragAndDropCapabilitiesFn,
 		addImagePreviewEvent: addImagePreviewEventFn,
-		addCloseEvent: addCloseEventFn
+		addCloseEvent: addCloseEventFn,
+		addValidationEvent: addValidationEventFn
 	};
 
 	// form submit event for upload modal
@@ -26,7 +27,7 @@ pclnPicMe.uploadEventHandler = (function () {
 			    formData.append($fileInput.attr('name'), droppedFile);
 			}
 
-			if (!isValidForm($form, formData)) {
+			if (!isValidForm($form, formData, true)) {
 				return false;
 			}
 
@@ -91,6 +92,7 @@ pclnPicMe.uploadEventHandler = (function () {
 				// clear any existing file that may have 
 				// been added via native upload
 				$form.find('#file').val('');
+				$form.trigger('change');
 			} else {
 				filePreview = e.currentTarget.files[0];
 				droppedFile = false;
@@ -112,26 +114,38 @@ pclnPicMe.uploadEventHandler = (function () {
 		var $overlay = $('#overlay');
 
 
-			$uploadClose.click(function(){
-				$uploadModal.hide();
-				$overlay.hide();
-				clearUploadForm($uploadModal.find('form'));
-			});
+		$uploadClose.click(function(){
+			$uploadModal.hide();
+			$overlay.hide();
+			clearUploadForm($uploadModal.find('form'));
+		});
+	}
+
+	function addValidationEventFn ($form) {		
+
+		$form.change(function () {
+			var formData = new FormData(this);
+
+			isValidForm($form, formData);
+		});
+
+		$form.find()
+
 	}
 
 	function clearUploadForm ($form) {
 		$form[0].reset();
 		$form.find('img#preview').attr('src', '');
 		$form.find('button[type="submit"]').addClass('disabled');
+		$form.parent().find('.modal--lg__error-message').hide();
 		droppedFile = false;
 	}
 
-
-	function isValidForm ($form, formData) {
+	function isValidForm ($form, formData, isSubmitting) {
 		var errorsToDisplay = [];
 		var isValid = false;
 		var validationDictionary = {
-			'image': function (value) { if (!(value && value.size > 0)) return '#image-error'; },
+			'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return '#image-error'; },
 			'category[]': function (value) { if (!(value && value.length > 0)) return '#category-error'; },
 			'location': function (value) { if (!(value && value.length > 0)) return '#location-error'; }
 		};
@@ -146,11 +160,16 @@ pclnPicMe.uploadEventHandler = (function () {
 
 		isValid = errorsToDisplay.length == 0
 
-		errorsToDisplay.forEach(function (errorId) {
-			$(errorId).show();
-		});
+		if (isSubmitting) {
+			errorsToDisplay.forEach(function (errorId) {
+				$(errorId).show();
+			});
+		}
+		
+		$form.parent().find('.modal--lg__error-message').toggleClass('ishidden', !isValid);
+		$form.find('button[type="submit"]').toggleClass('disabled', !isValid);
 
-		return isValid && $form.find('button[type="submit"]').removeClass('disabled');
+		return isValid;
 
 	}
 	

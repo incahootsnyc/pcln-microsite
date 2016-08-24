@@ -2,7 +2,6 @@
 	<strong class="modal--lg__headline">Submit a pic</strong>
 	<img class="modal--lg__close" id="upload-modal-close" src="/images/close.svg"/>
 
-
 	<form id="update-form" action="/api/update" method="post" >
 	
 		<!-- TODO: clean up inline styles -->
@@ -16,16 +15,17 @@
 			<ul>
 				<% for(var category in categories) { %>
 					<li class="modal--lg__category">
-						<input type="checkbox" name="category[]" value="<%= category %>">
-						<label class="modal--lg__checkbox-label" for="<%= category %>"><span class="modal--lg__checkbox-span"></span><%= categories[category] %></label>
+						<input type="checkbox" name="category[]" id="<%= category %>" value="<%= category %>">
+						<label class="modal--lg__checkbox-label" for="<%= category %>"><%= categories[category] %></label>
 					</li>
 				<% } %>
 			</ul>
 		</div>	
 
 		<div class="modal--lg__img-location">
-			<strong class="modal--lg__subheadline">Location</strong>
-			<input name="title" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
+			<strong class="modal--lg__subheadline">Location</strong> <span id="location-error" class="modal--lg__error-message ishidden">Required</span>
+			<input name="location" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
+
 		</div>
 
 		<button class="modal--lg__button disabled" type="submit">Submit</button>

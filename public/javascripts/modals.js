@@ -77,7 +77,9 @@
     });
 
     function addEditEventListener ($modal) {
-    	$modal.find('.modal--details__edit').click(function () {
+    	$modal.find('.modal--details__edit').click(function (e) {
+    		e.preventDefault();
+    		
     		var $updateModal = $('#update-modal');
     		$modal.hide();
 

@@ -25,11 +25,52 @@
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
-  pclnPicMe.updateLocalLikes = function (uniqueName, likesCount) {
+  pclnPicMe.isValidForm = function ($form, formData, validationDictionary, droppedFile, isSubmitting) {
+    var errorsToDisplay = [];
+    var isValid = false;
+
+    for (var key in validationDictionary) {
+      if (key != 'map') {
+        var value = formData.get(key);
+        var error = validationDictionary[key](value);
+        if (error) {
+          errorsToDisplay.push(error);
+        }
+      }
+    }
+
+    isValid = errorsToDisplay.length == 0;
+
+    if (isSubmitting) {
+      validationDictionary.map.forEach(function (errorId) {
+        if (errorsToDisplay.indexOf(errorId) > -1) {
+          $(errorId).removeClass('ishidden');
+        } else {
+          $(errorId).addClass('ishidden');
+        }
+      });
+    } else {
+      validationDictionary.map.forEach(function (errorId) {
+        if (errorsToDisplay.indexOf(errorId) < 0) {
+          $(errorId).addClass('ishidden');
+        }
+      });
+    }
+
+    $form.find('button[type="submit"]').toggleClass('disabled', !isValid);
+
+    return isValid;
+
+  }
+
+  pclnPicMe.updateLocalLikes = function (uniqueName, likesCount, isDetails) {
     var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
     match.likesCount = likesCount;
-    $('img[data-id="' + uniqueName + '"').parent().find('.like-value').text(likesCount);
-  }
+
+    if (isDetails) {
+      $('img[data-id="' + uniqueName + '"').parent().find('.like-value').text(likesCount);
+    }
+  };
 
   pclnPicMe.lazyLoad = function (start) {
     var imgContainers = $('.submissions__img');

@@ -11,12 +11,9 @@ pclnPicMe.detailsEventHandler = (function () {
 	function addCloseEventFn ($detailsModal) {
 
 		var $detailsClose = $detailsModal.find('#details-modal-close');
-		var $overlay = $('#overlay');
-
 
 		$detailsClose.click(function(){
 			$detailsModal.hide();
-			$overlay.hide();
 		});
 	}
 

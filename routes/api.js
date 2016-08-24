@@ -107,6 +107,30 @@ router.post('/api/upload', function (req, res) {
 	
 });
 
+router.post('/api/update', function (req, res) {
+    var defaultErrorMessage = 'Error updating image! :O';
+    var body = req.body;
+
+    db.get().collection('imagePosts').findOne({ name: body.uniquename }, function (error, item) {
+        if (error || !item) {
+            res.json({ message: defaultErrorMessage });
+        } else {
+            item.tags = body['category[]'];
+            item.location = body.location;
+
+            db.get().collection('imagePosts').save(item, function (error, result) {
+                if (error) {
+                    res.json({ message: defaultErrorMessage });
+                } else {
+                    res.json({ message: 'Successfully updated image! :D' });
+                }
+            });
+        }
+
+    }); 
+    
+});
+
 router.get('/api/remove/:uniqueName', function (req, res) {
     var defaultErrorMessage = 'Error removing image! :O';
 

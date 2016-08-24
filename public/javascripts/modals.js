@@ -30,9 +30,9 @@
 			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadForm);
 			pclnPicMe.uploadEventHandler.addValidationEvent($uploadForm);
 
-			showModalWithOverlay($uploadModal);
+			showModal($uploadModal);
 		} else {
-			showModalWithOverlay($uploadModal);
+			showModal($uploadModal);
 		}
 	});
 
@@ -57,10 +57,10 @@
 
 			addEditEventListener($detailsModal);
 
-			showModalWithOverlay($detailsModal, imagePostData);
+			showModal($detailsModal, { detailsImageData: imagePostData } );
 
 		} else {
-			showModalWithOverlay($detailsModal, imagePostData);
+			showModal($detailsModal, { detailsImageData: imagePostData });
 		}
     });
 
@@ -70,25 +70,34 @@
 
     	if ($signinModal.length < 1) {
 			$signinModal = grabTemplateByName('signin-modal');
-			showModalWithOverlay($signinModal);
+			showModal($signinModal);
 		} else {
-			showModalWithOverlay($signinModal);
+			showModal($signinModal);
 		}
     });
 
     function addEditEventListener ($modal) {
     	$modal.find('.modal--details__edit').click(function (e) {
     		e.preventDefault();
-    		
-    		var $updateModal = $('#update-modal');
-    		$modal.hide();
 
+    		var $currentTarget = $(e.currentTarget);
+    		var $updateModal = $('#update-modal');
+    		var imagePostData = pclnPicMe.resultset.find(function (imagePost) {
+				return imagePost.uniqueName == $currentTarget.parents('.modal--details__container').attr('data-id');
+			});
+
+    		$modal.hide();
     		if ($updateModal.length < 1) {
 				$updateModal = grabTemplateByName('update-modal');
+				var $updateForm = $updateModal.find('form');
 
-				showModalWithOverlay($updateModal);
+				pclnPicMe.updateEventHandler.addCloseEvent($updateModal);
+				pclnPicMe.updateEventHandler.addSubmitEvent($updateForm);
+				pclnPicMe.updateEventHandler.addValidationEvent($updateForm);
+
+				showModal($updateModal, { updateImageData: imagePostData } );
 			} else {
-				showModalWithOverlay($updateModal);
+				showModal($updateModal, { updateImageData: imagePostData } );
 			}
     	});
     }
@@ -109,14 +118,14 @@
 		return $templatePartial.appendTo('body');
 	}
 
-	function showModalWithOverlay($modal, imageData) {
-		// var overlay = $('#overlay');
+	function showModal($modal, options) {
 
-		if (imageData) {
-			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, imageData);
+		if (options && options.detailsImageData) {
+			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, options.detailsImageData);
+		} else if (options && options.updateImageData) {
+			pclnPicMe.updateEventHandler.populateUpdateModal($modal, options.updateImageData);
 		}
 
-		// overlay.show();
 		$modal.show();
 	}
 

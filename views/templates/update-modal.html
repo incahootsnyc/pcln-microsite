@@ -1,7 +1,9 @@
 <div id="update-modal" class="modal-overlay">
 	<div class="modal--lg">
+
 		<strong class="modal--lg__headline">My Pic</strong>
-		<img class="modal--lg__close" id="upload-modal-close" src="/images/close.svg"/>
+		<img class="modal--lg__close" id="update-modal-close" src="/images/close.svg"/>
+
 
 		<form id="update-form" action="/api/update" method="post" >
 		
@@ -12,19 +14,19 @@
 			</div>
 
 			<div class="modal--lg__img-tags">
-				<strong class="modal--lg__subheadline">Tags</strong> 
+				<strong class="modal--lg__subheadline">Tags</strong> <span id="update-category-error" class="modal--lg__error-message ishidden">You must choose at least one tag.</span>
 				<ul>
 					<% for(var category in categories) { %>
 						<li class="modal--lg__category">
-							<input type="checkbox" name="category[]" id="<%= category %>" value="<%= category %>">
-							<label class="modal--lg__checkbox-label" for="<%= category %>"><%= categories[category] %></label>
+							<input type="checkbox" name="category[]" id="update-<%= category %>" value="<%= category %>">
+							<label class="modal--lg__checkbox-label" for="update-<%= category %>"><%= categories[category] %></label>
 						</li>
 					<% } %>
 				</ul>
 			</div>	
 
 			<div class="modal--lg__img-location">
-				<strong class="modal--lg__subheadline">Location</strong> <span id="location-error" class="modal--lg__error-message ishidden">Required</span>
+				<strong class="modal--lg__subheadline">Location</strong> <span id="update-location-error" class="modal--lg__error-message ishidden">Required</span>
 				<input name="location" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
 
 			</div>

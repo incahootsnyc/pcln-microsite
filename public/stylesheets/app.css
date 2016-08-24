@@ -588,61 +588,60 @@ label:hover:before {
 /* line 141, ../../scss/modules/_modal.scss */
 .modal--lg__error-message {
   color: #b01408;
-  display: none;
 }
 
 @media (min-width: 540px) {
-  /* line 153, ../../scss/modules/_modal.scss */
+  /* line 152, ../../scss/modules/_modal.scss */
   .modal--lg {
     max-width: 540px;
     top: 50px;
     height: 570px;
   }
-  /* line 158, ../../scss/modules/_modal.scss */
+  /* line 157, ../../scss/modules/_modal.scss */
   .modal--lg__category {
     width: 29%;
     height: 30px;
     vertical-align: text-bottom;
     margin: 5px;
   }
-  /* line 165, ../../scss/modules/_modal.scss */
+  /* line 164, ../../scss/modules/_modal.scss */
   .modal--lg__img-dragbox {
     height: 142px;
     width: 142px;
   }
-  /* line 170, ../../scss/modules/_modal.scss */
+  /* line 169, ../../scss/modules/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 174, ../../scss/modules/_modal.scss */
+  /* line 173, ../../scss/modules/_modal.scss */
   .modal--lg__browseimage {
     display: inline-block;
   }
-  /* line 179, ../../scss/modules/_modal.scss */
+  /* line 178, ../../scss/modules/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 183, ../../scss/modules/_modal.scss */
+  /* line 182, ../../scss/modules/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
   }
-  /* line 189, ../../scss/modules/_modal.scss */
+  /* line 188, ../../scss/modules/_modal.scss */
   .modal--lg__button {
     width: 200px;
   }
-  /* line 193, ../../scss/modules/_modal.scss */
+  /* line 192, ../../scss/modules/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     vertical-align: bottom;
     padding: 20px 20px 52px;
   }
-  /* line 199, ../../scss/modules/_modal.scss */
+  /* line 198, ../../scss/modules/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 208, ../../scss/modules/_modal.scss */
+/* line 207, ../../scss/modules/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -650,18 +649,18 @@ label:hover:before {
   margin: auto;
   border-radius: 8px;
 }
-/* line 224, ../../scss/modules/_modal.scss */
+/* line 223, ../../scss/modules/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 229, ../../scss/modules/_modal.scss */
+/* line 228, ../../scss/modules/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 236, ../../scss/modules/_modal.scss */
+/* line 235, ../../scss/modules/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -670,61 +669,61 @@ label:hover:before {
 }
 
 @media (min-width: 540px) {
-  /* line 246, ../../scss/modules/_modal.scss */
+  /* line 245, ../../scss/modules/_modal.scss */
   .modal--sm {
     width: 350px;
   }
 }
-/* line 252, ../../scss/modules/_modal.scss */
+/* line 251, ../../scss/modules/_modal.scss */
 .modal--details {
   background-color: rgba(255, 255, 255, 0);
   max-width: 800px;
   box-shadow: none;
   height: auto;
 }
-/* line 260, ../../scss/modules/_modal.scss */
+/* line 259, ../../scss/modules/_modal.scss */
 .modal--details__close {
   position: absolute;
   right: 12px;
   top: -15px;
 }
-/* line 266, ../../scss/modules/_modal.scss */
+/* line 265, ../../scss/modules/_modal.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 270, ../../scss/modules/_modal.scss */
+/* line 269, ../../scss/modules/_modal.scss */
 .modal--details__arrow-right, .modal--details__arrow-left {
   display: none;
 }
-/* line 274, ../../scss/modules/_modal.scss */
+/* line 273, ../../scss/modules/_modal.scss */
 .modal--details__arrow-right {
   right: 0;
 }
-/* line 278, ../../scss/modules/_modal.scss */
+/* line 277, ../../scss/modules/_modal.scss */
 .modal--details__arrow-left {
   left: 0;
 }
-/* line 282, ../../scss/modules/_modal.scss */
+/* line 281, ../../scss/modules/_modal.scss */
 .modal--details__container {
   max-width: 700px;
   margin: auto;
   position: relative;
 }
-/* line 288, ../../scss/modules/_modal.scss */
+/* line 287, ../../scss/modules/_modal.scss */
 .modal--details__img-categories {
   display: inline-block;
 }
-/* line 292, ../../scss/modules/_modal.scss */
+/* line 291, ../../scss/modules/_modal.scss */
 .modal--details__likes {
   display: inline-block;
 }
-/* line 296, ../../scss/modules/_modal.scss */
+/* line 295, ../../scss/modules/_modal.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 302, ../../scss/modules/_modal.scss */
+/* line 301, ../../scss/modules/_modal.scss */
 .modal--details__img-info {
   position: absolute;
   bottom: 5px;
@@ -735,17 +734,17 @@ label:hover:before {
   max-height: 91px;
   background: rgba(31, 28, 26, 0.7);
 }
-/* line 313, ../../scss/modules/_modal.scss */
+/* line 312, ../../scss/modules/_modal.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
 
 @media (min-width: 540px) {
-  /* line 323, ../../scss/modules/_modal.scss */
+  /* line 322, ../../scss/modules/_modal.scss */
   .modal--details__img-info {
     font-size: 16px;
   }
-  /* line 327, ../../scss/modules/_modal.scss */
+  /* line 326, ../../scss/modules/_modal.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
     position: absolute;
     display: block;

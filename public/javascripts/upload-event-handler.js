@@ -137,7 +137,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form[0].reset();
 		$form.find('img#preview').attr('src', '');
 		$form.find('button[type="submit"]').addClass('disabled');
-		$form.parent().find('.modal--lg__error-message').hide();
+		$form.parent().find('.modal--lg__error-message').addClass('ishidden');
 		droppedFile = false;
 	}
 
@@ -162,11 +162,11 @@ pclnPicMe.uploadEventHandler = (function () {
 
 		if (isSubmitting) {
 			errorsToDisplay.forEach(function (errorId) {
-				$(errorId).show();
+				$(errorId).removeClass('ishidden');
 			});
 		}
 		
-		$form.parent().find('.modal--lg__error-message').toggleClass('ishidden', !isValid);
+		$form.parent().find('.modal--lg__error-message').toggleClass('ishidden', isValid);
 		$form.find('button[type="submit"]').toggleClass('disabled', !isValid);
 
 		return isValid;

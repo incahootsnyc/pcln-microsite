@@ -162,9 +162,9 @@ router.get('/api/fetchPosts/:pageNum', function (req, res) {
         
                 var imagePosts = [];
 
-                imageList.forEach(function (imageObj) {
+                imageList.forEach(function (imageObj, index) {
                     if (imageObj.name) {
-                        imagePosts.push(imagePostHelper.mapForClient(imageObj));
+                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip));
                     }
                 });
 

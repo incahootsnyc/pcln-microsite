@@ -1,6 +1,3 @@
-var pclnPicMe = pclnPicMe || {};
-
-
 pclnPicMe.uploadEventHandler = (function () {
 
 	var droppedFile = false;
@@ -9,7 +6,8 @@ pclnPicMe.uploadEventHandler = (function () {
 		addSubmitEvent: addSubmitEventFn,
 		addDragAndDropCapabilities: addDragAndDropCapabilitiesFn,
 		addImagePreviewEvent: addImagePreviewEventFn,
-		addCloseEvent: addCloseEventFn
+		addCloseEvent: addCloseEventFn,
+		addValidationEvent: addValidationEventFn
 	};
 
 	// form submit event for upload modal
@@ -26,7 +24,7 @@ pclnPicMe.uploadEventHandler = (function () {
 			    formData.append($fileInput.attr('name'), droppedFile);
 			}
 
-			if (!isValidForm($form, formData)) {
+			if (!isValidForm($form, formData, true)) {
 				return false;
 			}
 
@@ -91,6 +89,7 @@ pclnPicMe.uploadEventHandler = (function () {
 				// clear any existing file that may have 
 				// been added via native upload
 				$form.find('#file').val('');
+				$form.trigger('change');
 			} else {
 				filePreview = e.currentTarget.files[0];
 				droppedFile = false;
@@ -112,28 +111,39 @@ pclnPicMe.uploadEventHandler = (function () {
 		var $overlay = $('#overlay');
 
 
-			$uploadClose.click(function(){
-				$uploadModal.hide();
-				$overlay.hide();
-				clearUploadForm($uploadModal.find('form'));
-			});
+		$uploadClose.click(function(){
+			$uploadModal.hide();
+			$overlay.hide();
+			clearUploadForm($uploadModal.find('form'));
+		});
+	}
+
+	function addValidationEventFn ($form) {		
+
+		$form.change(function () {
+			var formData = new FormData(this);
+
+			isValidForm($form, formData);
+		});
+
 	}
 
 	function clearUploadForm ($form) {
 		$form[0].reset();
 		$form.find('img#preview').attr('src', '');
 		$form.find('button[type="submit"]').addClass('disabled');
+		$form.parent().find('.modal--lg__error-message').addClass('ishidden');
 		droppedFile = false;
 	}
 
-
-	function isValidForm ($form, formData) {
+	function isValidForm ($form, formData, isSubmitting) {
+		var possibleErrorsIds = ['#image-error', '#category-error', '#location-error'];
 		var errorsToDisplay = [];
 		var isValid = false;
 		var validationDictionary = {
-			'image': function (value) { if (!(value && value.size > 0)) return '#image-error'; },
-			'category[]': function (value) { if (!(value && value.length > 0)) return '#category-error'; },
-			'location': function (value) { if (!(value && value.length > 0)) return '#location-error'; }
+			'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return possibleErrorsIds[0]; },
+			'category[]': function (value) { if (!(value && value.length > 0)) return possibleErrorsIds[1]; },
+			'location': function (value) { if (!(value && value.length > 0)) return possibleErrorsIds[2]; }
 		};
 
 		for (var key in validationDictionary) {
@@ -144,13 +154,27 @@ pclnPicMe.uploadEventHandler = (function () {
 			}
 		}
 
-		isValid = errorsToDisplay.length == 0
+		isValid = errorsToDisplay.length == 0;
 
-		errorsToDisplay.forEach(function (errorId) {
-			$(errorId).show();
-		});
+		if (isSubmitting) {
+			possibleErrorsIds.forEach(function (errorId) {
+				if (errorsToDisplay.indexOf(errorId) > -1) {
+					$(errorId).removeClass('ishidden');
+				} else {
+					$(errorId).addClass('ishidden');
+				}
+			});
+		} else {
+			possibleErrorsIds.forEach(function (errorId) {
+				if (errorsToDisplay.indexOf(errorId) < 0) {
+					$(errorId).addClass('ishidden');
+				}
+			});
+		}
 
-		return isValid && $form.find('button[type="submit"]').removeClass('disabled');
+		$form.find('button[type="submit"]').toggleClass('disabled', !isValid);
+
+		return isValid;
 
 	}
 	

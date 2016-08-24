@@ -7,7 +7,8 @@
 		'upload-success': 1,
 		'delete-confirm': 2,
 		'update-modal': 3,
-		'details-modal': 4
+		'details-modal': 4,
+		'signin-modal': 5
 	};
 
 	$('#upload-image').click(function (e) {
@@ -27,6 +28,7 @@
 			pclnPicMe.uploadEventHandler.addCloseEvent($uploadModal);
 			pclnPicMe.uploadEventHandler.addImagePreviewEvent($uploadForm);
 			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadForm);
+			pclnPicMe.uploadEventHandler.addValidationEvent($uploadForm);
 
 			showModalWithOverlay($uploadModal);
 		} else {
@@ -49,10 +51,11 @@
 			$detailsModal = grabTemplateByName('details-modal');
 
 			pclnPicMe.detailsEventHandler.addCloseEvent($detailsModal);
-			pclnPicMe.detailsEventHandler.addShiftLeftEvent($detailsModal);
-			pclnPicMe.detailsEventHandler.addShiftRightEvent($detailsModal);
+			pclnPicMe.detailsEventHandler.addShiftEvents($detailsModal);
 
 			pclnPicMe.likesEventHandler.addLikeEvent($detailsModal);
+
+			addEditEventListener($detailsModal);
 
 			showModalWithOverlay($detailsModal, imagePostData);
 
@@ -61,6 +64,34 @@
 		}
     });
 
+    $('.navbar--user__link').click(function (e) {
+    	e.preventDefault();
+    	var $signinModal = $('#signin-modal');
+
+    	if ($signinModal.length < 1) {
+			$signinModal = grabTemplateByName('signin-modal');
+			showModalWithOverlay($signinModal);
+		} else {
+			showModalWithOverlay($signinModal);
+		}
+    });
+
+    function addEditEventListener ($modal) {
+    	$modal.find('.modal--details__edit').click(function (e) {
+    		e.preventDefault();
+    		
+    		var $updateModal = $('#update-modal');
+    		$modal.hide();
+
+    		if ($updateModal.length < 1) {
+				$updateModal = grabTemplateByName('update-modal');
+
+				showModalWithOverlay($updateModal);
+			} else {
+				showModalWithOverlay($updateModal);
+			}
+    	});
+    }
 
 	function grabTemplateByName (name) {
 		var templateHtml = $('template').html().trim();
@@ -82,15 +113,11 @@
 		var overlay = $('#overlay');
 
 		if (imageData) {
-			populateDetailsModal($modal, imageData);
+			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, imageData);
 		}
 
 		overlay.show();
 		$modal.show();
-	}
-
-	function populateDetailsModal ($modal, imageData) {
-		// set details info here
 	}
 
 })();

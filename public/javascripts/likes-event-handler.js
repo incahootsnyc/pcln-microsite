@@ -1,6 +1,3 @@
-var pclnPicMe = pclnPicMe || {};
-
-
 pclnPicMe.likesEventHandler = (function () {
 
 	$('#image-list').on('click', '.submissions__like-icon', function () {

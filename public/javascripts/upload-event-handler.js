@@ -126,8 +126,6 @@ pclnPicMe.uploadEventHandler = (function () {
 			isValidForm($form, formData);
 		});
 
-		$form.find()
-
 	}
 
 	function clearUploadForm ($form) {
@@ -139,12 +137,13 @@ pclnPicMe.uploadEventHandler = (function () {
 	}
 
 	function isValidForm ($form, formData, isSubmitting) {
+		var possibleErrorsIds = ['#image-error', '#category-error', '#location-error'];
 		var errorsToDisplay = [];
 		var isValid = false;
 		var validationDictionary = {
-			'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return '#image-error'; },
-			'category[]': function (value) { if (!(value && value.length > 0)) return '#category-error'; },
-			'location': function (value) { if (!(value && value.length > 0)) return '#location-error'; }
+			'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return possibleErrorsIds[0]; },
+			'category[]': function (value) { if (!(value && value.length > 0)) return possibleErrorsIds[1]; },
+			'location': function (value) { if (!(value && value.length > 0)) return possibleErrorsIds[2]; }
 		};
 
 		for (var key in validationDictionary) {
@@ -155,15 +154,24 @@ pclnPicMe.uploadEventHandler = (function () {
 			}
 		}
 
-		isValid = errorsToDisplay.length == 0
+		isValid = errorsToDisplay.length == 0;
 
 		if (isSubmitting) {
-			errorsToDisplay.forEach(function (errorId) {
-				$(errorId).removeClass('ishidden');
+			possibleErrorsIds.forEach(function (errorId) {
+				if (errorsToDisplay.indexOf(errorId) > -1) {
+					$(errorId).removeClass('ishidden');
+				} else {
+					$(errorId).addClass('ishidden');
+				}
+			});
+		} else {
+			possibleErrorsIds.forEach(function (errorId) {
+				if (errorsToDisplay.indexOf(errorId) < 0) {
+					$(errorId).addClass('ishidden');
+				}
 			});
 		}
-		
-		$form.parent().find('.modal--lg__error-message').toggleClass('ishidden', isValid);
+
 		$form.find('button[type="submit"]').toggleClass('disabled', !isValid);
 
 		return isValid;

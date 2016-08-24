@@ -16,7 +16,7 @@
 			<ul>
 				<% for(var category in categories) { %>
 					<li class="modal--lg__category">
-						<input type="checkbox" name="<%= category %>" value="<%= category %>">
+						<input type="checkbox" name="category[]" value="<%= category %>">
 						<label class="modal--lg__checkbox-label" for="<%= category %>"><span class="modal--lg__checkbox-span"></span><%= categories[category] %></label>
 					</li>
 				<% } %>

@@ -44,7 +44,7 @@
 		var $_this = $(this);
 		var $detailsModal = $('#details-modal');
 		var imagePostData = pclnPicMe.resultset.find(function (imagePost) {
-			return imagePost.uniqueName == $_this.data('id');
+			return imagePost.uniqueName == $_this.attr('data-id');
 		});
 
 		if ($detailsModal.length < 1) {

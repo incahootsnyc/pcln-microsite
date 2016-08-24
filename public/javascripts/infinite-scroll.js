@@ -22,8 +22,9 @@
 					pclnPicMe.resultset = pclnPicMe.resultset.concat(response.images);
 					response.images.forEach(function (imageObject) {
 						$(buildListItemHTML(imageObject)).appendTo('#image-list');
-						pclnPicMe.lazyLoad(loadedResults);
 					});
+
+					pclnPicMe.lazyLoad(loadedResults);
 				}
 			};
 

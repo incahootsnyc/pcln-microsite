@@ -29,7 +29,7 @@
     var imgContainers = $('.submissions__img');
 
     for (var i = start || 0; i < pclnPicMe.resultset.length; i++) {
-      loadImagesAsync(pclnPicMe.resultset[i], i)
+      loadImagesAsync(pclnPicMe.resultset[i], i);
     };
 
     function loadImagesAsync (image, i) {

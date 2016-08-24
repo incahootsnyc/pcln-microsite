@@ -55,6 +55,8 @@
 
 			pclnPicMe.likesEventHandler.addLikeEvent($detailsModal);
 
+			addEditEventListener($detailsModal);
+
 			showModalWithOverlay($detailsModal, imagePostData);
 
 		} else {
@@ -74,6 +76,20 @@
 		}
     });
 
+    function addEditEventListener ($modal) {
+    	$modal.find('.modal--details__edit').click(function () {
+    		var $updateModal = $('#update-modal');
+    		$modal.hide();
+
+    		if ($updateModal.length < 1) {
+				$updateModal = grabTemplateByName('update-modal');
+
+				showModalWithOverlay($updateModal);
+			} else {
+				showModalWithOverlay($updateModal);
+			}
+    	});
+    }
 
 	function grabTemplateByName (name) {
 		var templateHtml = $('template').html().trim();

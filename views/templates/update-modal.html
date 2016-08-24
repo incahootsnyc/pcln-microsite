@@ -3,64 +3,23 @@
 	<img class="modal--lg__close" id="upload-modal-close" src="/images/close.svg"/>
 
 
-	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
+	<form id="update-form" action="/api/update" method="post" >
 	
 		<!-- TODO: clean up inline styles -->
 		
 		<div class="modal--lg__img-select">
 			<img class="modal--lg__img-preview"/>
-
-
-			<!-- <div class="drag-n-drop modal--lg__img-dragbox">
-				<img class="modal--lg__dragbox-cloud" src="/images/cloud.png"/>
-				<img src="">
-			</div> -->
-
-			<!-- <div class="modal--lg__img-browse">
-				<label class="modal--lg__browse-label">Browse
-				<input class="modal--lg__browse-input" name="image" type="file" id="file"/></label>
-			</div> -->
 		</div>
 
 		<div class="modal--lg__img-tags">
 			<strong class="modal--lg__subheadline">Tags</strong> 
 			<ul>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category" value="tag1">
-					<label class="modal--lg__checkbox-label" for=""><span class="modal--lg__checkbox-span"></span>Tag 1 Number</label>
-				</li>
+				<% for(var category in categories) { %>
+					<li class="modal--lg__category">
+						<input type="checkbox" name="<%= category %>" value="<%= category %>">
+						<label class="modal--lg__checkbox-label" for="<%= category %>"><span class="modal--lg__checkbox-span"></span><%= categories[category] %></label>
+					</li>
+				<% } %>
 			</ul>
 		</div>	
 

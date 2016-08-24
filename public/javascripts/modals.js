@@ -115,7 +115,7 @@
 		return $templatePartial.appendTo('body');
 	}
 
-	function showModalWithOverlay($modal, imageData) {
+	function showModalWithOverlay($modal, options) {
 
 		if (options && options.detailsImageData) {
 			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, options.detailsImageData);

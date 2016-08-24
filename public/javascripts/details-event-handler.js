@@ -1,10 +1,8 @@
-var pclnPicMe = pclnPicMe || {};
-
-
 pclnPicMe.detailsEventHandler = (function () {
 
 	return {
-		addCloseEvent: addCloseEventFn	
+		addCloseEvent: addCloseEventFn,
+		addShiftEvents: addShiftEventsFn
 	};
 
 	function addCloseEventFn ($detailsModal) {
@@ -18,6 +16,10 @@ pclnPicMe.detailsEventHandler = (function () {
 			$overlay.hide();
 			clearDetailsData($detailsModal);
 		});
+	}
+
+	function addShiftEventsFn () {
+
 	}
 
 	function clearDetailsData ($detailsModal) {

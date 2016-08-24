@@ -1,6 +1,3 @@
-var pclnPicMe = pclnPicMe || {};
-
-
 pclnPicMe.uploadEventHandler = (function () {
 
 	var droppedFile = false;

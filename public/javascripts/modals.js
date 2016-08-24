@@ -51,8 +51,7 @@
 			$detailsModal = grabTemplateByName('details-modal');
 
 			pclnPicMe.detailsEventHandler.addCloseEvent($detailsModal);
-			pclnPicMe.detailsEventHandler.addShiftLeftEvent($detailsModal);
-			pclnPicMe.detailsEventHandler.addShiftRightEvent($detailsModal);
+			pclnPicMe.detailsEventHandler.addShiftEvents($detailsModal);
 
 			pclnPicMe.likesEventHandler.addLikeEvent($detailsModal);
 
@@ -104,7 +103,15 @@
 	}
 
 	function populateDetailsModal ($modal, imageData) {
-		// set details info here
+		var $tagContainer = $modal.find('.modal--details__img-categories');
+
+		$modal.find('.modal--details__img').attr('src', imageData.detailsUrl);
+		$modal.find('.details--modal__like-count').text(imageData.likesCount);
+
+		imageData.tags.forEach(function (tag) {
+			$tagContainer.append('<span class="modal--details__category">#' + pclnPicMe.tagDictionary[tag] + '</span>');
+		});
+		
 	}
 
 })();

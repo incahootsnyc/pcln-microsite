@@ -31,7 +31,8 @@ router.get('/', function (req, res, next) {
 			  	},
 			  	isHome: true,
 			  	isTerms: false,
-			  	sort: searchConfig.sortType
+			  	sort: searchConfig.sortType,
+			  	categories: config.categories
 			});
 
 		});

@@ -21,12 +21,12 @@
 
 			// assign events for modal
 			if (pclnPicMe.supportsDragAndDrop) {
-				pclnPicMe.uploadModalDelegate.addDragAndDropCapabilities($uploadForm);
+				pclnPicMe.uploadEventHandler.addDragAndDropCapabilities($uploadForm);
 			}
 
-			pclnPicMe.uploadModalDelegate.addCloseEvent($uploadModal);
-			pclnPicMe.uploadModalDelegate.addImagePreviewEvent($uploadForm);
-			pclnPicMe.uploadModalDelegate.addSubmitEvent($uploadForm);
+			pclnPicMe.uploadEventHandler.addCloseEvent($uploadModal);
+			pclnPicMe.uploadEventHandler.addImagePreviewEvent($uploadForm);
+			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadForm);
 
 			showModalWithOverlay($uploadModal);
 		} else {
@@ -48,10 +48,11 @@
 		if ($detailsModal.length < 1) {
 			$detailsModal = grabTemplateByName('details-modal');
 
-			pclnPicMe.detailsModalDelegate.addCloseEvent($detailsModal);
-			pclnPicMe.detailsModalDelegate.addLikeEvent($detailsModal);
-			pclnPicMe.detailsModalDelegate.addShiftLeftEvent($detailsModal);
-			pclnPicMe.detailsModalDelegate.addShiftRightEvent($detailsModal);
+			pclnPicMe.detailsEventHandler.addCloseEvent($detailsModal);
+			pclnPicMe.detailsEventHandler.addShiftLeftEvent($detailsModal);
+			pclnPicMe.detailsEventHandler.addShiftRightEvent($detailsModal);
+
+			pclnPicMe.likesEventHandler.addLikeEvent($detailsModal);
 
 			showModalWithOverlay($detailsModal, imagePostData);
 

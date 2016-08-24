@@ -28,19 +28,3 @@ pclnPicMe.getParameterByName = function (name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 };
-
-pclnPicMe.registerLike = function (postId, $likeValueContainer) {
-  var requestConfig = {
-      url: '/api/like/' + postId,
-      type: 'GET',
-      success: function (response) {
-        if (response.message) {
-          //whoops
-        } else {
-          $likeValueContainer.text(response.likes);
-        }
-      }
-    };
-
-    $.ajax(requestConfig);
-};

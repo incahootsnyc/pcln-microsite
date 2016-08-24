@@ -6,10 +6,10 @@
 
 var db = require('../helpers/db');
 var s3 = require('../helpers/s3');
-var mongoUrl = 'mongodb://localhost:27017/pcln-microsite';
+var config = require('../config');
 
 // Connect to Mongo on start
-db.connect(mongoUrl, function (err) {
+db.connect(config.mongoUrl, function (err) {
   if (err) {
     console.log('Unable to connect to Mongo.');
     process.exit(1);

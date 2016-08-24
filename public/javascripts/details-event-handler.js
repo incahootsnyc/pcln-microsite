@@ -1,11 +1,10 @@
 var pclnPicMe = pclnPicMe || {};
 
 
-pclnPicMe.detailsModalDelegate = (function () {
+pclnPicMe.detailsEventHandler = (function () {
 
 	return {
-		addCloseEvent: addCloseEventFn,
-		addLikeEvent: addLikeEventFn
+		addCloseEvent: addCloseEventFn	
 	};
 
 	function addCloseEventFn ($detailsModal) {
@@ -19,12 +18,6 @@ pclnPicMe.detailsModalDelegate = (function () {
 			$overlay.hide();
 			clearDetailsData($detailsModal);
 		});
-	}
-
-	function addLikeEventFn ($detailsModal) {
-		// var $_this = $(this);
-		// var postId = $_this.closest('.submissions__img-container').find('.submissions__img').data('id');
-		// pclnPicMe.registerLike(postId, $_this.siblings('.like-value'));
 	}
 
 	function clearDetailsData ($detailsModal) {

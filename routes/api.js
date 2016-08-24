@@ -43,11 +43,7 @@ router.post('/api/upload', function (req, res) {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-            var imagePostObj = imagePostHelper.generateForDB({
-                name: uniqueFileName,
-                location: body.location,
-                datetime: body.datetime
-            });
+            var imagePostObj = imagePostHelper.generateForDB(uniqueFileName, body);
 
             if (dimensions.width > 1000 || dimensions.height > 1000) {
                 parallelRequests.push(resizeImageForDetails);

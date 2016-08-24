@@ -1,7 +1,7 @@
 .submissions {
 
 	&__header {
-		padding: 20px 10px 15px 30px;
+		padding: 20px 10px 10px;
 		background: rgba(242,242,242,0.46);
 		background: -moz-linear-gradient(top, rgba(242,242,242,0.46) 0%, rgba(242,242,242,1) 52%, rgba(242,242,242,1) 100%);
 		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,242,242,0.46)), color-stop(52%, rgba(242,242,242,1)), color-stop(100%, rgba(242,242,242,1)));
@@ -94,6 +94,11 @@
 			text-align: left;
 			padding-left: 20px;
 			padding-top: 5px;
+		}
+
+		&__header {
+			padding: 20px 10px 10px 30px;
+
 		}
 	}
 

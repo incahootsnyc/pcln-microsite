@@ -6,7 +6,7 @@
 	var isLoading = false;
 
 	$(window).scroll(function() {
-		var startLoading = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
+		var startLoading = $(window).scrollTop() + $(window).height() > $(document).height() - 200;
 
 	    if (startLoading && loadMoreResults && !isLoading) {
 

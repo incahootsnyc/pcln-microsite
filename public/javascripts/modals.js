@@ -115,8 +115,7 @@
 		return $templatePartial.appendTo('body');
 	}
 
-	function showModalWithOverlay($modal, options) {
-		var overlay = $('#overlay');
+	function showModalWithOverlay($modal, imageData) {
 
 		if (options && options.detailsImageData) {
 			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, options.detailsImageData);
@@ -124,7 +123,6 @@
 			pclnPicMe.updateEventHandler.populateUpdateModal($modal, options.updateImageData);
 		}
 
-		overlay.show();
 		$modal.show();
 	}
 

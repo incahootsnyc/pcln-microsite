@@ -1,35 +1,32 @@
 .modal-overlay {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
-	background-color: #000;
-	z-index: 50;
-	opacity: .5;
+	background-color: rgba(0,0,0,.6);
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	z-index: 200;
 	display: none;
 
 	@media (max-width: 540px) {
-		display: none !important;
+		display: none;
 	}
 }
 
 
 .modal {
 	position: absolute;
-	top: 85px;
+	top: 75px;
 	background-color: $white;
-	display: none;
 	padding: 20px;
 	z-index: 100;
-	display: none;
 
 	@media (min-width: 540px) {
 		border-radius: 8px;
 		padding: 20px 40px;
 		box-shadow: 5px -2px 10px 3px #6b6868;
 		left: 0;
+		top: 80px;
 		right: 0;
 		z-index: 300;
 		margin: auto;
@@ -41,14 +38,20 @@
 	position: absolute;
 	right: 10px;
 	top: 10px;
+	cursor: pointer;
+	opacity: 1;
+	transition: opacity .5s;
+
+
+	&:hover {
+		opacity: .6;
+	}
 }
 
 .modal__headline {
 	@extend .headline--orange;
 
 }
-
-
 
 
 
@@ -135,7 +138,7 @@
 	
 	&__button {
 		@extend .button;
-		margin: 30px 0 10px 0;		
+		margin: 20px 0 10px 0;		
 	}
 
 	&__error-message {
@@ -260,10 +263,22 @@
 		position: absolute;
 		right: 12px;
 		top: -15px;
+		cursor: pointer;
+		opacity: 1;
+		transition: opacity .5s;
+
+
+		&:hover {
+			opacity: .6;
+		}
 	}
 
 	&__img {
 		width: 100%;
+	}
+
+	&__category {
+		padding-right: 10px;
 	}
 
 	&__arrow-right, &__arrow-left {
@@ -301,12 +316,19 @@
 	&__img-info {
 		position: absolute;
 	    bottom: 5px;
-	    padding: 10px;
+	    padding: 10% 20px;
 	    color: #ffffff;
 	    font-size: 10px;
 	    width: 100%;
 	    max-height: 91px;
-	    background: rgba(31, 28, 26, 0.7);
+	    background: rgba(248,80,50,0);
+		background: -moz-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,0)), color-stop(100%, rgba(0,0,0,0.82)));
+		background: -webkit-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: -o-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: -ms-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: linear-gradient(to bottom, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 	}
 
 	&__edit {
@@ -325,9 +347,16 @@
 
 		&__arrow-right, &__arrow-left {
 			position: absolute;
+			cursor: pointer;
 			display: block;
 			padding: 5px;
-			top: 40%
+			top: 250px;
+			opacity: 1;
+			transition: opacity .5s;
+
+			&:hover {
+				opacity: .6;
+			}
 		}
 	}
 }	

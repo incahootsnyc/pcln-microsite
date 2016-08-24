@@ -30,9 +30,9 @@
 			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadForm);
 			pclnPicMe.uploadEventHandler.addValidationEvent($uploadForm);
 
-			showModalWithOverlay($uploadModal);
+			showModal($uploadModal);
 		} else {
-			showModalWithOverlay($uploadModal);
+			showModal($uploadModal);
 		}
 	});
 
@@ -57,10 +57,10 @@
 
 			addEditEventListener($detailsModal);
 
-			showModalWithOverlay($detailsModal, { detailsImageData: imagePostData } );
+			showModal($detailsModal, { detailsImageData: imagePostData } );
 
 		} else {
-			showModalWithOverlay($detailsModal, { detailsImageData: imagePostData });
+			showModal($detailsModal, { detailsImageData: imagePostData });
 		}
     });
 
@@ -70,9 +70,9 @@
 
     	if ($signinModal.length < 1) {
 			$signinModal = grabTemplateByName('signin-modal');
-			showModalWithOverlay($signinModal);
+			showModal($signinModal);
 		} else {
-			showModalWithOverlay($signinModal);
+			showModal($signinModal);
 		}
     });
 
@@ -92,9 +92,9 @@
 
 				pclnPicMe.updateEventHandler.addCloseEvent($updateModal);
 
-				showModalWithOverlay($updateModal, { updateImageData: imagePostData } );
+				showModal($updateModal, { updateImageData: imagePostData } );
 			} else {
-				showModalWithOverlay($updateModal, { updateImageData: imagePostData } );
+				showModal($updateModal, { updateImageData: imagePostData } );
 			}
     	});
     }
@@ -115,7 +115,7 @@
 		return $templatePartial.appendTo('body');
 	}
 
-	function showModalWithOverlay($modal, options) {
+	function showModal($modal, options) {
 
 		if (options && options.detailsImageData) {
 			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, options.detailsImageData);

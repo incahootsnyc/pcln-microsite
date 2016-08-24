@@ -7,11 +7,9 @@ pclnPicMe.updateEventHandler = (function () {
 
 	function addCloseEventFn ($updateModal) {
 		var $updateClose = $updateModal.find('#update-modal-close');
-		var $overlay = $('#overlay');
 
 		$updateClose.click(function(){
 			$updateModal.hide();
-			$overlay.hide();
 		});
 	}
 

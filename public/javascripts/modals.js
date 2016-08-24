@@ -110,13 +110,13 @@
 	}
 
 	function showModalWithOverlay($modal, imageData) {
-		var overlay = $('#overlay');
+		// var overlay = $('#overlay');
 
 		if (imageData) {
 			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, imageData);
 		}
 
-		overlay.show();
+		// overlay.show();
 		$modal.show();
 	}
 

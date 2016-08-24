@@ -1,42 +1,43 @@
-<div id="upload-modal" class="modal--lg">
-	<strong class="modal--lg__headline">Submit a pic</strong> <span id="image-error" class="modal--lg__error-message ishidden">You must select an image.</span>
-	<img class="modal--lg__close" id="upload-modal-close" src="/images/close.svg"/>
+<div id="upload-modal" class="modal-overlay">
+	<div class="modal--lg">
+		<strong class="modal--lg__headline">Submit a pic</strong> <span id="image-error" class="modal--lg__error-message ishidden">You must select an image.</span>
+		<img class="modal--lg__close" id="upload-modal-close" src="/images/close.svg"/>
 
 
-	<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
-	
-		<!-- TODO: clean up inline styles -->
+		<form id="upload-form" action="/api/upload" enctype="multipart/form-data" method="post" >
 		
-		<div class="modal--lg__img-select">
-			<div class="drag-n-drop modal--lg__img-dragbox">
-				<img class="modal--lg__dragbox-cloud" src="/images/cloud.png"/>
-				<img class="modal--lg__img-preview" id="preview" src="">
+			<!-- TODO: clean up inline styles -->
+			
+			<div class="modal--lg__img-select">
+				<div class="drag-n-drop modal--lg__img-dragbox">
+					<img class="modal--lg__dragbox-cloud" src="/images/cloud.png"/>
+					<img class="modal--lg__img-preview" id="preview" src="">
+				</div>
+				<div class="modal--lg__img-browse">
+					<label class="modal--lg__browse-label">Browse
+					<input class="modal--lg__browse-input" name="image" type="file" id="file"/></label>
+				</div>
 			</div>
-			<div class="modal--lg__img-browse">
-				<label class="modal--lg__browse-label">Browse
-				<input class="modal--lg__browse-input" name="image" type="file" id="file"/></label>
+
+			<div class="modal--lg__img-tags">
+				<strong class="modal--lg__subheadline">Tags</strong> <span id="category-error" class="modal--lg__error-message ishidden">You must choose at least one tag.</span>
+				<ul>
+					<% for(var category in categories) { %>
+					<li class="modal--lg__category">
+						<input type="checkbox" name="category[]" id="<%= category %>" value="<%= category %>">
+						<label class="modal--lg__checkbox-label" for="<%= category %>"><%= categories[category] %></label>
+					</li>
+					<% } %>
+				</ul>
+			</div>	
+
+			<div class="modal--lg__img-location">
+				<strong class="modal--lg__subheadline">Location</strong> <span id="location-error" class="modal--lg__error-message ishidden">Required</span>
+				<input name="location" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
+
 			</div>
-		</div>
 
-		<div class="modal--lg__img-tags">
-			<strong class="modal--lg__subheadline">Tags</strong> <span id="category-error" class="modal--lg__error-message ishidden">You must choose at least one tag.</span>
-			<ul>
-				<% for(var category in categories) { %>
-				<li class="modal--lg__category">
-					<input type="checkbox" name="category[]" id="<%= category %>" value="<%= category %>">
-					<label class="modal--lg__checkbox-label" for="<%= category %>"><%= categories[category] %></label>
-				</li>
-				<% } %>
-			</ul>
-		</div>	
-
-		<div class="modal--lg__img-location">
-			<strong class="modal--lg__subheadline">Location</strong> <span id="location-error" class="modal--lg__error-message ishidden">Required</span>
-			<input name="location" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
-
-		</div>
-
-		<button class="modal--lg__button disabled" type="submit">Submit</button>
-	</form>
-
+			<button class="modal--lg__button disabled" type="submit">Submit</button>
+		</form>
+	</div>
 </div>

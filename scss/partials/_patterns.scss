@@ -10,7 +10,7 @@
 	border: none;
 	width: 100%;
 	background-color: $orange-2;
-	transition: background-color 1s;
+	transition: background-color .5s;
 	cursor: pointer;
 }
 
@@ -31,6 +31,7 @@
 }
 
 
+
 //checkbox pattern
 
 input[type="text"] {
@@ -41,3 +42,13 @@ input[type="text"] {
 }
 
 
+
+.fade-in-on-load {
+ animation-duration: 1.5s; 
+ animation-name: fadeInOnLoad;
+}
+
+@keyframes fadeInOnLoad {
+ 0%,50% {opacity: 0;}
+ 100% {opacity: 1;}
+}

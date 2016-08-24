@@ -26,9 +26,9 @@ pclnPicMe.uploadEventHandler = (function () {
 			    formData.append($fileInput.attr('name'), droppedFile);
 			}
 
-			// if (!validForm($form, droppedFile)) {
-			// 	return false;
-			// }
+			if (!isValidForm($form, formData)) {
+				return false;
+			}
 
 		  	var requestConfig = {
 				url: '/api/upload',
@@ -122,12 +122,36 @@ pclnPicMe.uploadEventHandler = (function () {
 	function clearUploadForm ($form) {
 		$form[0].reset();
 		$form.find('img#preview').attr('src', '');
+		$form.find('button[type="submit"]').addClass('disabled');
 		droppedFile = false;
 	}
 
 
-	function validForm ($form) {
-		console.log($form);
+	function isValidForm ($form, formData) {
+		var errorsToDisplay = [];
+		var isValid = false;
+		var validationDictionary = {
+			'image': function (value) { if (!(value && value.size > 0)) return '#image-error'; },
+			'category[]': function (value) { if (!(value && value.length > 0)) return '#category-error'; },
+			'location': function (value) { if (!(value && value.length > 0)) return '#location-error'; }
+		};
+
+		for (var key in validationDictionary) {
+			var value = formData.get(key)
+			var error = validationDictionary[key](value);
+			if (error) {
+				errorsToDisplay.push(error);
+			}
+		}
+
+		isValid = errorsToDisplay.length == 0
+
+		errorsToDisplay.forEach(function (errorId) {
+			$(errorId).show();
+		});
+
+		return isValid && $form.find('button[type="submit"]').removeClass('disabled');
+
 	}
 	
 

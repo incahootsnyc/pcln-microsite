@@ -126,6 +126,7 @@
 			pclnPicMe.updateEventHandler.populateUpdateModal($modal, options.updateImageData);
 		}
 
+		$('body').css('overflow-y', 'hidden');
 		$modal.show();
 	}
 

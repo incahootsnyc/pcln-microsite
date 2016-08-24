@@ -12,7 +12,8 @@ pclnPicMe.detailsEventHandler = (function () {
 
 		var $detailsClose = $detailsModal.find('#details-modal-close');
 
-		$detailsClose.click(function(){
+		$detailsClose.click(function () {
+			$('body').css('overflow-y', '');
 			$detailsModal.hide();
 		});
 	}

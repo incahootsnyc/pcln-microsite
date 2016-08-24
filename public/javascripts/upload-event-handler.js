@@ -114,6 +114,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		var $uploadClose = $uploadModal.find('#upload-modal-close');
 
 		$uploadClose.click(function(){
+			$('body').css('overflow-y', '');
 			$uploadModal.hide();
 			clearUploadForm($uploadModal.find('form'));
 		});

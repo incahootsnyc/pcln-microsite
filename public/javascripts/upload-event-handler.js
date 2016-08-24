@@ -147,7 +147,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		};
 
 		for (var key in validationDictionary) {
-			var value = formData.get(key)
+			var value = formData.get(key);
 			var error = validationDictionary[key](value);
 			if (error) {
 				errorsToDisplay.push(error);

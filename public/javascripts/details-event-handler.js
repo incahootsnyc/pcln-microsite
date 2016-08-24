@@ -17,7 +17,6 @@ pclnPicMe.detailsEventHandler = (function () {
 		$detailsClose.click(function(){
 			$detailsModal.hide();
 			$overlay.hide();
-			clearDetailsData($detailsModal);
 		});
 	}
 
@@ -56,11 +55,6 @@ pclnPicMe.detailsEventHandler = (function () {
 		
 		currentDetailsIndex = imageData.index;
 	}
-
-	function clearDetailsData ($detailsModal) {
-		// clear info fields here
-	}
-	
 
 })();
 

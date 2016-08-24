@@ -7,7 +7,7 @@
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
-  padding-left: 30px;
+  padding-left: 35px;
   cursor: pointer;
 }
 
@@ -16,10 +16,12 @@
 [type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
-  left:0; top: 2px;
-  width: 17px; height: 17px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
+  left:0; 
+  top: 0px;
+  width: 25px; 
+  height: 25px;
+  border: 1px solid $black-40;
+  background: $white;
   border-radius: 3px;
 }
 /* checked mark aspect */

@@ -27,7 +27,7 @@
 
 /* line 20, ../../scss/partials/_patterns.scss */
 .ishidden {
-  display: none;
+  display: none !important;
 }
 
 /* line 24, ../../scss/partials/_patterns.scss */

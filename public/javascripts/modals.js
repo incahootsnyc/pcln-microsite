@@ -95,23 +95,11 @@
 		var overlay = $('#overlay');
 
 		if (imageData) {
-			populateDetailsModal($modal, imageData);
+			pclnPicMe.detailsEventHandler.populateDetailsModal($modal, imageData);
 		}
 
 		overlay.show();
 		$modal.show();
-	}
-
-	function populateDetailsModal ($modal, imageData) {
-		var $tagContainer = $modal.find('.modal--details__img-categories');
-
-		$modal.find('.modal--details__img').attr('src', imageData.detailsUrl);
-		$modal.find('.details--modal__like-count').text(imageData.likesCount);
-
-		imageData.tags.forEach(function (tag) {
-			$tagContainer.append('<span class="modal--details__category">#' + pclnPicMe.tagDictionary[tag] + '</span>');
-		});
-		
 	}
 
 })();

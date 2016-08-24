@@ -26,6 +26,9 @@
 		var chosenTags = pclnPicMe.getParameterByName('tags');
 		var tagValues;
 
+		// clear all checkbox values before setting them based on query string
+		$('.sidebar__categories_input').prop('checked', false);
+
 		if (chosenTags && chosenTags.length > 0) {
 			tagValues = chosenTags.split(',');
 

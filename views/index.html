@@ -79,8 +79,8 @@
 						<ul class="sidebar__categories__list">
 							<% for(var category in categories) { %>
 							<li class="sidebar__categories__item">
-								<input class="sidebar__categories_input" type="checkbox" name="category" id="filter1" value="<%= category %>">
-								<label class="sidebar__categories__label" for="filter1">#<%= categories[category] %></label>
+								<input class="sidebar__categories_input" type="checkbox" name="category[]" id="filter-<%= category %>" value="<%= category %>">
+								<label class="sidebar__categories__label" for="filter-<%= category %>">#<%= categories[category] %></label>
 							</li>
 							<% } %>
 						</ul>
@@ -114,7 +114,7 @@
 		pclnPicMe.pageSize = initialResultset.pageSize;
 		pclnPicMe.resultset = initialResultset.images;
 		<% } %>
-		
+
 		pclnPicMe.tagDictionary = <%- JSON.stringify(categories) %>;
 	</script>
 	

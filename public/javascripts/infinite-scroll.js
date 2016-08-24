@@ -38,7 +38,7 @@
 					'<img class="submissions__img" data-id="' + imagePostObject.uniqueName + '" src="">' + 
 		 			'<div class="submission__info">' + 
 		 				'<span class="submissions__username"><a href="">Val Geyvandvos</a></span>' +
-		 				'<span class="submissions__likes"><img class="submissions__like-icon" src="/images/hand.svg"/>Likes: <span class="like-value">' + imagePostObject.likesCount + '</span></span>' +
+		 				'<span class="submissions__icon-container"><img class="submissions__like-icon" src="/images/hand.svg"/></span>Likes: <span class="like-value">' + imagePostObject.likesCount + '</span></span>' +
 					'</div>' + 
 				'</li>';
 

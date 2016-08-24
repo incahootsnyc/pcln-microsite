@@ -25,6 +25,12 @@
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
+  pclnPicMe.updateLocalLikes = function (uniqueName, likesCount) {
+    var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
+    match.likesCount = likesCount;
+    $('img[data-id="' + uniqueName + '"').parent().find('.like-value').text(likesCount);
+  }
+
   pclnPicMe.lazyLoad = function (start) {
     var imgContainers = $('.submissions__img');
 

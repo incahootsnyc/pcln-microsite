@@ -2,7 +2,7 @@ pclnPicMe.likesEventHandler = (function () {
 
 	$('#image-list').on('click', '.submissions__icon-container', function () {
 		var $_this = $(this);
-		var postId = $_this.closest('.submissions__img-container').find('.submissions__img').data('id');
+		var postId = $_this.closest('.submissions__img-container').find('.submissions__img').attr('data-id');
 		registerLike(postId, $_this.siblings('.like-value'));
 	});
 
@@ -11,9 +11,10 @@ pclnPicMe.likesEventHandler = (function () {
 	};
 
 	function addLikeEventFn ($detailsModal) {
-		// var $_this = $(this);
-		// var postId = $_this.closest('.submissions__img-container').find('.submissions__img').data('id');
-		//registerLike(postId, $_this.siblings('.like-value'));
+		$detailsModal.find('.modal--details__like-content img').click(function () {
+			var postId = $detailsModal.find('.modal--details__container').attr('data-id');
+			registerLike(postId, $detailsModal.find('.details--modal__like-count'));
+		});
 	}
 
 	function registerLike (postId, $likeValueContainer) {
@@ -25,6 +26,7 @@ pclnPicMe.likesEventHandler = (function () {
 				//whoops
 				} else {
 					$likeValueContainer.text(response.likes);
+					pclnPicMe.updateLocalLikes(postId, response.likes);
 				}
 			}
 		};

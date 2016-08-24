@@ -25,11 +25,14 @@
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
-  pclnPicMe.updateLocalLikes = function (uniqueName, likesCount) {
+  pclnPicMe.updateLocalLikes = function (uniqueName, likesCount, isDetails) {
     var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
     match.likesCount = likesCount;
-    $('img[data-id="' + uniqueName + '"').parent().find('.like-value').text(likesCount);
-  }
+
+    if (isDetails) {
+      $('img[data-id="' + uniqueName + '"').parent().find('.like-value').text(likesCount);
+    }
+  };
 
   pclnPicMe.lazyLoad = function (start) {
     var imgContainers = $('.submissions__img');

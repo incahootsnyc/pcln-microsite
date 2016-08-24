@@ -13,20 +13,20 @@ pclnPicMe.likesEventHandler = (function () {
 	function addLikeEventFn ($detailsModal) {
 		$detailsModal.find('.modal--details__like-content img').click(function () {
 			var postId = $detailsModal.find('.modal--details__container').attr('data-id');
-			registerLike(postId, $detailsModal.find('.details--modal__like-count'));
+			registerLike(postId, $detailsModal.find('.details--modal__like-count'), true);
 		});
 	}
 
-	function registerLike (postId, $likeValueContainer) {
+	function registerLike (postId, $likeValueContainer, isDetails) {
 	  var requestConfig = {
 		url: '/api/like/' + postId,
 		type: 'GET',
 		success: function (response) {
 				if (response.message) {
-				//whoops
+					// whoops
 				} else {
 					$likeValueContainer.text(response.likes);
-					pclnPicMe.updateLocalLikes(postId, response.likes);
+					pclnPicMe.updateLocalLikes(postId, response.likes, isDetails);
 				}
 			}
 		};

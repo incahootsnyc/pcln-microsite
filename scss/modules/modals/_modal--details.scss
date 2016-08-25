@@ -1,11 +1,11 @@
 
 .modal--details {
-	@extend .modal;
-	background-color: rgba(255, 255, 255, 0);
 	max-width: 800px;
-	box-shadow: none;
 	top: 40px;
+	position: absolute;
+	width: 100%;
 	height: auto;
+	padding: 10px;
 
 	&__close {
 		position: absolute;
@@ -16,7 +16,6 @@
 		opacity: 1;
 		transition: opacity .5s;
 
-
 		&:hover {
 			opacity: .6;
 		}
@@ -24,6 +23,10 @@
 
 	&__img {
 		width: 100%;
+	}
+
+	&__container {
+		position: relative;
 	}
 
 	&__category {
@@ -42,34 +45,48 @@
 		left: 0;
 	}
 
-	&__container {
-		max-width: 700px;
-		margin: auto;
-		position: relative;
+	&__img-submitter {
+		display: inline-block;
+
 	}
+
+	// &__container {
+	// 	max-width: 700px;
+	// 	margin: auto;
+	// 	position: relative;
+	// }
 
 	&__img-categories {
 		display: inline-block;
+		width: 80%;
 	}
 
 	&__likes {
-		display: inline-block;
+		display: inline-block;		
 	}
 
 	&__like-content {
 		position: absolute;
 		right: 20px;
 		bottom: 20px;
+		width: 20%;
+		text-align: right;
 	}
 
 	&__img-info {
-		position: absolute;
-	    bottom: 5px;
-	    padding: 10% 20px;
-	    color: #ffffff;
-	    font-size: 10px;
+		// position: absolute;
+	 //    bottom: 5px;
+	 //    padding: 10% 20px;
+	 //    color: #ffffff;
+	 //    font-size: 10px;
+	 //    width: 100%;
+	    // max-height: 91px;
 	    width: 100%;
-	    max-height: 91px;
+	    position: absolute;
+	    bottom: 5px;
+	    font-size: 12px;
+	    padding: 30px 10px 20px;
+	    color: $white;
 	    background: rgba(248,80,50,0);
 		background: -moz-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
 		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,0)), color-stop(100%, rgba(0,0,0,0.82)));
@@ -81,7 +98,8 @@
 	}
 
 	&__edit {
-		color: $blue-3;
+		color: $blue-2;
+		padding: 0 5px;
 	}
 }
 
@@ -89,6 +107,10 @@
 @media (min-width: 540px) {
 	
 	.modal--details {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
 
 		&__img-info {
 			font-size: 16px;

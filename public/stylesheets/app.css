@@ -881,45 +881,47 @@ body {
   min-height: 100vh;
   height: 100%;
   top: 0;
+  padding: 20px 40px;
 }
-/* line 10, ../../scss/modules/modals/_modal--signin.scss */
+/* line 11, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__container {
   max-width: 320px;
   margin: auto;
 }
-/* line 15, ../../scss/modules/modals/_modal--signin.scss */
+/* line 16, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__logo {
   width: 100%;
-  padding: 20px 0 40px;
+  padding: 10px 0 40px;
   border-bottom: 1px solid #ccc;
 }
-/* line 25, ../../scss/modules/modals/_modal--signin.scss */
+/* line 26, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__bottom {
   padding-top: 30px;
 }
-/* line 29, ../../scss/modules/modals/_modal--signin.scss */
+/* line 30, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__input {
   margin: 5px 0;
 }
-/* line 33, ../../scss/modules/modals/_modal--signin.scss */
+/* line 34, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button {
   background-color: #0a84c1;
   margin-top: 20px;
 }
-/* line 38, ../../scss/modules/modals/_modal--signin.scss */
+/* line 39, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button:hover {
   background-color: #60AFD7;
 }
-/* line 43, ../../scss/modules/modals/_modal--signin.scss */
+/* line 44, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 49, ../../scss/modules/modals/_modal--signin.scss */
+  /* line 50, ../../scss/modules/modals/_modal--signin.scss */
   .modal--signin {
     width: 350px;
     height: auto;
+    min-height: initial;
     top: 70px;
   }
 }

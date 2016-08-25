@@ -6,8 +6,28 @@ var utils = require('../helpers/utils');
 var imagePostHelper = require('../helpers/image-post');
 var config = require('../config');
 
+
+
+router.get('/', function (req, res) {
+
+	if (req.user) {
+        res.redirect('/home');
+    } else {
+        res.render('index', { 
+	    	title: 'PCLN Photo Contest',
+		  	initData: {},
+		  	isHome: false,
+		  	isTerms: false,
+		  	isHomeSignin: true,
+		  	isHomeSignup: false,
+		  	categories: config.categories
+	    });
+    }
+  
+});
+
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/home', utils.isLoggedIn, function (req, res, next) {
 
 	var searchConfig = utils.getSortAndFilterConfig(req);
 
@@ -19,7 +39,7 @@ router.get('/', function (req, res, next) {
 
 			imageList.forEach(function (imageObj, index) {
 				if (imageObj.name) {
-					imagePosts.push(imagePostHelper.mapForClient(imageObj, index));
+					imagePosts.push(imagePostHelper.mapForClient(imageObj, index, req.user));
 				}
 			});
 		
@@ -27,18 +47,19 @@ router.get('/', function (req, res, next) {
 			  	title: 'PCLN Photo Contest',
 			  	initData: {
 			  		images: imagePosts,
+			  		id: req.user._id.toString(),
 			  		pageSize: config.itemsPerPage
 			  	},
 			  	isHome: true,
 			  	isTerms: false,
+			  	isHomeSignin: false,
+			  	isHomeSignup: false,
 			  	sort: searchConfig.sortType,
 			  	categories: config.categories
 			});
 
 		});
 	})
-
-  
 
 });
 

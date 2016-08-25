@@ -4,12 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressSession = require('express-session');
 var ejs = require('ejs');
+var passport = require('passport');
+var accountHelper = require('./helpers/passport-config');
 var fileDirectoryHelper = require('./helpers/nodejs-recursive-directory');
 var routerFileTree = fileDirectoryHelper.getFilesRecursive(path.join(__dirname, 'routes'));
 var routerFilePaths = fileDirectoryHelper.getRequirePathsRecursive(routerFileTree);
 
 var app = express();
+
+accountHelper.configureStrategy(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,10 +24,18 @@ app.engine('html', ejs.renderFile);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser('beanbeansbeansdustinlovesbeans'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({
+  secret: 'beanbeansbeansdustinlovesbeans',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 routerFilePaths.forEach(function (filePath) {
     var router = require('./routes/' + filePath);

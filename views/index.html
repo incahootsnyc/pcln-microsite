@@ -101,6 +101,11 @@
 				</main>
 			</div>
 		</div>
+
+		<% if (isHomeSignin) { %>
+			<% include /templates/signin-modal.html %>
+		<% } %>
+		
 	</body>
 
 	
@@ -112,6 +117,7 @@
 		// grab initial data set from global value dropped into index.html template by EJS
 		pclnPicMe.pageSize = initialResultset.pageSize;
 		pclnPicMe.resultset = initialResultset.images;
+		pclnPicMe.uid = initialResultset.id;
 		<% } %>
 
 		pclnPicMe.tagDictionary = <%- JSON.stringify(categories) %>;
@@ -119,6 +125,11 @@
 	
 
 	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+	<% if (isHomeSignin) { %>
+	<script type="text/javascript" src="javascripts/account.js"></script>
+	<% } %>
+
+	<% if (isHome) { %>
 	<script type="text/javascript" src="javascripts/header.js"></script>
 	<script type="text/javascript" src="javascripts/init.js"></script>
 	<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>
@@ -128,5 +139,6 @@
 	<script type="text/javascript" src="javascripts/modals.js"></script>
 	<script type="text/javascript" src="javascripts/sort-and-filter.js"></script>
 	<script type="text/javascript" src="javascripts/infinite-scroll.js"></script>
+	<% } %>
 
 </html>

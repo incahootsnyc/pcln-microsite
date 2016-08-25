@@ -9,6 +9,7 @@ var imageFormatter = require('../helpers/image-formatter');
 var async = require('async');
 var sizeOf = require('image-size');
 var config = require('../config');
+var passport = require('passport');
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -23,9 +24,8 @@ var upload = multer({
     }
 }).single('image');
 
-
 /* POST image. */
-router.post('/api/upload', function (req, res) {
+router.post('/api/upload', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error uploading image! :O';
 
     upload(req, res, function (error) {
@@ -43,7 +43,7 @@ router.post('/api/upload', function (req, res) {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-            var imagePostObj = imagePostHelper.generateForDB(uniqueFileName, body);
+            var imagePostObj = imagePostHelper.generateForDB(uniqueFileName, body, req.user);
 
             if (dimensions.width > 1000 || dimensions.height > 1000) {
                 parallelRequests.push(resizeImageForDetails);
@@ -107,7 +107,7 @@ router.post('/api/upload', function (req, res) {
 	
 });
 
-router.post('/api/update', function (req, res) {
+router.post('/api/update', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error updating image! :O';
     var body = req.body;
 
@@ -131,7 +131,7 @@ router.post('/api/update', function (req, res) {
     
 });
 
-router.get('/api/remove/:uniqueName', function (req, res) {
+router.get('/api/remove/:uniqueName', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error removing image! :O';
 
     db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
@@ -150,7 +150,7 @@ router.get('/api/remove/:uniqueName', function (req, res) {
     
 });
 
-router.get('/api/like/:uniqueName', function (req, res) {
+router.get('/api/like/:uniqueName', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error liking image! :O';
     var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
 
@@ -174,7 +174,7 @@ router.get('/api/like/:uniqueName', function (req, res) {
     
 });
 
-router.get('/api/fetchPosts/:pageNum', function (req, res) {
+router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
 
     var searchConfig = utils.getSortAndFilterConfig(req);
     async.parallel([getMoreImages, getCollectionCount], processImagePostDataAndRespond);
@@ -188,7 +188,7 @@ router.get('/api/fetchPosts/:pageNum', function (req, res) {
 
                 imageList.forEach(function (imageObj, index) {
                     if (imageObj.name) {
-                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip));
+                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip, req.user));
                     }
                 });
 
@@ -215,9 +215,47 @@ router.get('/api/fetchPosts/:pageNum', function (req, res) {
         }
        
     }
-
     
 });
 
+router.get('/account-confirmation/:uniqueUrl', function (req, res) {
+    var errorMessage = 'hmm... nothing to confirm here.';
+    var now = Date.now();
+    var maxDiff = 604800000; // one week
+
+    if (req.params.uniqueUrl) {
+        db.get().collection('pendingUsers').findOne({ confirmationUrl: req.params.uniqueUrl }, function (error, user) {
+            if (error || !user) {
+                res.send(errorMessage);
+            } else {
+
+                if ((now - user.datetime) > maxDiff) {
+                    db.get().collection('pendingUsers').remove({ username: user.username });
+                    db.get().collection('users').insert(user, function (error, confirmation) {
+                        if (error) {
+                            res.send('hmm... something went wrong.');
+                        } else {
+                            res.redirect('/');
+                        }
+                    });
+                } else {
+                    res.send('hmm... the pending account has expired.');
+                }
+            }
+        });
+    } else {
+        res.send(errorMessage);
+    }
+});
+
+router.post('/api/login', passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+}));
+
+router.post('/api/signup', passport.authenticate('signup', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+}));
 
 module.exports = router;

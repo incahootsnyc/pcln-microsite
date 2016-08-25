@@ -9,6 +9,7 @@ router.get('/terms', function (req, res, next) {
 		title: 'PCLN Photo Contest', 
 		isTerms: true,
 		isHome: false,
+		isHomeSignin: false,
 		categories: config.categories
 	});
 

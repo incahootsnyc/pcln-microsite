@@ -1,19 +1,23 @@
-<div id="signin-modal" class="modal-overlay">
+<div id="signin-modal" class="modal-overlay" style="display:block">
 	<div class="modal--signin">
 		<div class="modal--signin__container">
 			<img class="modal--signin__logo" src="/images/logo.svg"/>
 			<div class="modal--signin__bottom">
 				<strong class="modal--signin__headline">Welcome</strong>
 				<p>Use your priceline.com corporate login to access, start posting photos and see what others have uploaded.</p>
-				<span id="category-error" class="modal--signin__error-message">Incorrect username or password.</span>
-				<div id="category-error" class="modal--signin__register-message">First time? <a>Register now</a></div>
 
-				<form>
+				<span id="login-error" class="modal--signin__error-message ishidden">Incorrect username or password.</span>
+				<span id="register-error" class="modal--signin__error-message ishidden">Please check your password.</span>
+
+				<div id="register-message" class="modal--signin__register-message">First time? <a>Register now</a></div>
+				<div id="login-message" class="modal--signin__register-message ishidden">Registered already? <a>Log in</a></div>
+
+				<form id="signin-form" action="/api/login" method="post">
 					<input class="modal--signin__input" placeholder="Priceline Email Address" name="username" type="text"/>
 					<input class="modal--signin__input" placeholder="Password" name="password" type="password"/>
-					<input class="modal--signin__input" placeholder="Retype Password" name="password" type="password"/>
-					<button class="modal--signin__button" type="submit">SIGN IN</button>
-					<button class="modal--signin__register-button" type="submit">REGISTER</button>
+					<input class="modal--signin__input ishidden" placeholder="Retype Password" name="password-confirm" type="password"/>
+					<button id="signin" class="modal--signin__button" type="submit">SIGN IN</button>
+					<button id="register" class="modal--signin__button ishidden" type="submit">REGISTER</button>
 				</form>	
 			</div>
 		</div>

@@ -40,7 +40,7 @@ function setUpPassport (passport) {
                     var tempUser = utils.createTempUser(username, password);
                     db.get().collection('pendingUsers').insert(tempUser, function (error, confirmation) {
                         if (error) { throw err; }
-                        mailer.sendConfirmationEmail(res, req, tempUser);
+                        mailer.sendConfirmationEmail(req, tempUser);
                         return done(null, tempUser);
                     });
                 }

@@ -1,6 +1,6 @@
 .sidebar {
 	background-color: rgba(255, 255, 255, 0.4);
-	padding: 20px 0 10px 0;
+	padding: 20px 0;
 
 	&__contest-info {
 		display: none;
@@ -30,8 +30,7 @@
 @media (min-width: 540px) {
 
 	.sidebar {
-		width: 30%;
-		//position: fixed;
+		width: 40%;
 		top: 0;
 		max-width: 320px;
 		height: 100%;

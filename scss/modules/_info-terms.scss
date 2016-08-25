@@ -70,38 +70,33 @@
 	}
 }
 
-
 @media (min-width: 540px) {
-
-	.contest-info__container {
-		position: relative;
-	    display: inline-block;
-	    width: calc(100% - 340px);
-	}
-
 
 	.contest-info__tips {
 		display: block;
 		margin: auto;
 	}
 
+}
+
+@media (min-width: 1066px) {
+
+	.contest-info__container {
+		position: relative;
+	    display: inline-block;
+	   	min-width: calc(100% - 44%);
+   		max-width: calc(100% - 320px);
+	}
+
 	.contest-prizes {
 		position: absolute;
 	    padding: 40px 20px;
-	    width: 320px;
+	    max-width: 320px;
 	    background: rgba(255, 255, 255, 0.4);
 	    top: 0px;
 	    right: 20px;
 	    height: 100%;
+	    width: 320px;
 
 	}
-
-
-
-
-
-
-
-
-
 }

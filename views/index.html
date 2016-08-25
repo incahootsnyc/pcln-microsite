@@ -27,10 +27,10 @@
 
 					 <nav class="navbar--main">
 					 	<ul class="navbar--main__list">
-					 		<li class="navbar--main__item"><a href="/" class="navbar--main__link">Home</a></li>
-					 		<li class="navbar--main__item"><a href="" class="navbar--main__link">My Pics</a></li>
-					 		<li class="navbar--main__item"><a href="/contest-info" class="navbar--main__link">Contest Info &amp; Prizes</a></li>
-					 		<li class="navbar--main__item"><a href="/terms" class="navbar--main__link">Terms &amp; Conditions</a></li>
+					 		<li class="navbar--main__item"><a href="/" class="navbar--main__link <%= isHome ? 'isactive' : '' %>">Home</a></li>
+					 		<li class="navbar--main__item"><a href="" class="navbar--main__link <%= isMyPics ? 'isactive' : '' %>">My Pics</a></li>
+					 		<li class="navbar--main__item"><a href="/contest-info" class="navbar--main__link <%= isContestInfo ? 'isactive' : '' %>">Contest Info &amp; Prizes</a></li>
+					 		<li class="navbar--main__item"><a href="/terms" class="navbar--main__link <%= isTerms ? 'isactive' : '' %>">Terms &amp; Conditions</a></li>
 					 	</ul>	
 					 </nav>
 

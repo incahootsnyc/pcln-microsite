@@ -47,24 +47,24 @@ function getSortAndFilter (req) {
   };
 }
 
+function getGenericLayoutProperties () {
+  return {
+    isHome: false,
+    isTerms: false,
+    isMyPics: false,
+    isContestInfo: false,
+    isHomeSignin: false,
+    isHomeSignup: false,
+  };
+}
+
 // http://code.ciphertrick.com/2016/01/18/salt-hash-passwords-using-nodejs-crypto/
-/**
- * generates random string of characters i.e salt
- * @function
- * @param {number} length - Length of the random string.
- */
 function genRandomString (length){
     return crypto.randomBytes(Math.ceil(length/2))
             .toString('hex') /** convert to hexadecimal format */
             .slice(0,length);   /** return required number of characters */
 };
 
-/**
- * hash password with sha512.
- * @function
- * @param {string} password - List of required fields.
- * @param {string} salt - Data to be validated.
- */
 function sha512 (password, salt){
     var hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
     hash.update(password);
@@ -109,5 +109,6 @@ module.exports = {
   saltHashPassword: sha512,
   createUser: createUser,
   createTempUser: createTempUser,
-  isLoggedIn: loggedInMiddleWare
+  isLoggedIn: loggedInMiddleWare,
+  getGenericLayoutProperties: getGenericLayoutProperties
 }

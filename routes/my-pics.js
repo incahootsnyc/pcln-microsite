@@ -7,24 +7,8 @@ var imagePostHelper = require('../helpers/image-post');
 var config = require('../config');
 var genericLayoutSettings = utils.getGenericLayoutProperties();
 
-
-router.get('/', function (req, res) {
-
-	if (req.user) {
-        res.redirect('/home');
-    } else {
-        res.render('index', _.assign(genericLayoutSettings, { 
-	    	title: 'PCLN Photo Contest',
-		  	initData: {},
-		  	isHomeSignin: true,
-		  	categories: config.categories
-	    }));
-    }
-  
-});
-
 /* GET home page. */
-router.get('/home', utils.isLoggedIn, function (req, res, next) {
+router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 
 	var searchConfig = utils.getSortAndFilterConfig(req);
 

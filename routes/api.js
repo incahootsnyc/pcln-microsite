@@ -158,8 +158,15 @@ router.get('/api/like/:uniqueName', utils.isLoggedIn, function (req, res) {
         if (error || !item) {
             res.json({ message: defaultErrorMessage });
         } else {
-            item.likes.push(addedLike);
-            item.likesCount = item.likes.length;
+
+            var likeIndex = item.likes.indexOf(req.user._id.toString());
+            if (likeIndex > -1) {
+                item.likes.splice(likeIndex, 1);
+                item.likesCount = item.likes.length;
+            } else {
+                item.likes.push(req.user._id.toString());
+                item.likesCount = item.likes.length;
+            }
 
             db.get().collection('imagePosts').save(item, function (error, result) {
                 if (error) {

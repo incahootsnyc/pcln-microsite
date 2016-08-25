@@ -9,15 +9,21 @@ var config = require('../config');
 
 
 router.get('/', function (req, res) {
-    res.render('index', { 
-    	title: 'PCLN Photo Contest',
-	  	initData: {},
-	  	isHome: false,
-	  	isTerms: false,
-	  	isHomeSignin: true,
-	  	isHomeSignup: false,
-	  	categories: config.categories
-    });
+
+	if (req.user) {
+        res.redirect('/home');
+    } else {
+        res.render('index', { 
+	    	title: 'PCLN Photo Contest',
+		  	initData: {},
+		  	isHome: false,
+		  	isTerms: false,
+		  	isHomeSignin: true,
+		  	isHomeSignup: false,
+		  	categories: config.categories
+	    });
+    }
+  
 });
 
 /* GET home page. */

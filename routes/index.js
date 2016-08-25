@@ -6,8 +6,22 @@ var utils = require('../helpers/utils');
 var imagePostHelper = require('../helpers/image-post');
 var config = require('../config');
 
+
+
+router.get('/', function (req, res) {
+    res.render('index', { 
+    	title: 'PCLN Photo Contest',
+	  	initData: {},
+	  	isHome: false,
+	  	isTerms: false,
+	  	isHomeSignin: true,
+	  	isHomeSignup: false,
+	  	categories: config.categories
+    });
+});
+
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/home', function (req, res, next) {
 
 	var searchConfig = utils.getSortAndFilterConfig(req);
 
@@ -31,14 +45,14 @@ router.get('/', function (req, res, next) {
 			  	},
 			  	isHome: true,
 			  	isTerms: false,
+			  	isHomeSignin: false,
+			  	isHomeSignup: false,
 			  	sort: searchConfig.sortType,
 			  	categories: config.categories
 			});
 
 		});
 	})
-
-  
 
 });
 

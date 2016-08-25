@@ -9,6 +9,7 @@ var imageFormatter = require('../helpers/image-formatter');
 var async = require('async');
 var sizeOf = require('image-size');
 var config = require('../config');
+var passport = require('passport');
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -23,9 +24,8 @@ var upload = multer({
     }
 }).single('image');
 
-
 /* POST image. */
-router.post('/api/upload', function (req, res) {
+router.post('/api/upload', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error uploading image! :O';
 
     upload(req, res, function (error) {
@@ -107,7 +107,7 @@ router.post('/api/upload', function (req, res) {
 	
 });
 
-router.post('/api/update', function (req, res) {
+router.post('/api/update', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error updating image! :O';
     var body = req.body;
 
@@ -131,7 +131,7 @@ router.post('/api/update', function (req, res) {
     
 });
 
-router.get('/api/remove/:uniqueName', function (req, res) {
+router.get('/api/remove/:uniqueName', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error removing image! :O';
 
     db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
@@ -150,7 +150,7 @@ router.get('/api/remove/:uniqueName', function (req, res) {
     
 });
 
-router.get('/api/like/:uniqueName', function (req, res) {
+router.get('/api/like/:uniqueName', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error liking image! :O';
     var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
 
@@ -174,7 +174,7 @@ router.get('/api/like/:uniqueName', function (req, res) {
     
 });
 
-router.get('/api/fetchPosts/:pageNum', function (req, res) {
+router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
 
     var searchConfig = utils.getSortAndFilterConfig(req);
     async.parallel([getMoreImages, getCollectionCount], processImagePostDataAndRespond);
@@ -215,9 +215,17 @@ router.get('/api/fetchPosts/:pageNum', function (req, res) {
         }
        
     }
-
     
 });
 
+router.post('/api/login', passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+}));
+
+router.post('/api/signup', passport.authenticate('signup', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+}));
 
 module.exports = router;

@@ -5,11 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
+var passport = require('passport');
+var accountHelper = require('./helpers/passport-config');
 var fileDirectoryHelper = require('./helpers/nodejs-recursive-directory');
 var routerFileTree = fileDirectoryHelper.getFilesRecursive(path.join(__dirname, 'routes'));
 var routerFilePaths = fileDirectoryHelper.getRequirePathsRecursive(routerFileTree);
 
 var app = express();
+
+accountHelper.configureStrategy(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +26,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 routerFilePaths.forEach(function (filePath) {

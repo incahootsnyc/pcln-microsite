@@ -1,4 +1,6 @@
 var config = require('../config');
+var crypto = require('crypto');
+
 
 function generateGuid() {
   function s4() {
@@ -46,7 +48,57 @@ function getSortAndFilter (req) {
   };
 }
 
+// http://code.ciphertrick.com/2016/01/18/salt-hash-passwords-using-nodejs-crypto/
+/**
+ * generates random string of characters i.e salt
+ * @function
+ * @param {number} length - Length of the random string.
+ */
+function genRandomString (length){
+    return crypto.randomBytes(Math.ceil(length/2))
+            .toString('hex') /** convert to hexadecimal format */
+            .slice(0,length);   /** return required number of characters */
+};
+
+/**
+ * hash password with sha512.
+ * @function
+ * @param {string} password - List of required fields.
+ * @param {string} salt - Data to be validated.
+ */
+function sha512 (password, salt){
+    var hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
+    hash.update(password);
+    var value = hash.digest('hex');
+
+    return {
+        salt: salt,
+        passwordHash: value
+    };
+};
+
+function createUser (username, password) {
+  var saltHashPassword = sha512(password, utils.getSalt());
+  var newUser = {
+      username: username,
+      hash: saltHashPassword.passwordHash,
+      salt: saltHashPassword.salt
+  };
+}
+
+function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 module.exports = {
 	generateUniqueName: generateUniqueName,
-  getSortAndFilterConfig: getSortAndFilter
+  getSortAndFilterConfig: getSortAndFilter,
+  getSalt: genRandomString,
+  saltHashPassword: sha512,
+  createUser: createUser,
+  isLoggedIn: loggedIn
 }

@@ -1,4 +1,4 @@
-<div id="signin-modal" class="modal-overlay">
+<div id="signin-modal" class="modal-overlay" style="display:block">
 	<div class="modal--signin">
 		<div class="modal--signin__container">
 			<img class="modal--signin__logo" src="/images/logo.svg"/>
@@ -6,7 +6,7 @@
 				<strong class="modal--signin__headline">Welcome</strong>
 				<p>Use your priceline.com corporate login to access, start posting photos and see what others have uploaded.</p>
 				<span id="category-error" class="modal--signin__error-message">Incorrect username or password.</span>
-				<form>
+				<form id="signin-form" action="/api/signin" method="post">
 					<input class="modal--signin__input" placeholder="Username" name="username" type="text"/>
 					<input class="modal--signin__input" placeholder="Password" name="password" type="password"/>
 					<button class="modal--signin__button" type="submit">SIGN IN</button>

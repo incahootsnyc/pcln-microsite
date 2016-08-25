@@ -31,7 +31,7 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 			  		id: req.user._id.toString(),
 			  		pageSize: config.itemsPerPage
 			  	},
-			  	isHome: true,
+			  	isMyPics: true,
 			  	sort: searchConfig.sortType,
 			  	categories: config.categories
 			}));

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var config = require('../config');
+var _ = require('lodash');
 var utils = require('../helpers/utils');
 
 /* GET terms page. */

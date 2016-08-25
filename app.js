@@ -32,7 +32,7 @@ app.use(expressSession({
   secret: 'beanbeansbeansdustinlovesbeans',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: process.env.NODE_ENVIRONMENT == 'PRODUCTION' }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

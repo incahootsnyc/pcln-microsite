@@ -659,25 +659,26 @@ body {
   opacity: .6;
 }
 
-/* line 62, ../../scss/modules/_modal.scss */
+/* line 60, ../../scss/modules/_modal.scss */
 .modal--lg {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
 }
-/* line 71, ../../scss/modules/_modal.scss */
+/* line 70, ../../scss/modules/_modal.scss */
 .modal--lg__subheadline {
   font-size: 18px;
   color: #666;
   display: inline-block;
   margin: 20px 0 10px;
 }
-/* line 78, ../../scss/modules/_modal.scss */
+/* line 77, ../../scss/modules/_modal.scss */
 .modal--lg__checkbox-label {
   display: inline-block;
   color: #666;
   font-size: 14px;
 }
-/* line 84, ../../scss/modules/_modal.scss */
+/* line 83, ../../scss/modules/_modal.scss */
 .modal--lg__category {
   margin: 5px 0;
   display: inline-block;
@@ -685,13 +686,14 @@ body {
   vertical-align: bottom;
   height: 34px;
 }
-/* line 92, ../../scss/modules/_modal.scss */
+/* line 91, ../../scss/modules/_modal.scss */
 .modal--lg__browse-input {
   display: none;
 }
-/* line 96, ../../scss/modules/_modal.scss */
+/* line 95, ../../scss/modules/_modal.scss */
 .modal--lg__img-select {
   position: relative;
+  margin-top: 15px;
 }
 /* line 100, ../../scss/modules/_modal.scss */
 .modal--lg__dragbox-cloud {
@@ -709,15 +711,20 @@ body {
   height: 80px;
 }
 /* line 120, ../../scss/modules/_modal.scss */
-.modal--lg__browse-label {
-  padding: 5px 20px;
-  color: #fff;
+.modal--lg__img-browse {
   height: 80px;
+  width: 80px;
   position: absolute;
-  top: 1px;
+  top: 0;
+  left: 0;
   opacity: 0;
 }
 /* line 129, ../../scss/modules/_modal.scss */
+.modal--lg__browse-label {
+  height: 100%;
+  width: 100%;
+}
+/* line 134, ../../scss/modules/_modal.scss */
 .modal--lg__img-dragbox {
   height: 82px;
   width: 82px;
@@ -725,75 +732,76 @@ body {
   border: 1px dashed #999;
   position: relative;
 }
-/* line 138, ../../scss/modules/_modal.scss */
+/* line 143, ../../scss/modules/_modal.scss */
 .modal--lg__button {
   margin: 20px 0 10px 0;
 }
-/* line 143, ../../scss/modules/_modal.scss */
+/* line 148, ../../scss/modules/_modal.scss */
 .modal--lg__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 154, ../../scss/modules/_modal.scss */
+  /* line 159, ../../scss/modules/_modal.scss */
   .modal--lg {
     max-width: 540px;
     top: 50px;
     height: 570px;
   }
-  /* line 159, ../../scss/modules/_modal.scss */
+  /* line 164, ../../scss/modules/_modal.scss */
   .modal--lg__category {
     width: 29%;
     height: 30px;
     vertical-align: text-bottom;
     margin: 5px;
   }
-  /* line 166, ../../scss/modules/_modal.scss */
+  /* line 171, ../../scss/modules/_modal.scss */
   .modal--lg__img-dragbox {
     height: 142px;
     width: 142px;
   }
-  /* line 171, ../../scss/modules/_modal.scss */
+  /* line 176, ../../scss/modules/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 175, ../../scss/modules/_modal.scss */
-  .modal--lg__browseimage {
-    display: inline-block;
-  }
-  /* line 179, ../../scss/modules/_modal.scss */
-  .modal--lg__browse-label {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    color: #666;
-    border: 1px solid #999;
-  }
-  /* line 186, ../../scss/modules/_modal.scss */
+  /* line 180, ../../scss/modules/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 190, ../../scss/modules/_modal.scss */
+  /* line 184, ../../scss/modules/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
   }
-  /* line 196, ../../scss/modules/_modal.scss */
+  /* line 190, ../../scss/modules/_modal.scss */
   .modal--lg__button {
     width: 200px;
     display: inline-block;
   }
-  /* line 201, ../../scss/modules/_modal.scss */
+  /* line 195, ../../scss/modules/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
-    vertical-align: bottom;
-    padding: 20px 20px 52px;
+    opacity: 1;
+    height: auto;
+    width: auto;
+    top: 60px;
+    left: 160px;
   }
-  /* line 207, ../../scss/modules/_modal.scss */
+  /* line 205, ../../scss/modules/_modal.scss */
+  .modal--lg__browse-label {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #666;
+    padding: 5px 15px;
+    height: auto;
+    border: 1px solid #999;
+  }
+  /* line 214, ../../scss/modules/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 216, ../../scss/modules/_modal.scss */
+/* line 223, ../../scss/modules/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -801,18 +809,18 @@ body {
   margin: auto;
   border-radius: 8px;
 }
-/* line 232, ../../scss/modules/_modal.scss */
+/* line 239, ../../scss/modules/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 237, ../../scss/modules/_modal.scss */
+/* line 244, ../../scss/modules/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 244, ../../scss/modules/_modal.scss */
+/* line 251, ../../scss/modules/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -821,19 +829,19 @@ body {
 }
 
 @media (min-width: 540px) {
-  /* line 254, ../../scss/modules/_modal.scss */
+  /* line 261, ../../scss/modules/_modal.scss */
   .modal--sm {
     width: 350px;
   }
 }
-/* line 260, ../../scss/modules/_modal.scss */
+/* line 267, ../../scss/modules/_modal.scss */
 .modal--details {
   background-color: rgba(255, 255, 255, 0);
   max-width: 800px;
   box-shadow: none;
   height: auto;
 }
-/* line 267, ../../scss/modules/_modal.scss */
+/* line 274, ../../scss/modules/_modal.scss */
 .modal--details__close {
   position: absolute;
   right: 12px;
@@ -842,51 +850,51 @@ body {
   opacity: 1;
   transition: opacity .5s;
 }
-/* line 276, ../../scss/modules/_modal.scss */
+/* line 283, ../../scss/modules/_modal.scss */
 .modal--details__close:hover {
   opacity: .6;
 }
-/* line 281, ../../scss/modules/_modal.scss */
+/* line 288, ../../scss/modules/_modal.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 285, ../../scss/modules/_modal.scss */
+/* line 292, ../../scss/modules/_modal.scss */
 .modal--details__category {
   padding-right: 10px;
 }
-/* line 289, ../../scss/modules/_modal.scss */
+/* line 296, ../../scss/modules/_modal.scss */
 .modal--details__arrow-right, .modal--details__arrow-left {
   display: none;
 }
-/* line 293, ../../scss/modules/_modal.scss */
+/* line 300, ../../scss/modules/_modal.scss */
 .modal--details__arrow-right {
   right: 0;
 }
-/* line 297, ../../scss/modules/_modal.scss */
+/* line 304, ../../scss/modules/_modal.scss */
 .modal--details__arrow-left {
   left: 0;
 }
-/* line 301, ../../scss/modules/_modal.scss */
+/* line 308, ../../scss/modules/_modal.scss */
 .modal--details__container {
   max-width: 700px;
   margin: auto;
   position: relative;
 }
-/* line 307, ../../scss/modules/_modal.scss */
+/* line 314, ../../scss/modules/_modal.scss */
 .modal--details__img-categories {
   display: inline-block;
 }
-/* line 311, ../../scss/modules/_modal.scss */
+/* line 318, ../../scss/modules/_modal.scss */
 .modal--details__likes {
   display: inline-block;
 }
-/* line 315, ../../scss/modules/_modal.scss */
+/* line 322, ../../scss/modules/_modal.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 321, ../../scss/modules/_modal.scss */
+/* line 328, ../../scss/modules/_modal.scss */
 .modal--details__img-info {
   position: absolute;
   bottom: 5px;
@@ -904,17 +912,17 @@ body {
   background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 }
-/* line 339, ../../scss/modules/_modal.scss */
+/* line 346, ../../scss/modules/_modal.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
 
 @media (min-width: 540px) {
-  /* line 349, ../../scss/modules/_modal.scss */
+  /* line 356, ../../scss/modules/_modal.scss */
   .modal--details__img-info {
     font-size: 16px;
   }
-  /* line 353, ../../scss/modules/_modal.scss */
+  /* line 360, ../../scss/modules/_modal.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
     position: absolute;
     cursor: pointer;
@@ -924,52 +932,52 @@ body {
     opacity: 1;
     transition: opacity .5s;
   }
-  /* line 362, ../../scss/modules/_modal.scss */
+  /* line 369, ../../scss/modules/_modal.scss */
   .modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
     opacity: .6;
   }
 }
-/* line 370, ../../scss/modules/_modal.scss */
+/* line 377, ../../scss/modules/_modal.scss */
 .modal--signin {
   width: 100%;
   height: 100vh;
   top: 0;
 }
-/* line 376, ../../scss/modules/_modal.scss */
+/* line 383, ../../scss/modules/_modal.scss */
 .modal--signin__container {
   max-width: 320px;
   margin: auto;
 }
-/* line 381, ../../scss/modules/_modal.scss */
+/* line 388, ../../scss/modules/_modal.scss */
 .modal--signin__logo {
   width: 100%;
   padding: 20px 0 40px;
   border-bottom: 1px solid #ccc;
 }
-/* line 391, ../../scss/modules/_modal.scss */
+/* line 398, ../../scss/modules/_modal.scss */
 .modal--signin__bottom {
   padding-top: 30px;
 }
-/* line 395, ../../scss/modules/_modal.scss */
+/* line 402, ../../scss/modules/_modal.scss */
 .modal--signin__input {
   margin: 5px 0;
 }
-/* line 399, ../../scss/modules/_modal.scss */
+/* line 406, ../../scss/modules/_modal.scss */
 .modal--signin__button {
   background-color: #0a84c1;
   margin-top: 20px;
 }
-/* line 404, ../../scss/modules/_modal.scss */
+/* line 411, ../../scss/modules/_modal.scss */
 .modal--signin__button:hover {
   background-color: #60AFD7;
 }
-/* line 409, ../../scss/modules/_modal.scss */
+/* line 416, ../../scss/modules/_modal.scss */
 .modal--signin__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 415, ../../scss/modules/_modal.scss */
+  /* line 422, ../../scss/modules/_modal.scss */
   .modal--signin {
     width: 350px;
     height: 500px;

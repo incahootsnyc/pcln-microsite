@@ -7,8 +7,7 @@
 		'upload-success': 1,
 		'delete-confirm': 2,
 		'update-modal': 3,
-		'details-modal': 4,
-		'signin-modal': 5
+		'details-modal': 4
 	};
 
 	$('#upload-image').click(function (e) {
@@ -61,18 +60,6 @@
 
 		} else {
 			showModal($detailsModal, { detailsImageData: imagePostData });
-		}
-    });
-
-    $('.navbar--user__link').click(function (e) {
-    	e.preventDefault();
-    	var $signinModal = $('#signin-modal');
-
-    	if ($signinModal.length < 1) {
-			$signinModal = grabTemplateByName('signin-modal');
-			showModal($signinModal);
-		} else {
-			showModal($signinModal);
 		}
     });
 

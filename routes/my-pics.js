@@ -5,11 +5,11 @@ var _ = require('lodash');
 var utils = require('../helpers/utils');
 var imagePostHelper = require('../helpers/image-post');
 var config = require('../config');
-var genericLayoutSettings = utils.getGenericLayoutProperties();
 
 /* GET home page. */
 router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
-
+	
+	var genericLayoutSettings = utils.getGenericLayoutProperties();
 	var searchConfig = utils.getSortAndFilterConfig(req);
 
 	db.get().collection('imagePosts', function (err, collection) {

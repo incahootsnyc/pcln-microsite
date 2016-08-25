@@ -5,10 +5,9 @@ var _ = require('lodash');
 var utils = require('../helpers/utils');
 var imagePostHelper = require('../helpers/image-post');
 var config = require('../config');
-var genericLayoutSettings = utils.getGenericLayoutProperties();
-
 
 router.get('/', function (req, res) {
+	var genericLayoutSettings = utils.getGenericLayoutProperties();
 
 	if (req.user) {
         res.redirect('/home');
@@ -25,7 +24,7 @@ router.get('/', function (req, res) {
 
 /* GET home page. */
 router.get('/home', utils.isLoggedIn, function (req, res, next) {
-
+	var genericLayoutSettings = utils.getGenericLayoutProperties();
 	var searchConfig = utils.getSortAndFilterConfig(req);
 
 	db.get().collection('imagePosts', function (err, collection) {

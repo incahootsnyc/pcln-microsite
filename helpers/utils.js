@@ -53,8 +53,7 @@ function getGenericLayoutProperties () {
     isTerms: false,
     isMyPics: false,
     isContestInfo: false,
-    isHomeSignin: false,
-    isHomeSignup: false,
+    isHomeSignin: false
   };
 }
 

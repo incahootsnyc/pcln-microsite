@@ -1,7 +1,6 @@
 var config = require('../config');
 var crypto = require('crypto');
 
-
 function generateGuid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -88,7 +87,15 @@ function createUser (username, password) {
   return newUser;
 }
 
-function loggedIn(req, res, next) {
+function createTempUser (username, password) {
+  var user = createUser(username, password);
+  user.confirmationUrl = genRandomString(16);
+  user.datetime = Date.now();
+
+  return user;
+}
+
+function loggedInMiddleWare (req, res, next) {
     if (req.user) {
         next();
     } else {
@@ -101,5 +108,6 @@ module.exports = {
   getSortAndFilterConfig: getSortAndFilter,
   saltHashPassword: sha512,
   createUser: createUser,
-  isLoggedIn: loggedIn
+  createTempUser: createTempUser,
+  isLoggedIn: loggedInMiddleWare
 }

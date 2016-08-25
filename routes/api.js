@@ -218,6 +218,36 @@ router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
     
 });
 
+router.get('/account-confirmation/:uniqueUrl', function (req, res) {
+    var errorMessage = 'hmm... nothing to confirm here.';
+    var now = Date.now();
+    var maxDiff = 604800000; // one week
+
+    if (req.params.uniqueUrl) {
+        db.get().collection('pendingUsers').findOne({ confirmationUrl: req.params.uniqueUrl }, function (error, user) {
+            if (error || !user) {
+                res.send(errorMessage);
+            } else {
+
+                if ((now - user.datetime) > maxDiff) {
+                    db.get().collection('pendingUsers').remove({ username: user.username });
+                    db.get().collection('users').insert(user, function (error, confirmation) {
+                        if (error) {
+                            res.send('hmm... something went wrong.');
+                        } else {
+                            res.redirect('/');
+                        }
+                    });
+                } else {
+                    res.send('hmm... the pending account has expired.');
+                }
+            }
+        });
+    } else {
+        res.send(errorMessage);
+    }
+});
+
 router.post('/api/login', passport.authenticate('local', {
     successRedirect: '/home',
     failureRedirect: '/'

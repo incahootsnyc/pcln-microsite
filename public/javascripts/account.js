@@ -18,15 +18,15 @@
 		hideErrors();
 
 		if ($form.attr('action') == '/api/login') {
-			if (username != undefined && username.trim().length == 0 && 
-				password != undefined && password.trim().length == 0 ) {
+			if (username == undefined || username.trim().length == 0 ||
+				password == undefined || password.trim().length == 0 ) {
 
 				loginErr.removeClass('ishidden');
 				return false;
 			}
 		} else {
-			if (username != undefined && username.trim().length == 0 && 
-				password != undefined && password.trim().length == 0 &&
+			if (username == undefined || username.trim().length == 0 || 
+				password == undefined || password.trim().length == 0 ||
 				password != pwConfirm.val()) {
 
 				registerErr.removeClass('ishidden');

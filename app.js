@@ -25,11 +25,11 @@ app.engine('html', ejs.renderFile);
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cookieParser('keyboard cat'));
+app.use(cookieParser('beanbeansbeansdustinlovesbeans'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressSession({
-  secret: 'keyboard cat',
+  secret: 'beanbeansbeansdustinlovesbeans',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }

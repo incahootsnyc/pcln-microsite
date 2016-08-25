@@ -78,12 +78,14 @@ function sha512 (password, salt){
 };
 
 function createUser (username, password) {
-  var saltHashPassword = sha512(password, utils.getSalt());
+  var saltHashPassword = sha512(password, genRandomString(16));
   var newUser = {
       username: username,
       hash: saltHashPassword.passwordHash,
       salt: saltHashPassword.salt
   };
+
+  return newUser;
 }
 
 function loggedIn(req, res, next) {
@@ -97,7 +99,6 @@ function loggedIn(req, res, next) {
 module.exports = {
 	generateUniqueName: generateUniqueName,
   getSortAndFilterConfig: getSortAndFilter,
-  getSalt: genRandomString,
   saltHashPassword: sha512,
   createUser: createUser,
   isLoggedIn: loggedIn

@@ -218,10 +218,16 @@ router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
     
 });
 
-router.post('/api/login', passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/'
-}));
+router.post('/api/login', function (req, res, next) {
+    passport.authenticate('local', function (err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.redirect('/'); }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/home');
+    });
+  })(req, res, next);
+});
 
 router.post('/api/signup', passport.authenticate('signup', {
     successRedirect: '/home',

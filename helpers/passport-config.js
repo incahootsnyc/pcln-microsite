@@ -1,6 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 var db = require('./db');
 var utils = require('./utils');
+var ObjectID = require('mongodb').ObjectID;
 
 function setUpPassport (passport) {
 
@@ -35,7 +36,7 @@ function setUpPassport (passport) {
                     return done(null, false, { message: 'User already exists.' });
                 } else {
                     // if there is no user with that email create the user and save the user
-                    var newUser = utils.createUser(req.body.username, req.body.password);
+                    var newUser = utils.createUser(username, password);
                     db.get().collection('users').insert(newUser, function (error, confirmation) {
                         if (error) { throw err; }
                         return done(null, newUser);
@@ -51,7 +52,7 @@ function setUpPassport (passport) {
 
 
     passport.deserializeUser(function (id, done) {
-        db.get().collection('users').findOne({ _id: id}, function (err,user){
+        db.get().collection('users').findOne({ _id: new ObjectID(id)}, function (err,user){
             if (err) done(err);
             done(null,user);
         });

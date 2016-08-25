@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressSession = require('express-session');
 var ejs = require('ejs');
 var passport = require('passport');
 var accountHelper = require('./helpers/passport-config');
@@ -23,12 +24,18 @@ app.engine('html', ejs.renderFile);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser('keyboard cat'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(expressSession({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
 
 routerFilePaths.forEach(function (filePath) {
     var router = require('./routes/' + filePath);

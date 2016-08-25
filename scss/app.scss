@@ -1,9 +1,7 @@
 // partials
-
 @import "partials/variables";
 @import "partials/patterns";
 @import "partials/checkbox";
-
 
 
 // modules
@@ -12,4 +10,11 @@
 @import "modules/sidebar";
 @import "modules/main";
 @import "modules/info-terms";
-@import "modules/modal";
+
+
+//modal modules
+@import "modules/modals/modal";
+@import "modules/modals/modal--signin";
+@import "modules/modals/modal--details";
+
+

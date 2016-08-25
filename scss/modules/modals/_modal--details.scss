@@ -1,0 +1,133 @@
+
+.modal--details {
+	max-width: 800px;
+	top: 40px;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	padding: 10px;
+
+	&__close {
+		position: absolute;
+		right: 10px;
+		top: 5px;
+		cursor: pointer;
+		z-index: 100;
+		opacity: 1;
+		transition: opacity .5s;
+
+		&:hover {
+			opacity: .6;
+		}
+	}
+
+	&__img {
+		width: 100%;
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__category {
+		padding-right: 10px;
+	}
+
+	&__arrow-right, &__arrow-left {
+		display: none;
+	}
+
+	&__arrow-right {
+		right: 0;
+	}
+
+	&__arrow-left {
+		left: 0;
+	}
+
+	&__img-submitter {
+		display: inline-block;
+
+	}
+
+	// &__container {
+	// 	max-width: 700px;
+	// 	margin: auto;
+	// 	position: relative;
+	// }
+
+	&__img-categories {
+		display: inline-block;
+		width: 80%;
+	}
+
+	&__likes {
+		display: inline-block;		
+	}
+
+	&__like-content {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+		width: 20%;
+		text-align: right;
+	}
+
+	&__img-info {
+		// position: absolute;
+	 //    bottom: 5px;
+	 //    padding: 10% 20px;
+	 //    color: #ffffff;
+	 //    font-size: 10px;
+	 //    width: 100%;
+	    // max-height: 91px;
+	    width: 100%;
+	    position: absolute;
+	    bottom: 5px;
+	    font-size: 12px;
+	    padding: 30px 10px 20px;
+	    color: $white;
+	    background: rgba(248,80,50,0);
+		background: -moz-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,0)), color-stop(100%, rgba(0,0,0,0.82)));
+		background: -webkit-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: -o-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: -ms-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		background: linear-gradient(to bottom, rgba(248,80,50,0) 0%, rgba(0,0,0,0.82) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
+	}
+
+	&__edit {
+		color: $blue-2;
+		padding: 0 5px;
+	}
+}
+
+
+@media (min-width: 540px) {
+	
+	.modal--details {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+
+		&__img-info {
+			font-size: 16px;
+		}
+
+		&__arrow-right, &__arrow-left {
+			position: absolute;
+			cursor: pointer;
+			display: block;
+			padding: 5px;
+			top: 250px;
+			opacity: 1;
+			transition: opacity .5s;
+
+			&:hover {
+				opacity: .6;
+			}
+		}
+	}
+}

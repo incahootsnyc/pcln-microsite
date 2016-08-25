@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
 });
 
 /* GET home page. */
-router.get('/home', function (req, res, next) {
+router.get('/home', utils.isLoggedIn, function (req, res, next) {
 
 	var searchConfig = utils.getSortAndFilterConfig(req);
 

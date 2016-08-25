@@ -236,7 +236,7 @@ router.get('/account-confirmation/:uniqueUrl', function (req, res) {
                 res.send(errorMessage);
             } else {
 
-                if ((now - user.datetime) > maxDiff) {
+                if ((now - user.datetime) < maxDiff) {
                     db.get().collection('pendingUsers').remove({ username: user.username });
                     db.get().collection('users').insert(user, function (error, confirmation) {
                         if (error) {

@@ -6,6 +6,7 @@
 	min-height: 100vh;
 	height: 100%;
 	top: 0;
+	padding: 20px 40px;
 
 	&__container {
 		max-width: 320px;
@@ -14,7 +15,7 @@
 
 	&__logo {
 		width: 100%;
-		padding: 20px 0 40px;
+		padding: 10px 0 40px;
 		border-bottom: 1px solid $black-20;
 	}
 
@@ -49,6 +50,7 @@
 	.modal--signin {
 		width: 350px;
 		height: auto;
+		min-height: initial;
 		top: 70px;
 	}
 }

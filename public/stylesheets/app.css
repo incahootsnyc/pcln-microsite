@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 21, ../../scss/partials/_variables.scss */
+/* line 22, ../../scss/partials/_variables.scss */
 .group:after {
   content: "";
   display: table;
@@ -31,6 +31,12 @@
 }
 
 /* line 24, ../../scss/partials/_patterns.scss */
+.isliked {
+  background-color: #999 !important;
+  pointer: default !important;
+}
+
+/* line 29, ../../scss/partials/_patterns.scss */
 .headline--orange, .contest-info__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline, .modal--signin__headline {
   font-size: 20px;
   color: #ff9600;
@@ -39,7 +45,7 @@
   font-weight: bold;
 }
 
-/* line 36, ../../scss/partials/_patterns.scss */
+/* line 41, ../../scss/partials/_patterns.scss */
 input[type="text"], input[type="password"] {
   box-shadow: none;
   border: 1px solid #999;
@@ -47,7 +53,7 @@ input[type="text"], input[type="password"] {
   border-radius: 3px;
 }
 
-/* line 43, ../../scss/partials/_patterns.scss */
+/* line 48, ../../scss/partials/_patterns.scss */
 .fade-in-on-load {
   animation-duration: 1.5s;
   animation-name: fadeInOnLoad;
@@ -59,6 +65,38 @@ input[type="text"], input[type="password"] {
   }
   100% {
     opacity: 1;
+  }
+}
+/* line 60, ../../scss/partials/_patterns.scss */
+.menu-enter {
+  -webkit-animation: slide 1s forwards;
+  animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+@keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+/* line 73, ../../scss/partials/_patterns.scss */
+.menu-exit {
+  -webkit-animation: slide 1s forwards;
+  animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+  100% {
+    right: -320px;
+  }
+}
+@keyframes slide {
+  100% {
+    right: -320px;
   }
 }
 /* Base for label styling */
@@ -201,100 +239,104 @@ body {
 .header__hamburger-icon {
   position: absolute;
   right: 10px;
-  top: 15px;
+  top: 30px;
   z-index: 500;
+  background-color: #ffffff;
 }
 
-/* line 23, ../../scss/modules/_navigation.scss */
+/* line 24, ../../scss/modules/_navigation.scss */
 .navbar--user, .navbar--main {
   display: none;
 }
 
-/* line 27, ../../scss/modules/_navigation.scss */
+/* line 28, ../../scss/modules/_navigation.scss */
 .navbar--mobile {
-  display: none;
-  background-color: #f2f2f2;
-  position: absolute;
-  right: 0;
+  background-color: #ffffff;
   top: 0;
-  width: 100%;
+  position: absolute;
+  right: -320px;
+  color: #666;
+  width: 320px;
   height: 100vh;
 }
-/* line 37, ../../scss/modules/_navigation.scss */
+/* line 38, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item {
   padding: 10px 30px;
 }
-/* line 40, ../../scss/modules/_navigation.scss */
+/* line 41, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item + li {
   border-top: 1px solid #ccc;
 }
-/* line 44, ../../scss/modules/_navigation.scss */
+/* line 45, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item:hover {
   background-color: #60AFD7;
+  color: #333;
 }
-/* line 49, ../../scss/modules/_navigation.scss */
+/* line 51, ../../scss/modules/_navigation.scss */
 .navbar--mobile__title {
   font-weight: normal;
   font-size: 18px;
-  padding: 10px 30px;
+  color: #999;
+  height: 72px;
+  padding: 25px 30px;
   display: block;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 @media (min-width: 841px) {
-  /* line 63, ../../scss/modules/_navigation.scss */
+  /* line 69, ../../scss/modules/_navigation.scss */
   .header {
     height: 110px;
   }
-  /* line 66, ../../scss/modules/_navigation.scss */
+  /* line 72, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
-  /* line 71, ../../scss/modules/_navigation.scss */
+  /* line 77, ../../scss/modules/_navigation.scss */
   .header__hamburger-icon {
     display: none;
   }
 
-  /* line 77, ../../scss/modules/_navigation.scss */
+  /* line 83, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
   }
-  /* line 80, ../../scss/modules/_navigation.scss */
+  /* line 86, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 85, ../../scss/modules/_navigation.scss */
+  /* line 91, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     right: 20px;
     top: 10px;
   }
-  /* line 90, ../../scss/modules/_navigation.scss */
+  /* line 96, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 8px;
   }
 
-  /* line 95, ../../scss/modules/_navigation.scss */
+  /* line 101, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 100, ../../scss/modules/_navigation.scss */
+  /* line 106, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 10px;
     color: #999;
     font-size: 16px;
   }
-  /* line 106, ../../scss/modules/_navigation.scss */
+  /* line 112, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 113, ../../scss/modules/_navigation.scss */
+/* line 119, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;
@@ -892,8 +934,8 @@ body {
 /* line 10, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__close {
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 4%;
+  top: -2%;
   cursor: pointer;
   z-index: 100;
   opacity: 1;
@@ -904,40 +946,60 @@ body {
   opacity: .6;
 }
 /* line 24, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__icon-container {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 0 4px;
+  background-color: #0a84c1;
+  border-radius: 50%;
+  transition: background-color .5s;
+  text-align: center;
+  padding: 6px 0 0 0;
+}
+/* line 35, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__icon-container:hover {
+  background-color: #999;
+  cursor: pointer;
+}
+/* line 42, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 28, ../../scss/modules/modals/_modal--details.scss */
+/* line 46, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__container {
   position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  width: 90%;
 }
-/* line 32, ../../scss/modules/modals/_modal--details.scss */
+/* line 53, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__category {
   padding-right: 10px;
 }
-/* line 36, ../../scss/modules/modals/_modal--details.scss */
+/* line 57, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__arrow-right, .modal--details__arrow-left {
-  display: none;
+  width: 5%;
 }
-/* line 40, ../../scss/modules/modals/_modal--details.scss */
+/* line 61, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__arrow-right {
-  right: 0;
+  right: 0px;
 }
-/* line 44, ../../scss/modules/modals/_modal--details.scss */
+/* line 65, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__arrow-left {
-  left: 0;
+  left: 0px;
 }
-/* line 55, ../../scss/modules/modals/_modal--details.scss */
+/* line 69, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__img-categories {
   display: inline-block;
   width: 80%;
 }
-/* line 60, ../../scss/modules/modals/_modal--details.scss */
+/* line 74, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__likes {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: bottom;
 }
-/* line 65, ../../scss/modules/modals/_modal--details.scss */
+/* line 79, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
@@ -945,7 +1007,7 @@ body {
   width: 20%;
   text-align: right;
 }
-/* line 73, ../../scss/modules/modals/_modal--details.scss */
+/* line 87, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__img-info {
   width: 100%;
   position: absolute;
@@ -962,35 +1024,40 @@ body {
   background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 }
-/* line 97, ../../scss/modules/modals/_modal--details.scss */
+/* line 104, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
+/* line 108, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__arrow-right, .modal--details__arrow-left {
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+  top: 130px;
+  opacity: 1;
+  transition: opacity .5s;
+}
+/* line 117, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
+  opacity: .6;
+}
 
 @media (min-width: 540px) {
-  /* line 105, ../../scss/modules/modals/_modal--details.scss */
+  /* line 126, ../../scss/modules/modals/_modal--details.scss */
   .modal--details {
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
   }
-  /* line 111, ../../scss/modules/modals/_modal--details.scss */
+  /* line 132, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__img-info {
     font-size: 16px;
+    padding: 30px 20px 10px;
   }
-  /* line 115, ../../scss/modules/modals/_modal--details.scss */
+  /* line 137, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
-    position: absolute;
-    cursor: pointer;
-    display: block;
-    padding: 5px;
-    top: 250px;
-    opacity: 1;
-    transition: opacity .5s;
-  }
-  /* line 124, ../../scss/modules/modals/_modal--details.scss */
-  .modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
-    opacity: .6;
+    top: 200px;
   }
 }

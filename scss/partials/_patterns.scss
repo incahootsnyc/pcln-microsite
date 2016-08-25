@@ -21,6 +21,11 @@
 	display: none !important;
 }
 
+.isliked {
+	background-color: $black-40 !important;
+	pointer: default !important;
+}
+
 .headline--orange {
 	font-size: 20px;
 	color: $orange-2;
@@ -41,11 +46,63 @@ input[type="text"], input[type="password"] {
 }
 
 .fade-in-on-load {
- animation-duration: 1.5s; 
- animation-name: fadeInOnLoad;
+	 animation-duration: 1.5s; 
+	 animation-name: fadeInOnLoad;
 }
 
 @keyframes fadeInOnLoad {
  0%,50% {opacity: 0;}
  100% {opacity: 1;}
 }
+
+
+
+.menu-enter {
+    -webkit-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
+}
+
+.menu-exit {
+    -webkit-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+}
+
+@-webkit-keyframes slide {
+    100% { right: -320px; }
+}
+
+@keyframes slide {
+    100% { right: -320px; }
+}
+
+// .menu-exit {
+// 	-webkit-animation: slideout 1s forwards;
+//     animation: slideout 1s forwards;
+// }
+
+// @-webkit-keyframes slideout {
+//     100% { right: 0; display: none; }
+//     100% {display: none;}
+// }
+
+// @keyframes slideout {
+//     100% { right: 0; }
+// }
+
+
+
+// @-webkit-keyframes slide {
+//     100% { right: -100%; }
+// }
+
+// @keyframes slide {
+//     100% { right: 0; }
+// }

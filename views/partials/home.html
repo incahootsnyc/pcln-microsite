@@ -1,10 +1,18 @@
 <div class="submissions">
 	<div class="submissions__header">	
 		<h1>Submissions</h1>
-		<select class="submissions__sort">
+			<div class="submissions__select-container"> 
+				<label for="select" class="select-container__arrow"></label> 
+				<select id="select" class="submissions__sort"> 
+					<option value="newest" <%= sort == "newest" ? "selected" : "" %>>Newest</option>
+			  		<option value="popular" <%= sort == "popular" ? "selected" : "" %>>Popular</option> 
+				</select> 
+			</div> 
+		
+		<!-- <select class="submissions__sort">
 			  <option value="newest" <%= sort == "newest" ? "selected" : "" %>>Newest</option>
 			  <option value="popular" <%= sort == "popular" ? "selected" : "" %>>Popular</option> 
-		</select>
+		</select> -->
 	</div>
 	<div class="submissions__container">
 		<ul id="image-list">

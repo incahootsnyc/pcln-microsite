@@ -17,21 +17,20 @@
   border: none;
   width: 100%;
   background-color: #ff9600;
-  transition: background-color .5s;
   cursor: pointer;
 }
 
-/* line 17, ../../scss/partials/_patterns.scss */
+/* line 16, ../../scss/partials/_patterns.scss */
 .disabled {
   background-color: #ccc;
 }
 
-/* line 21, ../../scss/partials/_patterns.scss */
+/* line 20, ../../scss/partials/_patterns.scss */
 .ishidden {
   display: none !important;
 }
 
-/* line 25, ../../scss/partials/_patterns.scss */
+/* line 24, ../../scss/partials/_patterns.scss */
 .headline--orange, .contest-info__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline, .modal--signin__headline {
   font-size: 20px;
   color: #ff9600;
@@ -40,7 +39,7 @@
   font-weight: bold;
 }
 
-/* line 37, ../../scss/partials/_patterns.scss */
+/* line 36, ../../scss/partials/_patterns.scss */
 input[type="text"], input[type="password"] {
   box-shadow: none;
   border: 1px solid #999;
@@ -48,7 +47,7 @@ input[type="text"], input[type="password"] {
   border-radius: 3px;
 }
 
-/* line 44, ../../scss/partials/_patterns.scss */
+/* line 43, ../../scss/partials/_patterns.scss */
 .fade-in-on-load {
   animation-duration: 1.5s;
   animation-name: fadeInOnLoad;
@@ -604,7 +603,7 @@ body {
     width: 320px;
   }
 }
-/* line 1, ../../scss/modules/_modal.scss */
+/* line 1, ../../scss/modules/modals/_modal.scss */
 .modal-overlay {
   position: fixed;
   left: 0;
@@ -617,13 +616,13 @@ body {
   display: none;
 }
 @media (max-width: 540px) {
-  /* line 1, ../../scss/modules/_modal.scss */
+  /* line 1, ../../scss/modules/modals/_modal.scss */
   .modal-overlay {
     display: none;
   }
 }
 
-/* line 18, ../../scss/modules/_modal.scss */
+/* line 18, ../../scss/modules/modals/_modal.scss */
 .modal, .modal--lg, .modal--sm, .modal--details, .modal--signin {
   position: absolute;
   top: 0;
@@ -632,20 +631,20 @@ body {
   z-index: 100;
 }
 @media (min-width: 540px) {
-  /* line 18, ../../scss/modules/_modal.scss */
+  /* line 18, ../../scss/modules/modals/_modal.scss */
   .modal, .modal--lg, .modal--sm, .modal--details, .modal--signin {
     border-radius: 8px;
     padding: 20px 40px;
     box-shadow: 5px -2px 10px 3px #6b6868;
     left: 0;
-    top: 80px;
+    top: 50px;
     right: 0;
     z-index: 300;
     margin: auto;
   }
 }
 
-/* line 38, ../../scss/modules/_modal.scss */
+/* line 38, ../../scss/modules/modals/_modal.scss */
 .modal__close, .modal--lg__close, .modal--sm__close {
   position: absolute;
   right: 10px;
@@ -654,31 +653,31 @@ body {
   opacity: 1;
   transition: opacity .5s;
 }
-/* line 47, ../../scss/modules/_modal.scss */
+/* line 47, ../../scss/modules/modals/_modal.scss */
 .modal__close:hover, .modal--lg__close:hover, .modal--sm__close:hover {
   opacity: .6;
 }
 
-/* line 60, ../../scss/modules/_modal.scss */
+/* line 60, ../../scss/modules/modals/_modal.scss */
 .modal--lg {
   width: 100%;
   height: auto;
   min-height: 100vh;
 }
-/* line 70, ../../scss/modules/_modal.scss */
+/* line 70, ../../scss/modules/modals/_modal.scss */
 .modal--lg__subheadline {
   font-size: 18px;
   color: #666;
   display: inline-block;
   margin: 20px 0 10px;
 }
-/* line 77, ../../scss/modules/_modal.scss */
+/* line 77, ../../scss/modules/modals/_modal.scss */
 .modal--lg__checkbox-label {
   display: inline-block;
   color: #666;
   font-size: 14px;
 }
-/* line 83, ../../scss/modules/_modal.scss */
+/* line 83, ../../scss/modules/modals/_modal.scss */
 .modal--lg__category {
   margin: 5px 0;
   display: inline-block;
@@ -686,16 +685,16 @@ body {
   vertical-align: bottom;
   height: 34px;
 }
-/* line 91, ../../scss/modules/_modal.scss */
+/* line 91, ../../scss/modules/modals/_modal.scss */
 .modal--lg__browse-input {
   display: none;
 }
-/* line 95, ../../scss/modules/_modal.scss */
+/* line 95, ../../scss/modules/modals/_modal.scss */
 .modal--lg__img-select {
   position: relative;
   margin-top: 15px;
 }
-/* line 100, ../../scss/modules/_modal.scss */
+/* line 100, ../../scss/modules/modals/_modal.scss */
 .modal--lg__dragbox-cloud {
   position: absolute;
   left: 0;
@@ -705,12 +704,12 @@ body {
   margin: auto;
   z-index: -5;
 }
-/* line 114, ../../scss/modules/_modal.scss */
+/* line 114, ../../scss/modules/modals/_modal.scss */
 .modal--lg__img-preview {
   width: 80px;
   height: 80px;
 }
-/* line 120, ../../scss/modules/_modal.scss */
+/* line 120, ../../scss/modules/modals/_modal.scss */
 .modal--lg__img-browse {
   height: 80px;
   width: 80px;
@@ -719,12 +718,12 @@ body {
   left: 0;
   opacity: 0;
 }
-/* line 129, ../../scss/modules/_modal.scss */
+/* line 129, ../../scss/modules/modals/_modal.scss */
 .modal--lg__browse-label {
   height: 100%;
   width: 100%;
 }
-/* line 134, ../../scss/modules/_modal.scss */
+/* line 134, ../../scss/modules/modals/_modal.scss */
 .modal--lg__img-dragbox {
   height: 82px;
   width: 82px;
@@ -732,53 +731,53 @@ body {
   border: 1px dashed #999;
   position: relative;
 }
-/* line 143, ../../scss/modules/_modal.scss */
+/* line 143, ../../scss/modules/modals/_modal.scss */
 .modal--lg__button {
   margin: 20px 0 10px 0;
 }
-/* line 148, ../../scss/modules/_modal.scss */
+/* line 148, ../../scss/modules/modals/_modal.scss */
 .modal--lg__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 159, ../../scss/modules/_modal.scss */
+  /* line 159, ../../scss/modules/modals/_modal.scss */
   .modal--lg {
     max-width: 540px;
-    top: 50px;
-    height: 570px;
+    height: auto;
+    min-height: initial;
   }
-  /* line 164, ../../scss/modules/_modal.scss */
+  /* line 164, ../../scss/modules/modals/_modal.scss */
   .modal--lg__category {
     width: 29%;
     height: 30px;
     vertical-align: text-bottom;
     margin: 5px;
   }
-  /* line 171, ../../scss/modules/_modal.scss */
+  /* line 171, ../../scss/modules/modals/_modal.scss */
   .modal--lg__img-dragbox {
     height: 142px;
     width: 142px;
   }
-  /* line 176, ../../scss/modules/_modal.scss */
+  /* line 176, ../../scss/modules/modals/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 180, ../../scss/modules/_modal.scss */
+  /* line 180, ../../scss/modules/modals/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 184, ../../scss/modules/_modal.scss */
+  /* line 184, ../../scss/modules/modals/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
   }
-  /* line 190, ../../scss/modules/_modal.scss */
+  /* line 190, ../../scss/modules/modals/_modal.scss */
   .modal--lg__button {
     width: 200px;
     display: inline-block;
   }
-  /* line 195, ../../scss/modules/_modal.scss */
+  /* line 195, ../../scss/modules/modals/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     opacity: 1;
@@ -787,7 +786,7 @@ body {
     top: 60px;
     left: 160px;
   }
-  /* line 205, ../../scss/modules/_modal.scss */
+  /* line 205, ../../scss/modules/modals/_modal.scss */
   .modal--lg__browse-label {
     border-radius: 5px;
     background-color: #f2f2f2;
@@ -796,12 +795,12 @@ body {
     height: auto;
     border: 1px solid #999;
   }
-  /* line 214, ../../scss/modules/_modal.scss */
+  /* line 214, ../../scss/modules/modals/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 223, ../../scss/modules/_modal.scss */
+/* line 223, ../../scss/modules/modals/_modal.scss */
 .modal--sm {
   width: 290px;
   left: 0;
@@ -809,18 +808,18 @@ body {
   margin: auto;
   border-radius: 8px;
 }
-/* line 239, ../../scss/modules/_modal.scss */
+/* line 239, ../../scss/modules/modals/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 244, ../../scss/modules/_modal.scss */
+/* line 244, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 251, ../../scss/modules/_modal.scss */
+/* line 251, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -829,12 +828,12 @@ body {
 }
 
 @media (min-width: 540px) {
-  /* line 261, ../../scss/modules/_modal.scss */
+  /* line 261, ../../scss/modules/modals/_modal.scss */
   .modal--sm {
     width: 350px;
   }
 }
-/* line 267, ../../scss/modules/_modal.scss */
+/* line 267, ../../scss/modules/modals/_modal.scss */
 .modal--details {
   background-color: rgba(255, 255, 255, 0);
   max-width: 800px;
@@ -842,7 +841,7 @@ body {
   top: 40px;
   height: auto;
 }
-/* line 275, ../../scss/modules/_modal.scss */
+/* line 275, ../../scss/modules/modals/_modal.scss */
 .modal--details__close {
   position: absolute;
   right: 10px;
@@ -852,51 +851,51 @@ body {
   opacity: 1;
   transition: opacity .5s;
 }
-/* line 285, ../../scss/modules/_modal.scss */
+/* line 285, ../../scss/modules/modals/_modal.scss */
 .modal--details__close:hover {
   opacity: .6;
 }
-/* line 290, ../../scss/modules/_modal.scss */
+/* line 290, ../../scss/modules/modals/_modal.scss */
 .modal--details__img {
   width: 100%;
 }
-/* line 294, ../../scss/modules/_modal.scss */
+/* line 294, ../../scss/modules/modals/_modal.scss */
 .modal--details__category {
   padding-right: 10px;
 }
-/* line 298, ../../scss/modules/_modal.scss */
+/* line 298, ../../scss/modules/modals/_modal.scss */
 .modal--details__arrow-right, .modal--details__arrow-left {
   display: none;
 }
-/* line 302, ../../scss/modules/_modal.scss */
+/* line 302, ../../scss/modules/modals/_modal.scss */
 .modal--details__arrow-right {
   right: 0;
 }
-/* line 306, ../../scss/modules/_modal.scss */
+/* line 306, ../../scss/modules/modals/_modal.scss */
 .modal--details__arrow-left {
   left: 0;
 }
-/* line 310, ../../scss/modules/_modal.scss */
+/* line 310, ../../scss/modules/modals/_modal.scss */
 .modal--details__container {
   max-width: 700px;
   margin: auto;
   position: relative;
 }
-/* line 316, ../../scss/modules/_modal.scss */
+/* line 316, ../../scss/modules/modals/_modal.scss */
 .modal--details__img-categories {
   display: inline-block;
 }
-/* line 320, ../../scss/modules/_modal.scss */
+/* line 320, ../../scss/modules/modals/_modal.scss */
 .modal--details__likes {
   display: inline-block;
 }
-/* line 324, ../../scss/modules/_modal.scss */
+/* line 324, ../../scss/modules/modals/_modal.scss */
 .modal--details__like-content {
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
-/* line 330, ../../scss/modules/_modal.scss */
+/* line 330, ../../scss/modules/modals/_modal.scss */
 .modal--details__img-info {
   position: absolute;
   bottom: 5px;
@@ -914,17 +913,17 @@ body {
   background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 }
-/* line 348, ../../scss/modules/_modal.scss */
+/* line 348, ../../scss/modules/modals/_modal.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
 
 @media (min-width: 540px) {
-  /* line 358, ../../scss/modules/_modal.scss */
+  /* line 358, ../../scss/modules/modals/_modal.scss */
   .modal--details__img-info {
     font-size: 16px;
   }
-  /* line 362, ../../scss/modules/_modal.scss */
+  /* line 362, ../../scss/modules/modals/_modal.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
     position: absolute;
     cursor: pointer;
@@ -934,55 +933,207 @@ body {
     opacity: 1;
     transition: opacity .5s;
   }
-  /* line 371, ../../scss/modules/_modal.scss */
+  /* line 371, ../../scss/modules/modals/_modal.scss */
   .modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
     opacity: .6;
   }
 }
-/* line 379, ../../scss/modules/_modal.scss */
+/* line 379, ../../scss/modules/modals/_modal.scss */
 .modal--signin {
   width: 100%;
   height: 100vh;
   top: 0;
 }
-/* line 385, ../../scss/modules/_modal.scss */
+/* line 385, ../../scss/modules/modals/_modal.scss */
 .modal--signin__container {
   max-width: 320px;
   margin: auto;
 }
-/* line 390, ../../scss/modules/_modal.scss */
+/* line 390, ../../scss/modules/modals/_modal.scss */
 .modal--signin__logo {
   width: 100%;
   padding: 20px 0 40px;
   border-bottom: 1px solid #ccc;
 }
-/* line 400, ../../scss/modules/_modal.scss */
+/* line 400, ../../scss/modules/modals/_modal.scss */
 .modal--signin__bottom {
   padding-top: 30px;
 }
-/* line 404, ../../scss/modules/_modal.scss */
+/* line 404, ../../scss/modules/modals/_modal.scss */
 .modal--signin__input {
   margin: 5px 0;
 }
-/* line 408, ../../scss/modules/_modal.scss */
+/* line 408, ../../scss/modules/modals/_modal.scss */
 .modal--signin__button {
   background-color: #0a84c1;
   margin-top: 20px;
 }
-/* line 413, ../../scss/modules/_modal.scss */
+/* line 413, ../../scss/modules/modals/_modal.scss */
 .modal--signin__button:hover {
   background-color: #60AFD7;
 }
-/* line 418, ../../scss/modules/_modal.scss */
+/* line 418, ../../scss/modules/modals/_modal.scss */
 .modal--signin__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 424, ../../scss/modules/_modal.scss */
+  /* line 424, ../../scss/modules/modals/_modal.scss */
   .modal--signin {
     width: 350px;
     height: 500px;
     top: 70px;
+  }
+}
+/* line 3, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+}
+/* line 9, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__container {
+  max-width: 320px;
+  margin: auto;
+}
+/* line 14, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__logo {
+  width: 100%;
+  padding: 20px 0 40px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 24, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__bottom {
+  padding-top: 30px;
+}
+/* line 28, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__input {
+  margin: 5px 0;
+}
+/* line 32, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__button {
+  background-color: #0a84c1;
+  margin-top: 20px;
+}
+/* line 37, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__button:hover {
+  background-color: #60AFD7;
+}
+/* line 42, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__error-message {
+  color: #b01408;
+}
+
+@media (min-width: 540px) {
+  /* line 48, ../../scss/modules/modals/_modal--signin.scss */
+  .modal--signin {
+    width: 350px;
+    height: auto;
+    top: 70px;
+  }
+}
+/* line 2, ../../scss/modules/modals/_modal--details.scss */
+.modal--details {
+  background-color: rgba(255, 255, 255, 0);
+  max-width: 800px;
+  box-shadow: none;
+  top: 40px;
+  height: auto;
+}
+/* line 10, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity .5s;
+}
+/* line 20, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__close:hover {
+  opacity: .6;
+}
+/* line 25, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__img {
+  width: 100%;
+}
+/* line 29, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__category {
+  padding-right: 10px;
+}
+/* line 33, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__arrow-right, .modal--details__arrow-left {
+  display: none;
+}
+/* line 37, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__arrow-right {
+  right: 0;
+}
+/* line 41, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__arrow-left {
+  left: 0;
+}
+/* line 45, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__container {
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+}
+/* line 51, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__img-categories {
+  display: inline-block;
+}
+/* line 55, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__likes {
+  display: inline-block;
+}
+/* line 59, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__like-content {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+/* line 65, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__img-info {
+  position: absolute;
+  bottom: 5px;
+  padding: 10% 20px;
+  color: #ffffff;
+  font-size: 10px;
+  width: 100%;
+  max-height: 91px;
+  background: rgba(248, 80, 50, 0);
+  background: -moz-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248, 80, 50, 0)), color-stop(100%, rgba(0, 0, 0, 0.82)));
+  background: -webkit-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -o-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -ms-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
+}
+/* line 83, ../../scss/modules/modals/_modal--details.scss */
+.modal--details__edit {
+  color: #60AFD7;
+}
+
+@media (min-width: 540px) {
+  /* line 93, ../../scss/modules/modals/_modal--details.scss */
+  .modal--details__img-info {
+    font-size: 16px;
+  }
+  /* line 97, ../../scss/modules/modals/_modal--details.scss */
+  .modal--details__arrow-right, .modal--details__arrow-left {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    top: 250px;
+    opacity: 1;
+    transition: opacity .5s;
+  }
+  /* line 106, ../../scss/modules/modals/_modal--details.scss */
+  .modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
+    opacity: .6;
   }
 }

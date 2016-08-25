@@ -878,44 +878,45 @@ body {
 /* line 3, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   top: 0;
 }
-/* line 9, ../../scss/modules/modals/_modal--signin.scss */
+/* line 10, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__container {
   max-width: 320px;
   margin: auto;
 }
-/* line 14, ../../scss/modules/modals/_modal--signin.scss */
+/* line 15, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__logo {
   width: 100%;
   padding: 20px 0 40px;
   border-bottom: 1px solid #ccc;
 }
-/* line 24, ../../scss/modules/modals/_modal--signin.scss */
+/* line 25, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__bottom {
   padding-top: 30px;
 }
-/* line 28, ../../scss/modules/modals/_modal--signin.scss */
+/* line 29, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__input {
   margin: 5px 0;
 }
-/* line 32, ../../scss/modules/modals/_modal--signin.scss */
+/* line 33, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button {
   background-color: #0a84c1;
   margin-top: 20px;
 }
-/* line 37, ../../scss/modules/modals/_modal--signin.scss */
+/* line 38, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button:hover {
   background-color: #60AFD7;
 }
-/* line 42, ../../scss/modules/modals/_modal--signin.scss */
+/* line 43, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 48, ../../scss/modules/modals/_modal--signin.scss */
+  /* line 49, ../../scss/modules/modals/_modal--signin.scss */
   .modal--signin {
     width: 350px;
     height: auto;
@@ -1053,10 +1054,14 @@ body {
   }
   /* line 132, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__img-info {
-    font-size: 16px;
-    padding: 30px 20px 10px;
+    font-size: 14px;
+    padding: 30px 20px 15px;
   }
-  /* line 137, ../../scss/modules/modals/_modal--details.scss */
+  /* line 138, ../../scss/modules/modals/_modal--details.scss */
+  .modal--details__like-content {
+    bottom: 15px;
+  }
+  /* line 142, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
     top: 200px;
   }

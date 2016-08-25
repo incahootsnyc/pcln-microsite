@@ -3,7 +3,8 @@
 .modal--signin {
 	@extend .modal;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 	top: 0;
 
 	&__container {

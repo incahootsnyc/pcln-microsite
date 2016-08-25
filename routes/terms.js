@@ -4,10 +4,10 @@ var config = require('../config');
 var utils = require('../helpers/utils');
 
 /* GET terms page. */
-router.get('/terms', function (req, res, next) {
+router.get('/terms', utils.isLoggedIn, function (req, res, next) {
 	
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
-	res.render('index', _.assign(genericLayoutSettings, { 
+	res.render('terms', _.assign(genericLayoutSettings, { 
 		title: 'PCLN Photo Contest', 
 		isTerms: true,
 		categories: config.categories

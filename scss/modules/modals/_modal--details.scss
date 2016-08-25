@@ -130,8 +130,13 @@
 		margin: auto;
 
 		&__img-info {
-			font-size: 16px;
-			padding: 30px 20px 10px
+			font-size: 14px;
+			padding: 30px 20px 15px;
+		}
+
+
+		&__like-content {
+			bottom: 15px;
 		}
 
 		&__arrow-right, &__arrow-left {

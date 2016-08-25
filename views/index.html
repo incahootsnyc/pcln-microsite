@@ -28,8 +28,8 @@
 					 <nav class="navbar--main">
 					 	<ul class="navbar--main__list">
 					 		<li class="navbar--main__item"><a href="/" class="navbar--main__link <%= isHome ? 'isactive' : '' %>">Home</a></li>
-					 		<li class="navbar--main__item"><a href="" class="navbar--main__link <%= isMyPics ? 'isactive' : '' %>">My Pics</a></li>
-					 		<li class="navbar--main__item"><a href="/contest-info" class="navbar--main__link <%= isContestInfo ? 'isactive' : '' %>">Contest Info &amp; Prizes</a></li>
+					 		<li class="navbar--main__item"><a href="/mypics" class="navbar--main__link <%= isMyPics ? 'isactive' : '' %>">My Pics</a></li>
+					 		<li class="navbar--main__item"><a href="/contestinfo" class="navbar--main__link <%= isContestInfo ? 'isactive' : '' %>">Contest Info &amp; Prizes</a></li>
 					 		<li class="navbar--main__item"><a href="/terms" class="navbar--main__link <%= isTerms ? 'isactive' : '' %>">Terms &amp; Conditions</a></li>
 					 	</ul>	
 					 </nav>
@@ -91,7 +91,7 @@
 
 				<main class="main">
 
-					<% if (isHome) { %>
+					<% if (isHome || isMyPics) { %>
 						<% include /partials/home.html %>
 					<% } else if (isTerms) { %>
 						<% include /partials/terms.html %>

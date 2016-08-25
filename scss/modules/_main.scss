@@ -102,7 +102,7 @@
 	    position: absolute;
 	    display: inline-block;
 	    top: 15px;
-	    right: 20px;
+	    right: 10px;
 	}
 
 }
@@ -127,6 +127,14 @@
 		min-width: 60%;
 		max-width: calc(100% - 320px);
 		float: right;
+	}
+}
+
+@media (min-width: 841px) {
+	.submissions {
+		&__select-container {
+			right: 20px;
+		}
 	}
 }
 

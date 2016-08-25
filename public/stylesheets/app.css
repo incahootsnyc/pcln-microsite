@@ -500,7 +500,7 @@ body {
   position: absolute;
   display: inline-block;
   top: 15px;
-  right: 20px;
+  right: 10px;
 }
 
 @media (min-width: 540px) {
@@ -520,6 +520,12 @@ body {
     min-width: 60%;
     max-width: calc(100% - 320px);
     float: right;
+  }
+}
+@media (min-width: 841px) {
+  /* line 135, ../../scss/modules/_main.scss */
+  .submissions__select-container {
+    right: 20px;
   }
 }
 /* line 1, ../../scss/modules/_info-terms.scss */

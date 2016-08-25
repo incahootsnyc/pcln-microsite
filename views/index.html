@@ -117,6 +117,7 @@
 		// grab initial data set from global value dropped into index.html template by EJS
 		pclnPicMe.pageSize = initialResultset.pageSize;
 		pclnPicMe.resultset = initialResultset.images;
+		pclnPicMe.uid = initialResultset.id;
 		<% } %>
 
 		pclnPicMe.tagDictionary = <%- JSON.stringify(categories) %>;
@@ -125,7 +126,7 @@
 
 	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
 	<% if (isHomeSignin) { %>
-		<script type="text/javascript" src="javascripts/account.js"></script>
+	<script type="text/javascript" src="javascripts/account.js"></script>
 	<% } %>
 
 	<% if (isHome) { %>

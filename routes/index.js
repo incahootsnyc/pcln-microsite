@@ -39,7 +39,7 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 
 			imageList.forEach(function (imageObj, index) {
 				if (imageObj.name) {
-					imagePosts.push(imagePostHelper.mapForClient(imageObj, index));
+					imagePosts.push(imagePostHelper.mapForClient(imageObj, index, req.user));
 				}
 			});
 		
@@ -47,6 +47,7 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 			  	title: 'PCLN Photo Contest',
 			  	initData: {
 			  		images: imagePosts,
+			  		id: req.user._id.toString(),
 			  		pageSize: config.itemsPerPage
 			  	},
 			  	isHome: true,

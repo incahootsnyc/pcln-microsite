@@ -43,7 +43,7 @@ router.post('/api/upload', utils.isLoggedIn, function (req, res) {
                 Key: uniqueFileName,
                 Body: imageFile.buffer
             };
-            var imagePostObj = imagePostHelper.generateForDB(uniqueFileName, body);
+            var imagePostObj = imagePostHelper.generateForDB(uniqueFileName, body, req.user);
 
             if (dimensions.width > 1000 || dimensions.height > 1000) {
                 parallelRequests.push(resizeImageForDetails);
@@ -188,7 +188,7 @@ router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
 
                 imageList.forEach(function (imageObj, index) {
                     if (imageObj.name) {
-                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip));
+                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip, req.user));
                     }
                 });
 

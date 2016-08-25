@@ -9,8 +9,8 @@
 
 	&__close {
 		position: absolute;
-		right: 10px;
-		top: 5px;
+		right: 4%;
+		top: -2%;
 		cursor: pointer;
 		z-index: 100;
 		opacity: 1;
@@ -21,12 +21,33 @@
 		}
 	}
 
+	&__icon-container {
+		width: 30px;
+	    height: 30px;
+	    display: inline-block;
+	    margin: 0 4px;
+	    background-color: #0a84c1;
+	    border-radius: 50%;
+	    transition: background-color .5s;
+	    text-align: center;
+	    padding: 6px 0 0 0;
+
+		&:hover {
+			background-color: $black-40;
+			cursor: pointer;
+		
+		}
+	}
+
 	&__img {
 		width: 100%;
 	}
 
 	&__container {
 		position: relative;
+		max-width: 700px;
+		margin: 0 auto;
+		width: 90%;
 	}
 
 	&__category {
@@ -34,23 +55,16 @@
 	}
 
 	&__arrow-right, &__arrow-left {
-		display: none;
+		width: 5%;
 	}
 
 	&__arrow-right {
-		right: 0;
+		right: 0px;
 	}
 
 	&__arrow-left {
-		left: 0;
+		left: 0px;
 	}
-
-
-	// &__container {
-	// 	max-width: 700px;
-	// 	margin: auto;
-	// 	position: relative;
-	// }
 
 	&__img-categories {
 		display: inline-block;
@@ -59,7 +73,7 @@
 
 	&__likes {
 		display: inline-block;
-		vertical-align: top;		
+		vertical-align: bottom;
 	}
 
 	&__like-content {
@@ -71,13 +85,6 @@
 	}
 
 	&__img-info {
-		// position: absolute;
-	 //    bottom: 5px;
-	 //    padding: 10% 20px;
-	 //    color: #ffffff;
-	 //    font-size: 10px;
-	 //    width: 100%;
-	    // max-height: 91px;
 	    width: 100%;
 	    position: absolute;
 	    bottom: 5px;
@@ -97,6 +104,20 @@
 	&__edit {
 		color: $blue-3;
 	}
+
+	&__arrow-right, &__arrow-left {
+			position: absolute;
+			cursor: pointer;
+			display: block;
+			padding: 5px;
+			top: 130px;
+			opacity: 1;
+			transition: opacity .5s;
+
+			&:hover {
+				opacity: .6;
+			}
+		}
 }
 
 
@@ -110,20 +131,11 @@
 
 		&__img-info {
 			font-size: 16px;
+			padding: 30px 20px 10px
 		}
 
 		&__arrow-right, &__arrow-left {
-			position: absolute;
-			cursor: pointer;
-			display: block;
-			padding: 5px;
-			top: 250px;
-			opacity: 1;
-			transition: opacity .5s;
-
-			&:hover {
-				opacity: .6;
-			}
+			top: 200px;
 		}
 	}
 }

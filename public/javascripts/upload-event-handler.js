@@ -27,7 +27,7 @@ pclnPicMe.uploadEventHandler = (function () {
 			if (!isSubmitting) {
 
 				isSubmitting = true;
-				
+
 				var formData = new FormData(this);
 			  	formData.append('datetime', Date.now());
 
@@ -46,9 +46,13 @@ pclnPicMe.uploadEventHandler = (function () {
 					contentType: false,
 					processData: false,
 					success: function (response) {
-							window.location.href = '/';
-						}
-					};
+						isSubmitting = false;
+						window.location.href = '/';
+					},
+					error: function () {
+						isSubmitting = false;
+					}
+				};
 
 				$.ajax(requestConfig);
 

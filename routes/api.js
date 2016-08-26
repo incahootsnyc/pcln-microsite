@@ -160,19 +160,21 @@ router.get('/api/like/:uniqueName', utils.isLoggedIn, function (req, res) {
         } else {
 
             var likeIndex = item.likes.indexOf(req.user._id.toString());
+            var liked = false;
             if (likeIndex > -1) {
                 item.likes.splice(likeIndex, 1);
                 item.likesCount = item.likes.length;
             } else {
                 item.likes.push(req.user._id.toString());
                 item.likesCount = item.likes.length;
+                liked = true;
             }
 
             db.get().collection('imagePosts').save(item, function (error, result) {
                 if (error) {
                     res.json({ message: defaultErrorMessage });
                 } else {
-                    res.json({ likes: item.likesCount });
+                    res.json({ likes: item.likes, hasLiked: liked });
                 }
             });
         }

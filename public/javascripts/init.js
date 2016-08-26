@@ -63,18 +63,31 @@
 
   }
 
-  pclnPicMe.updateLocalLikes = function (uniqueName, likesCount, isDetails) {
+  pclnPicMe.updateLocalLikes = function (uniqueName, likeResponse, isDetails) {
     var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
     var likeParent = $('img[data-id="' + uniqueName + '"').parent();
-    match.likesCount = likesCount;
+
+    match.likesCount = likeResponse.likes.length;
+    match.likes = likeResponse.likes;
 
     if (isDetails) {
-      likeParent.find('.like-value').text(likesCount);
-      setLike($('.modal--details__like-content'), null, true);
+      likeParent.find('.like-value').text(likeResponse.likes.length);
+      pclnPicMe.setLike($('.modal--details__icon-container'), null, likeResponse.hasLiked);
     }
 
-    setLike(likeParent.find('.submissions__icon-container'), null, true);
+    pclnPicMe.setLike(likeParent.find('.submissions__icon-container'), null, likeResponse.hasLiked);
 
+  };
+
+  pclnPicMe.setLike = function ($likeButton, imageObject, hasLiked) {
+    var hasLiked = imageObject ? imageObject.likes.indexOf(pclnPicMe.uid) > -1 : hasLiked;
+
+    if (hasLiked) {
+      $likeButton.addClass('isliked');
+    } else {
+      $likeButton.removeClass('isliked');
+    }
+    
   };
 
   pclnPicMe.lazyLoad = function (start) {
@@ -83,7 +96,7 @@
 
     for (var i = start || 0; i < pclnPicMe.resultset.length; i++) {
       loadImagesAsync(pclnPicMe.resultset[i], i);
-      setLike($(likeButtons[i]), pclnPicMe.resultset[i]);
+      pclnPicMe.setLike($(likeButtons[i]), pclnPicMe.resultset[i]);
     };
 
     function loadImagesAsync (image, i) {
@@ -98,13 +111,6 @@
       downloadingImage.src = image.thumbUrl;
     }
   };
-
-  function setLike ($likeButton, imageObject, forceLike) {
-    var hasLike = imageObject ? imageObject.likes.indexOf(pclnPicMe.uid) > -1 : forceLike
-    if (hasLike) {
-      $likeButton.toggleClass('isliked');
-    }
-  }
 
   setTimeout(function () {
     pclnPicMe.lazyLoad();

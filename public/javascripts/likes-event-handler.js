@@ -25,8 +25,8 @@ pclnPicMe.likesEventHandler = (function () {
 				if (response.message) {
 					// whoops
 				} else {
-					$likeValueContainer.text(response.likes);
-					pclnPicMe.updateLocalLikes(postId, response.likes, isDetails);
+					$likeValueContainer.text(response.likes.length);
+					pclnPicMe.updateLocalLikes(postId, response, isDetails);
 				}
 			}
 		};

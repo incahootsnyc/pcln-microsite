@@ -41,7 +41,9 @@ pclnPicMe.detailsEventHandler = (function () {
 	function populateDetailsModalFn ($modal, imageData) {
 		var $tagContainer = $modal.find('.modal--details__img-categories');
 		var $editPost = $modal.find('.modal--details__edit');
+
 		$tagContainer.empty();
+		pclnPicMe.setLike($modal.find('.modal--details__icon-container'), imageData)
 
 		$modal.find('.modal--details__img').attr('src', imageData.detailsUrl);
 		$modal.find('.details--modal__like-count').text(imageData.likesCount);

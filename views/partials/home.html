@@ -17,7 +17,7 @@
 	<div class="submissions__container">
 		<ul id="image-list">
 		<% for(var i=0; i < initData.images.length; i++) { %>
-			<li class="submissions__img-container" data-uid="initData.images[i].id">
+			<li class="submissions__img-container" data-uid="<%= initData.images[i].uid %>">
 
 				<img class="submissions__img" data-id="<%= initData.images[i].uniqueName %>" src="">
 				 <div class="submission__info">

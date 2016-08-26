@@ -10,6 +10,7 @@ pclnPicMe.updateEventHandler = (function () {
 		addCloseEvent: addCloseEventFn,
 		populateUpdateModal: populateUpdateModalFn,
 		addSubmitEvent: addSubmitEventFn,
+		addDeleteEvent: addDeleteEventFn,
 		addValidationEvent: addValidationEventFn
 	};
 
@@ -53,6 +54,41 @@ pclnPicMe.updateEventHandler = (function () {
 		$updateClose.click(function () {
 			$('body').css('overflow-y', '');
 			$updateModal.hide();
+		});
+	}
+
+	function addDeleteEventFn ($form, $detailsConfirmModal, imageData) {
+		var $deleteButton = $form.find('.delete');
+
+		$deleteButton.click(function (e) {
+			e.preventDefault();
+
+			var $confirmBtn = $detailsConfirmModal.find('.modal--sm__button--confirm');
+			var $cancelBtn = $detailsConfirmModal.find('.modal--sm__button--cancel');
+			var $closeBtn = $detailsConfirmModal.find('.modal__close');
+
+			$confirmBtn.click(function () {
+				var requestConfig = {
+					url: '/api/remove/' + imageData.uniqueName,
+					type: 'GET',
+					success: function (response) {
+						window.location.href = '/';
+					}
+				};
+
+				$.ajax(requestConfig);
+			});
+
+			$cancelBtn.click(function () {
+				$detailsConfirmModal.hide();
+			});
+
+			$closeBtn.click(function () {
+				$detailsConfirmModal.hide();
+			});
+
+			$detailsConfirmModal.show();
+
 		});
 	}
 

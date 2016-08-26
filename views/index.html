@@ -116,7 +116,7 @@
 		// grab initial data set from global value dropped into index.html template by EJS
 		pclnPicMe.pageSize = initialResultset.pageSize;
 		pclnPicMe.resultset = initialResultset.images;
-		pclnPicMe.uid = initialResultset.id;
+		pclnPicMe.uid = initialResultset.uid;
 		<% } %>
 
 		pclnPicMe.tagDictionary = <%- JSON.stringify(categories) %>;

@@ -8,7 +8,7 @@ var config = require('../config');
 
 router.get('/', function (req, res) {
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
-
+	// db.get().collection('imagePosts').remove();
 	if (req.user) {
         res.redirect('/home');
     } else {
@@ -35,7 +35,7 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 
 			imageList.forEach(function (imageObj, index) {
 				if (imageObj.name) {
-					imagePosts.push(imagePostHelper.mapForClient(imageObj, index, req.user));
+					imagePosts.push(imagePostHelper.mapForClient(imageObj, index));
 				}
 			});
 		
@@ -43,7 +43,7 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 			  	title: 'PCLN Photo Contest',
 			  	initData: {
 			  		images: imagePosts,
-			  		id: req.user._id.toString(),
+			  		uid: req.user._id.toString(),
 			  		pageSize: config.itemsPerPage
 			  	},
 			  	isHome: true,

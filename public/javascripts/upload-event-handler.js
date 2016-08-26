@@ -19,34 +19,41 @@ pclnPicMe.uploadEventHandler = (function () {
 	// form submit event for upload modal
 	function addSubmitEventFn ($form) {
 		var $fileInput = $form.find('input[type="file"]');
+		var isSubmitting = false;
 
 		$form.submit(function (e) {
 			e.preventDefault();
 
-		  	var formData = new FormData(this);
-		  	formData.append('datetime', Date.now());
+			if (!isSubmitting) {
 
-		  	if (droppedFile) {
-			    formData.append($fileInput.attr('name'), droppedFile);
+				isSubmitting = true;
+				
+				var formData = new FormData(this);
+			  	formData.append('datetime', Date.now());
+
+			  	if (droppedFile) {
+				    formData.append($fileInput.attr('name'), droppedFile);
+				}
+
+				if (!pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile, true)) {
+					return false;
+				}
+
+			  	var requestConfig = {
+					url: '/api/upload',
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					success: function (response) {
+							window.location.href = '/';
+						}
+					};
+
+				$.ajax(requestConfig);
+
 			}
-
-			if (!pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile, true)) {
-				return false;
-			}
-
-		  	var requestConfig = {
-				url: '/api/upload',
-				type: 'POST',
-				data: formData,
-				contentType: false,
-				processData: false,
-				success: function (response) {
-						window.location.href = '/';
-					}
-				};
-
-			$.ajax(requestConfig);
-
+		  	
 			return false;
 
 		});

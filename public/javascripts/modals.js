@@ -66,14 +66,15 @@
     function addEditEventListener ($modal) {
     	$modal.find('.modal--details__edit').click(function (e) {
     		e.preventDefault();
+    		$modal.hide();
 
     		var $currentTarget = $(e.currentTarget);
     		var $updateModal = $('#update-modal');
+    		var $deleteConfirmModal = $('#delete-confirm');
     		var imagePostData = pclnPicMe.resultset.find(function (imagePost) {
 				return imagePost.uniqueName == $currentTarget.parents('.modal--details__container').attr('data-id');
 			});
 
-    		$modal.hide();
     		if ($updateModal.length < 1) {
 				$updateModal = grabTemplateByName('update-modal');
 				var $updateForm = $updateModal.find('form');
@@ -81,6 +82,12 @@
 				pclnPicMe.updateEventHandler.addCloseEvent($updateModal);
 				pclnPicMe.updateEventHandler.addSubmitEvent($updateForm);
 				pclnPicMe.updateEventHandler.addValidationEvent($updateForm);
+
+				if ($deleteConfirmModal.length < 1) {
+					$deleteConfirmModal = grabTemplateByName('delete-confirm')
+				} 
+
+				pclnPicMe.updateEventHandler.addDeleteEvent($updateForm, $deleteConfirmModal, imagePostData);
 
 				showModal($updateModal, { updateImageData: imagePostData } );
 			} else {

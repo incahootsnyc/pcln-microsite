@@ -20,7 +20,7 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 
 			imageList.forEach(function (imageObj, index) {
 				if (imageObj.name) {
-					imagePosts.push(imagePostHelper.mapForClient(imageObj, index, req.user));
+					imagePosts.push(imagePostHelper.mapForClient(imageObj, index));
 				}
 			});
 		
@@ -28,7 +28,7 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 			  	title: 'PCLN Photo Contest',
 			  	initData: {
 			  		images: imagePosts,
-			  		id: req.user._id.toString(),
+			  		uid: req.user._id.toString(),
 			  		pageSize: config.itemsPerPage
 			  	},
 			  	isMyPics: true,

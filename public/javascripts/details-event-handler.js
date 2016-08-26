@@ -40,6 +40,7 @@ pclnPicMe.detailsEventHandler = (function () {
 
 	function populateDetailsModalFn ($modal, imageData) {
 		var $tagContainer = $modal.find('.modal--details__img-categories');
+		var $editPost = $modal.find('.modal--details__edit');
 		$tagContainer.empty();
 
 		$modal.find('.modal--details__img').attr('src', imageData.detailsUrl);
@@ -47,6 +48,12 @@ pclnPicMe.detailsEventHandler = (function () {
 		$modal.find('.modal--details__container').attr('data-id', imageData.uniqueName);
 		$modal.find('.modal--details__arrow-left').toggleClass('ishidden', imageData.index == 0);
 		$modal.find('.modal--details__arrow-right').toggleClass('ishidden', imageData.index == pclnPicMe.resultset.length-1);
+
+		if (pclnPicMe.uid != imageData.uid) {
+			$editPost.hide();
+		} else {
+			$editPost.show();
+		}
 
 		imageData.tags.forEach(function (tag) {
 			$tagContainer.append('<span class="modal--details__category">#' + pclnPicMe.tagDictionary[tag] + '</span>');

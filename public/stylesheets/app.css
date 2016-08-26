@@ -559,7 +559,7 @@ body {
   /* line 126, ../../scss/modules/_main.scss */
   .main {
     min-width: 60%;
-    max-width: calc(100% - 320px);
+    width: calc(100% - 320px);
     float: right;
   }
 }
@@ -879,7 +879,7 @@ body {
 .modal--signin {
   width: 100%;
   min-height: 100vh;
-  height: 100%;
+  height: auto;
   top: 0;
   padding: 20px 40px;
 }

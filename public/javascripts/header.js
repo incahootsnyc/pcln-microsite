@@ -33,15 +33,15 @@ hamburgerMenu.click(function() {
   	if (menuHidden) {
   		hamburgerMenu.attr('src', 'images/menu-close.png');
       	mobileMenu.animate({
-	      right: 0
-	    }, 800 );
+	      right: 0, opacity: 1
+	    }, 100 );
 
 	    menuHidden = !menuHidden;
   	} else {
   		hamburgerMenu.attr('src', 'images/hamburger.png');
     	mobileMenu.animate({
-    	right: "-320px"
-    	}, 800 );
+    	right: "-250px", opacity: 0
+    	}, 100 );
    	 	menuHidden = !menuHidden;
   	}
 });

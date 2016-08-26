@@ -254,25 +254,26 @@ body {
   background-color: #ffffff;
   top: 0;
   position: absolute;
-  right: -320px;
+  right: -250px;
   color: #666;
-  width: 320px;
+  width: 250px;
   height: 100vh;
+  box-shadow: 3px 0px 7px 4px #999;
 }
-/* line 38, ../../scss/modules/_navigation.scss */
+/* line 39, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item {
-  padding: 10px 30px;
+  padding: 15px 30px;
 }
-/* line 41, ../../scss/modules/_navigation.scss */
+/* line 42, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item + li {
   border-top: 1px solid #ccc;
 }
-/* line 45, ../../scss/modules/_navigation.scss */
+/* line 46, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item:hover {
   background-color: #60AFD7;
   color: #333;
 }
-/* line 51, ../../scss/modules/_navigation.scss */
+/* line 52, ../../scss/modules/_navigation.scss */
 .navbar--mobile__title {
   font-weight: normal;
   font-size: 18px;
@@ -284,59 +285,59 @@ body {
 }
 
 @media (min-width: 841px) {
-  /* line 69, ../../scss/modules/_navigation.scss */
+  /* line 70, ../../scss/modules/_navigation.scss */
   .header {
     height: 110px;
   }
-  /* line 72, ../../scss/modules/_navigation.scss */
+  /* line 73, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
-  /* line 77, ../../scss/modules/_navigation.scss */
+  /* line 78, ../../scss/modules/_navigation.scss */
   .header__hamburger-icon {
     display: none;
   }
 
-  /* line 83, ../../scss/modules/_navigation.scss */
+  /* line 84, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
   }
-  /* line 86, ../../scss/modules/_navigation.scss */
+  /* line 87, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 91, ../../scss/modules/_navigation.scss */
+  /* line 92, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     right: 20px;
     top: 10px;
   }
-  /* line 96, ../../scss/modules/_navigation.scss */
+  /* line 97, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 8px;
   }
 
-  /* line 101, ../../scss/modules/_navigation.scss */
+  /* line 102, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 106, ../../scss/modules/_navigation.scss */
+  /* line 107, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 10px;
     color: #999;
     font-size: 16px;
   }
-  /* line 112, ../../scss/modules/_navigation.scss */
+  /* line 113, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 119, ../../scss/modules/_navigation.scss */
+/* line 120, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;
@@ -462,42 +463,46 @@ body {
 /* line 22, ../../scss/modules/_main.scss */
 .submissions__container {
   text-align: center;
+  padding-top: 5px;
 }
-/* line 26, ../../scss/modules/_main.scss */
+/* line 27, ../../scss/modules/_main.scss */
 .submissions__img {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   margin-bottom: 2px;
   box-shadow: 1px -1px 4px 0px #c3bfbf;
   -webkit-transition: box-shadow 0s ease-in;
   transition: box-shadow 0s ease-in;
   background: url(/images/rolling.gif) 50% no-repeat;
 }
-/* line 35, ../../scss/modules/_main.scss */
+/* line 36, ../../scss/modules/_main.scss */
 .submissions__img:hover {
   box-shadow: 0px 0px 4px 0px #999;
   cursor: pointer;
 }
-/* line 41, ../../scss/modules/_main.scss */
+/* line 42, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
   font-size: 10px;
-  margin: 6px;
+  padding: 5px 5px 10px 5px;
+  width: 49%;
+  box-sizing: border-box;
 }
-/* line 47, ../../scss/modules/_main.scss */
+/* line 50, ../../scss/modules/_main.scss */
 .submissions__username {
   display: inline-block;
-  width: 45%;
+  width: 50%;
+  text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   vertical-align: middle;
 }
-/* line 56, ../../scss/modules/_main.scss */
+/* line 60, ../../scss/modules/_main.scss */
 .submissions__likes {
   text-align: right;
 }
-/* line 60, ../../scss/modules/_main.scss */
+/* line 64, ../../scss/modules/_main.scss */
 .submissions__icon-container {
   width: 18px;
   height: 18px;
@@ -507,18 +512,18 @@ body {
   border-radius: 50%;
   transition: background-color .5s;
 }
-/* line 70, ../../scss/modules/_main.scss */
+/* line 74, ../../scss/modules/_main.scss */
 .submissions__icon-container:hover {
   background-color: #999;
   cursor: pointer;
 }
-/* line 77, ../../scss/modules/_main.scss */
+/* line 81, ../../scss/modules/_main.scss */
 .submissions__like-icon {
   width: 12px;
   vertical-align: text-bottom;
   margin: 3px;
 }
-/* line 83, ../../scss/modules/_main.scss */
+/* line 87, ../../scss/modules/_main.scss */
 .submissions__sort {
   border: none;
   color: #0a84c1;
@@ -531,32 +536,44 @@ body {
   appearance: none;
   padding: 7px 24px 0 0;
 }
-/* line 95, ../../scss/modules/_main.scss */
+/* line 99, ../../scss/modules/_main.scss */
 .submissions__sort:focus {
   outline: 0;
 }
-/* line 100, ../../scss/modules/_main.scss */
+/* line 104, ../../scss/modules/_main.scss */
 .submissions__select-container {
   overflow: hidden;
   position: absolute;
   display: inline-block;
-  top: 15px;
+  top: 13px;
   right: 10px;
 }
 
+@media (min-width: 420px) {
+  /* line 116, ../../scss/modules/_main.scss */
+  .submissions__img-container {
+    width: auto;
+  }
+
+  /* line 120, ../../scss/modules/_main.scss */
+  .submissions__img {
+    width: 140px;
+    height: 140px;
+  }
+}
 @media (min-width: 540px) {
-  /* line 114, ../../scss/modules/_main.scss */
+  /* line 129, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
   }
-  /* line 120, ../../scss/modules/_main.scss */
+  /* line 135, ../../scss/modules/_main.scss */
   .submissions__header {
     padding: 20px 10px 10px 30px;
   }
 
-  /* line 126, ../../scss/modules/_main.scss */
+  /* line 141, ../../scss/modules/_main.scss */
   .main {
     min-width: 60%;
     width: calc(100% - 320px);
@@ -564,7 +581,7 @@ body {
   }
 }
 @media (min-width: 841px) {
-  /* line 135, ../../scss/modules/_main.scss */
+  /* line 150, ../../scss/modules/_main.scss */
   .submissions__select-container {
     right: 20px;
   }

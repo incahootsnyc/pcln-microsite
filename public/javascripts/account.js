@@ -1,6 +1,7 @@
 (function  () {
 	var $accountModal = $('#signin-modal'),
 		$form = $accountModal.find('form'),
+		$registerMessage = $accountModal.find('#register-message'),
 		$registerLink = $accountModal.find('#register-message a'),
 		$loginLink = $accountModal.find('#login-message a'),
 		$loginErr = $accountModal.find('#login-error'),
@@ -11,17 +12,25 @@
 		$pwConfirm = $accountModal.find('input[name="password-confirm"]'),
 		search = location.search.substring(1),
 		searchQueryObject,
+		hasMessage,
 		loginErrorMap = {
 			'00': 'Incorrect username.',
 			'01': 'Incorrect password.',
 			'02': 'User email is invalid.',
-			'03': 'User already exists.'
+			'03': 'User already exists.',
+			'04': 'Check your email to complete your registration!'
 		};
 
 	if (search.length > 0) {
 		searchQueryObject = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+		hasMessage = searchQueryObject && searchQueryObject.e;
 		if (searchQueryObject && searchQueryObject.e) {
 			$passportError.text(loginErrorMap[searchQueryObject.e]).removeClass('ishidden');
+		}
+
+		if (hasMessage && searchQueryObject.e == '04') {
+			$form.hide();
+			$registerMessage.hide();
 		}
 	}
 
@@ -92,10 +101,10 @@
 				validTokens = false;
 				break;
 			}
-		};
+		}
 
 		// return isPCLN && validTokens;
-		return true;
+		return validTokens;
 	}
 
 })();

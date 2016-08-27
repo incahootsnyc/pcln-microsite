@@ -53,7 +53,10 @@ function getGenericLayoutProperties () {
     isTerms: false,
     isMyPics: false,
     isContestInfo: false,
-    isHomeSignin: false
+    isHomeSignin: false,
+    title: 'PCLN Photo Contest',
+    categories: config.categories,
+    isProduction: process.env.AWS_SECRET_ACCESS_KEY == 'PRODUCTION'
   };
 }
 
@@ -108,7 +111,7 @@ function isValidEmail (email) {
   };
 
   // return isPCLN && validTokens;
-  return true;
+  return validTokens;
 }
 
 function loggedInMiddleWare (req, res, next) {

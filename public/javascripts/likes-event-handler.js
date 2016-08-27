@@ -32,7 +32,7 @@ pclnPicMe.likesEventHandler = (function () {
 		};
 
 		$.ajax(requestConfig);
-	};
+	}
 
 })();
 

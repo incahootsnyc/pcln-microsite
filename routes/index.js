@@ -25,10 +25,8 @@ router.get('/', function (req, res) {
         res.redirect('/home');
     } else {
         res.render('index', _.assign(genericLayoutSettings, { 
-	    	title: 'PCLN Photo Contest',
 		  	initData: {},
 		  	isHomeSignin: true,
-		  	categories: config.categories,
 			userFirstName: ''
 	    }));
     }
@@ -53,7 +51,6 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 			});
 		
 			res.render('index', _.assign(genericLayoutSettings, { 
-			  	title: 'PCLN Photo Contest',
 			  	initData: {
 			  		images: imagePosts,
 			  		uid: req.user._id.toString(),
@@ -61,7 +58,6 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 			  	},
 			  	isHome: true,
 			  	sort: searchConfig.sortType,
-			  	categories: config.categories,
 			  	userFirstName: req.user.firstname || ''
 			}));
 

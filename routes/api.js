@@ -116,7 +116,12 @@ router.post('/api/update', utils.isLoggedIn, function (req, res) {
         if (error || !item) {
             res.json({ message: defaultErrorMessage });
         } else {
-            item.tags = body['category[]'];
+            if (_.isArray(body['category[]'])) {
+                item.tags = body['category[]'];
+            } else {
+                item.tags = [ body['category[]'] ];
+            }
+            
             item.location = body.location;
 
             db.get().collection('imagePosts').save(item, function (error, result) {
@@ -280,10 +285,7 @@ router.post('/api/login', function (req, res, next) {
 router.post('/api/signup', function (req, res, next) {
   passport.authenticate('signup', function (err, user, info) {
     if (err || !user) { return res.redirect('/?e=' + info.message); }
-    req.logIn(user, function (err) {
-      if (err) { return res.redirect('/?e=' + info.message); }
-      return res.redirect('/home');
-    });
+    return res.redirect('/?e=' + info.message);
   })(req, res, next);
 });
 

@@ -46,7 +46,7 @@ function setUpPassport (passport) {
                     db.get().collection('pendingUsers').insert(tempUser, function (error, confirmation) {
                         if (error) { throw err; }
                         mailer.sendConfirmationEmail(req, tempUser);
-                        return done(null, tempUser);
+                        return done(null, tempUser, { message: '04' });
                     });
                 }
             });

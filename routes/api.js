@@ -280,10 +280,7 @@ router.post('/api/login', function (req, res, next) {
 router.post('/api/signup', function (req, res, next) {
   passport.authenticate('signup', function (err, user, info) {
     if (err || !user) { return res.redirect('/?e=' + info.message); }
-    req.logIn(user, function (err) {
-      if (err) { return res.redirect('/?e=' + info.message); }
-      return res.redirect('/home');
-    });
+    return res.redirect('/?e=' + info.message);
   })(req, res, next);
 });
 

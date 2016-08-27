@@ -15,7 +15,8 @@
 			'00': 'Incorrect username.',
 			'01': 'Incorrect password.',
 			'02': 'User email is invalid.',
-			'03': 'User already exists.'
+			'03': 'User already exists.',
+			'04': 'Check your email to complete your registration!'
 		};
 
 	if (search.length > 0) {

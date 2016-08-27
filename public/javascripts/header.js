@@ -15,7 +15,8 @@
     
     if (screenWidth > 840) {
         hamburgerMenu.css('display', 'none');
-        mobileMenu.css('right', '-320px');
+        //mobileMenu.css('right', '-320px');
+        mobileMenu.removeClass('slideLeft');
         hamburgerMenu.attr('src', 'images/hamburger.png');
         menuHidden = true;
 
@@ -32,17 +33,22 @@
 
   hamburgerMenu.click(function() {
       if (menuHidden) {
-        hamburgerMenu.attr('src', 'images/menu-close.png');
-          mobileMenu.animate({
-          right: 0, opacity: 1
-        }, 100 );
+
+      mobileMenu.addClass("slideLeft");
+      hamburgerMenu.attr('src', 'images/menu-close.png');
+        //   mobileMenu.animate({
+        //   right: 0, opacity: 1
+        // }, 100 );
 
         menuHidden = !menuHidden;
       } else {
-        hamburgerMenu.attr('src', 'images/hamburger.png');
-        mobileMenu.animate({
-        right: "-250px", opacity: 0
-        }, 100 );
+        mobileMenu.removeClass("slideLeft");
+      	// mobileMenu.removeClass("menu-enter");
+      	// mobileMenu.addClass("menu-exit");
+         hamburgerMenu.attr('src', 'images/hamburger.png');
+        // mobileMenu.animate({
+        // right: "-250px", opacity: 0
+        // }, 100 );
         menuHidden = !menuHidden;
       }
   });

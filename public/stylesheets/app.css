@@ -99,6 +99,11 @@ input[type="text"], input[type="password"], input[type="email"] {
     right: -320px;
   }
 }
+/* line 87, ../../scss/partials/_patterns.scss */
+.slideLeft {
+  transform: translateX(-260px);
+}
+
 /* Base for label styling */
 /* line 2, ../../scss/partials/_checkbox.scss */
 [type="checkbox"]:not(:checked),
@@ -253,27 +258,28 @@ body {
 .navbar--mobile {
   background-color: #ffffff;
   top: 0;
+  right: -260px;
   position: absolute;
-  right: -250px;
   color: #666;
   width: 250px;
   height: 100vh;
   box-shadow: 3px 0px 7px 4px #999;
+  transition: transform 1s, opacity 1s;
 }
-/* line 39, ../../scss/modules/_navigation.scss */
+/* line 42, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item {
   padding: 15px 30px;
 }
-/* line 42, ../../scss/modules/_navigation.scss */
+/* line 45, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item + li {
   border-top: 1px solid #ccc;
 }
-/* line 46, ../../scss/modules/_navigation.scss */
+/* line 49, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item:hover {
   background-color: #60AFD7;
   color: #333;
 }
-/* line 52, ../../scss/modules/_navigation.scss */
+/* line 55, ../../scss/modules/_navigation.scss */
 .navbar--mobile__title {
   font-weight: normal;
   font-size: 18px;
@@ -285,47 +291,47 @@ body {
 }
 
 @media (min-width: 841px) {
-  /* line 70, ../../scss/modules/_navigation.scss */
+  /* line 73, ../../scss/modules/_navigation.scss */
   .header {
     height: 110px;
   }
-  /* line 73, ../../scss/modules/_navigation.scss */
+  /* line 76, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
-  /* line 78, ../../scss/modules/_navigation.scss */
+  /* line 81, ../../scss/modules/_navigation.scss */
   .header__hamburger-icon {
     display: none;
   }
 
-  /* line 84, ../../scss/modules/_navigation.scss */
+  /* line 87, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
   }
-  /* line 87, ../../scss/modules/_navigation.scss */
+  /* line 90, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 92, ../../scss/modules/_navigation.scss */
+  /* line 95, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     right: 20px;
     top: 10px;
   }
-  /* line 97, ../../scss/modules/_navigation.scss */
+  /* line 100, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 8px;
   }
 
-  /* line 102, ../../scss/modules/_navigation.scss */
+  /* line 105, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 107, ../../scss/modules/_navigation.scss */
+  /* line 110, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 10px;
@@ -334,12 +340,12 @@ body {
     border-bottom: 5px solid #ffffff;
     transition: border-bottom .5s;
   }
-  /* line 116, ../../scss/modules/_navigation.scss */
+  /* line 119, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 123, ../../scss/modules/_navigation.scss */
+/* line 126, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;

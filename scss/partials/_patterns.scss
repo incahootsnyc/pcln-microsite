@@ -83,26 +83,8 @@ input[type="text"], input[type="password"], input[type="email"] {
     100% { right: -320px; }
 }
 
-// .menu-exit {
-// 	-webkit-animation: slideout 1s forwards;
-//     animation: slideout 1s forwards;
-// }
 
-// @-webkit-keyframes slideout {
-//     100% { right: 0; display: none; }
-//     100% {display: none;}
-// }
+.slideLeft {
+	transform: translateX(-260px);
+}
 
-// @keyframes slideout {
-//     100% { right: 0; }
-// }
-
-
-
-// @-webkit-keyframes slide {
-//     100% { right: -100%; }
-// }
-
-// @keyframes slide {
-//     100% { right: 0; }
-// }

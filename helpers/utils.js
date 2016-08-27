@@ -108,7 +108,7 @@ function isValidEmail (email) {
   };
 
   // return isPCLN && validTokens;
-  return true;
+  return validTokens;
 }
 
 function loggedInMiddleWare (req, res, next) {

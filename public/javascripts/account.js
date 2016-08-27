@@ -104,7 +104,7 @@
 		};
 
 		// return isPCLN && validTokens;
-		return true;
+		return validTokens;
 	}
 
 })();

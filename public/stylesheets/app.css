@@ -46,7 +46,7 @@
 }
 
 /* line 41, ../../scss/partials/_patterns.scss */
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
   box-shadow: none;
   border: 1px solid #999;
   height: 40px;

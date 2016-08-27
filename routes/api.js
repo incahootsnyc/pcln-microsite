@@ -116,7 +116,12 @@ router.post('/api/update', utils.isLoggedIn, function (req, res) {
         if (error || !item) {
             res.json({ message: defaultErrorMessage });
         } else {
-            item.tags = body['category[]'];
+            if (_.isArray(body['category[]'])) {
+                item.tags = body['category[]'];
+            } else {
+                item.tags = [ body['category[]'] ];
+            }
+            
             item.location = body.location;
 
             db.get().collection('imagePosts').save(item, function (error, result) {

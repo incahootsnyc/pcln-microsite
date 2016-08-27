@@ -14,6 +14,7 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 
 	db.get().collection('imagePosts', function (err, collection) {
 
+		_.assign(searchConfig.query, {uid: req.user._id });
 		collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
 	
 			var imagePosts = [];

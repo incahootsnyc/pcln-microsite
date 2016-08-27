@@ -95,6 +95,8 @@
 						<% include /partials/home.html %>
 					<% } else if (isTerms) { %>
 						<% include /partials/terms.html %>
+					<% } else if (isContestInfo) { %>
+						<% include /partials/contest-info.html %>
 					<% } %>
 			
 				</main>
@@ -111,7 +113,7 @@
 	<script type="text/javascript">
 		var pclnPicMe = {};
 
-		<% if (isHome) { %>
+		<% if (isHome || isMyPics) { %>
 		var initialResultset = <%- JSON.stringify(initData) %>;
 		// grab initial data set from global value dropped into index.html template by EJS
 		pclnPicMe.pageSize = initialResultset.pageSize;
@@ -128,7 +130,7 @@
 	<script type="text/javascript" src="javascripts/account.js"></script>
 	<% } %>
 
-	<% if (isHome) { %>
+	<% if (isHome || isMyPics) { %>
 	<script type="text/javascript" src="javascripts/header.js"></script>
 	<script type="text/javascript" src="javascripts/init.js"></script>
 	<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>

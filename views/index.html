@@ -119,6 +119,13 @@
 		pclnPicMe.pageSize = initialResultset.pageSize;
 		pclnPicMe.resultset = initialResultset.images;
 		pclnPicMe.uid = initialResultset.uid;
+		
+		<% } %>
+
+		<% if (isHome) { %>
+			pclnPicMe.scrollType = 'default';
+		<% } else if (isMyPics) { %>
+			pclnPicMe.scrollType = 'mypics';
 		<% } %>
 
 		pclnPicMe.tagDictionary = <%- JSON.stringify(categories) %>;
@@ -130,7 +137,7 @@
 	<script type="text/javascript" src="javascripts/account.js"></script>
 	<% } %>
 
-	<% if (isHome || isMyPics) { %>
+	<% if (!isHomeSignin) { %>
 	<script type="text/javascript" src="javascripts/header.js"></script>
 	<script type="text/javascript" src="javascripts/init.js"></script>
 	<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>

@@ -10,17 +10,22 @@ function setUpPassport (passport) {
         db.get().collection('users').findOne({ username : username}, function (err,user) {
             if (err) { return done(err); }
             if (!user) {
-                return done(null, false, { message: 'Incorrect username.' });
+                return done(null, false, { message: '00' });
             }
 
             var saltHashPassword = utils.saltHashPassword(password, user.salt);
             if (err) { return done(err); }
             if (saltHashPassword.passwordHash == user.hash) return done(null, user);
-            done(null, false, { message: 'Incorrect password.' });
+            done(null, false, { message: '01' });
         });
     }));
 
-    passport.use('signup', new LocalStrategy({ passReqToCallback : true }, function (req, username, password, done) {   
+    passport.use('signup', new LocalStrategy({ passReqToCallback : true }, function (req, username, password, done) { 
+
+        if (!utils.isValidPricelineEmail(username)) {
+            return done(null, false, { message: '02' });
+        }
+
         // Delay the execution of findOrCreateUser and execute 
         // the method in the next tick of the event loop
         process.nextTick(findOrCreateUser);
@@ -34,7 +39,7 @@ function setUpPassport (passport) {
                 }
                 // already exists
                 if (user) {
-                    return done(null, false, { message: 'User already exists.' });
+                    return done(null, false, { message: '03' });
                 } else {
                     // if there is no user with that email create the user and save the user
                     var tempUser = utils.createTempUser(username, password);

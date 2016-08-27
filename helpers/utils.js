@@ -75,23 +75,35 @@ function sha512 (password, salt){
     };
 };
 
-function createUser (username, password) {
+function createTempUser (username, password) {
   var saltHashPassword = sha512(password, genRandomString(16));
   var newUser = {
       username: username,
       hash: saltHashPassword.passwordHash,
       salt: saltHashPassword.salt
   };
+  newUser.confirmationUrl = genRandomString(16);
+  newUser.datetime = Date.now();
 
   return newUser;
 }
 
-function createTempUser (username, password) {
-  var user = createUser(username, password);
-  user.confirmationUrl = genRandomString(16);
-  user.datetime = Date.now();
+function isValidEmail (email) {
+  var atIndex = email.indexOf('@') > -1;
+  var isPCLN = email.indexOf('priceline.com') > -1;
+  var emailName = email.substring(0, atIndex-1);
+  var nameTokens = emailName.split('.');
+  var validTokens = nameTokens.length > 1;
 
-  return user;
+  for (var i = nameTokens.length - 1; i >= 0; i--) {
+    if (nameTokens[i].trim().length < 1) {
+      validTokens = false;
+      break;
+    }
+  };
+
+  // return isPCLN && validTokens;
+  return true;
 }
 
 function loggedInMiddleWare (req, res, next) {
@@ -106,8 +118,8 @@ module.exports = {
 	generateUniqueName: generateUniqueName,
   getSortAndFilterConfig: getSortAndFilter,
   saltHashPassword: sha512,
-  createUser: createUser,
   createTempUser: createTempUser,
   isLoggedIn: loggedInMiddleWare,
-  getGenericLayoutProperties: getGenericLayoutProperties
+  getGenericLayoutProperties: getGenericLayoutProperties,
+  isValidPricelineEmail: isValidEmail
 }

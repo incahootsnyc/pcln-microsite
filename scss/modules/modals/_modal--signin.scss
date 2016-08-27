@@ -15,7 +15,7 @@
 
 	&__logo {
 		width: 100%;
-		padding: 10px 0 40px;
+		padding: 10px 0 30px;
 		border-bottom: 1px solid $black-20;
 	}
 
@@ -24,7 +24,7 @@
 	}
 
 	&__bottom {
-		padding-top: 30px;
+		padding-top: 20px;
 	}
 
 	&__input {
@@ -34,7 +34,7 @@
 	&__button {
 		@extend .button;
 		background-color: $blue-2;
-		margin-top: 20px;
+		margin: 5px 0 20px 0;
 
 		&:hover {
 			background-color: $blue-3;

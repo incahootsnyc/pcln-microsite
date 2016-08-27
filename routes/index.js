@@ -9,7 +9,6 @@ var config = require('../config');
 router.get('/', function (req, res) {
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
 
-
 	// ALERT ALERT ALERT
 	// ALERT ALERT ALERT
 
@@ -21,7 +20,6 @@ router.get('/', function (req, res) {
 
 	// ALERT ALERT ALERT
 	// ALERT ALERT ALERT
-
 
 	if (req.user) {
         res.redirect('/home');

@@ -257,15 +257,37 @@ router.get('/account-confirmation/:uniqueUrl', function (req, res) {
     }
 });
 
-router.post('/api/login', passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/'
-}));
 
-router.post('/api/signup', passport.authenticate('signup', {
-    successRedirect: '/home',
-    failureRedirect: '/'
-}));
+
+router.post('/api/login', function (req, res, next) {
+  passport.authenticate('local', function (err, user, info) {
+    if (err || !user) { return res.redirect('/?e=' + info.message); }
+    req.logIn(user, function (err) {
+      if (err) { return res.redirect('/?e=' + info.message); }
+      return res.redirect('/home');
+    });
+  })(req, res, next);
+});
+
+router.post('/api/signup', function (req, res, next) {
+  passport.authenticate('signup', function (err, user, info) {
+    if (err || !user) { return res.redirect('/?e=' + info.message); }
+    req.logIn(user, function (err) {
+      if (err) { return res.redirect('/?e=' + info.message); }
+      return res.redirect('/home');
+    });
+  })(req, res, next);
+});
+
+// router.post('/api/login', passport.authenticate('local', {
+//     successRedirect: '/home',
+//     failureRedirect: '/'
+// }));
+
+// router.post('/api/signup', passport.authenticate('signup', {
+//     successRedirect: '/home',
+//     failureRedirect: '/'
+// }));
 
 router.get('/logout', function (req, res){
   req.session.destroy(function (err) {

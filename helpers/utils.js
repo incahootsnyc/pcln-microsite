@@ -94,6 +94,24 @@ function createTempUser (username, password) {
   return user;
 }
 
+function isValidEmail (email) {
+  var atIndex = email.indexOf('@') > -1;
+  var isPCLN = email.indexOf('priceline.com') > -1;
+  var emailName = email.substring(0, atIndex-1);
+  var nameTokens = emailName.split('.');
+  var validTokens = nameTokens.length > 1;
+
+  for (var i = nameTokens.length - 1; i >= 0; i--) {
+    if (nameTokens[i].trim().length < 1) {
+      validTokens = false;
+      break;
+    }
+  };
+
+  // return isPCLN && validTokens;
+  return true;
+}
+
 function loggedInMiddleWare (req, res, next) {
     if (req.user) {
         next();
@@ -109,5 +127,6 @@ module.exports = {
   createUser: createUser,
   createTempUser: createTempUser,
   isLoggedIn: loggedInMiddleWare,
-  getGenericLayoutProperties: getGenericLayoutProperties
+  getGenericLayoutProperties: getGenericLayoutProperties,
+  isValidPricelineEmail: isValidEmail
 }

@@ -130,7 +130,7 @@
 	<script type="text/javascript" src="javascripts/account.js"></script>
 	<% } %>
 
-	<% if (isHome || isMyPics) { %>
+	<% if (!isHomeSignin) { %>
 	<script type="text/javascript" src="javascripts/header.js"></script>
 	<script type="text/javascript" src="javascripts/init.js"></script>
 	<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>

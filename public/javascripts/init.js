@@ -112,9 +112,12 @@
     }
   };
 
-  setTimeout(function () {
-    pclnPicMe.lazyLoad();
-  }, 1000);
+  if (pclnPicMe.resultset) {
+    setTimeout(function () {
+      pclnPicMe.lazyLoad();
+    }, 1000);
+  }
+  
   
 
 

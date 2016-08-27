@@ -8,7 +8,7 @@ var config = require('../config');
 
 router.get('/', function (req, res) {
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
-	// db.get().collection('imagePosts').remove();
+	//db.get().collection('imagePosts').remove();
 	if (req.user) {
         res.redirect('/home');
     } else {

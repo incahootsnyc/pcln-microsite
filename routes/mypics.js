@@ -34,7 +34,8 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 			  	},
 			  	isMyPics: true,
 			  	sort: searchConfig.sortType,
-			  	categories: config.categories
+			  	categories: config.categories,
+			  	userFirstName: req.user.firstname || ''
 			}));
 
 		});

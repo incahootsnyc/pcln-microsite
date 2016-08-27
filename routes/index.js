@@ -8,7 +8,21 @@ var config = require('../config');
 
 router.get('/', function (req, res) {
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
+
+
+	// ALERT ALERT ALERT
+	// ALERT ALERT ALERT
+
+	// DO NOT COMMENT IN THIS LINE UNLESS YOU ARE 
+	// PLANNING ON DESTROYING THE ENTIRE COLLECTIONS
 	// db.get().collection('imagePosts').remove();
+	// db.get().collection('pendingUsers').remove();
+	// db.get().collection('users').remove();
+
+	// ALERT ALERT ALERT
+	// ALERT ALERT ALERT
+
+
 	if (req.user) {
         res.redirect('/home');
     } else {
@@ -16,7 +30,8 @@ router.get('/', function (req, res) {
 	    	title: 'PCLN Photo Contest',
 		  	initData: {},
 		  	isHomeSignin: true,
-		  	categories: config.categories
+		  	categories: config.categories,
+			userFirstName: ''
 	    }));
     }
   
@@ -48,7 +63,8 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 			  	},
 			  	isHome: true,
 			  	sort: searchConfig.sortType,
-			  	categories: config.categories
+			  	categories: config.categories,
+			  	userFirstName: req.user.firstname || ''
 			}));
 
 		});

@@ -11,7 +11,8 @@ router.get('/terms', utils.isLoggedIn, function (req, res, next) {
 	res.render('index', _.assign(genericLayoutSettings, { 
 		title: 'PCLN Photo Contest', 
 		isTerms: true,
-		categories: config.categories
+		categories: config.categories,
+		userFirstName: req.user.firstname || ''
 	}));
 
 });

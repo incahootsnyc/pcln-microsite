@@ -77,21 +77,26 @@ function sha512 (password, salt){
 
 function createTempUser (username, password) {
   var saltHashPassword = sha512(password, genRandomString(16));
+  var atIndex = username.indexOf('@');
+  var emailName = username.substring(0, atIndex);
+  var nameTokens = emailName.split('.');
   var newUser = {
       username: username,
+      firstname: nameTokens[0],
+      lastname: nameTokens[1],
+      confirmationUrl: genRandomString(16),
+      datetime: Date.now(),
       hash: saltHashPassword.passwordHash,
       salt: saltHashPassword.salt
   };
-  newUser.confirmationUrl = genRandomString(16);
-  newUser.datetime = Date.now();
 
   return newUser;
 }
 
 function isValidEmail (email) {
-  var atIndex = email.indexOf('@') > -1;
+  var atIndex = email.indexOf('@');
   var isPCLN = email.indexOf('priceline.com') > -1;
-  var emailName = email.substring(0, atIndex-1);
+  var emailName = email.substring(0, atIndex);
   var nameTokens = emailName.split('.');
   var validTokens = nameTokens.length > 1;
 

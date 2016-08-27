@@ -16,18 +16,20 @@
 		<div class="main-container">
 			<header class="header">
 				 
-				 	<a href="/"><img class="header__logo" src="/images/logo.svg"/></a>
+				 	<a href="/home"><img class="header__logo" src="/images/logo.svg"/></a>
 	
 					 <nav class="navbar--user">
+					 	<% if (!isHomeSignin) { %>
 					 	<ul class="navbar--user__list">
-					 		<li class="navbar--user__item">Hi {Tanya}</li>
+					 		<li class="navbar--user__item">Hi <%= userFirstName %></li>
 					 		<li class="navbar--user__item"><a class="navbar--user__link" href="/logout">Sign Out</a></li>
 					 	</ul>	
+					 	<% } %>
 					 </nav>	
 
 					 <nav class="navbar--main">
 					 	<ul class="navbar--main__list">
-					 		<li class="navbar--main__item"><a href="/" class="navbar--main__link <%= isHome ? 'isactive' : '' %>">Home</a></li>
+					 		<li class="navbar--main__item"><a href="/home" class="navbar--main__link <%= isHome ? 'isactive' : '' %>">Home</a></li>
 					 		<li class="navbar--main__item"><a href="/mypics" class="navbar--main__link <%= isMyPics ? 'isactive' : '' %>">My Pics</a></li>
 					 		<li class="navbar--main__item"><a href="/contestinfo" class="navbar--main__link <%= isContestInfo ? 'isactive' : '' %>">Contest Info &amp; Prizes</a></li>
 					 		<li class="navbar--main__item"><a href="/terms" class="navbar--main__link <%= isTerms ? 'isactive' : '' %>">Terms &amp; Conditions</a></li>
@@ -39,11 +41,11 @@
 					 <nav class="navbar--mobile" id="navbar-mobile">
 					 	<strong class="navbar--mobile__title">Menu</strong>
 					 	<ul class="navbar-mobile__list">
-					 		<li class="navbar--mobile__item">Home</li>
-					 		<li class="navbar--mobile__item">My Pics</li>
-					 		<li class="navbar--mobile__item">Contest Info &amp; Prizes</li>
-					 		<li class="navbar--mobile__item">Terms &amp; Conditions</li>
-					 		<li class="navbar--mobile__item">Sign Out</li>
+					 		<li class="navbar--mobile__item"><a href="/home">Home</a></li>
+					 		<li class="navbar--mobile__item"><a href="/mypics">My Pics</a></li>
+					 		<li class="navbar--mobile__item"><a href="/contestinfo">Contest Info &amp; Prizes</a></li>
+					 		<li class="navbar--mobile__item"><a href="/terms">Terms &amp; Conditions</a></li>
+					 		<li class="navbar--mobile__item"><a href="/logout">Sign Out</a></li>
 					 	</ul>		
 				 
 			</header>

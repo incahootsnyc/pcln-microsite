@@ -4,6 +4,7 @@ var imagePost = {
 	generateForDB: function (name, postBody, user) {
 		return {
 			uid: user._id,
+			username: user.firstname + ' ' + user.lastname,
 			name: name,
     		location: postBody.location,
     		tags: postBody.category || [],
@@ -18,6 +19,7 @@ var imagePost = {
 
 		return {
 			uid: imageObj.uid.toString(),
+			username: imageObj.username,
 			thumbUrl: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
 			detailsUrl: imageObj.detailPath || s3bucket.getSignedUrl('getObject', params),
 			location: imageObj.location,

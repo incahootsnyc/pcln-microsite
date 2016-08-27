@@ -48,6 +48,7 @@ pclnPicMe.detailsEventHandler = (function () {
 		$modal.find('.modal--details__img').attr('src', imageData.detailsUrl);
 		$modal.find('.details--modal__like-count').text(imageData.likesCount);
 		$modal.find('.modal--details__container').attr('data-id', imageData.uniqueName);
+		$modal.find('.modal--details__img-submitter').text(imageData.username);
 		$modal.find('.modal--details__arrow-left').toggleClass('ishidden', imageData.index == 0);
 		$modal.find('.modal--details__arrow-right').toggleClass('ishidden', imageData.index == pclnPicMe.resultset.length-1);
 

@@ -10,7 +10,7 @@
 		$registerBtn = $accountModal.find('#register'),
 		$pwConfirm = $accountModal.find('input[name="password-confirm"]'),
 		search = location.search.substring(1),
-		searchQueryObject = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}'),
+		searchQueryObject,
 		loginErrorMap = {
 			'00': 'Incorrect username.',
 			'01': 'Incorrect password.',
@@ -18,8 +18,11 @@
 			'03': 'User already exists.'
 		};
 
-	if (searchQueryObject && searchQueryObject.e) {
-		$passportError.text(loginErrorMap[searchQueryObject.e]).removeClass('ishidden');
+	if (search.length > 0) {
+		searchQueryObject = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+		if (searchQueryObject && searchQueryObject.e) {
+			$passportError.text(loginErrorMap[searchQueryObject.e]).removeClass('ishidden');
+		}
 	}
 
 	$form.submit(function (e) {
@@ -78,9 +81,9 @@
 	}
 
 	function isValidEmail (email) {
-		var atIndex = email.indexOf('@') > -1;
+		var atIndex = email.indexOf('@');
 		var isPCLN = email.indexOf('priceline.com') > -1;
-		var emailName = email.substring(0, atIndex-1);
+		var emailName = email.substring(0, atIndex);
 		var nameTokens = emailName.split('.');
 		var validTokens = nameTokens.length > 1;
 

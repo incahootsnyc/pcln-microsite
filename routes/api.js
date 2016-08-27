@@ -244,6 +244,10 @@ router.get('/account-confirmation/:uniqueUrl', function (req, res) {
 
                 if ((now - user.datetime) < maxDiff) {
                     db.get().collection('pendingUsers').remove({ username: user.username });
+
+                    // no need to store this in the real users collection
+                    user.confirmationUrl = null;
+
                     db.get().collection('users').insert(user, function (error, confirmation) {
                         if (error) {
                             res.send('hmm... something went wrong.');

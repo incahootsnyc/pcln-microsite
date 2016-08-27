@@ -26,7 +26,6 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 			});
 		
 			res.render('index', _.assign(genericLayoutSettings, { 
-			  	title: 'PCLN Photo Contest',
 			  	initData: {
 			  		images: imagePosts,
 			  		uid: req.user._id.toString(),
@@ -34,7 +33,6 @@ router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 			  	},
 			  	isMyPics: true,
 			  	sort: searchConfig.sortType,
-			  	categories: config.categories,
 			  	userFirstName: req.user.firstname || ''
 			}));
 

@@ -25,7 +25,7 @@ pclnPicMe.detailsEventHandler = (function () {
 				populateDetailsModalFn($detailsModal, pclnPicMe.resultset[nextIndex]);
 			}
 
-			currentDetailsIndex = nextIndex
+			currentDetailsIndex = nextIndex;
 		});
 
 		$detailsModal.find('.modal--details__arrow-left').click(function () {
@@ -43,7 +43,7 @@ pclnPicMe.detailsEventHandler = (function () {
 		var $editPost = $modal.find('.modal--details__edit');
 
 		$tagContainer.empty();
-		pclnPicMe.setLike($modal.find('.modal--details__icon-container'), imageData)
+		pclnPicMe.setLike($modal.find('.modal--details__icon-container'), imageData);
 
 		$modal.find('.modal--details__img').attr('src', imageData.detailsUrl);
 		$modal.find('.details--modal__like-count').text(imageData.likesCount);

@@ -101,7 +101,7 @@
 				validTokens = false;
 				break;
 			}
-		};
+		}
 
 		// return isPCLN && validTokens;
 		return validTokens;

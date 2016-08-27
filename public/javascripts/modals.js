@@ -84,7 +84,7 @@
 				pclnPicMe.updateEventHandler.addValidationEvent($updateForm);
 
 				if ($deleteConfirmModal.length < 1) {
-					$deleteConfirmModal = grabTemplateByName('delete-confirm')
+					$deleteConfirmModal = grabTemplateByName('delete-confirm');
 				} 
 
 				pclnPicMe.updateEventHandler.addDeleteEvent($updateForm, $deleteConfirmModal, imagePostData);
@@ -108,7 +108,7 @@
 		}
 
 		var index = templateDictionary[name];
-		var $templatePartial = $(allTemplates[index])
+		var $templatePartial = $(allTemplates[index]);
 		return $templatePartial.appendTo('body');
 	}
 

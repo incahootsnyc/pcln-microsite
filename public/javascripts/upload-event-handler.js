@@ -114,7 +114,7 @@ pclnPicMe.uploadEventHandler = (function () {
 			var reader = new FileReader();
 		    reader.onload = function (event) {
 		        $form.find('img#preview').attr('src', event.target.result);
-		    }
+		    };
 		    reader.readAsDataURL(filePreview);		   
 		}
 	}

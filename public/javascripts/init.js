@@ -4,9 +4,7 @@
   // https://css-tricks.com/drag-and-drop-file-uploading/
   pclnPicMe.supportsDragAndDrop = (function() {
     var div = document.createElement('div');
-    return (('draggable' in div) || 
-        ('ondragstart' in div && 'ondrop' in div)) 
-        && 'FormData' in window && 'FileReader' in window;
+    return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
   })();
 
   pclnPicMe.updateQueryStringParameter = function (uri, key, value) {
@@ -61,7 +59,7 @@
 
     return isValid;
 
-  }
+  };
 
   pclnPicMe.updateLocalLikes = function (uniqueName, likeResponse, isDetails) {
     var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
@@ -80,9 +78,9 @@
   };
 
   pclnPicMe.setLike = function ($likeButton, imageObject, hasLiked) {
-    var hasLiked = imageObject ? imageObject.likes.indexOf(pclnPicMe.uid) > -1 : hasLiked;
+    var hasLikedImage = imageObject ? imageObject.likes.indexOf(pclnPicMe.uid) > -1 : hasLiked;
 
-    if (hasLiked) {
+    if (hasLikedImage) {
       $likeButton.addClass('isliked');
     } else {
       $likeButton.removeClass('isliked');
@@ -97,7 +95,7 @@
     for (var i = start || 0; i < pclnPicMe.resultset.length; i++) {
       loadImagesAsync(pclnPicMe.resultset[i], i);
       pclnPicMe.setLike($(likeButtons[i]), pclnPicMe.resultset[i]);
-    };
+    }
 
     function loadImagesAsync (image, i) {
       var imgElem = imgContainers[i];

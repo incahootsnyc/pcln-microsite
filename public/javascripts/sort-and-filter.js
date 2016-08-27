@@ -16,7 +16,7 @@
 
 		for (var i = selectedTags.length - 1; i >= 0; i--) {
 			tagList.push(selectedTags[i].value);
-		};
+		}
 
 		var url = pclnPicMe.updateQueryStringParameter(window.location.href, 'tags', tagList.join(','));
 		window.location.href = url;

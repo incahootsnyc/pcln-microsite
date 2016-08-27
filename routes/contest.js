@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var config = require('../config');
 var _ = require('lodash');
 var utils = require('../helpers/utils');
 
@@ -9,9 +8,7 @@ router.get('/contestinfo', utils.isLoggedIn, function (req, res, next) {
 	
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
 	res.render('index', _.assign(genericLayoutSettings, { 
-		title: 'PCLN Photo Contest', 
 		isContestInfo: true,
-		categories: config.categories,
 		userFirstName: req.user.firstname || ''
 	}));
 

@@ -20,10 +20,10 @@
 	
 					 <nav class="navbar--user">
 					 	<% if (!isHomeSignin) { %>
-					 	<ul class="navbar--user__list">
-					 		<li class="navbar--user__item">Hi <%= userFirstName %></li>
-					 		<li class="navbar--user__item"><a class="navbar--user__link" href="/logout">Sign Out</a></li>
-					 	</ul>	
+						 	<ul class="navbar--user__list">
+						 		<li class="navbar--user__item">Hi <%= userFirstName %></li>
+						 		<li class="navbar--user__item"><a class="navbar--user__link" href="/logout">Sign Out</a></li>
+						 	</ul>	
 					 	<% } %>
 					 </nav>	
 
@@ -79,10 +79,10 @@
 						<strong class="sidebar__categories__title">Tags</strong>
 						<ul class="sidebar__categories__list">
 							<% for(var category in categories) { %>
-							<li class="sidebar__categories__item">
-								<input class="sidebar__categories_input" type="checkbox" name="category[]" id="filter-<%= category %>" value="<%= category %>">
-								<label class="sidebar__categories__label" for="filter-<%= category %>">#<%= categories[category] %></label>
-							</li>
+								<li class="sidebar__categories__item">
+									<input class="sidebar__categories_input" type="checkbox" name="category[]" id="filter-<%= category %>" value="<%= category %>">
+									<label class="sidebar__categories__label" for="filter-<%= category %>">#<%= categories[category] %></label>
+								</li>
 							<% } %>
 						</ul>
 
@@ -116,11 +116,11 @@
 		var pclnPicMe = {};
 
 		<% if (isHome || isMyPics) { %>
-		var initialResultset = <%- JSON.stringify(initData) %>;
-		// grab initial data set from global value dropped into index.html template by EJS
-		pclnPicMe.pageSize = initialResultset.pageSize;
-		pclnPicMe.resultset = initialResultset.images;
-		pclnPicMe.uid = initialResultset.uid;
+			var initialResultset = <%- JSON.stringify(initData) %>;
+			// grab initial data set from global value dropped into index.html template by EJS
+			pclnPicMe.pageSize = initialResultset.pageSize;
+			pclnPicMe.resultset = initialResultset.images;
+			pclnPicMe.uid = initialResultset.uid;
 		
 		<% } %>
 
@@ -135,20 +135,24 @@
 	
 
 	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
-	<% if (isHomeSignin) { %>
-	<script type="text/javascript" src="javascripts/account.js"></script>
+	<% if (isHomeSignin && !isProduction) { %>
+		<script type="text/javascript" src="javascripts/account.js"></script>
+	<% } else if (isHomeSignin && isProduction) { %>
+		<script type="text/javascript" src="javascripts/release/account.min.js"></script>
 	<% } %>
 
-	<% if (!isHomeSignin) { %>
-	<script type="text/javascript" src="javascripts/header.js"></script>
-	<script type="text/javascript" src="javascripts/init.js"></script>
-	<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>
-	<script type="text/javascript" src="javascripts/upload-event-handler.js"></script>
-	<script type="text/javascript" src="javascripts/update-event-handler.js"></script>
-	<script type="text/javascript" src="javascripts/details-event-handler.js"></script>
-	<script type="text/javascript" src="javascripts/modals.js"></script>
-	<script type="text/javascript" src="javascripts/sort-and-filter.js"></script>
-	<script type="text/javascript" src="javascripts/infinite-scroll.js"></script>
+	<% if (!isHomeSignin && !isProduction) { %>
+		<script type="text/javascript" src="javascripts/header.js"></script>
+		<script type="text/javascript" src="javascripts/init.js"></script>
+		<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>
+		<script type="text/javascript" src="javascripts/upload-event-handler.js"></script>
+		<script type="text/javascript" src="javascripts/update-event-handler.js"></script>
+		<script type="text/javascript" src="javascripts/details-event-handler.js"></script>
+		<script type="text/javascript" src="javascripts/modals.js"></script>
+		<script type="text/javascript" src="javascripts/sort-and-filter.js"></script>
+		<script type="text/javascript" src="javascripts/infinite-scroll.js"></script>
+	<% } else if (!isHomeSignin && isProduction) { %>
+		<script type="text/javascript" src="javascripts/release/app.min.js"></script>
 	<% } %>
 
 </html>

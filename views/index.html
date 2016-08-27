@@ -119,6 +119,13 @@
 		pclnPicMe.pageSize = initialResultset.pageSize;
 		pclnPicMe.resultset = initialResultset.images;
 		pclnPicMe.uid = initialResultset.uid;
+		
+		<% } %>
+
+		<% if (isHome) { %>
+			pclnPicMe.scrollType = 'default';
+		<% } else if (isMyPics) { %>
+			pclnPicMe.scrollType = 'mypics';
 		<% } %>
 
 		pclnPicMe.tagDictionary = <%- JSON.stringify(categories) %>;

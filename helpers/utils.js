@@ -75,23 +75,17 @@ function sha512 (password, salt){
     };
 };
 
-function createUser (username, password) {
+function createTempUser (username, password) {
   var saltHashPassword = sha512(password, genRandomString(16));
   var newUser = {
       username: username,
       hash: saltHashPassword.passwordHash,
       salt: saltHashPassword.salt
   };
+  newUser.confirmationUrl = genRandomString(16);
+  newUser.datetime = Date.now();
 
   return newUser;
-}
-
-function createTempUser (username, password) {
-  var user = createUser(username, password);
-  user.confirmationUrl = genRandomString(16);
-  user.datetime = Date.now();
-
-  return user;
 }
 
 function isValidEmail (email) {
@@ -124,7 +118,6 @@ module.exports = {
 	generateUniqueName: generateUniqueName,
   getSortAndFilterConfig: getSortAndFilter,
   saltHashPassword: sha512,
-  createUser: createUser,
   createTempUser: createTempUser,
   isLoggedIn: loggedInMiddleWare,
   getGenericLayoutProperties: getGenericLayoutProperties,

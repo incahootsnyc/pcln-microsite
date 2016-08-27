@@ -10,6 +10,7 @@ var async = require('async');
 var sizeOf = require('image-size');
 var config = require('../config');
 var passport = require('passport');
+var _ = require('lodash');
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -186,10 +187,13 @@ router.get('/api/like/:uniqueName', utils.isLoggedIn, function (req, res) {
 router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
 
     var searchConfig = utils.getSortAndFilterConfig(req);
+    var uidQuery = req.query.uid ? {uid: req.user._id } : {};
     async.parallel([getMoreImages, getCollectionCount], processImagePostDataAndRespond);
 
     function getMoreImages (callback) {
         db.get().collection('imagePosts', function (err, collection) {
+
+            _.assign(searchConfig.query, uidQuery);
 
             collection.find(searchConfig.query, searchConfig.sort).toArray(function (err, imageList) {
         
@@ -208,7 +212,7 @@ router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
     }
 
     function getCollectionCount (callback) {
-        db.get().collection('imagePosts').count({}, function (error, numOfDocs) {
+        db.get().collection('imagePosts').count(uidQuery, function (error, numOfDocs) {
             callback(null, numOfDocs);
         });
     }

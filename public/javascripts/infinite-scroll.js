@@ -7,11 +7,18 @@
 
 	$(window).scroll(function() {
 		var startLoading = $(window).scrollTop() + $(window).height() > $(document).height() - 200;
+		var sendUid = pclnPicMe.scrollType == 'mypics';
+		var query = window.location.search.length > 0 ? '&uid=' + pclnPicMe.uid : '?uid=' + pclnPicMe.uid;
+		var url = '/api/fetchPosts/' + pageNumber + window.location.search;
 
 	    if (startLoading && loadMoreResults && !isLoading) {
 
+	    	if (sendUid) {
+	    		url += query;
+	    	}
+
 	    	var requestConfig = {
-				url: '/api/fetchPosts/' + pageNumber + window.location.search,
+				url: url,
 				type: 'GET',
 				success: function (response) {
 					loadedResults = pageNumber * pageSize;
@@ -19,12 +26,14 @@
 					isLoading = false;
 
 					pageNumber++;
-					pclnPicMe.resultset = pclnPicMe.resultset.concat(response.images);
-					response.images.forEach(function (imageObject) {
-						$(buildListItemHTML(imageObject)).appendTo('#image-list');
-					});
+					if (response.images.length > 0) {
+						pclnPicMe.resultset = pclnPicMe.resultset.concat(response.images);
+						response.images.forEach(function (imageObject) {
+							$(buildListItemHTML(imageObject)).appendTo('#image-list');
+						});
 
-					pclnPicMe.lazyLoad(loadedResults);
+						pclnPicMe.lazyLoad(loadedResults);
+					}	
 				}
 			};
 

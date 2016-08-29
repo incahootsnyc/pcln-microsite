@@ -41,10 +41,10 @@
 					 <nav class="navbar--mobile" id="navbar-mobile">
 					 	<strong class="navbar--mobile__title">Menu</strong>
 					 	<ul class="navbar-mobile__list">
-					 		<li class="navbar--mobile__item"><a href="/home">Home</a></li>
-					 		<li class="navbar--mobile__item"><a href="/mypics">My Pics</a></li>
-					 		<li class="navbar--mobile__item"><a href="/contestinfo">Contest Info &amp; Prizes</a></li>
-					 		<li class="navbar--mobile__item"><a href="/terms">Terms &amp; Conditions</a></li>
+					 		<li class="navbar--mobile__item <%= (isHome || isHomeSignin) ? 'isactive--mobile' : '' %>"><a href="/home">Home</a></li>
+					 		<li class="navbar--mobile__item <%= isMyPics ? 'isactive--mobile' : '' %>"><a href="/mypics">My Pics</a></li>
+					 		<li class="navbar--mobile__item <%= isContestInfo ? 'isactive--mobile' : '' %>"><a href="/contestinfo">Contest Info &amp; Prizes</a></li>
+					 		<li class="navbar--mobile__item <%= isTerms ? 'isactive--mobile' : '' %>"><a href="/terms">Terms &amp; Conditions</a></li>
 					 		<li class="navbar--mobile__item"><a href="/logout">Sign Out</a></li>
 					 	</ul>		
 				 

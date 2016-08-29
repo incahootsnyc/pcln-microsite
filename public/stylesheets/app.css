@@ -205,33 +205,39 @@ body {
   }
 }
 
-/* line 10, ../../scss/modules/_global.scss */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* line 14, ../../scss/modules/_global.scss */
+  html {
+    margin-left: 1px;
+  }
+}
+/* line 20, ../../scss/modules/_global.scss */
 .main-container {
   min-width: 320px;
 }
 
-/* line 14, ../../scss/modules/_global.scss */
+/* line 24, ../../scss/modules/_global.scss */
 .content-container {
   position: relative;
   min-height: 100vh;
   background: #cccccc;
   background: #d9d9d9;
-  background: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #d9d9d9), color-stop(14%, #f2f2f2), color-stop(100%, #f2f2f2));
+  background: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 2%, #f2f2f2 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #d9d9d9), color-stop(2%, #f2f2f2), color-stop(100%, #f2f2f2));
   background: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
   background: -o-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
-  background: -ms-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
-  background: linear-gradient(to bottom, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
+  background: -ms-linear-gradient(top, #d9d9d9 0%, #f2f2f2 2%, #f2f2f2 100%);
+  background: linear-gradient(to bottom, #d9d9d9 0%, #f2f2f2 2%, #f2f2f2 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#f2f2f2', GradientType=0 );
 }
 
-/* line 28, ../../scss/modules/_global.scss */
+/* line 38, ../../scss/modules/_global.scss */
 .footer {
   height: 50px;
   color: #666;
   font-size: 10px;
 }
-/* line 33, ../../scss/modules/_global.scss */
+/* line 43, ../../scss/modules/_global.scss */
 .footer__text {
   padding: 20px;
 }
@@ -269,7 +275,6 @@ body {
 .navbar--mobile {
   background-color: #ffffff;
   top: 0;
-  opacity: 0;
   right: -260px;
   position: absolute;
   color: #666;
@@ -278,20 +283,22 @@ body {
   box-shadow: 3px 0px 7px 4px #999;
   transition: transform 1s;
 }
-/* line 41, ../../scss/modules/_navigation.scss */
-.navbar--mobile__item {
-  padding: 15px 30px;
-}
-/* line 44, ../../scss/modules/_navigation.scss */
+/* line 42, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item + li {
   border-top: 1px solid #ccc;
 }
-/* line 48, ../../scss/modules/_navigation.scss */
+/* line 46, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item:hover {
   background-color: #60AFD7;
   color: #333;
 }
-/* line 54, ../../scss/modules/_navigation.scss */
+/* line 51, ../../scss/modules/_navigation.scss */
+.navbar--mobile__item a {
+  padding: 15px 30px;
+  width: 100%;
+  display: inline-block;
+}
+/* line 58, ../../scss/modules/_navigation.scss */
 .navbar--mobile__title {
   font-weight: normal;
   font-size: 18px;
@@ -302,53 +309,63 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
+/* line 69, ../../scss/modules/_navigation.scss */
+.isactive--mobile {
+  background-color: #60AFD7;
+}
+/* line 72, ../../scss/modules/_navigation.scss */
+.isactive--mobile a {
+  color: #333;
+}
+
 @media (min-width: 841px) {
-  /* line 72, ../../scss/modules/_navigation.scss */
+  /* line 83, ../../scss/modules/_navigation.scss */
   .header {
     height: 110px;
   }
-  /* line 75, ../../scss/modules/_navigation.scss */
+  /* line 86, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
-  /* line 80, ../../scss/modules/_navigation.scss */
+  /* line 91, ../../scss/modules/_navigation.scss */
   .header__hamburger-icon {
     display: none;
   }
 
-  /* line 86, ../../scss/modules/_navigation.scss */
+  /* line 97, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
+    line-height: 1;
   }
-  /* line 89, ../../scss/modules/_navigation.scss */
+  /* line 101, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 94, ../../scss/modules/_navigation.scss */
+  /* line 106, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     text-transform: capitalize;
     right: 20px;
     top: 10px;
   }
-  /* line 100, ../../scss/modules/_navigation.scss */
+  /* line 112, ../../scss/modules/_navigation.scss */
   .navbar--user span {
     padding-left: 5px;
   }
-  /* line 104, ../../scss/modules/_navigation.scss */
+  /* line 116, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 3px;
   }
 
-  /* line 109, ../../scss/modules/_navigation.scss */
+  /* line 121, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 114, ../../scss/modules/_navigation.scss */
+  /* line 126, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 8px;
@@ -357,12 +374,12 @@ body {
     border-bottom: 5px solid #ffffff;
     transition: border-bottom .5s;
   }
-  /* line 123, ../../scss/modules/_navigation.scss */
+  /* line 135, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 130, ../../scss/modules/_navigation.scss */
+/* line 142, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;
@@ -455,18 +472,27 @@ body {
     top: 10px;
   }
   /* line 89, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="checkbox"]:checked + label:before {
+    color: #333;
+  }
+  /* line 93, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:not(:checked) + label:before, .sidebar [type="checkbox"]:checked + label:before {
     display: none;
   }
-  /* line 93, ../../scss/modules/_sidebar.scss */
+  /* line 97, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:not(:checked) + label, .sidebar [type="checkbox"]:checked + label {
     padding-left: 0;
   }
-  /* line 97, ../../scss/modules/_sidebar.scss */
+  /* line 102, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:not(:checked) + label:after, .sidebar [type="checkbox"]:checked + label:after {
     content: '';
   }
 }
+/* line 108, ../../scss/modules/_sidebar.scss */
+.checkedtag {
+  color: #333;
+}
+
 /* line 3, ../../scss/modules/_main.scss */
 .submissions__header {
   padding: 20px 10px 10px;

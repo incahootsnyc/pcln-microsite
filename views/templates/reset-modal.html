@@ -1,11 +1,12 @@
 <div id="reset-password" class="modal-overlay">
-	<div class="modal--sm">
-		<div class="modal--sm__text">Enter your priceline.com email address, and we'll email you a link to reset your password.</div>
-		<img class="modal__close" src="/images/close.svg"/>
+	<div class="modal--resetpw">
+		<strong class="modal--resetpw__headline">Reset Password</strong>
+		<div class="modal--resetpw__text">Enter your priceline.com email address, and we'll email you a link to reset your password.</div>
+		<img class="modal--resetpw__close" src="/images/close.svg"/>
 		<form action="/api/pwreset" method="post">
-			<span id="reset-error" class="modal--signin__error-message ishidden">Please enter valid Priceline email address.</span>
+			<span id="reset-error" class="modal--resetpw__error-message ishidden">Please enter valid Priceline email address.</span>
 			<input type="email" placeholder="Priceline.com Email Address" name="username"/>
-			<button type="submit" class="modal--sm__button--reset">Send Reset Link</button>
+			<button type="submit" class="modal--resetpw__button">Send Reset Link</button>
 		</form>
 	</div>
 </div>

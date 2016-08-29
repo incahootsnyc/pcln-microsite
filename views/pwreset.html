@@ -19,21 +19,20 @@
 	</head>
 
 	<body>
-		<div class="main-container">
+		<div class="reset-password">
 			<header class="header">
 				 
-				 	<a href="/home"><img class="header__logo" src="/images/logo.svg"/></a>
-
-					
+				 	<a href="/home"><img class="header__logo" src="/images/logo.svg"/></a>		
 				 
 			</header>
 
-			<main>
-				<h1> Forgot your password? Let's whip you up a new one...coming up!</h1>
+			<main class="reset-password__form">
+				<h1 class="reset-password__headline"> Enter a new password below.</h1>
+				<span class="reset-password__error-message">Please enter valid Priceline email address.</span>
 				<form>
-					<input type="password"/>
-					<input type="password"/>
-					<button type="submit" class="reset__button">Reset Password</button>
+					<input type="password" placeholder="New Password"/>
+					<input type="password" placeholder="Re-Type Password"/>
+					<button type="submit" class="reset-password__button">Reset Password</button>
 				</form>	
 
 			</main>	

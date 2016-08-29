@@ -7,7 +7,7 @@
 }
 
 /* line 3, ../../scss/partials/_patterns.scss */
-.button, .sidebar__submit-pic, .modal--lg__button, .modal--sm__button--cancel, .modal--sm__button--confirm, .modal--signin__button {
+.button, .sidebar__submit-pic, .reset-password__button, .modal--lg__button, .modal--sm__button--cancel, .modal--sm__button--confirm, .modal--signin__button, .modal--resetpw__button {
   font-weight: bold;
   display: block;
   color: #ffffff;
@@ -37,7 +37,7 @@
 }
 
 /* line 29, ../../scss/partials/_patterns.scss */
-.headline--orange, .contest-info__headline, .terms__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline, .modal--signin__headline {
+.headline--orange, .contest-info__headline, .terms__headline, .contest-prizes__headline, .modal__headline, .modal--lg__headline, .modal--sm__headline, .modal--signin__headline, .modal--resetpw__headline {
   font-size: 20px;
   color: #ff9600;
   display: inline-block;
@@ -715,6 +715,29 @@ body {
     width: 320px;
   }
 }
+/* line 1, ../../scss/modules/_pw-reset.scss */
+.reset-password {
+  text-align: center;
+}
+/* line 4, ../../scss/modules/_pw-reset.scss */
+.reset-password__form {
+  width: 320px;
+  margin: 20px auto;
+}
+/* line 9, ../../scss/modules/_pw-reset.scss */
+.reset-password__headline {
+  font-size: 18px;
+  padding: 10px;
+}
+/* line 14, ../../scss/modules/_pw-reset.scss */
+.reset-password input {
+  margin: 0 0 5px 0;
+}
+/* line 22, ../../scss/modules/_pw-reset.scss */
+.reset-password__error-message {
+  color: #b01408;
+}
+
 /* line 1, ../../scss/modules/modals/_modal.scss */
 .modal-overlay {
   position: fixed;
@@ -735,7 +758,7 @@ body {
 }
 
 /* line 18, ../../scss/modules/modals/_modal.scss */
-.modal, .modal--lg, .modal--sm, .modal--signin {
+.modal, .modal--lg, .modal--sm, .modal--resetpw, .modal--signin {
   position: absolute;
   top: 0;
   background-color: #ffffff;
@@ -744,7 +767,7 @@ body {
 }
 @media (min-width: 540px) {
   /* line 18, ../../scss/modules/modals/_modal.scss */
-  .modal, .modal--lg, .modal--sm, .modal--signin {
+  .modal, .modal--lg, .modal--sm, .modal--resetpw, .modal--signin {
     border-radius: 8px;
     padding: 20px 40px;
     box-shadow: 5px -2px 10px 3px #6b6868;
@@ -757,7 +780,7 @@ body {
 }
 
 /* line 38, ../../scss/modules/modals/_modal.scss */
-.modal__close, .modal--lg__close, .modal--sm__close {
+.modal__close, .modal--lg__close, .modal--sm__close, .modal--resetpw__close {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -766,7 +789,7 @@ body {
   transition: opacity .5s;
 }
 /* line 47, ../../scss/modules/modals/_modal.scss */
-.modal__close:hover, .modal--lg__close:hover, .modal--sm__close:hover {
+.modal__close:hover, .modal--lg__close:hover, .modal--sm__close:hover, .modal--resetpw__close:hover {
   opacity: .6;
 }
 
@@ -913,7 +936,7 @@ body {
   }
 }
 /* line 222, ../../scss/modules/modals/_modal.scss */
-.modal--sm {
+.modal--sm, .modal--resetpw {
   width: 290px;
   left: 0;
   right: 0;
@@ -941,7 +964,7 @@ body {
 
 @media (min-width: 540px) {
   /* line 260, ../../scss/modules/modals/_modal.scss */
-  .modal--sm {
+  .modal--sm, .modal--resetpw {
     width: 350px;
   }
 }
@@ -1137,4 +1160,13 @@ body {
   .modal--details__arrow-right, .modal--details__arrow-left {
     top: 200px;
   }
+}
+/* line 12, ../../scss/modules/modals/_modal--resetpw.scss */
+.modal--resetpw__text {
+  padding: 0 0 20px;
+}
+/* line 16, ../../scss/modules/modals/_modal--resetpw.scss */
+.modal--resetpw__button {
+  background-color: #0a84c1;
+  margin: 5px 0 10px 0;
 }

@@ -1,15 +1,18 @@
 (function  () {
 	var $accountModal = $('#signin-modal'),
+		$resetPasswordModal = $('#reset-password'),
 		$form = $accountModal.find('form'),
 		$registerMessage = $accountModal.find('#register-message'),
 		$registerLink = $accountModal.find('#register-message a'),
 		$loginLink = $accountModal.find('#login-message a'),
+		$resetPasswordLink = $accountModal.find('#forgot-password a'),
 		$loginErr = $accountModal.find('#login-error'),
 		$passportError = $accountModal.find('#passport-error'),
 		$registerErr = $accountModal.find('#register-error'),
 		$signinBtn = $accountModal.find('#signin'),
 		$registerBtn = $accountModal.find('#register'),
 		$pwConfirm = $accountModal.find('input[name="password-confirm"]'),
+		$resetErr = $resetPasswordModal.find('#reset-error'),
 		search = location.search.substring(1),
 		searchQueryObject,
 		hasMessage,
@@ -45,16 +48,14 @@
 		hideErrors();
 
 		if ($form.attr('action') == '/api/login') {
-			if (username == undefined || username.trim().length == 0 ||
-				password == undefined || password.trim().length == 0 ||
+			if (password == undefined || password.trim().length == 0 ||
 				!isValidEmail(username)) {
 
 				$loginErr.removeClass('ishidden');
 				return false;
 			}
 		} else {
-			if (username == undefined || username.trim().length == 0 || 
-				password == undefined || password.trim().length == 0 ||
+			if (password == undefined || password.trim().length == 0 ||
 				password != $pwConfirm.val() || !isValidEmail(username)) {
 
 				$registerErr.removeClass('ishidden');
@@ -76,6 +77,30 @@
 		$form.attr('action', '/api/login');
 	}); 
 
+	$resetPasswordLink.click(function (e) {
+		e.preventDefault();
+		var $closeBtn = $resetPasswordModal.find('.modal__close');
+
+		$resetPasswordModal.submit(function () {
+			var $this = $(this),
+				username = $this.find('input[name="username"]').val();
+
+			if (!isValidEmail(username)) {
+				$resetErr.removeClass('ishidden');
+				return false;
+			}
+		});
+
+		$closeBtn.click(function () {
+			$accountModal.show();
+			$resetErr.addClass('ishidden');
+			$resetPasswordModal.hide();
+		});
+
+		$accountModal.hide();
+		$resetPasswordModal.show();
+	});
+
 
 	function toggleFormType () {
 		$loginLink.parent().toggleClass('ishidden');
@@ -93,6 +118,7 @@
 	}
 
 	function isValidEmail (email) {
+		var hasText = email != undefined && email.trim().length > 0
 		var atIndex = email.indexOf('@');
 		var isPCLN = email.indexOf('priceline.com') > -1;
 		var emailName = email.substring(0, atIndex);
@@ -106,8 +132,8 @@
 			}
 		}
 
-		// return isPCLN && validTokens;
-		return validTokens;
+		// return hasText && isPCLN && validTokens;
+		return hasText && validTokens;
 	}
 
 })();

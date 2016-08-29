@@ -14,13 +14,17 @@ router.get('/password-reset/:uniqueUrl', function (req, res) {
                 res.render('pwreset', { error: errorMessage });
             } else {
 
-                res.render('pwreset', {});
+                res.render('pwreset', { error: null });
                         
             }
         });
     } else {
         res.render('pwreset', { error: errorMessage });
     }
+});
+
+router.get('/password-reset/fail', function (req, res) {
+    
 });
 
 module.exports = router;

@@ -723,19 +723,22 @@ body {
 .reset-password__form {
   width: 320px;
   margin: 20px auto;
+  text-align: left;
 }
-/* line 9, ../../scss/modules/_pw-reset.scss */
+/* line 10, ../../scss/modules/_pw-reset.scss */
 .reset-password__headline {
   font-size: 18px;
   padding: 10px;
 }
-/* line 14, ../../scss/modules/_pw-reset.scss */
+/* line 15, ../../scss/modules/_pw-reset.scss */
 .reset-password input {
   margin: 0 0 5px 0;
 }
-/* line 22, ../../scss/modules/_pw-reset.scss */
+/* line 23, ../../scss/modules/_pw-reset.scss */
 .reset-password__error-message {
   color: #b01408;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
 /* line 1, ../../scss/modules/modals/_modal.scss */
@@ -1169,4 +1172,8 @@ body {
 .modal--resetpw__button {
   background-color: #0a84c1;
   margin: 5px 0 10px 0;
+}
+/* line 22, ../../scss/modules/modals/_modal--resetpw.scss */
+.modal--resetpw__error-message {
+  color: #b01408;
 }

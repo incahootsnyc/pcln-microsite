@@ -140,25 +140,25 @@
 	</script>
 	
 
-	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery-3.1.0.min.js"></script>
 	<% if (isHomeSignin && !isProduction) { %>
-		<script type="text/javascript" src="javascripts/account.js"></script>
+		<script type="text/javascript" src="/javascripts/account.js"></script>
 	<% } else if (isHomeSignin && isProduction) { %>
-		<script type="text/javascript" src="javascripts/release/account.min.js"></script>
+		<script type="text/javascript" src="/javascripts/release/account.min.js"></script>
 	<% } %>
 
 	<% if (!isHomeSignin && !isProduction) { %>
-		<script type="text/javascript" src="javascripts/header.js"></script>
-		<script type="text/javascript" src="javascripts/init.js"></script>
-		<script type="text/javascript" src="javascripts/likes-event-handler.js"></script>
-		<script type="text/javascript" src="javascripts/upload-event-handler.js"></script>
-		<script type="text/javascript" src="javascripts/update-event-handler.js"></script>
-		<script type="text/javascript" src="javascripts/details-event-handler.js"></script>
-		<script type="text/javascript" src="javascripts/modals.js"></script>
-		<script type="text/javascript" src="javascripts/sort-and-filter.js"></script>
-		<script type="text/javascript" src="javascripts/infinite-scroll.js"></script>
+		<script type="text/javascript" src="/javascripts/header.js"></script>
+		<script type="text/javascript" src="/javascripts/init.js"></script>
+		<script type="text/javascript" src="/javascripts/likes-event-handler.js"></script>
+		<script type="text/javascript" src="/javascripts/upload-event-handler.js"></script>
+		<script type="text/javascript" src="/javascripts/update-event-handler.js"></script>
+		<script type="text/javascript" src="/javascripts/details-event-handler.js"></script>
+		<script type="text/javascript" src="/javascripts/modals.js"></script>
+		<script type="text/javascript" src="/javascripts/sort-and-filter.js"></script>
+		<script type="text/javascript" src="/javascripts/infinite-scroll.js"></script>
 	<% } else if (!isHomeSignin && isProduction) { %>
-		<script type="text/javascript" src="javascripts/release/app.min.js"></script>
+		<script type="text/javascript" src="/javascripts/release/app.min.js"></script>
 	<% } %>
 
 </html>

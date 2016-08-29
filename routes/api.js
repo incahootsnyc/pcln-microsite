@@ -263,14 +263,13 @@ router.post('/api/pwreset', function (req, res, next) {
 });
 
 router.post('/api/pwreset/complete', function (req, res, next) {
-  var username = req.body.password;
 
-  db.get().collection('users').findOne({ username: username }, function (error, user) {
+  db.get().collection('users').findOne({ username: req.body.username }, function (error, user) {
         if (error || !user) {
             res.redirect('/password-reset/fail?e=nouser');
         } else {
 
-            var saltHashPassword = utils.saltHashPassword(password, utils.generateRandomString(16));
+            var saltHashPassword = utils.saltHashPassword(req.body.password, utils.generateRandomString(16));
             user.salt = saltHashPassword.salt;
             user.hash = saltHashPassword.passwordHash;
             user.passwordResetUrl = null;

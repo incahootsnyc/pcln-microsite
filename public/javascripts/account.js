@@ -48,7 +48,7 @@
 				$passportError.text(loginErrorMap[searchQueryObject.e]).removeClass('ishidden');
 			}
 
-			if (hasMessage && (searchQueryObject.e == '04' || searchQueryObject.e == '07') {
+			if (hasMessage && (searchQueryObject.e == '04' || searchQueryObject.e == '07')) {
 				$form.hide();
 				$registerMessage.hide();
 			}
@@ -133,7 +133,7 @@
 		}
 
 		function isValidEmail (email) {
-			var hasText = email != undefined && email.trim().length > 0
+			var hasText = email != undefined && email.trim().length > 0;
 			var atIndex = email.indexOf('@');
 			var isPCLN = email.indexOf('priceline.com') > -1;
 			var emailName = email.substring(0, atIndex);

@@ -259,6 +259,30 @@ router.post('/api/pwreset', function (req, res, next) {
     });
 });
 
+router.post('/api/pwreset/complete', function (req, res, next) {
+  var username = req.body.password;
+
+  db.get().collection('users').findOne({ username: username }, function (error, user) {
+        if (error || !user) {
+            res.redirect('/password-reset/fail');
+        } else {
+
+            var saltHashPassword = utils.saltHashPassword(password, utils.generateRandomString(16));
+            user.salt = saltHashPassword.salt;
+            user.hash = saltHashPassword.passwordHash;
+            user.passwordResetUrl = null;
+
+            db.get().collection('users').save(user, function (error, result) {
+                if (error) {
+                    res.redirect('/password-reset/fail');
+                } else {
+                    res.redirect('/');
+                }
+            });
+        }
+    });
+});
+
 router.post('/api/login', function (req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     if (err || !user) { return res.redirect('/?e=' + info.message); }

@@ -225,6 +225,17 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#f2f2f2', GradientType=0 );
 }
 
+/* line 28, ../../scss/modules/_global.scss */
+.footer {
+  height: 50px;
+  color: #666;
+  font-size: 10px;
+}
+/* line 33, ../../scss/modules/_global.scss */
+.footer__text {
+  padding: 20px;
+}
+
 /* line 1, ../../scss/modules/_navigation.scss */
 .header {
   position: fixed;
@@ -549,7 +560,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 5px 24px 0 0;
+  padding: 6px 24px 0 0;
   font-weight: 200;
 }
 /* line 101, ../../scss/modules/_main.scss */
@@ -669,7 +680,7 @@ body {
   /* line 91, ../../scss/modules/_info-terms.scss */
   .contest-prizes {
     position: absolute;
-    padding: 40px 20px;
+    padding: 20px;
     max-width: 320px;
     background: rgba(255, 255, 255, 0.4);
     top: 0px;

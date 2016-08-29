@@ -25,5 +25,15 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#f2f2f2', GradientType=0 );
 }
 
+.footer {
+	height: 50px;
+	color: $black-60;
+	font-size: 10px;
+
+	&__text {
+			padding: 20px;
+	}
+}
+
 
 

@@ -1,9 +1,11 @@
 (function  () {
 	var $accountModal = $('#signin-modal'),
+		$resetPasswordModal = $('#reset-password'),
 		$form = $accountModal.find('form'),
 		$registerMessage = $accountModal.find('#register-message'),
 		$registerLink = $accountModal.find('#register-message a'),
 		$loginLink = $accountModal.find('#login-message a'),
+		$resetPasswordLink = $accountModal.find('#forgot-password a'),
 		$loginErr = $accountModal.find('#login-error'),
 		$passportError = $accountModal.find('#passport-error'),
 		$registerErr = $accountModal.find('#register-error'),
@@ -75,6 +77,19 @@
 		toggleFormType();
 		$form.attr('action', '/api/login');
 	}); 
+
+	$resetPasswordLink.click(function (e) {
+		e.preventDefault();
+		$accountModal.hide();
+		$resetPasswordModal.removeClass('ishidden');
+
+		var $closeBtn = $resetPasswordModal.find('.modal__close');
+		$closeBtn.click(function () {
+			$accountModal.show();
+			$resetPasswordModal.addClass('ishidden');
+		});
+
+	});
 
 
 	function toggleFormType () {

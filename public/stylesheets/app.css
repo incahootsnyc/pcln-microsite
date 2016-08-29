@@ -76,8 +76,8 @@ input[type="text"], input[type="password"], input[type="email"] {
   animation-duration: .5s;
   -webkit-animation-duration: .5s;
   opacity: 1;
-  transform: translateX(-260px);
-  -webkit-transform: translateX(-260px);
+  transform: translateX(-260px) !important;
+  -webkit-transform: translateX(-260px) !important;
   animation-timing-function: ease;
   -webkit-animation-timing-function: ease;
   visibility: visible !important;

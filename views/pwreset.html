@@ -1,9 +1,4 @@
 
-<% if (error) { %>
-	<div><%= error %></div>	
-<% } %>
-
-
 
 <!doctype html>
 <html>
@@ -24,16 +19,29 @@
 				 
 				 <a href="/home"><img class="header__logo" src="/images/logo.svg"/></a>			 
 			</header>
+			<% if (error) { %>
+				<div><%= error %></div>	
+			<% } else { %>
+				<main class="reset-password__form">
+					<h1 class="reset-password__headline"> Enter a new password below.</h1>
+					<span class="reset-password__error-message">Passwords must be at least 6 characters long. Passwords must match.</span>
 
-			<main class="reset-password__form">
-				<h1 class="reset-password__headline"> Enter a new password below.</h1>
-				<span class="reset-password__error-message">Passwords must be at least 6 characters long. Passwords must match.</span>
-				<form>
-					<input type="password" placeholder="New Password"/>
-					<input type="password" placeholder="Re-Type Password"/>
-					<button type="submit" class="reset-password__button">Reset Password</button>
-				</form>	
+					<form id="reset-password-form" method="POST" action="/api/pwreset/complete">
+						<input type="hidden" name="username" value="<%= username %>">
+						<input type="password" placeholder="New Password"/>
+						<input type="password" placeholder="Re-Type Password"/>
+						<button type="submit" class="reset-password__button">Reset Password</button>
+					</form>	
 
-			</main>	
+				</main>	
+			<% } %>
 	</body>
-	</html>		
+
+	<script type="text/javascript" src="/javascripts/jquery-3.1.0.min.js"></script>
+	<% if (!isProduction) { %>
+		<script type="text/javascript" src="/javascripts/account.js"></script>
+	<% } else if (isProduction) { %>
+		<script type="text/javascript" src="/javascripts/release/account.min.js"></script>
+	<% } %>
+
+</html>		

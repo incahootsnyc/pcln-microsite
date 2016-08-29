@@ -61,7 +61,7 @@ function getGenericLayoutProperties () {
     isHomeSignin: false,
     title: 'PCLN Photo Contest',
     categories: config.categories,
-    isProduction: process.env.AWS_SECRET_ACCESS_KEY == 'PRODUCTION'
+    isProduction: config.isProduction
   };
 }
 

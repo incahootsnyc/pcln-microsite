@@ -11,6 +11,7 @@ var sizeOf = require('image-size');
 var config = require('../config');
 var passport = require('passport');
 var _ = require('lodash');
+var mailer = require('./mailer');
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -236,41 +237,27 @@ router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
     
 });
 
-router.get('/account-confirmation/:uniqueUrl', function (req, res) {
-    var errorMessage = 'hmm... nothing to confirm here.';
-    var now = Date.now();
-    var maxDiff = 604800000; // one week
+router.post('/api/pwreset', function (req, res, next) {
+  var username = req.body.username;
 
-    if (req.params.uniqueUrl) {
-        db.get().collection('pendingUsers').findOne({ confirmationUrl: req.params.uniqueUrl }, function (error, user) {
-            if (error || !user) {
-                res.send(errorMessage);
-            } else {
+  db.get().collection('users').findOne({ username: username }, function (error, user) {
+        if (error || !user) {
+            res.redirect('/?e=05');
+        } else {
 
-                if ((now - user.datetime) < maxDiff) {
-                    db.get().collection('pendingUsers').remove({ username: user.username });
+            user.passwordResetUrl = utils.generateRandomString(16);
 
-                    // no need to store this in the real users collection
-                    user.confirmationUrl = null;
-
-                    db.get().collection('users').insert(user, function (error, confirmation) {
-                        if (error) {
-                            res.send('hmm... something went wrong.');
-                        } else {
-                            res.redirect('/');
-                        }
-                    });
+            db.get().collection('users').save(user, function (error, result) {
+                if (error) {
+                    res.redirect('/?e=06');
                 } else {
-                    res.send('hmm... the pending account has expired.');
+                    mailer.sendPasswordResetEmail(req, user);
+                    res.redirect('/?e=07');
                 }
-            }
-        });
-    } else {
-        res.send(errorMessage);
-    }
+            });
+        }
+    });
 });
-
-
 
 router.post('/api/login', function (req, res, next) {
   passport.authenticate('local', function (err, user, info) {

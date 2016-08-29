@@ -131,6 +131,7 @@ module.exports = {
 	generateUniqueName: generateUniqueName,
   getSortAndFilterConfig: getSortAndFilter,
   saltHashPassword: sha512,
+  generateRandomString: genRandomString,
   createTempUser: createTempUser,
   isLoggedIn: loggedInMiddleWare,
   getGenericLayoutProperties: getGenericLayoutProperties,

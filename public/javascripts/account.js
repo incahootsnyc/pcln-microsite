@@ -48,7 +48,7 @@
 				$passportError.text(loginErrorMap[searchQueryObject.e]).removeClass('ishidden');
 			}
 
-			if (hasMessage && searchQueryObject.e == '04') {
+			if (hasMessage && (searchQueryObject.e == '04' || searchQueryObject.e == '07') {
 				$form.hide();
 				$registerMessage.hide();
 			}

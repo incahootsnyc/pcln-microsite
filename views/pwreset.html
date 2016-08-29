@@ -24,17 +24,18 @@
 			<% if (error) { %>
 				<div><%= error %></div>	
 			<% } else { %>
-			<main class="reset-password__form">
-				<h1 class="reset-password__headline"> Enter a new password below.</h1>
-				<span class="reset-password__error-message">Please enter valid Priceline email address.</span>
-				<form id="reset-password-form" method="POST" action="/api/pwreset/complete">
-					<input type="hidden" name="username" value="<%= username %>">
-					<input type="password" placeholder="New Password"/>
-					<input type="password" placeholder="Re-Type Password"/>
-					<button type="submit" class="reset-password__button">Reset Password</button>
-				</form>	
+				<main class="reset-password__form">
+					<h1 class="reset-password__headline"> Enter a new password below.</h1>
+					<span class="reset-password__error-message">Please enter valid Priceline email address.</span>
+					<form id="reset-password-form" method="POST" action="/api/pwreset/complete">
+						<input type="hidden" name="username" value="<%= username %>">
+						<input type="password" placeholder="New Password"/>
+						<input type="password" placeholder="Re-Type Password"/>
+						<button type="submit" class="reset-password__button">Reset Password</button>
+					</form>	
 
-			</main>	
+				</main>	
+			<% } %>
 	</body>
 
 	<script type="text/javascript" src="/javascripts/jquery-3.1.0.min.js"></script>

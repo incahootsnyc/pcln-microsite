@@ -1,0 +1,26 @@
+.reset-password {
+	text-align: center;
+
+	&__form {
+		width: 320px;
+		margin: 20px auto;
+	}
+
+	&__headline {
+		font-size: 18px;
+		padding: 10px;
+	}
+
+	input {
+		margin: 0 0 5px 0;
+	}
+
+	&__button {
+		@extend .button;
+	}
+
+	&__error-message {
+		color: $red;
+	}
+
+}

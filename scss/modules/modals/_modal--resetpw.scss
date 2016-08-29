@@ -1,0 +1,22 @@
+.modal--resetpw {
+	@extend .modal--sm;
+
+	&__headline {
+		@extend .headline--orange;
+	}
+
+	&__close {
+		@extend .modal__close;
+	}
+
+	&__text {
+		padding: 0 0 20px;
+	}
+
+	&__button {
+		@extend .button;
+		background-color: $blue-2;
+		margin: 5px 0 10px 0;
+	}
+
+}

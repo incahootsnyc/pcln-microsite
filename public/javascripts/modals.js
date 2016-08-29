@@ -7,7 +7,8 @@
 		'upload-success': 1,
 		'delete-confirm': 2,
 		'update-modal': 3,
-		'details-modal': 4
+		'details-modal': 4,
+		'accept-terms': 5
 	};
 
 	$('#upload-image').click(function (e) {
@@ -18,15 +19,20 @@
 		if ($uploadModal.length < 1) {
 			$uploadModal = grabTemplateByName('upload-modal');
 			var $uploadForm = $uploadModal.find('form');
+			var $acceptTermsConfirm = $('#accept-terms');
 
 			// assign events for modal
 			if (pclnPicMe.supportsDragAndDrop) {
 				pclnPicMe.uploadEventHandler.addDragAndDropCapabilities($uploadForm);
 			}
 
+			if ($acceptTermsConfirm.length < 1) {
+				$acceptTermsConfirm = grabTemplateByName('accept-terms');
+			} 
+
 			pclnPicMe.uploadEventHandler.addCloseEvent($uploadModal);
 			pclnPicMe.uploadEventHandler.addImagePreviewEvent($uploadForm);
-			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadForm);
+			pclnPicMe.uploadEventHandler.addSubmitEvent($uploadModal, $acceptTermsConfirm);
 			pclnPicMe.uploadEventHandler.addValidationEvent($uploadForm);
 
 			showModal($uploadModal);

@@ -1,6 +1,11 @@
 <div class="submissions">
-	<div class="submissions__header">	
-		<h1>Submissions</h1>
+	<div class="submissions__header">
+	<% if (isHome) { %>	
+	<h1>Submissions</h1>
+	<% } else if (isMyPics) { %>
+	<h1> My Pics</h1>
+	<% } %>
+		
 			<div class="submissions__select-container"> 
 				<label for="select" class="select-container__arrow"></label> 
 				<select id="select" class="submissions__sort"> 

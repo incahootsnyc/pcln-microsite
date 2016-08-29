@@ -11,7 +11,7 @@ var sizeOf = require('image-size');
 var config = require('../config');
 var passport = require('passport');
 var _ = require('lodash');
-var mailer = require('./mailer');
+var mailer = require('../helpers/mailer');
 
 var upload = multer({
     limits: { fileSize: 5000000 },

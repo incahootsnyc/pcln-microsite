@@ -22,6 +22,7 @@ function generateUniqueName (fileName) {
 function getSortAndFilter (req) {
   var sortType = req.query.sort ? req.query.sort  : 'newest';
   var filterTags = req.query.tags ? req.query.tags.split(',') : undefined;
+  var user = req.query.user;
 
   var sortOptions = {  'limit': config.itemsPerPage };
   var queryOptions = {};
@@ -38,6 +39,10 @@ function getSortAndFilter (req) {
 
   if (filterTags && filterTags.length > 0) {
     queryOptions['tags'] = { '$all' : filterTags };
+  }
+
+  if (user) {
+    queryOptions['username'] = user.replace('.', ' ');
   }
 
   return {

@@ -22,6 +22,13 @@
 		window.location.href = url;
 	});
 
+	$('.submissions__username a').click(function (e) {
+		e.preventDefault();
+
+		var url = pclnPicMe.updateQueryStringParameter(window.location.href, 'user', $(this).text().replace(' ', '.'));
+		window.location.href = url;
+	});
+
 	function setCurrentFilterTags () {
 		var chosenTags = pclnPicMe.getParameterByName('tags');
 		var tagValues;

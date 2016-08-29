@@ -196,6 +196,7 @@ label:hover:before {
 /* line 1, ../../scss/modules/_global.scss */
 body {
   padding-top: 71px;
+  font-weight: 200;
 }
 @media (min-width: 841px) {
   /* line 1, ../../scss/modules/_global.scss */
@@ -204,12 +205,12 @@ body {
   }
 }
 
-/* line 9, ../../scss/modules/_global.scss */
+/* line 10, ../../scss/modules/_global.scss */
 .main-container {
   min-width: 320px;
 }
 
-/* line 13, ../../scss/modules/_global.scss */
+/* line 14, ../../scss/modules/_global.scss */
 .content-container {
   position: relative;
   min-height: 100vh;
@@ -257,6 +258,7 @@ body {
 .navbar--mobile {
   background-color: #ffffff;
   top: 0;
+  opacity: 0;
   right: -260px;
   position: absolute;
   color: #666;
@@ -265,20 +267,20 @@ body {
   box-shadow: 3px 0px 7px 4px #999;
   transition: transform 1s;
 }
-/* line 40, ../../scss/modules/_navigation.scss */
+/* line 41, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item {
   padding: 15px 30px;
 }
-/* line 43, ../../scss/modules/_navigation.scss */
+/* line 44, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item + li {
   border-top: 1px solid #ccc;
 }
-/* line 47, ../../scss/modules/_navigation.scss */
+/* line 48, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item:hover {
   background-color: #60AFD7;
   color: #333;
 }
-/* line 53, ../../scss/modules/_navigation.scss */
+/* line 54, ../../scss/modules/_navigation.scss */
 .navbar--mobile__title {
   font-weight: normal;
   font-size: 18px;
@@ -290,61 +292,62 @@ body {
 }
 
 @media (min-width: 841px) {
-  /* line 71, ../../scss/modules/_navigation.scss */
+  /* line 72, ../../scss/modules/_navigation.scss */
   .header {
     height: 110px;
   }
-  /* line 74, ../../scss/modules/_navigation.scss */
+  /* line 75, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
-  /* line 79, ../../scss/modules/_navigation.scss */
+  /* line 80, ../../scss/modules/_navigation.scss */
   .header__hamburger-icon {
     display: none;
   }
 
-  /* line 85, ../../scss/modules/_navigation.scss */
+  /* line 86, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
   }
-  /* line 88, ../../scss/modules/_navigation.scss */
+  /* line 89, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 93, ../../scss/modules/_navigation.scss */
+  /* line 94, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
+    text-transform: capitalize;
     right: 20px;
     top: 10px;
   }
-  /* line 98, ../../scss/modules/_navigation.scss */
+  /* line 100, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 8px;
   }
 
-  /* line 103, ../../scss/modules/_navigation.scss */
+  /* line 105, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 108, ../../scss/modules/_navigation.scss */
+  /* line 110, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     color: #999;
     font-size: 16px;
     border-bottom: 5px solid #ffffff;
     transition: border-bottom .5s;
   }
-  /* line 117, ../../scss/modules/_navigation.scss */
+  /* line 119, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 124, ../../scss/modules/_navigation.scss */
+/* line 126, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;
@@ -504,12 +507,13 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   vertical-align: middle;
+  text-transform: capitalize;
 }
-/* line 60, ../../scss/modules/_main.scss */
+/* line 61, ../../scss/modules/_main.scss */
 .submissions__likes {
   text-align: right;
 }
-/* line 64, ../../scss/modules/_main.scss */
+/* line 65, ../../scss/modules/_main.scss */
 .submissions__icon-container {
   width: 18px;
   height: 18px;
@@ -519,18 +523,18 @@ body {
   border-radius: 50%;
   transition: background-color .5s;
 }
-/* line 74, ../../scss/modules/_main.scss */
+/* line 75, ../../scss/modules/_main.scss */
 .submissions__icon-container:hover {
   background-color: #999;
   cursor: pointer;
 }
-/* line 81, ../../scss/modules/_main.scss */
+/* line 82, ../../scss/modules/_main.scss */
 .submissions__like-icon {
   width: 12px;
   vertical-align: text-bottom;
   margin: 3px;
 }
-/* line 87, ../../scss/modules/_main.scss */
+/* line 88, ../../scss/modules/_main.scss */
 .submissions__sort {
   border: none;
   color: #0a84c1;
@@ -541,13 +545,14 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 7px 24px 0 0;
+  padding: 5px 24px 0 0;
+  font-weight: 200;
 }
-/* line 99, ../../scss/modules/_main.scss */
+/* line 101, ../../scss/modules/_main.scss */
 .submissions__sort:focus {
   outline: 0;
 }
-/* line 104, ../../scss/modules/_main.scss */
+/* line 106, ../../scss/modules/_main.scss */
 .submissions__select-container {
   overflow: hidden;
   position: absolute;
@@ -557,30 +562,30 @@ body {
 }
 
 @media (min-width: 420px) {
-  /* line 116, ../../scss/modules/_main.scss */
+  /* line 118, ../../scss/modules/_main.scss */
   .submissions__img-container {
     width: auto;
   }
 
-  /* line 120, ../../scss/modules/_main.scss */
+  /* line 122, ../../scss/modules/_main.scss */
   .submissions__img {
     width: 140px;
     height: 140px;
   }
 }
 @media (min-width: 540px) {
-  /* line 129, ../../scss/modules/_main.scss */
+  /* line 131, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
   }
-  /* line 135, ../../scss/modules/_main.scss */
+  /* line 137, ../../scss/modules/_main.scss */
   .submissions__header {
     padding: 20px 10px 10px 30px;
   }
 
-  /* line 141, ../../scss/modules/_main.scss */
+  /* line 143, ../../scss/modules/_main.scss */
   .main {
     min-width: 60%;
     width: calc(100% - 320px);
@@ -588,7 +593,7 @@ body {
   }
 }
 @media (min-width: 841px) {
-  /* line 150, ../../scss/modules/_main.scss */
+  /* line 152, ../../scss/modules/_main.scss */
   .submissions__select-container {
     right: 20px;
   }

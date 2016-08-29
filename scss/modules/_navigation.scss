@@ -28,6 +28,7 @@
 .navbar--mobile {
 	background-color: $white;
 	top: 0;
+	opacity: 0;
 	right: -260px;
 	position: absolute;
 	color: $black-60;
@@ -92,6 +93,7 @@
 
 	.navbar--user {
 		position: absolute;
+		text-transform: capitalize;
 		right: 20px;
 		top: 10px;
 
@@ -107,7 +109,7 @@
 
 		&__link {
 			padding: 0 10px;
-			padding-bottom: 10px;
+			padding-bottom: 8px;
 			color: $black-40;
 			font-size: 16px;
 			border-bottom: 5px solid $white;

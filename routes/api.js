@@ -245,7 +245,10 @@ router.post('/api/pwreset', function (req, res, next) {
             res.redirect('/?e=05');
         } else {
 
+            var saltHashPassword = utils.saltHashPassword(config.resetPassword, utils.generateRandomString(16));
             user.passwordResetUrl = utils.generateRandomString(16);
+            user.salt = saltHashPassword.salt;
+            user.hash = saltHashPassword.passwordHash;
 
             db.get().collection('users').save(user, function (error, result) {
                 if (error) {
@@ -264,7 +267,7 @@ router.post('/api/pwreset/complete', function (req, res, next) {
 
   db.get().collection('users').findOne({ username: username }, function (error, user) {
         if (error || !user) {
-            res.redirect('/password-reset/fail');
+            res.redirect('/password-reset/fail?e=nouser');
         } else {
 
             var saltHashPassword = utils.saltHashPassword(password, utils.generateRandomString(16));
@@ -274,7 +277,7 @@ router.post('/api/pwreset/complete', function (req, res, next) {
 
             db.get().collection('users').save(user, function (error, result) {
                 if (error) {
-                    res.redirect('/password-reset/fail');
+                    res.redirect('/password-reset/fail?e=savefail');
                 } else {
                     res.redirect('/');
                 }

@@ -86,18 +86,27 @@
 			top: 10px;
 		}
 
+		[type="checkbox"]:checked + label:before {
+			color: $black-80;
+		}
+
 		[type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
 			display: none;
 		}
 
 		[type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
 			padding-left: 0;
+
 		}
 
 		[type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after {
 			content: '';
 		}
 	}
+}
+
+.checkedtag {
+	color: $black-80;
 }
 
 // @media (min-width: 841px) {

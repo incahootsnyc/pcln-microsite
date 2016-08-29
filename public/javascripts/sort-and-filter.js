@@ -40,7 +40,9 @@
 			tagValues = chosenTags.split(',');
 
 			tagValues.forEach(function (tag) {
-				$('.sidebar__categories_input[value="' + tag + '"]').prop('checked', true);
+				var checkbox = $('.sidebar__categories_input[value="' + tag + '"]');
+				checkbox.prop('checked', true);
+				checkbox.next().addClass('checkedtag');
 			});
 		}
 	}

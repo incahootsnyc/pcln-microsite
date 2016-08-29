@@ -28,7 +28,6 @@
 .navbar--mobile {
 	background-color: $white;
 	top: 0;
-	opacity: 0;
 	right: -260px;
 	position: absolute;
 	color: $black-60;
@@ -39,7 +38,6 @@
 	
 
 	&__item {
-		padding: 15px 30px;
 
 		+ li {
 			border-top: 1px solid $black-20;
@@ -48,6 +46,12 @@
 		&:hover {
 			background-color: $blue-3;
 			color: $black-80;
+		}
+
+		a {
+			padding: 15px 30px;
+			width: 100%;
+			display: inline-block;
 		}
 	}
 
@@ -62,6 +66,13 @@
 	}
 }
 
+.isactive--mobile {
+	background-color: $blue-3;
+	
+	a {
+	color: $black-80;
+	}
+}
 
 
 
@@ -85,6 +96,7 @@
 
 	.navbar--main, .navbar--user {
 		display: inline-block;
+		line-height: 1;
 
 		&__item {
 			display: inline-block;

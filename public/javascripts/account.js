@@ -18,7 +18,10 @@
 			'01': 'Incorrect password.',
 			'02': 'User email is invalid.',
 			'03': 'User already exists.',
-			'04': 'Check your email to complete your registration!'
+			'04': 'Check your email to complete your registration!',
+			'05': 'User could not be found.',
+			'06': 'Oops, something went wrong. Please try again.',
+			'07': 'Check your email to complete password reset!'
 		};
 
 	if (search.length > 0) {

@@ -17,46 +17,67 @@ pclnPicMe.uploadEventHandler = (function () {
 	};
 
 	// form submit event for upload modal
-	function addSubmitEventFn ($form) {
+	function addSubmitEventFn ($modal, $acceptTermsConfirmation) {
+		var $form = $modal.find('form');
 		var $fileInput = $form.find('input[type="file"]');
 		var isSubmitting = false;
+
+		var $confirmBtn = $acceptTermsConfirmation.find('.modal--sm__button--confirm');
+		var $cancelBtn = $acceptTermsConfirmation.find('.modal--sm__button--cancel');
+		var $closeBtn = $acceptTermsConfirmation.find('.modal__close');
 
 		$form.submit(function (e) {
 			e.preventDefault();
 
-			if (!isSubmitting) {
+			var formData = new FormData(this);
+			formData.append('datetime', Date.now());
 
-				isSubmitting = true;
-
-				var formData = new FormData(this);
-			  	formData.append('datetime', Date.now());
-
-			  	if (droppedFile) {
-				    formData.append($fileInput.attr('name'), droppedFile);
-				}
-
-				if (!pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile, true)) {
-					return false;
-				}
-
-			  	var requestConfig = {
-					url: '/api/upload',
-					type: 'POST',
-					data: formData,
-					contentType: false,
-					processData: false,
-					success: function (response) {
-						isSubmitting = false;
-						window.location.href = '/';
-					},
-					error: function () {
-						isSubmitting = false;
-					}
-				};
-
-				$.ajax(requestConfig);
-
+			if (droppedFile) {
+			    formData.append($fileInput.attr('name'), droppedFile);
 			}
+
+			if (!pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile, true)) {
+				return false;
+			}
+
+			$modal.hide();
+
+			$confirmBtn.click(function () {
+				if (!isSubmitting) {
+
+					isSubmitting = true;
+
+				  	var requestConfig = {
+						url: '/api/upload',
+						type: 'POST',
+						data: formData,
+						contentType: false,
+						processData: false,
+						success: function (response) {
+							isSubmitting = false;
+							window.location.href = '/';
+						},
+						error: function () {
+							isSubmitting = false;
+						}
+					};
+
+					$.ajax(requestConfig);
+
+				}
+			});
+
+			$cancelBtn.click(function () {
+				$modal.show();
+				$acceptTermsConfirmation.addClass('ishidden');
+			});
+
+			$closeBtn.click(function () {
+				$modal.show();
+				$acceptTermsConfirmation.addClass('ishidden');
+			});
+
+			$acceptTermsConfirmation.removeClass('ishidden');
 		  	
 			return false;
 

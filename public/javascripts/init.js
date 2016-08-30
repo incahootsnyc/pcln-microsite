@@ -65,6 +65,12 @@
 
   };
 
+  pclnPicMe.unbindClickEvents = function ($items) {
+    $items.forEach(function ($item) {
+      $item.unbind('click');
+    });
+  };
+
   pclnPicMe.updateLocalLikes = function (uniqueName, likeResponse, isDetails) {
     var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
     var likeParent = $('img[data-id="' + uniqueName + '"').parent();

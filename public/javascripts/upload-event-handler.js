@@ -3,7 +3,7 @@ pclnPicMe.uploadEventHandler = (function () {
 	var droppedFile = false;
 	var validationDictionary = {
 		'map': ['#image-error', '#category-error', '#location-error'],
-		'image': function (value) { if (!(value && value.size > 0) && !droppedFile) return this.map[0]; },
+		'image': function (value) { if (!(value && value.length > 0) && !droppedFile) return this.map[0]; },
 		'category[]': function (value) { if (!(value && value.length > 0)) return this.map[1]; },
 		'location': function (value) { if (!(value && value.length > 0)) return this.map[2]; }
     };
@@ -37,7 +37,7 @@ pclnPicMe.uploadEventHandler = (function () {
 			    formData.append($fileInput.attr('name'), droppedFile);
 			}
 
-			if (!pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile, true)) {
+			if (!pclnPicMe.isValidForm($form, validationDictionary, droppedFile, true)) {
 				return false;
 			}
 
@@ -169,15 +169,11 @@ pclnPicMe.uploadEventHandler = (function () {
 	function addValidationEventFn ($form) {		
 
 		$form.change(function () {
-			var formData = new FormData(this);
-
-			pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile);
+			pclnPicMe.isValidForm($form, validationDictionary, droppedFile);
 		});
 
 		$form.find('input[name="location"]').keyup(function () {
-			var formData = new FormData($form[0]);
-
-			pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile);
+			pclnPicMe.isValidForm($form, validationDictionary, droppedFile);
 		});
 
 	}

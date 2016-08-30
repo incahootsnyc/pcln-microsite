@@ -27,13 +27,14 @@
       return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   };
 
-  pclnPicMe.isValidForm = function ($form, formData, validationDictionary, droppedFile, isSubmitting) {
+  pclnPicMe.isValidForm = function ($form, validationDictionary, droppedFile, isSubmitting) {
     var errorsToDisplay = [];
     var isValid = false;
 
     for (var key in validationDictionary) {
       if (key != 'map') {
-        var value = formData.get(key);
+        var value = $form.find('input[name="' + key + '"]').val();
+        
         var error = validationDictionary[key](value);
         if (error) {
           errorsToDisplay.push(error);

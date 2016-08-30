@@ -31,7 +31,7 @@ pclnPicMe.updateEventHandler = (function () {
 		  	var postData = $(this).serializeArray();
 		  	var $loader = $(this).find('button[type="submit"] .loader--white');
 
-			if (!pclnPicMe.isValidForm($form, formData, validationDictionary, 'no-image', true)) {
+			if (!pclnPicMe.isValidForm($form, validationDictionary, 'no-image', true)) {
 				return false;
 			}
 
@@ -115,9 +115,7 @@ pclnPicMe.updateEventHandler = (function () {
 	function addValidationEventFn ($form) {		
 
 		$form.change(function () {
-			var formData = new FormData(this);
-
-			pclnPicMe.isValidForm($form, formData, validationDictionary, 'no-image');
+			pclnPicMe.isValidForm($form, validationDictionary, 'no-image');
 		});
 
 	}

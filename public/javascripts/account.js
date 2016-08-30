@@ -162,8 +162,8 @@
 				}
 			}
 
-			return hasText && isPCLN && validTokens;
-			// return hasText && validTokens;
+			// return hasText && isPCLN && validTokens;
+			return hasText && validTokens;
 		}
 
 	}

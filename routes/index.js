@@ -46,7 +46,7 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 
 			imageList.forEach(function (imageObj, index) {
 				if (imageObj.name) {
-					imagePosts.push(imagePostHelper.mapForClient(imageObj, index, req.user.isAdmin));
+					imagePosts.push(imagePostHelper.mapForClient(imageObj, index, req.user.username));
 				}
 			});
 		

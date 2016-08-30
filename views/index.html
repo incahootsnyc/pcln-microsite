@@ -46,12 +46,14 @@
 					 		<li class="navbar--mobile__item <%= isContestInfo ? 'isactive--mobile' : '' %>"><a href="/contestinfo">Contest Info &amp; Prizes</a></li>
 					 		<li class="navbar--mobile__item <%= isTerms ? 'isactive--mobile' : '' %>"><a href="/terms">Terms &amp; Conditions</a></li>
 					 		<li class="navbar--mobile__item"><a href="/logout">Sign Out</a></li>
-					 	</ul>		
+					 	</ul>	
+					 </nav>	
 				 
 			</header>
 			<div class="content-container group">
 				<aside class="sidebar">
 
+					<% if (!isHomeSignin) { %>
 					<template>
 						<% include /templates/upload-modal.html %>
 						<% include /templates/upload-success.html %>
@@ -60,6 +62,7 @@
 						<% include /templates/details-modal.html %>
 						<% include /templates/accept-terms.html %>
 					</template>
+					<% } %>
 
 					<div class="sidebar__contest-info">
 						<strong class="sidebar__contest-info__main">Got awesome travel pics? <br>

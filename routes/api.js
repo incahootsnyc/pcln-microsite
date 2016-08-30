@@ -207,7 +207,7 @@ router.get('/api/fetchPosts/:pageNum', utils.isLoggedIn, function (req, res) {
 
                 imageList.forEach(function (imageObj, index) {
                     if (imageObj.name) {
-                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip, req.user.isAdmin));
+                        imagePosts.push(imagePostHelper.mapForClient(imageObj, index+searchConfig.sort.skip, req.user.username));
                     }
                 });
 

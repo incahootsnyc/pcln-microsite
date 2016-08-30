@@ -1,4 +1,5 @@
 var s3 = require('./s3');
+var config = require('../config');
 
 var imagePost = {
 	generateForDB: function (name, postBody, user) {
@@ -13,9 +14,10 @@ var imagePost = {
     		likesCount: 0
 		};
 	},
-	mapForClient: function (imageObj, imageObjIndex, userIsAdmin) {
+	mapForClient: function (imageObj, imageObjIndex, userName) {
 		var s3bucket = s3.getBucket();
 		var params = { Key: imageObj.name };
+		var userIsAdmin = config.adminList.indexOf(userName.toLowerCase()) > -1;
 
 		return {
 			uid: imageObj.uid.toString(),

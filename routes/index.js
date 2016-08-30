@@ -35,7 +35,7 @@ router.get('/', function (req, res) {
 
 /* GET home page. */
 router.get('/home', utils.isLoggedIn, function (req, res, next) {
-	var genericLayoutSettings = utils.getGenericLayoutProperties();
+	var genericLayoutSettings = utils.getGenericLayoutProperties(req.query.user);
 	var searchConfig = utils.getSortAndFilterConfig(req);
 
 	db.get().collection('imagePosts', function (err, collection) {

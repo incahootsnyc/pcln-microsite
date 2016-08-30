@@ -52,7 +52,8 @@ function getSortAndFilter (req) {
   };
 }
 
-function getGenericLayoutProperties () {
+function getGenericLayoutProperties (selectedUser) {
+
   return {
     isHome: false,
     isTerms: false,
@@ -61,6 +62,7 @@ function getGenericLayoutProperties () {
     isHomeSignin: false,
     title: 'PCLN Photo Contest',
     categories: config.categories,
+    selectedUser: selectedUser,
     isProduction: config.isProduction
   };
 }

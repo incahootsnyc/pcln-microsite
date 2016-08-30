@@ -1,8 +1,16 @@
 <div id="delete-confirm" class="modal-overlay">
 	<div class="modal--sm">
+		<div class="loader-container">
+		 <div class="spinner">
+			<div class="spinner__item1"></div>
+			<div class="spinner__item2"></div>
+			<div class="spinner__item3"></div>
+			<div class="spinner__item4"></div>
+		</div>
+		</div>	
 		<div class="modal--sm__text">Are you sure you want to delete this pic?</div>
 		<img class="modal__close" src="/images/close.svg"/>
-		<button class="modal--sm__button--confirm">Yes, Delete</button> 
+		<button class="modal--sm__button--confirm"><span class="loader--white"></span>Yes, Delete</button> 
 		<button class="modal--sm__button--cancel">No, Cancel</button>
 	</div>
 </div>

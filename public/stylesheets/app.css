@@ -237,52 +237,53 @@ body {
 }
 
 /* line 41, ../../scss/modules/_global.scss */
-.loader-container {
-  background-attachment: fixed, inherit;
-  -webkit-backface-visibility: hidden;
-  display: none;
-}
-
-/* line 47, ../../scss/modules/_global.scss */
-.spinner {
-  margin: 100px auto 0;
-  text-align: center;
-}
-
-/* line 52, ../../scss/modules/_global.scss */
-.spinner > div {
-  width: 30px;
-  height: 30px;
-  background-color: #000000;
-  border-radius: 100%;
+.loader--blue {
   display: inline-block;
-  animation: sk-bouncedelay 1.7s infinite ease-in-out both;
   margin-right: 5px;
+  display: none;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #60AFD7;
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
 }
 
-/* line 63, ../../scss/modules/_global.scss */
-.spinner .spinner__item1 {
-  animation-delay: -0.60s;
-}
-
-/* line 67, ../../scss/modules/_global.scss */
-.spinner .spinner__item2 {
-  animation-delay: -0.40s;
-}
-
-/* line 71, ../../scss/modules/_global.scss */
-.spinner .spinner__item3 {
-  animation-delay: -0.20s;
-}
-
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-    opacity: 0;
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
   }
-  40% {
-    transform: scale(1);
-    opacity: 1;
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+/* line 63, ../../scss/modules/_global.scss */
+.loader--white {
+  display: inline-block;
+  margin-right: 5px;
+  display: none;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
   }
 }
 /* line 1, ../../scss/modules/_navigation.scss */
@@ -379,36 +380,35 @@ body {
   /* line 97, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
-    line-height: 1;
   }
-  /* line 101, ../../scss/modules/_navigation.scss */
+  /* line 100, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 106, ../../scss/modules/_navigation.scss */
+  /* line 105, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     text-transform: capitalize;
     right: 20px;
     top: 10px;
   }
-  /* line 112, ../../scss/modules/_navigation.scss */
+  /* line 111, ../../scss/modules/_navigation.scss */
   .navbar--user span {
     padding-left: 5px;
   }
-  /* line 116, ../../scss/modules/_navigation.scss */
+  /* line 115, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 3px;
   }
 
-  /* line 121, ../../scss/modules/_navigation.scss */
+  /* line 120, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 5px;
     margin: 0 20px;
   }
-  /* line 126, ../../scss/modules/_navigation.scss */
+  /* line 125, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 8px;
@@ -417,12 +417,12 @@ body {
     border-bottom: 5px solid #ffffff;
     transition: border-bottom .5s;
   }
-  /* line 135, ../../scss/modules/_navigation.scss */
+  /* line 134, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 142, ../../scss/modules/_navigation.scss */
+/* line 141, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;
@@ -1011,7 +1011,20 @@ body {
 @media (min-width: 540px) {
   /* line 260, ../../scss/modules/modals/_modal.scss */
   .modal--sm, .modal--resetpw {
-    width: 350px;
+    width: 400px;
+  }
+  /* line 263, ../../scss/modules/modals/_modal.scss */
+  .modal--sm__text {
+    width: 90%;
+  }
+  /* line 267, ../../scss/modules/modals/_modal.scss */
+  .modal--sm__button--confirm {
+    width: 155px;
+    vertical-align: top;
+  }
+  /* line 272, ../../scss/modules/modals/_modal.scss */
+  .modal--sm__button--cancel {
+    width: 155px;
   }
 }
 /* line 3, ../../scss/modules/modals/_modal--signin.scss */
@@ -1152,8 +1165,9 @@ body {
 /* line 87, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__img-info {
   width: 100%;
+  text-transform: capitalize;
   position: absolute;
-  bottom: 5px;
+  bottom: 4px;
   font-size: 12px;
   padding: 30px 10px 10px;
   color: #ffffff;
@@ -1166,11 +1180,11 @@ body {
   background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 }
-/* line 104, ../../scss/modules/modals/_modal--details.scss */
+/* line 105, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__edit {
   color: #60AFD7;
 }
-/* line 108, ../../scss/modules/modals/_modal--details.scss */
+/* line 109, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__arrow-right, .modal--details__arrow-left {
   position: absolute;
   cursor: pointer;
@@ -1180,29 +1194,29 @@ body {
   opacity: 1;
   transition: opacity .5s;
 }
-/* line 117, ../../scss/modules/modals/_modal--details.scss */
+/* line 118, ../../scss/modules/modals/_modal--details.scss */
 .modal--details__arrow-right:hover, .modal--details__arrow-left:hover {
   opacity: .6;
 }
 
 @media (min-width: 540px) {
-  /* line 126, ../../scss/modules/modals/_modal--details.scss */
+  /* line 127, ../../scss/modules/modals/_modal--details.scss */
   .modal--details {
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
   }
-  /* line 132, ../../scss/modules/modals/_modal--details.scss */
+  /* line 133, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__img-info {
     font-size: 14px;
     padding: 30px 20px 15px;
   }
-  /* line 138, ../../scss/modules/modals/_modal--details.scss */
+  /* line 139, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__like-content {
     bottom: 15px;
   }
-  /* line 142, ../../scss/modules/modals/_modal--details.scss */
+  /* line 143, ../../scss/modules/modals/_modal--details.scss */
   .modal--details__arrow-right, .modal--details__arrow-left {
     top: 200px;
   }

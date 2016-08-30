@@ -20,11 +20,13 @@
 				 <a href="/home"><img class="header__logo" src="/images/logo.svg"/></a>			 
 			</header>
 			<% if (error) { %>
-				<div><%= error %></div>	
+				<main class="reset-password__form">
+					<span class="reset-password__error-message"><%= error %></span>
+				</main>	
 			<% } else { %>
 				<main class="reset-password__form">
 					<h1 class="reset-password__headline"> Enter a new password below.</h1>
-					<span class="reset-password__error-message">Passwords must be at least 6 characters long. Passwords must match.</span>
+					<span class="reset-password__error-message ishidden">Passwords must be at least 6 characters long. Passwords must match.</span>
 
 					<form id="reset-password-form" method="POST" action="/api/pwreset/complete">
 						<input type="hidden" name="username" value="<%= username %>">

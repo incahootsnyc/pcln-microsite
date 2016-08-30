@@ -23,8 +23,12 @@ router.get('/password-reset/:uniqueUrl', function (req, res) {
     }
 });
 
-router.get('/password-reset/fail', function (req, res) {
-    
+router.get('/password-reset/fail/:error', function (req, res) {
+    if (req.params.error == 'nouser') {
+        res.render('pwreset', _.assign(genericLayoutSettings, { error: 'User could not be found.', username: null }));
+    } else {
+        res.render('pwreset', _.assign(genericLayoutSettings, { error: 'Oops, something went wrong. Please try resetting the password again.', username: null }));
+    }
 });
 
 module.exports = router;

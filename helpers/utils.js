@@ -60,7 +60,7 @@ function getGenericLayoutProperties (selectedUser) {
     isMyPics: false,
     isContestInfo: false,
     isHomeSignin: false,
-    title: 'PCLN Photo Contest',
+    title: 'PicMe Priceline Photo Contest',
     categories: config.categories,
     selectedUser: selectedUser ? selectedUser.replace('.', ' ') : null,
     isProduction: config.isProduction

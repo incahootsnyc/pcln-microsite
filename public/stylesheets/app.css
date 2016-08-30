@@ -244,7 +244,7 @@ body {
   vertical-align: top;
   width: 20px;
   height: 20px;
-  border: 3px solid #60AFD7;
+  border: 3px solid rgba(10, 132, 193, 0.8);
   border-radius: 50%;
   border-top-color: #fff;
   animation: spin 1s ease-in-out infinite;
@@ -265,7 +265,6 @@ body {
 .loader--white {
   display: inline-block;
   margin-right: 5px;
-  display: none;
   vertical-align: top;
   width: 20px;
   height: 20px;
@@ -995,12 +994,19 @@ body {
   padding-bottom: 20px;
 }
 /* line 243, ../../scss/modules/modals/_modal.scss */
+.modal--sm__title {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+/* line 250, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 120px;
   display: inline-block;
 }
-/* line 250, ../../scss/modules/modals/_modal.scss */
+/* line 257, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 120px;
@@ -1009,20 +1015,20 @@ body {
 }
 
 @media (min-width: 540px) {
-  /* line 260, ../../scss/modules/modals/_modal.scss */
-  .modal--sm, .modal--resetpw {
-    width: 400px;
-  }
-  /* line 263, ../../scss/modules/modals/_modal.scss */
-  .modal--sm__text {
-    width: 90%;
-  }
   /* line 267, ../../scss/modules/modals/_modal.scss */
+  .modal--sm, .modal--resetpw {
+    width: 540px;
+  }
+  /* line 270, ../../scss/modules/modals/_modal.scss */
+  .modal--sm__text {
+    width: 100%;
+  }
+  /* line 274, ../../scss/modules/modals/_modal.scss */
   .modal--sm__button--confirm {
     width: 155px;
     vertical-align: top;
   }
-  /* line 272, ../../scss/modules/modals/_modal.scss */
+  /* line 279, ../../scss/modules/modals/_modal.scss */
   .modal--sm__button--cancel {
     width: 155px;
   }

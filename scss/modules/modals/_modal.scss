@@ -240,6 +240,13 @@
 		padding-bottom: 20px;
 	}
 
+	&__title {
+		font-weight: 600;
+		color: $black-80;
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
 	&__button--cancel {
 		@extend .button;
 		background-color: $black-40;
@@ -258,10 +265,10 @@
 
 @media (min-width: 540px) {
 	.modal--sm {
-		width: 400px;
+		width: 540px;
 
 		&__text {
-			width: 90%;
+			width: 100%;
 		}	
 
 		&__button--confirm {

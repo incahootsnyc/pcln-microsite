@@ -1,9 +1,5 @@
 (function () {
 
-  $('body').on('focus', 'input[type="text"], input[type="email"], input[type="password"]', function() {
-    document.body.scrollTop = $(this).offset().top;
-  });
-
   // check support for drag and drop images
   // https://css-tricks.com/drag-and-drop-file-uploading/
   pclnPicMe.supportsDragAndDrop = (function() {

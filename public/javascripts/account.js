@@ -94,7 +94,7 @@
 
 		$resetPasswordLink.click(function (e) {
 			e.preventDefault();
-			var $closeBtn = $resetPasswordModal.find('.modal__close');
+			var $closeBtn = $resetPasswordModal.find('.modal--resetpw__close');
 
 			$resetPasswordModal.find('form').submit(function () {
 				var $this = $(this),

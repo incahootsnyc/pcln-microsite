@@ -93,7 +93,7 @@
 					$deleteConfirmModal = grabTemplateByName('delete-confirm');
 				} 
 
-				pclnPicMe.updateEventHandler.addDeleteEvent($updateForm, $deleteConfirmModal, imagePostData);
+				pclnPicMe.updateEventHandler.addDeleteEvent($updateForm, $deleteConfirmModal);
 
 				showModal($updateModal, { updateImageData: imagePostData } );
 			} else {

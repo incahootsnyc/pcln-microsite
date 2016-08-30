@@ -103,8 +103,13 @@
 		$resetPasswordLink.click(function (e) {
 			e.preventDefault();
 			var $closeBtn = $resetPasswordModal.find('.modal--resetpw__close');
+			var $resetPasswordModalForm = $resetPasswordModal.find('form');
 
-			$resetPasswordModal.find('form').submit(function () {
+			// unbind events so they dont pile up 
+			$resetPasswordModalForm.unbind('submit');
+			$closeBtn.unbind('click');
+
+			$resetPasswordModalForm.submit(function () {
 				var $this = $(this),
 					username = $this.find('input[name="username"]').val();
 

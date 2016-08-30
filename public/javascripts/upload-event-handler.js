@@ -17,17 +17,18 @@ pclnPicMe.uploadEventHandler = (function () {
 	};
 
 	// form submit event for upload modal
-	function addSubmitEventFn ($modal, $acceptTermsConfirmation) {
-		var $form = $modal.find('form');
+	function addSubmitEventFn ($uploadModal, $acceptTermsConfirmation) {
+		var $form = $uploadModal.find('form');
 		var $fileInput = $form.find('input[type="file"]');
-		var isSubmitting = false;
-
 		var $confirmBtn = $acceptTermsConfirmation.find('.modal--sm__button--confirm');
 		var $cancelBtn = $acceptTermsConfirmation.find('.modal--sm__button--cancel');
 		var $closeBtn = $acceptTermsConfirmation.find('.modal__close');
+		var isSubmitting = false;
 
 		$form.submit(function (e) {
 			e.preventDefault();
+			// unbind events so they dont pile up 
+			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn]);
 
 			var formData = new FormData(this);
 			formData.append('datetime', Date.now());
@@ -40,7 +41,7 @@ pclnPicMe.uploadEventHandler = (function () {
 				return false;
 			}
 
-			$modal.hide();
+			$uploadModal.hide();
 
 			$confirmBtn.click(function () {
 				if (!isSubmitting) {
@@ -81,12 +82,12 @@ pclnPicMe.uploadEventHandler = (function () {
 			});
 
 			$cancelBtn.click(function () {
-				$modal.show();
+				$uploadModal.show();
 				$acceptTermsConfirmation.hide();
 			});
 
 			$closeBtn.click(function () {
-				$modal.show();
+				$uploadModal.show();
 				$acceptTermsConfirmation.hide();
 			});
 
@@ -188,7 +189,6 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form.parent().find('.modal--lg__error-message').addClass('ishidden');
 		droppedFile = false;
 	}
-	
 
 })();
 

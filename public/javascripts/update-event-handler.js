@@ -6,6 +6,8 @@ pclnPicMe.updateEventHandler = (function () {
 		'location': function (value) { if (!(value && value.length > 0)) return this.map[1]; }
     };
 
+    var currentImagePostData = {};
+
 	return {
 		addCloseEvent: addCloseEventFn,
 		populateUpdateModal: populateUpdateModalFn,
@@ -65,22 +67,23 @@ pclnPicMe.updateEventHandler = (function () {
 		});
 	}
 
-	function addDeleteEventFn ($form, $detailsConfirmModal, imageData) {
+	function addDeleteEventFn ($form, $detailsConfirmModal) {
 		var $deleteButton = $form.find('.delete');
+		var $confirmBtn = $detailsConfirmModal.find('.modal--sm__button--confirm');
+		var $cancelBtn = $detailsConfirmModal.find('.modal--sm__button--cancel');
+		var $closeBtn = $detailsConfirmModal.find('.modal__close');
 
 		$deleteButton.click(function (e) {
 			e.preventDefault();
-
-			var $confirmBtn = $detailsConfirmModal.find('.modal--sm__button--confirm');
-			var $cancelBtn = $detailsConfirmModal.find('.modal--sm__button--cancel');
-			var $closeBtn = $detailsConfirmModal.find('.modal__close');
+			// unbind events so they dont pile up 
+			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn]);
 
 			$confirmBtn.click(function () {
 				var $loader = $(this).find('.loader--white');
 				$loader.removeClass('ishidden');
 
 				var requestConfig = {
-					url: '/api/remove/' + imageData.uniqueName,
+					url: '/api/remove/' + currentImagePostData.uniqueName,
 					type: 'GET',
 					success: function (response) {
 						if (response.error) {
@@ -121,13 +124,14 @@ pclnPicMe.updateEventHandler = (function () {
 
 	function populateUpdateModalFn ($modal, imageData) {
 		var $form = $modal.find('form');
+		currentImagePostData = imageData;
 		$form[0].reset();
 
-		$form.attr('data-id', imageData.uniqueName);
-		$modal.find('.modal--lg__img-preview').attr('src', imageData.thumbUrl);
-		$modal.find('.modal--lg__input').val(imageData.location);
+		$form.attr('data-id', currentImagePostData.uniqueName);
+		$modal.find('.modal--lg__img-preview').attr('src', currentImagePostData.thumbUrl);
+		$modal.find('.modal--lg__input').val(currentImagePostData.location);
 
-		imageData.tags.forEach(function (tag) {
+		currentImagePostData.tags.forEach(function (tag) {
 			$modal.find('#update-' + tag).prop('checked', true);
 		});
 	}

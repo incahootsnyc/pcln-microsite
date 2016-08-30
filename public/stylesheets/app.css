@@ -516,23 +516,27 @@ body {
     top: 10px;
   }
   /* line 90, ../../scss/modules/_sidebar.scss */
-  .sidebar [type="checkbox"]:checked + label:before {
-    color: #333;
-  }
-  /* line 94, ../../scss/modules/_sidebar.scss */
-  .sidebar [type="checkbox"]:not(:checked) + label:before, .sidebar [type="checkbox"]:checked + label:before {
+  .sidebar [type="radio"] {
     display: none;
   }
-  /* line 98, ../../scss/modules/_sidebar.scss */
-  .sidebar [type="checkbox"]:not(:checked) + label, .sidebar [type="checkbox"]:checked + label {
-    padding-left: 0;
+  /* line 94, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="radio"]:checked + label:before {
+    color: #333;
+  }
+  /* line 99, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="radio"]:not(:checked) + label:before, .sidebar [type="radio"]:checked + label:before {
+    display: none;
   }
   /* line 103, ../../scss/modules/_sidebar.scss */
-  .sidebar [type="checkbox"]:not(:checked) + label:after, .sidebar [type="checkbox"]:checked + label:after {
+  .sidebar [type="radio"]:not(:checked) + label, .sidebar [type="radio"]:checked + label {
+    padding-left: 0;
+  }
+  /* line 108, ../../scss/modules/_sidebar.scss */
+  .sidebar [type="radio"]:not(:checked) + label:after, .sidebar [type="radio"]:checked + label:after {
     content: '';
   }
 }
-/* line 109, ../../scss/modules/_sidebar.scss */
+/* line 114, ../../scss/modules/_sidebar.scss */
 .checkedtag {
   color: #333;
 }

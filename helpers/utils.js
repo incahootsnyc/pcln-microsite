@@ -117,8 +117,8 @@ function isValidEmail (email) {
     }
   };
 
-  // return isPCLN && validTokens;
-  return validTokens;
+  return isPCLN && validTokens;
+  // return validTokens;
 }
 
 function loggedInMiddleWare (req, res, next) {

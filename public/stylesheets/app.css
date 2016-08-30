@@ -1033,7 +1033,7 @@ body {
 }
 /* line 222, ../../scss/modules/modals/_modal.scss */
 .modal--sm, .modal--resetpw {
-  width: 290px;
+  width: 320px;
   left: 0;
   right: 0;
   margin: auto;
@@ -1054,13 +1054,13 @@ body {
 /* line 250, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
-  width: 120px;
+  width: 135px;
   display: inline-block;
 }
 /* line 257, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
-  width: 120px;
+  width: 135px;
   display: inline-block;
   margin-right: 5px;
 }

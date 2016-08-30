@@ -221,7 +221,7 @@
 
 .modal--sm {
 	@extend .modal;
-	width: 290px;
+	width: 320px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -250,14 +250,14 @@
 	&__button--cancel {
 		@extend .button;
 		background-color: $black-40;
-		width: 120px;	
+		width: 135px;	
 		display: inline-block;
 	}
 
 	&__button--confirm {
 		@extend .button;
 		background-color: $blue-3;
-		width: 120px;
+		width: 135px;
 		display: inline-block;
 		margin-right: 5px;
 	}

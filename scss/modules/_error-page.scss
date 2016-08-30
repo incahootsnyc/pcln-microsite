@@ -1,0 +1,23 @@
+.errorman--sad {
+	width: 40%;
+	display: block;
+	margin: auto;
+}
+
+.error {
+	text-align: center;
+
+	.header__logo {
+		width: 200px;
+	}
+
+	&__content {
+		padding: 0 20px;
+	}
+
+	&__headline {
+		text-align: center;
+		font-size: 26px;
+		margin: 20px 0;
+	}
+}

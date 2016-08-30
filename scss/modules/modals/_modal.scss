@@ -258,9 +258,25 @@
 
 @media (min-width: 540px) {
 	.modal--sm {
-		width: 350px;
+		width: 400px;
+
+		&__text {
+			width: 90%;
+		}	
+
+		&__button--confirm {
+			width: 155px;
+			vertical-align: top;
+		}
+
+		&__button--cancel {
+			width: 155px;
+		}
 	}
+	
 }
+
+
 
 
 

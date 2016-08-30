@@ -38,46 +38,45 @@ body {
 }
 
 
-.loader-container {
-  background-attachment: fixed, inherit;
-  -webkit-backface-visibility: hidden;
-  display: none;
-}
-
-.spinner {
-  margin: 100px auto 0;
-  text-align: center;
-}
-
-.spinner > div {
-  width: 30px;
-  height: 30px;
-  background-color: #000000;
-  border-radius: 100%;
+.loader--blue {
   display: inline-block;
-  animation: sk-bouncedelay 1.7s infinite ease-in-out both;
   margin-right: 5px;
+  display: none;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  border: 3px solid $blue-3;
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }
 
 
-.spinner .spinner__item1 {
-  animation-delay: -0.60s;
+.loader--white {
+  display: inline-block;
+  margin-right: 5px;
+  display: none;
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
 }
 
-.spinner .spinner__item2 {
-  animation-delay: -0.40s;
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }
-
-.spinner .spinner__item3 {
-  animation-delay: -0.20s;
-}
-
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% { 
-    transform: scale(0);
-    opacity: 0;
-  } 40% { 
-    transform: scale(1.0);
-    opacity: 1;
-  }
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }

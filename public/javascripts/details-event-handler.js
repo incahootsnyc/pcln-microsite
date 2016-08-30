@@ -41,6 +41,7 @@ pclnPicMe.detailsEventHandler = (function () {
 	function populateDetailsModalFn ($modal, imageData) {
 		var $tagContainer = $modal.find('.modal--details__img-categories');
 		var $editPost = $modal.find('.modal--details__edit');
+		var $downloadHiResImg = $modal.find('.modal--details__download');
 
 		$tagContainer.empty();
 		pclnPicMe.setLike($modal.find('.modal--details__icon-container'), imageData);
@@ -56,6 +57,13 @@ pclnPicMe.detailsEventHandler = (function () {
 			$editPost.hide();
 		} else {
 			$editPost.show();
+		}
+
+		if (imageData.downloadUrl) {
+			$downloadHiResImg.attr('href', imageData.downloadUrl);
+			$downloadHiResImg.show();
+		} else {
+			$downloadHiResImg.hide();
 		}
 
 		imageData.tags.forEach(function (tag) {

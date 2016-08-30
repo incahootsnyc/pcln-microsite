@@ -507,31 +507,32 @@ body {
   /* line 79, ../../scss/modules/_sidebar.scss */
   .sidebar__categories__item {
     padding: 5px 10px;
+    text-transform: capitalize;
   }
-  /* line 83, ../../scss/modules/_sidebar.scss */
+  /* line 84, ../../scss/modules/_sidebar.scss */
   .sidebar__close {
     position: absolute;
     right: 10px;
     top: 10px;
   }
-  /* line 89, ../../scss/modules/_sidebar.scss */
+  /* line 90, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:checked + label:before {
     color: #333;
   }
-  /* line 93, ../../scss/modules/_sidebar.scss */
+  /* line 94, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:not(:checked) + label:before, .sidebar [type="checkbox"]:checked + label:before {
     display: none;
   }
-  /* line 97, ../../scss/modules/_sidebar.scss */
+  /* line 98, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:not(:checked) + label, .sidebar [type="checkbox"]:checked + label {
     padding-left: 0;
   }
-  /* line 102, ../../scss/modules/_sidebar.scss */
+  /* line 103, ../../scss/modules/_sidebar.scss */
   .sidebar [type="checkbox"]:not(:checked) + label:after, .sidebar [type="checkbox"]:checked + label:after {
     content: '';
   }
 }
-/* line 108, ../../scss/modules/_sidebar.scss */
+/* line 109, ../../scss/modules/_sidebar.scss */
 .checkedtag {
   color: #333;
 }
@@ -549,17 +550,21 @@ body {
   background: linear-gradient(to bottom, rgba(242, 242, 242, 0.46) 0%, #f2f2f2 52%, #f2f2f2 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2', GradientType=0 );
 }
-/* line 17, ../../scss/modules/_main.scss */
+/* line 16, ../../scss/modules/_main.scss */
+.submissions .main-filters-list {
+  text-transform: capitalize;
+}
+/* line 21, ../../scss/modules/_main.scss */
 .submissions h1 {
   font-size: 16px;
   display: inline-block;
 }
-/* line 22, ../../scss/modules/_main.scss */
+/* line 26, ../../scss/modules/_main.scss */
 .submissions__container {
   text-align: center;
   padding-top: 5px;
 }
-/* line 27, ../../scss/modules/_main.scss */
+/* line 31, ../../scss/modules/_main.scss */
 .submissions__img {
   width: 160px;
   height: 160px;
@@ -569,12 +574,12 @@ body {
   transition: box-shadow 0s ease-in;
   background: url(/images/rolling.gif) 50% no-repeat;
 }
-/* line 36, ../../scss/modules/_main.scss */
+/* line 40, ../../scss/modules/_main.scss */
 .submissions__img:hover {
   box-shadow: 0px 0px 4px 0px #999;
   cursor: pointer;
 }
-/* line 42, ../../scss/modules/_main.scss */
+/* line 46, ../../scss/modules/_main.scss */
 .submissions__img-container {
   display: inline-block;
   font-size: 10px;
@@ -582,7 +587,7 @@ body {
   width: 49%;
   box-sizing: border-box;
 }
-/* line 50, ../../scss/modules/_main.scss */
+/* line 54, ../../scss/modules/_main.scss */
 .submissions__username {
   display: inline-block;
   width: 50%;
@@ -593,11 +598,11 @@ body {
   vertical-align: middle;
   text-transform: capitalize;
 }
-/* line 61, ../../scss/modules/_main.scss */
+/* line 65, ../../scss/modules/_main.scss */
 .submissions__likes {
   text-align: right;
 }
-/* line 65, ../../scss/modules/_main.scss */
+/* line 69, ../../scss/modules/_main.scss */
 .submissions__icon-container {
   width: 18px;
   height: 18px;
@@ -608,13 +613,13 @@ body {
   transition: background-color .5s;
   cursor: pointer;
 }
-/* line 83, ../../scss/modules/_main.scss */
+/* line 87, ../../scss/modules/_main.scss */
 .submissions__like-icon {
   width: 12px;
   vertical-align: text-bottom;
   margin: 3px;
 }
-/* line 89, ../../scss/modules/_main.scss */
+/* line 93, ../../scss/modules/_main.scss */
 .submissions__sort {
   border: none;
   color: #0a84c1;
@@ -628,11 +633,11 @@ body {
   padding: 6px 24px 0 0;
   font-weight: 200;
 }
-/* line 102, ../../scss/modules/_main.scss */
+/* line 106, ../../scss/modules/_main.scss */
 .submissions__sort:focus {
   outline: 0;
 }
-/* line 107, ../../scss/modules/_main.scss */
+/* line 111, ../../scss/modules/_main.scss */
 .submissions__select-container {
   overflow: hidden;
   position: absolute;
@@ -642,30 +647,30 @@ body {
 }
 
 @media (min-width: 420px) {
-  /* line 119, ../../scss/modules/_main.scss */
+  /* line 123, ../../scss/modules/_main.scss */
   .submissions__img-container {
     width: auto;
   }
 
-  /* line 123, ../../scss/modules/_main.scss */
+  /* line 127, ../../scss/modules/_main.scss */
   .submissions__img {
     width: 140px;
     height: 140px;
   }
 }
 @media (min-width: 540px) {
-  /* line 132, ../../scss/modules/_main.scss */
+  /* line 136, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
   }
-  /* line 138, ../../scss/modules/_main.scss */
+  /* line 142, ../../scss/modules/_main.scss */
   .submissions__header {
     padding: 20px 10px 10px 25px;
   }
 
-  /* line 144, ../../scss/modules/_main.scss */
+  /* line 148, ../../scss/modules/_main.scss */
   .main {
     min-width: 60%;
     width: calc(100% - 320px);
@@ -673,12 +678,12 @@ body {
   }
 }
 @media (min-width: 841px) {
-  /* line 153, ../../scss/modules/_main.scss */
+  /* line 157, ../../scss/modules/_main.scss */
   .submissions__select-container {
     right: 20px;
   }
 }
-/* line 161, ../../scss/modules/_main.scss */
+/* line 165, ../../scss/modules/_main.scss */
 .pageloader {
   background-attachment: fixed, inherit;
   -webkit-backface-visibility: hidden;
@@ -686,13 +691,13 @@ body {
   margin-bottom: 40px;
 }
 
-/* line 168, ../../scss/modules/_main.scss */
+/* line 172, ../../scss/modules/_main.scss */
 .spinner {
   margin: 100px auto 0;
   text-align: center;
 }
 
-/* line 173, ../../scss/modules/_main.scss */
+/* line 177, ../../scss/modules/_main.scss */
 .spinner > div {
   width: 15px;
   height: 15px;
@@ -703,17 +708,17 @@ body {
   margin-right: 5px;
 }
 
-/* line 184, ../../scss/modules/_main.scss */
+/* line 188, ../../scss/modules/_main.scss */
 .spinner .spinner__item1 {
   animation-delay: -0.60s;
 }
 
-/* line 188, ../../scss/modules/_main.scss */
+/* line 192, ../../scss/modules/_main.scss */
 .spinner .spinner__item2 {
   animation-delay: -0.40s;
 }
 
-/* line 192, ../../scss/modules/_main.scss */
+/* line 196, ../../scss/modules/_main.scss */
 .spinner .spinner__item3 {
   animation-delay: -0.20s;
 }

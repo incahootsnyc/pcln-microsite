@@ -266,7 +266,7 @@ router.post('/api/pwreset/complete', function (req, res, next) {
 
   db.get().collection('users').findOne({ username: req.body.username }, function (error, user) {
         if (error || !user) {
-            res.redirect('/password-reset/fail?e=nouser');
+            res.redirect('/password-reset/fail/nouser');
         } else {
 
             var saltHashPassword = utils.saltHashPassword(req.body.password, utils.generateRandomString(16));
@@ -276,7 +276,7 @@ router.post('/api/pwreset/complete', function (req, res, next) {
 
             db.get().collection('users').save(user, function (error, result) {
                 if (error) {
-                    res.redirect('/password-reset/fail?e=savefail');
+                    res.redirect('/password-reset/fail/savefail');
                 } else {
                     res.redirect('/');
                 }

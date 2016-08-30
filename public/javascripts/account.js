@@ -5,12 +5,14 @@
 
 		$passwordResetPageForm.submit(function () {
 			var passwordConfirmation = $('input[name="password-confirm"]').val(),
-				password = $('input[name="password"]').val();
+				password = $('input[name="password"]').val(),
+				$resetPasswordError = $('.reset-password__error-message');
 
 			if (!isValidPassword(password) || password != passwordConfirmation) {
+				$resetPasswordError.removeClass('ishidden');
 				return false;
 			}
-			
+
 			$(this).find('.loader--white').removeClass('ishidden');
 		});
 

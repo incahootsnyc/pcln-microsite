@@ -77,6 +77,8 @@
 					return false;
 				}
 			}
+
+			$('.modal--signin__button .loader--white').removeClass('ishidden');
 			
 		});
 

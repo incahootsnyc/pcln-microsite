@@ -22,7 +22,7 @@
     } else {
 
         $hamburgerMenu.css('display', 'block');
-        $mobileMenu.css('display', 'block')
+        $mobileMenu.css('display', 'block');
       }
   };    
 

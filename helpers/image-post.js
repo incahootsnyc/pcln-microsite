@@ -13,7 +13,7 @@ var imagePost = {
     		likesCount: 0
 		};
 	},
-	mapForClient: function (imageObj, imageObjIndex) {
+	mapForClient: function (imageObj, imageObjIndex, userIsAdmin) {
 		var s3bucket = s3.getBucket();
 		var params = { Key: imageObj.name };
 
@@ -22,6 +22,7 @@ var imagePost = {
 			username: imageObj.username,
 			thumbUrl: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
 			detailsUrl: imageObj.detailPath || s3bucket.getSignedUrl('getObject', params),
+			downloadUrl: userIsAdmin ? s3bucket.getSignedUrl('getObject', params) : null,
 			location: imageObj.location,
 			uniqueName: imageObj.name,
 			datetime: imageObj.datetime,

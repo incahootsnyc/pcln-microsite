@@ -728,6 +728,32 @@ body {
     opacity: 1;
   }
 }
+/* line 1, ../../scss/modules/_error-page.scss */
+.errorman--sad {
+  width: 40%;
+  display: block;
+  margin: auto;
+}
+
+/* line 7, ../../scss/modules/_error-page.scss */
+.error {
+  text-align: center;
+}
+/* line 10, ../../scss/modules/_error-page.scss */
+.error .header__logo {
+  width: 200px;
+}
+/* line 14, ../../scss/modules/_error-page.scss */
+.error__content {
+  padding: 0 20px;
+}
+/* line 18, ../../scss/modules/_error-page.scss */
+.error__headline {
+  text-align: center;
+  font-size: 26px;
+  margin: 20px 0;
+}
+
 /* line 1, ../../scss/modules/_info-terms.scss */
 .contest-info, .terms {
   padding: 40px 30px;

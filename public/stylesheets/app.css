@@ -681,6 +681,55 @@ body {
     right: 20px;
   }
 }
+/* line 160, ../../scss/modules/_main.scss */
+.page-loader {
+  background-attachment: fixed, inherit;
+  -webkit-backface-visibility: hidden;
+  display: none;
+}
+
+/* line 166, ../../scss/modules/_main.scss */
+.spinner {
+  margin: 100px auto 0;
+  text-align: center;
+}
+
+/* line 171, ../../scss/modules/_main.scss */
+.spinner > div {
+  width: 15px;
+  height: 15px;
+  background-color: #0a84c1;
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.7s infinite ease-in-out both;
+  margin-right: 5px;
+}
+
+/* line 182, ../../scss/modules/_main.scss */
+.spinner .spinner__item1 {
+  animation-delay: -0.60s;
+}
+
+/* line 186, ../../scss/modules/_main.scss */
+.spinner .spinner__item2 {
+  animation-delay: -0.40s;
+}
+
+/* line 190, ../../scss/modules/_main.scss */
+.spinner .spinner__item3 {
+  animation-delay: -0.20s;
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 /* line 1, ../../scss/modules/_info-terms.scss */
 .contest-info, .terms {
   padding: 40px 30px;

@@ -70,13 +70,14 @@
 		background-color: $blue-2;
 		border-radius: 50%;
 		transition: background-color .5s;
+		cursor: pointer;
 
 
-		&:hover {
-			background-color: $black-40;
-			cursor: pointer;
+		// &:hover {
+		// 	background-color: $black-40;
+		// 	cursor: pointer;
 		
-		}
+		// }
 	}
 
 	&__like-icon {

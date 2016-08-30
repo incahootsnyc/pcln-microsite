@@ -606,19 +606,15 @@ body {
   background-color: #0a84c1;
   border-radius: 50%;
   transition: background-color .5s;
-}
-/* line 75, ../../scss/modules/_main.scss */
-.submissions__icon-container:hover {
-  background-color: #999;
   cursor: pointer;
 }
-/* line 82, ../../scss/modules/_main.scss */
+/* line 83, ../../scss/modules/_main.scss */
 .submissions__like-icon {
   width: 12px;
   vertical-align: text-bottom;
   margin: 3px;
 }
-/* line 88, ../../scss/modules/_main.scss */
+/* line 89, ../../scss/modules/_main.scss */
 .submissions__sort {
   border: none;
   color: #0a84c1;
@@ -632,11 +628,11 @@ body {
   padding: 6px 24px 0 0;
   font-weight: 200;
 }
-/* line 101, ../../scss/modules/_main.scss */
+/* line 102, ../../scss/modules/_main.scss */
 .submissions__sort:focus {
   outline: 0;
 }
-/* line 106, ../../scss/modules/_main.scss */
+/* line 107, ../../scss/modules/_main.scss */
 .submissions__select-container {
   overflow: hidden;
   position: absolute;
@@ -646,30 +642,30 @@ body {
 }
 
 @media (min-width: 420px) {
-  /* line 118, ../../scss/modules/_main.scss */
+  /* line 119, ../../scss/modules/_main.scss */
   .submissions__img-container {
     width: auto;
   }
 
-  /* line 122, ../../scss/modules/_main.scss */
+  /* line 123, ../../scss/modules/_main.scss */
   .submissions__img {
     width: 140px;
     height: 140px;
   }
 }
 @media (min-width: 540px) {
-  /* line 131, ../../scss/modules/_main.scss */
+  /* line 132, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
   }
-  /* line 137, ../../scss/modules/_main.scss */
+  /* line 138, ../../scss/modules/_main.scss */
   .submissions__header {
     padding: 20px 10px 10px 25px;
   }
 
-  /* line 143, ../../scss/modules/_main.scss */
+  /* line 144, ../../scss/modules/_main.scss */
   .main {
     min-width: 60%;
     width: calc(100% - 320px);
@@ -677,12 +673,12 @@ body {
   }
 }
 @media (min-width: 841px) {
-  /* line 152, ../../scss/modules/_main.scss */
+  /* line 153, ../../scss/modules/_main.scss */
   .submissions__select-container {
     right: 20px;
   }
 }
-/* line 160, ../../scss/modules/_main.scss */
+/* line 161, ../../scss/modules/_main.scss */
 .pageloader {
   background-attachment: fixed, inherit;
   -webkit-backface-visibility: hidden;
@@ -690,13 +686,13 @@ body {
   margin-bottom: 40px;
 }
 
-/* line 167, ../../scss/modules/_main.scss */
+/* line 168, ../../scss/modules/_main.scss */
 .spinner {
   margin: 100px auto 0;
   text-align: center;
 }
 
-/* line 172, ../../scss/modules/_main.scss */
+/* line 173, ../../scss/modules/_main.scss */
 .spinner > div {
   width: 15px;
   height: 15px;
@@ -707,17 +703,17 @@ body {
   margin-right: 5px;
 }
 
-/* line 183, ../../scss/modules/_main.scss */
+/* line 184, ../../scss/modules/_main.scss */
 .spinner .spinner__item1 {
   animation-delay: -0.60s;
 }
 
-/* line 187, ../../scss/modules/_main.scss */
+/* line 188, ../../scss/modules/_main.scss */
 .spinner .spinner__item2 {
   animation-delay: -0.40s;
 }
 
-/* line 191, ../../scss/modules/_main.scss */
+/* line 192, ../../scss/modules/_main.scss */
 .spinner .spinner__item3 {
   animation-delay: -0.20s;
 }

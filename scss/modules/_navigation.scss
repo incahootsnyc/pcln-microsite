@@ -83,7 +83,8 @@
 	.header {
 		height: 110px;
 		line-height: 1;
-		
+		padding: 1px; 
+
 		&__logo {
 			width: 275px;
 			margin: 20px;
@@ -128,9 +129,7 @@
 			padding-bottom: 8px;
 			color: $black-40;
 			font-size: 16px;
-			border-bottom: 5px solid $white;
 
-			transition: border-bottom .5s;
 
 			&:hover {
 				border-bottom: 5px solid $blue-3;

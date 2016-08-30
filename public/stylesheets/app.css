@@ -366,63 +366,62 @@ body {
   .header {
     height: 110px;
     line-height: 1;
+    padding: 1px;
   }
-  /* line 87, ../../scss/modules/_navigation.scss */
+  /* line 88, ../../scss/modules/_navigation.scss */
   .header__logo {
     width: 275px;
     margin: 20px;
   }
-  /* line 92, ../../scss/modules/_navigation.scss */
+  /* line 93, ../../scss/modules/_navigation.scss */
   .header__hamburger-icon {
     display: none;
   }
 
-  /* line 98, ../../scss/modules/_navigation.scss */
+  /* line 99, ../../scss/modules/_navigation.scss */
   .navbar--main, .navbar--user {
     display: inline-block;
   }
-  /* line 101, ../../scss/modules/_navigation.scss */
+  /* line 102, ../../scss/modules/_navigation.scss */
   .navbar--main__item, .navbar--user__item {
     display: inline-block;
   }
 
-  /* line 106, ../../scss/modules/_navigation.scss */
+  /* line 107, ../../scss/modules/_navigation.scss */
   .navbar--user {
     position: absolute;
     text-transform: capitalize;
     right: 20px;
     top: 10px;
   }
-  /* line 112, ../../scss/modules/_navigation.scss */
+  /* line 113, ../../scss/modules/_navigation.scss */
   .navbar--user span {
     padding-left: 5px;
   }
-  /* line 116, ../../scss/modules/_navigation.scss */
+  /* line 117, ../../scss/modules/_navigation.scss */
   .navbar--user__link {
     padding: 0 3px;
   }
 
-  /* line 121, ../../scss/modules/_navigation.scss */
+  /* line 122, ../../scss/modules/_navigation.scss */
   .navbar--main {
     vertical-align: bottom;
     padding-bottom: 8px;
     margin: 0 20px;
   }
-  /* line 126, ../../scss/modules/_navigation.scss */
+  /* line 127, ../../scss/modules/_navigation.scss */
   .navbar--main__link {
     padding: 0 10px;
     padding-bottom: 8px;
     color: #999;
     font-size: 16px;
-    border-bottom: 5px solid #ffffff;
-    transition: border-bottom .5s;
   }
-  /* line 135, ../../scss/modules/_navigation.scss */
+  /* line 134, ../../scss/modules/_navigation.scss */
   .navbar--main__link:hover {
     border-bottom: 5px solid #60AFD7;
   }
 }
-/* line 142, ../../scss/modules/_navigation.scss */
+/* line 141, ../../scss/modules/_navigation.scss */
 .isactive {
   border-bottom: 5px solid #60AFD7;
   color: #666;
@@ -1300,12 +1299,12 @@ body {
   padding: 30px 10px 10px;
   color: #ffffff;
   background: rgba(248, 80, 50, 0);
-  background: -moz-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248, 80, 50, 0)), color-stop(100%, rgba(0, 0, 0, 0.82)));
-  background: -webkit-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
-  background: -o-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
-  background: -ms-linear-gradient(top, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
-  background: linear-gradient(to bottom, rgba(248, 80, 50, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -moz-linear-gradient(top, rgba(24, 8, 5, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(24, 8, 5, 0)), color-stop(100%, rgba(0, 0, 0, 0.82)));
+  background: -webkit-linear-gradient(top, rgba(24, 8, 5, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -o-linear-gradient(top, rgba(24, 8, 5, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: -ms-linear-gradient(top, rgba(24, 8, 5, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+  background: linear-gradient(to bottom, rgba(24, 8, 5, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#000000', GradientType=0 );
 }
 /* line 106, ../../scss/modules/modals/_modal--details.scss */

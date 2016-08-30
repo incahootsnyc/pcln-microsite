@@ -91,11 +91,11 @@ router.post('/api/upload', utils.isLoggedIn, function (req, res) {
 
             function saveImagePostAndRespond (error, results) {
                if (error) {
-                    res.json({ message: defaultErrorMessage });
+                    res.json({ error: defaultErrorMessage });
                 } else {
 
                     db.get().collection('imagePosts').insert(imagePostObj, function (error, confirmation) {
-                        if (error) { res.json({ message: defaultErrorMessage }); }
+                        if (error) { res.json({ error: defaultErrorMessage }); }
 
                         res.json({ message: 'Successfully uploaded image! :D' });
                     });
@@ -103,7 +103,7 @@ router.post('/api/upload', utils.isLoggedIn, function (req, res) {
             }
 
         } else {
-            res.json({ message: (error && error.message) || defaultErrorMessage });
+            res.json({ error: (error && error.message) || defaultErrorMessage });
         }
     });
 	

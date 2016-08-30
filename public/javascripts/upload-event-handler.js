@@ -55,10 +55,20 @@ pclnPicMe.uploadEventHandler = (function () {
 						processData: false,
 						success: function (response) {
 							isSubmitting = false;
-							window.location.href = '/';
+
+							if (response.error) {
+								alert(response.error);
+								clearUploadForm($form);
+								$acceptTermsConfirmation.hide();
+							} else {
+								window.location.href = '/';
+							}
+							
 						},
 						error: function () {
 							isSubmitting = false;
+							clearUploadForm($form);
+							$acceptTermsConfirmation.hide();
 						}
 					};
 
@@ -69,15 +79,15 @@ pclnPicMe.uploadEventHandler = (function () {
 
 			$cancelBtn.click(function () {
 				$modal.show();
-				$acceptTermsConfirmation.addClass('ishidden');
+				$acceptTermsConfirmation.hide();
 			});
 
 			$closeBtn.click(function () {
 				$modal.show();
-				$acceptTermsConfirmation.addClass('ishidden');
+				$acceptTermsConfirmation.hide();
 			});
 
-			$acceptTermsConfirmation.removeClass('ishidden');
+			$acceptTermsConfirmation.show();
 		  	
 			return false;
 

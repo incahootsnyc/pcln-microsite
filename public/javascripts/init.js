@@ -1,6 +1,6 @@
 (function () {
 
-  $('input[type="text"][type="email"][type="password"]').on('focus', function() {
+  $('input[type="text"], input[type="email"], input[type="password"]').on('focus', function() {
     document.body.scrollTop = $(this).offset().top;
 });
 

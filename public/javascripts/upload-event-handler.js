@@ -63,7 +63,7 @@ pclnPicMe.uploadEventHandler = (function () {
 								$loader.addClass('ishidden');
 								$acceptTermsConfirmation.hide();
 							} else {
-								window.location.href = '/';
+								pclnPicMe.redirectHome();
 							}
 							
 						},

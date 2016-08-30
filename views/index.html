@@ -73,12 +73,20 @@
 
 					<button id="upload-image" class="sidebar__submit-pic">SUBMIT A PIC</button>
 
+					<% if (!isContestInfo && !isTerms) { %>
 					<hr class="sidebar__hr">
 
 					<div class="sidebar__categories">
 						
 						<strong class="sidebar__categories__title">Tags</strong>
 						<ul class="sidebar__categories__list">
+							<% if (selectedUser) { %>
+								<li class="sidebar__categories__item">
+									<input class="sidebar__categories_input" type="checkbox" name="user" id="filter-user" value="<%= selectedUser %>" checked>
+									<label class="sidebar__categories__label checkedtag" for="filter-user">#<%= selectedUser %></label>
+								</li>
+							<% } %>
+
 							<% for(var category in categories) { %>
 								<li class="sidebar__categories__item">
 									<input class="sidebar__categories_input" type="checkbox" name="category[]" id="filter-<%= category %>" value="<%= category %>">
@@ -88,6 +96,7 @@
 						</ul>
 
 					</div>	
+					<% } %>
 
 				</aside>
 

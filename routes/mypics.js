@@ -9,7 +9,7 @@ var config = require('../config');
 /* GET home page. */
 router.get('/mypics', utils.isLoggedIn, function (req, res, next) {
 	
-	var genericLayoutSettings = utils.getGenericLayoutProperties();
+	var genericLayoutSettings = utils.getGenericLayoutProperties(req.query.user);
 	var searchConfig = utils.getSortAndFilterConfig(req);
 
 	db.get().collection('imagePosts', function (err, collection) {

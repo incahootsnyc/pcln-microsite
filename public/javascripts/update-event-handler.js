@@ -44,7 +44,7 @@ pclnPicMe.updateEventHandler = (function () {
 							alert(response.error);
 							$loader.addClass('ishidden');
 						} else {
-							window.location.href = '/';
+							pclnPicMe.redirectHome();
 						}
 					}
 				};
@@ -87,7 +87,7 @@ pclnPicMe.updateEventHandler = (function () {
 							alert(response.error);
 							$loader.addClass('ishidden');
 						} else {
-							window.location.href = '/';
+							pclnPicMe.redirectHome();
 						}
 						
 					}

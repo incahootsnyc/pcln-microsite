@@ -62,7 +62,7 @@ function getGenericLayoutProperties (selectedUser) {
     isHomeSignin: false,
     title: 'PCLN Photo Contest',
     categories: config.categories,
-    selectedUser: selectedUser,
+    selectedUser: selectedUser ? selectedUser.replace('.', ' ') : null,
     isProduction: config.isProduction
   };
 }

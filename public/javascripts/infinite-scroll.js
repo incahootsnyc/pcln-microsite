@@ -10,12 +10,15 @@
 		var sendUid = pclnPicMe.scrollType == 'mypics';
 		var query = window.location.search.length > 0 ? '&uid=' + pclnPicMe.uid : '?uid=' + pclnPicMe.uid;
 		var url = '/api/fetchPosts/' + pageNumber + window.location.search;
+		var $pageLoader = $('.pageloader');
 
 	    if (startLoading && loadMoreResults && !isLoading) {
 
 	    	if (sendUid) {
 	    		url += query;
 	    	}
+
+	    	$pageLoader.show();
 
 	    	var requestConfig = {
 				url: url,
@@ -24,6 +27,7 @@
 					loadedResults = pageNumber * pageSize;
 					loadMoreResults = loadedResults < response.totalPostCount;
 					isLoading = false;
+					$pageLoader.hide();
 
 					pageNumber++;
 					if (response.images.length > 0) {

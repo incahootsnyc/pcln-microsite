@@ -683,7 +683,7 @@ body {
   }
 }
 /* line 160, ../../scss/modules/_main.scss */
-.page-loader {
+.pageloader {
   background-attachment: fixed, inherit;
   -webkit-backface-visibility: hidden;
   display: none;

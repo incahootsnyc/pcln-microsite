@@ -82,6 +82,7 @@
 
 	.header {
 		height: 110px;
+		line-height: 1;
 		
 		&__logo {
 			width: 275px;
@@ -119,7 +120,7 @@
 
 	.navbar--main {
 		vertical-align: bottom;
-		padding-bottom: 5px;
+		padding-bottom: 8px;
 		margin: 0 20px;
 
 		&__link {

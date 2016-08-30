@@ -1,5 +1,6 @@
 .modal--resetpw {
 	@extend .modal--sm;
+	top: 40px;
 
 	&__headline {
 		@extend .headline--orange;

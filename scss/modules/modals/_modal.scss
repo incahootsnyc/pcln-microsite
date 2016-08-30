@@ -25,7 +25,6 @@
 	@media (min-width: 540px) {
 		border-radius: 8px;
 		padding: 20px 40px;
-		box-shadow: 5px -2px 10px 3px #6b6868;
 		left: 0;
 		top: 50px;
 		right: 0;
@@ -142,7 +141,7 @@
 	
 	&__button {
 		@extend .button;
-		margin: 20px 0 10px 0;		
+		margin: 10px 0 10px 0;		
 	}
 
 	&__error-message {
@@ -224,6 +223,7 @@
 	width: 320px;
 	left: 0;
 	right: 0;
+	top: 40px;
 	margin: auto;
 	border-radius: 8px;
 
@@ -265,7 +265,7 @@
 
 @media (min-width: 540px) {
 	.modal--sm {
-		width: 540px;
+		width: 400px;
 
 		&__text {
 			width: 100%;

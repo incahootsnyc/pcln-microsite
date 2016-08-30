@@ -3,7 +3,7 @@
 		<strong class="modal--resetpw__headline">Reset Password</strong>
 		<div class="modal--resetpw__text">Enter your priceline.com email address, and we'll email you a link to reset your password.</div>
 		<img class="modal--resetpw__close" src="/images/close.svg"/>
-		<form action="/api/pwreset" method="post">
+		<form action="/api/pwreset" method="post" class="modal--resetpw__form">
 			<span id="reset-error" class="modal--resetpw__error-message ishidden">Please enter valid Priceline email address.</span>
 			<input type="email" placeholder="Priceline.com Email Address" name="username"/>
 			<button type="submit" class="modal--resetpw__button"><span class="loader--white ishidden"></span>Send Reset Link</button>

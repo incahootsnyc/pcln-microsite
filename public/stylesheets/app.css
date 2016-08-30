@@ -687,15 +687,16 @@ body {
   background-attachment: fixed, inherit;
   -webkit-backface-visibility: hidden;
   display: none;
+  margin-bottom: 40px;
 }
 
-/* line 166, ../../scss/modules/_main.scss */
+/* line 167, ../../scss/modules/_main.scss */
 .spinner {
   margin: 100px auto 0;
   text-align: center;
 }
 
-/* line 171, ../../scss/modules/_main.scss */
+/* line 172, ../../scss/modules/_main.scss */
 .spinner > div {
   width: 15px;
   height: 15px;
@@ -706,17 +707,17 @@ body {
   margin-right: 5px;
 }
 
-/* line 182, ../../scss/modules/_main.scss */
+/* line 183, ../../scss/modules/_main.scss */
 .spinner .spinner__item1 {
   animation-delay: -0.60s;
 }
 
-/* line 186, ../../scss/modules/_main.scss */
+/* line 187, ../../scss/modules/_main.scss */
 .spinner .spinner__item2 {
   animation-delay: -0.40s;
 }
 
-/* line 190, ../../scss/modules/_main.scss */
+/* line 191, ../../scss/modules/_main.scss */
 .spinner .spinner__item3 {
   animation-delay: -0.20s;
 }

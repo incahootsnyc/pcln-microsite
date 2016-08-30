@@ -21,7 +21,7 @@ function generateUniqueName (fileName) {
 
 function getSortAndFilter (req) {
   var sortType = req.query.sort ? req.query.sort  : 'newest';
-  var filterTags = req.query.tags ? req.query.tags.split(',') : undefined;
+  var filterTag = req.query.tag && req.query.tag != 'all' ? req.query.tag : undefined;
   var user = req.query.user;
 
   var sortOptions = {  'limit': config.itemsPerPage };
@@ -37,8 +37,8 @@ function getSortAndFilter (req) {
     sortOptions['sort'] = [[ 'datetime', 'desc' ]];
   }
 
-  if (filterTags && filterTags.length > 0) {
-    queryOptions['tags'] = { '$all' : filterTags };
+  if (filterTag) {
+    queryOptions['tags'] = { '$in' : [ filterTag ] };
   }
 
   if (user) {
@@ -117,8 +117,8 @@ function isValidEmail (email) {
     }
   };
 
-  // return isPCLN && validTokens;
-  return validTokens;
+  return isPCLN && validTokens;
+  // return validTokens;
 }
 
 function loggedInMiddleWare (req, res, next) {

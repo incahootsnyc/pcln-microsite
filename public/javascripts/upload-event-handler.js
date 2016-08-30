@@ -44,8 +44,8 @@ pclnPicMe.uploadEventHandler = (function () {
 
 			$confirmBtn.click(function () {
 				if (!isSubmitting) {
-
-					$(this).find('.loader--white').removeClass('ishidden');
+					var $loader = $(this).find('.loader--white');
+					$loader.removeClass('ishidden');
 					isSubmitting = true;
 
 				  	var requestConfig = {
@@ -60,7 +60,7 @@ pclnPicMe.uploadEventHandler = (function () {
 							if (response.error) {
 								alert(response.error);
 								clearUploadForm($form);
-								$(this).find('.loader--white').addClass('ishidden');
+								$loader.addClass('ishidden');
 								$acceptTermsConfirmation.hide();
 							} else {
 								window.location.href = '/';
@@ -70,7 +70,7 @@ pclnPicMe.uploadEventHandler = (function () {
 						error: function () {
 							isSubmitting = false;
 							clearUploadForm($form);
-							$(this).find('.loader--white').addClass('ishidden');
+							$loader.addClass('ishidden');
 							$acceptTermsConfirmation.hide();
 						}
 					};

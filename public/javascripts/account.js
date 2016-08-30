@@ -10,6 +10,8 @@
 			if (!isValidPassword(password) || password != passwordConfirmation) {
 				return false;
 			}
+			
+			$(this).find('.loader--white').removeClass('ishidden');
 		});
 
 	} else {
@@ -68,6 +70,8 @@
 					$loginErr.removeClass('ishidden');
 					return false;
 				}
+
+				$signinBtn.find('.loader--white').removeClass('ishidden');
 			} else {
 				if (!isValidPassword(password) ||
 					password != $pwConfirm.val() || 
@@ -76,9 +80,9 @@
 					$registerErr.removeClass('ishidden');
 					return false;
 				}
-			}
 
-			$('.modal--signin__button .loader--white').removeClass('ishidden');
+				$registerBtn.find('.loader--white').removeClass('ishidden');
+			}
 			
 		});
 
@@ -106,6 +110,8 @@
 					$resetErr.removeClass('ishidden');
 					return false;
 				}
+
+				$(this).find('.loader--white').removeClass('ishidden');
 			});
 
 			$closeBtn.click(function () {

@@ -170,6 +170,12 @@ pclnPicMe.uploadEventHandler = (function () {
 			pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile);
 		});
 
+		$form.find('input[name="location"]').keyup(function () {
+			var formData = new FormData($form[0]);
+
+			pclnPicMe.isValidForm($form, formData, validationDictionary, droppedFile);
+		});
+
 	}
 
 	function clearUploadForm ($form) {

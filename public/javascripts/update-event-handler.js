@@ -27,17 +27,25 @@ pclnPicMe.updateEventHandler = (function () {
 
 		  	var formData = new FormData(this);
 		  	var postData = $(this).serializeArray();
+		  	var $loader = $(this).find('button[type="submit"] .loader--white');
 
 			if (!pclnPicMe.isValidForm($form, formData, validationDictionary, 'no-image', true)) {
 				return false;
 			}
+
+			$loader.removeClass('ishidden');
 
 		  	var requestConfig = {
 				url: '/api/update',
 				type: 'POST',
 				data: postData,
 				success: function (response) {
-						window.location.href = '/';
+						if (response.error) {
+							alert(response.error);
+							$loader.addClass('ishidden');
+						} else {
+							window.location.href = '/';
+						}
 					}
 				};
 
@@ -68,11 +76,20 @@ pclnPicMe.updateEventHandler = (function () {
 			var $closeBtn = $detailsConfirmModal.find('.modal__close');
 
 			$confirmBtn.click(function () {
+				var $loader = $(this).find('.loader--white');
+				$loader.removeClass('ishidden');
+
 				var requestConfig = {
 					url: '/api/remove/' + imageData.uniqueName,
 					type: 'GET',
 					success: function (response) {
-						window.location.href = '/';
+						if (response.error) {
+							alert(response.error);
+							$loader.addClass('ishidden');
+						} else {
+							window.location.href = '/';
+						}
+						
 					}
 				};
 

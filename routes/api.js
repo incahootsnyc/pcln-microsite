@@ -115,7 +115,7 @@ router.post('/api/update', utils.isLoggedIn, function (req, res) {
 
     db.get().collection('imagePosts').findOne({ name: body.uniquename }, function (error, item) {
         if (error || !item) {
-            res.json({ message: defaultErrorMessage });
+            res.json({ error: defaultErrorMessage });
         } else {
             if (_.isArray(body['category[]'])) {
                 item.tags = body['category[]'];
@@ -127,7 +127,7 @@ router.post('/api/update', utils.isLoggedIn, function (req, res) {
 
             db.get().collection('imagePosts').save(item, function (error, result) {
                 if (error) {
-                    res.json({ message: defaultErrorMessage });
+                    res.json({ error: defaultErrorMessage });
                 } else {
                     res.json({ message: 'Successfully updated image! :D' });
                 }
@@ -144,10 +144,10 @@ router.get('/api/remove/:uniqueName', utils.isLoggedIn, function (req, res) {
     db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
 
         if (error) {
-            res.json({ message: defaultErrorMessage });
+            res.json({ error: defaultErrorMessage });
         } else {
             s3.getBucket().deleteObject({ Key: req.params.uniqueName }, function (error, data) {
-                if (error) { res.json({ message: defaultErrorMessage }); }
+                if (error) { res.json({ error: defaultErrorMessage }); }
 
                 res.json({ message: 'Successfully deleted image! :D' });
             });

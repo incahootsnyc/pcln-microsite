@@ -21,3 +21,49 @@
 		margin: 20px 0;
 	}
 }
+
+.teardrop {
+
+}
+
+
+
+.slideDown{
+	animation-name: slideDown;
+	-webkit-animation-name: slideDown;	
+
+	 -webkit-animation-delay: .5s; /* Chrome, Safari, Opera */
+    animation-delay: .5s;
+
+	animation-duration: 3s;	
+	-webkit-animation-duration: 3s;
+
+	transform: translateY(200%);
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;	
+
+	visibility: visible !important;						
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(0%);
+	}
+
+	100% {
+		transform: translateY(200%);
+	}
+}
+
+@-webkit-keyframes slideDown {
+	@keyframes slideDown {
+	0% {
+		-webkit-transform: translateY(0%);
+	}
+
+	100% {
+		-webkit-transform: translateY(200%);
+	}
+}
+}

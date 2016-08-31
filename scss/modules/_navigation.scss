@@ -32,9 +32,9 @@
 	position: absolute;
 	color: $black-60;
 	width: 250px;
+	transition: transform 1s;	
 	height: 100vh;
 	box-shadow: 3px 0px 7px 4px $black-40;
-	transition: transform 1s;
 	
 
 	&__item {

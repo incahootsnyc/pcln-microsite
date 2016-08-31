@@ -1172,36 +1172,66 @@ body {
   max-width: 320px;
   margin: auto;
 }
-/* line 16, ../../scss/modules/modals/_modal--signin.scss */
+/* line 20, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__forgotpass {
+  margin-bottom: 20px;
+}
+/* line 24, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__logo {
   width: 100%;
   padding: 10px 0 30px;
   border-bottom: 1px solid #ccc;
 }
-/* line 26, ../../scss/modules/modals/_modal--signin.scss */
-.modal--signin__bottom {
-  padding-top: 20px;
-}
 /* line 30, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__headline {
+  margin-bottom: 0;
+}
+/* line 35, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__bottom {
+  padding-top: 10px;
+  position: relative;
+}
+/* line 40, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__secondary-text {
+  padding: 20px 0;
+  margin-top: 25px;
+  border-top: 1px solid #ccc;
+  position: relative;
+}
+/* line 47, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__input {
   margin: 5px 0;
 }
-/* line 34, ../../scss/modules/modals/_modal--signin.scss */
+/* line 51, ../../scss/modules/modals/_modal--signin.scss */
+.modal--signin__or {
+  display: inline-block;
+  color: #999;
+  background-color: white;
+  position: absolute;
+  top: -12px;
+  /* right: 0; */
+  left: 92px;
+  /* text-align: center; */
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 25px;
+}
+/* line 64, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button {
   background-color: #0a84c1;
-  margin: 5px 0 20px 0;
+  margin: 5px 0;
 }
-/* line 39, ../../scss/modules/modals/_modal--signin.scss */
+/* line 69, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button:hover {
   background-color: #60AFD7;
 }
-/* line 44, ../../scss/modules/modals/_modal--signin.scss */
+/* line 74, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 50, ../../scss/modules/modals/_modal--signin.scss */
+  /* line 80, ../../scss/modules/modals/_modal--signin.scss */
   .modal--signin {
     width: 350px;
     height: auto;

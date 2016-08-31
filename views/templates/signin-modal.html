@@ -4,25 +4,42 @@
 			<img class="modal--signin__logo" src="/images/logo.svg"/>
 			<div class="modal--signin__bottom">
 				<strong class="modal--signin__headline">Welcome</strong>
-				<p>Please sign in to access, start posting photos and see what others have uploaded</p>
-
+			
 				<span id="passport-error" class="modal--signin__error-message ishidden"></span>
 				<span id="login-error" class="modal--signin__error-message ishidden">Incorrect username or password.</span>
 				<span id="register-error" class="modal--signin__error-message ishidden">Password must be at least 6 characters long. Passwords must match.</span>
 
-				<div id="register-message" class="modal--signin__register-message">First time? <a>Register now</a></div>
+				<div id="register-message" class="modal--signin__register-message">First time here? You must <a>Register</a>
 
-				<div id="login-message" class="modal--signin__register-message ishidden">Registered already? <a>Log in</a></div>
+				<div class="modal--signin__secondary-text">
+				<div class="modal--signin__or">OR</div>	
+				Please sign in to access, start posting photos and see what others have uploaded.
+				</div>	
+
+
+
+				</div>
+
+				<div id="login-message" class="modal--signin__register-message ishidden">Already registered? <a>Log in</a>
+
+
+				<div class="modal--signin__secondary-text"><div class="modal--signin__or">OR</div>	Please use your Priceline email and create an account. Simple add a password.</div>	
+
+
+
+				</div>
 
 				<form id="signin-form" action="/api/login" method="post">
 					<input class="modal--signin__input" placeholder="Priceline Email Address" name="username" type="email"/>
 					<input class="modal--signin__input" placeholder="Password" name="password" type="password"/>
 					<input class="modal--signin__input ishidden" placeholder="Retype Password" name="password-confirm" type="password"/>
-					<div id="forgot-password" class="modal__signin__forgotpass"><a>Forgot password?</a>
+					
 				</div>
 					<button id="signin" class="modal--signin__button" type="submit"><span class="loader--white ishidden"></span>SIGN IN</button>
 					<button id="register" class="modal--signin__button ishidden" type="submit"><span class="loader--white ishidden"></span>REGISTER</button>
+					<div id="forgot-password" class="modal__signin__forgotpass"><a>Forgot password?</a>
 				</form>	
+
 			</div>
 		</div>
 	</div>	

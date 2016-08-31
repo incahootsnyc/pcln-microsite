@@ -13,6 +13,14 @@
 		margin: auto;
 	}
 
+	&__register-message {
+
+	}
+
+	&__forgotpass {
+		margin-bottom: 20px;
+	}
+
 	&__logo {
 		width: 100%;
 		padding: 10px 0 30px;
@@ -21,20 +29,42 @@
 
 	&__headline {
 		@extend .headline--orange;
+		margin-bottom: 0;
 	}
 
 	&__bottom {
-		padding-top: 20px;
+		padding-top: 10px;
+		position: relative;
+	}
+
+	&__secondary-text {
+		padding: 20px 0;
+		margin-top: 25px;
+		border-top: 1px solid $black-20;
+		position: relative;
 	}
 
 	&__input {
 		margin: 5px 0;
 	}
 
+	&__or {
+	display: inline-block;
+	color: $black-40;
+    background-color: white;
+    position: absolute;
+    top: -12px;
+    /* right: 0; */
+    left: 92px;
+    /* text-align: center; */
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 25px;	}
+
 	&__button {
 		@extend .button;
 		background-color: $blue-2;
-		margin: 5px 0 20px 0;
+		margin: 5px 0;
 
 		&:hover {
 			background-color: $blue-3;

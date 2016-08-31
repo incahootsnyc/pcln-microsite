@@ -61,10 +61,20 @@ pclnPicMe.updateEventHandler = (function () {
 	function addCloseEventFn ($updateModal) {
 		var $updateClose = $updateModal.find('#update-modal-close');
 
-		$updateClose.click(function () {
+		$updateClose.click(closeEvent);
+
+		$updateModal.click(function (e) {
+			var $target = $(e.target);
+
+			if ($target.is('.modal-overlay')){
+				closeEvent();
+			}
+		});
+
+		function closeEvent () {
 			$('body').css('overflow-y', '');
 			$updateModal.hide();
-		});
+		}
 	}
 
 	function addDeleteEventFn ($form, $detailsConfirmModal) {
@@ -76,7 +86,7 @@ pclnPicMe.updateEventHandler = (function () {
 		$deleteButton.click(function (e) {
 			e.preventDefault();
 			// unbind events so they dont pile up 
-			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn]);
+			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn, $detailsConfirmModal]);
 
 			$confirmBtn.click(function () {
 				var $loader = $(this).find('.loader--white');
@@ -105,6 +115,14 @@ pclnPicMe.updateEventHandler = (function () {
 
 			$closeBtn.click(function () {
 				$detailsConfirmModal.hide();
+			});
+
+			$detailsConfirmModal.click(function (e) {
+				var $target = $(e.target);
+
+				if ($target.is('.modal-overlay')){
+					$detailsConfirmModal.hide();
+				}
 			});
 
 			$detailsConfirmModal.show();

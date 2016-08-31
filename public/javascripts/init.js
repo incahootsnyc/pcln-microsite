@@ -78,9 +78,9 @@
     });
   };
 
-  pclnPicMe.updateLocalLikes = function (id, likeResponse, isDetails) {
-    var match = this.resultset.find(function (imagePost) { return imagePost.id == id; });
-    var likeParent = $('img[data-id="' + id + '"').parent();
+  pclnPicMe.updateLocalLikes = function (uniqueName, likeResponse, isDetails) {
+    var match = this.resultset.find(function (imagePost) { return imagePost.uniqueName == uniqueName; });
+    var likeParent = $('img[data-id="' + uniqueName + '"').parent();
 
     match.likesCount = likeResponse.likes.length;
     match.likes = likeResponse.likes;

@@ -47,8 +47,8 @@
 	});
 
 	function buildListItemHTML (imagePostObject) {
-		var itemHTML = '<li class="submissions__img-container" data-uid="' + imagePostObject.uid + '">' + 
-					'<img class="submissions__img" data-id="' + imagePostObject.id + '" src="">' + 
+		var itemHTML = '<li class="submissions__img-container">' + 
+					'<img class="submissions__img" data-id="' + imagePostObject.uniqueName + '" src="">' + 
 		 			'<div class="submission__info">' + 
 		 				'<span class="submissions__username"><a href="">' + imagePostObject.username + '</a></span>' +
 		 				'<span class="submissions__icon-container">' + 

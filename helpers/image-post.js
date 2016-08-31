@@ -21,7 +21,6 @@ var imagePost = {
 
 		return {
 			uid: imageObj.uid.toString(),
-			id: imageObj._id.toString(),
 			username: imageObj.username,
 			thumbUrl: imageObj.thumbNailPath || s3bucket.getSignedUrl('getObject', params),
 			detailsUrl: imageObj.detailPath || s3bucket.getSignedUrl('getObject', params),

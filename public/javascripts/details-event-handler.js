@@ -63,9 +63,9 @@ pclnPicMe.detailsEventHandler = (function () {
 		$modal.find('.modal--details__arrow-left').toggleClass('ishidden', imageData.index == 0);
 		$modal.find('.modal--details__arrow-right').toggleClass('ishidden', imageData.index == pclnPicMe.resultset.length-1);
 
-		if (pclnPicMe.uid != imageData.uid) {
+		if (pclnPicMe.uid != imageData.uid && !imageData.downloadUrl) {
 			$editPost.hide();
-		} else {
+		} else if (imageData.downloadUrl) {
 			$editPost.show();
 		}
 

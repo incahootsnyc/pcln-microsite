@@ -30,14 +30,20 @@
   $hamburgerMenu.click(function() {
       if (menuHidden) {
 
-      $mobileMenu.addClass("slideInAnimation");
-      $hamburgerMenu.attr('src', 'images/menu-close.png');
+        $mobileMenu.addClass("slideInAnimation");
+        $hamburgerMenu.attr('src', 'images/menu-close.png');
 
-      menuHidden = !menuHidden;
+        setTimeout(function () {
+          $mobileMenu.css('transition', '');
+          $mobileMenu.css('transition', 'transform 1s');
+        }, 1000);
+        
+
+        menuHidden = !menuHidden;
 
       } else {
         $mobileMenu.removeClass("slideInAnimation");
-         $hamburgerMenu.attr('src', 'images/hamburger.png');
+        $hamburgerMenu.attr('src', 'images/hamburger.png');
 
         menuHidden = !menuHidden;
       }

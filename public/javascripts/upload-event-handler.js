@@ -97,6 +97,7 @@ pclnPicMe.uploadEventHandler = (function () {
 				$acceptTermsConfirmation.hide();
 			});
 
+			$acceptTermsConfirmation.find('.modal--smal__text').hide();
 			$acceptTermsConfirmation.show();
 		  	
 			return false;
@@ -119,6 +120,10 @@ pclnPicMe.uploadEventHandler = (function () {
 			$form.removeClass('is-dragover');
 		})
 		.on('drop', previewFile($form));
+
+		$dragAndDropArea.click(function () {
+			$form.find('#file').trigger('click');
+		});
 	}
 
 	// image preview event for modal

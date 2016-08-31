@@ -1154,6 +1154,11 @@ body {
     width: 155px;
   }
 }
+/* line 286, ../../scss/modules/modals/_modal.scss */
+.more-terms {
+  display: none;
+}
+
 /* line 3, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin {
   width: 100%;

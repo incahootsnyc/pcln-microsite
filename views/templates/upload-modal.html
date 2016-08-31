@@ -20,7 +20,8 @@
 			</div>
 
 			<div class="modal--lg__img-tags">
-				<strong class="modal--lg__subheadline">Tags</strong> <span id="category-error" class="modal--lg__error-message ishidden">You must choose at least one tag.</span>
+				<strong class="modal--lg__subheadline">Tags</strong>
+				<span class="modal--lg__required">*Required</span> <span id="category-error" class="modal--lg__error-message ishidden">You must choose at least one tag.</span>
 				<ul>
 					<% for(var category in categories) { %>
 						<% if (category != 'all') { %>
@@ -34,7 +35,8 @@
 			</div>	
 
 			<div class="modal--lg__img-location">
-				<strong class="modal--lg__subheadline">Location</strong> <span id="location-error" class="modal--lg__error-message ishidden">Required</span>
+				<strong class="modal--lg__subheadline">Location</strong>
+				<span class="modal--lg__required">*Required</span> <span id="location-error" class="modal--lg__error-message ishidden">You must enter a location.</span>
 				<input name="location" type="text" class="modal--lg__input" placeholder="Where did you take this pic?" />
 
 			</div>

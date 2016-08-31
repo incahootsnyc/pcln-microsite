@@ -29,7 +29,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form.submit(function (e) {
 			e.preventDefault();
 			// unbind events so they dont pile up 
-			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn, $termsLink]);
+			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn, $termsLink, $acceptTermsConfirmation]);
 
 			var formData = new FormData(this);
 			formData.append('datetime', Date.now());
@@ -97,6 +97,16 @@ pclnPicMe.uploadEventHandler = (function () {
 				$acceptTermsConfirmation.hide();
 			});
 
+			$acceptTermsConfirmation.click(function (e) {
+				var $target = $(e.target);
+
+				if ($target.is('.modal-overlay')){
+					$uploadModal.show();
+					$acceptTermsConfirmation.hide();
+				}
+			});
+
+			$acceptTermsConfirmation.find('.modal--smal__text').hide();
 			$acceptTermsConfirmation.show();
 		  	
 			return false;
@@ -119,6 +129,10 @@ pclnPicMe.uploadEventHandler = (function () {
 			$form.removeClass('is-dragover');
 		})
 		.on('drop', previewFile($form));
+
+		$dragAndDropArea.click(function () {
+			$form.find('#file').trigger('click');
+		});
 	}
 
 	// image preview event for modal
@@ -165,20 +179,21 @@ pclnPicMe.uploadEventHandler = (function () {
 
 		var $uploadClose = $uploadModal.find('#upload-modal-close');
 
-		$uploadClose.click(function(){
+		$uploadClose.click(closeEvent);
+
+		$uploadModal.click(function (e) {
+			var $target = $(e.target);
+
+			if ($target.is('.modal-overlay')){
+				closeEvent();
+			}
+		});
+
+		function closeEvent () {
 			$('body').css('overflow-y', '');
 			$uploadModal.hide();
 			clearUploadForm($uploadModal.find('form'));
-		});
-
-		//   $('body').on('click', '.modal-overlay', function (e) {
-		// 	var $target = $(e.target);
-
-		// 	if ($target.is('.modal-overlay')){
-		// 		$(this).hide();
-		// 	}
-		    
-		// });
+		}
 	}
 
 	function addValidationEventFn ($form) {		

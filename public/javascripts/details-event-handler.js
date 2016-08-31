@@ -12,10 +12,20 @@ pclnPicMe.detailsEventHandler = (function () {
 
 		var $detailsClose = $detailsModal.find('#details-modal-close');
 
-		$detailsClose.click(function () {
+		$detailsClose.click(closeEvent);
+
+		$detailsModal.click(function (e) {
+			var $target = $(e.target);
+
+			if ($target.is('.modal-overlay')){
+				closeEvent();
+			}
+		});
+
+		function closeEvent () {
 			$('body').css('overflow-y', '');
 			$detailsModal.hide();
-		});
+		}
 	}
 
 	function addShiftEventsFn ($detailsModal) {

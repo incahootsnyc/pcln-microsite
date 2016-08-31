@@ -33,7 +33,13 @@
 
     for (var key in validationDictionary) {
       if (key != 'map') {
-        var value = $form.find('input[name="' + key + '"]').val();
+        var value;
+
+        if (key == 'category[]') {
+          value = $form.find('input[name="' + key + '"]:checked').val();
+        } else {
+          value = $form.find('input[name="' + key + '"]').val();
+        }
         
         var error = validationDictionary[key](value);
         if (error) {

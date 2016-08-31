@@ -38,7 +38,7 @@
 	}
 
 	&__secondary-text {
-		padding: 20px 0;
+		padding: 0 0 20px;
 		margin-top: 25px;
 		border-top: 1px solid $black-20;
 		position: relative;
@@ -49,17 +49,20 @@
 	}
 
 	&__or {
-	display: inline-block;
-	color: $black-40;
-    background-color: white;
-    position: absolute;
-    top: -12px;
+	    background-color: white;
+    position: relative;
+    top: -11px;
     /* right: 0; */
-    left: 92px;
+    /* left: 92px; */
     /* text-align: center; */
     font-size: 14px;
     font-weight: 400;
-    padding: 0 25px;	}
+    /* padding: 0 25px; */
+    width: 45px;
+    text-align: center;
+    margin: auto;
+    color: $black-40;
+	}
 
 	&__button {
 		@extend .button;

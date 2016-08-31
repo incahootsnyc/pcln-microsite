@@ -1,6 +1,7 @@
 .contest-info, .terms {
 	padding: 40px 30px;
 	position: relative;
+	min-height: 100vh;
 
 	&__container {
 		// position: relative;
@@ -94,7 +95,7 @@
 	    max-width: 320px;
 	    background: rgba(255, 255, 255, 0.4);
 	    top: 0px;
-	    right: 20px;
+	    right: 0px;
 	    height: 100%;
 	    width: 320px;
 

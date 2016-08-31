@@ -76,7 +76,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   animation-duration: .5s;
   -webkit-animation-duration: .5s;
   opacity: 1;
-  transition: transform 1s;
   transform: translateX(-260px);
   -webkit-transform: translateX(-260px);
   animation-timing-function: ease;
@@ -217,12 +216,12 @@ body {
   min-height: 100vh;
   background: #cccccc;
   background: #d9d9d9;
-  background: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 2%, #f2f2f2 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #d9d9d9), color-stop(2%, #f2f2f2), color-stop(100%, #f2f2f2));
-  background: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
-  background: -o-linear-gradient(top, #d9d9d9 0%, #f2f2f2 14%, #f2f2f2 100%);
-  background: -ms-linear-gradient(top, #d9d9d9 0%, #f2f2f2 2%, #f2f2f2 100%);
-  background: linear-gradient(to bottom, #d9d9d9 0%, #f2f2f2 2%, #f2f2f2 100%);
+  background: -moz-linear-gradient(top, #d9d9d9 0%, #f2f2f2 25px, #f2f2f2 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #d9d9d9), color-stop(25px, #f2f2f2), color-stop(100%, #f2f2f2));
+  background: -webkit-linear-gradient(top, #d9d9d9 0%, #f2f2f2 25px, #f2f2f2 100%);
+  background: -o-linear-gradient(top, #d9d9d9 0%, #f2f2f2 25px, #f2f2f2 100%);
+  background: -ms-linear-gradient(top, #d9d9d9 0%, #f2f2f2 25px, #f2f2f2 100%);
+  background: linear-gradient(to bottom, #d9d9d9 0%, #f2f2f2 25px, #f2f2f2 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#f2f2f2', GradientType=0 );
 }
 
@@ -323,9 +322,9 @@ body {
   position: absolute;
   color: #666;
   width: 250px;
+  transition: transform 1s;
   height: 100vh;
   box-shadow: 3px 0px 7px 4px #999;
-  transition: transform 1s;
 }
 /* line 42, ../../scss/modules/_navigation.scss */
 .navbar--mobile__item + li {
@@ -803,34 +802,35 @@ body {
 .contest-info, .terms {
   padding: 40px 30px;
   position: relative;
+  min-height: 100vh;
 }
-/* line 15, ../../scss/modules/_info-terms.scss */
+/* line 16, ../../scss/modules/_info-terms.scss */
 .contest-info__tips, .terms__tips {
   padding: 20px;
 }
-/* line 18, ../../scss/modules/_info-terms.scss */
+/* line 19, ../../scss/modules/_info-terms.scss */
 .contest-info__tips__column, .terms__tips__column {
   width: 49%;
   display: inline-block;
   max-width: 275px;
 }
-/* line 24, ../../scss/modules/_info-terms.scss */
+/* line 25, ../../scss/modules/_info-terms.scss */
 .contest-info__tips__img, .terms__tips__img {
   width: 100%;
 }
-/* line 28, ../../scss/modules/_info-terms.scss */
+/* line 29, ../../scss/modules/_info-terms.scss */
 .contest-info__tips__img img, .terms__tips__img img {
   width: inherit;
   padding: 5px 10px 5px 0;
 }
-/* line 34, ../../scss/modules/_info-terms.scss */
+/* line 35, ../../scss/modules/_info-terms.scss */
 .contest-info__tips__headline, .terms__tips__headline {
   font-weight: bold;
   font-size: 20px;
   color: #666;
 }
 
-/* line 56, ../../scss/modules/_info-terms.scss */
+/* line 57, ../../scss/modules/_info-terms.scss */
 .contest-prizes__tier-title {
   background-color: #0a84c1;
   color: #ffffff;
@@ -840,7 +840,7 @@ body {
   display: inline-block;
   font-weight: bold;
 }
-/* line 66, ../../scss/modules/_info-terms.scss */
+/* line 67, ../../scss/modules/_info-terms.scss */
 .contest-prizes__tier-prize {
   font-size: 20px;
   padding: 5px 0 20px 5px;
@@ -848,14 +848,14 @@ body {
 }
 
 @media (min-width: 540px) {
-  /* line 75, ../../scss/modules/_info-terms.scss */
+  /* line 76, ../../scss/modules/_info-terms.scss */
   .contest-info__tips {
     display: block;
     margin: auto;
   }
 }
 @media (min-width: 1066px) {
-  /* line 84, ../../scss/modules/_info-terms.scss */
+  /* line 85, ../../scss/modules/_info-terms.scss */
   .contest-info__container {
     position: relative;
     display: inline-block;
@@ -863,14 +863,14 @@ body {
     max-width: calc(100% - 320px);
   }
 
-  /* line 91, ../../scss/modules/_info-terms.scss */
+  /* line 92, ../../scss/modules/_info-terms.scss */
   .contest-prizes {
     position: absolute;
     padding: 20px;
     max-width: 320px;
     background: rgba(255, 255, 255, 0.4);
     top: 0px;
-    right: 20px;
+    right: 0px;
     height: 100%;
     width: 320px;
   }

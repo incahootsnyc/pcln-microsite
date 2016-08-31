@@ -76,6 +76,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   animation-duration: .5s;
   -webkit-animation-duration: .5s;
   opacity: 1;
+  transition: transform 1s;
   transform: translateX(-260px);
   -webkit-transform: translateX(-260px);
   animation-timing-function: ease;
@@ -1213,33 +1214,29 @@ body {
   background-color: white;
   position: relative;
   top: -11px;
-  /* right: 0; */
-  /* left: 92px; */
-  /* text-align: center; */
   font-size: 14px;
   font-weight: 400;
-  /* padding: 0 25px; */
   width: 45px;
   text-align: center;
   margin: auto;
   color: #999;
 }
-/* line 67, ../../scss/modules/modals/_modal--signin.scss */
+/* line 63, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button {
   background-color: #0a84c1;
   margin: 5px 0;
 }
-/* line 72, ../../scss/modules/modals/_modal--signin.scss */
+/* line 68, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__button:hover {
   background-color: #60AFD7;
 }
-/* line 77, ../../scss/modules/modals/_modal--signin.scss */
+/* line 73, ../../scss/modules/modals/_modal--signin.scss */
 .modal--signin__error-message {
   color: #b01408;
 }
 
 @media (min-width: 540px) {
-  /* line 83, ../../scss/modules/modals/_modal--signin.scss */
+  /* line 79, ../../scss/modules/modals/_modal--signin.scss */
   .modal--signin {
     width: 350px;
     height: auto;

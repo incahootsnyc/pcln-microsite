@@ -50,18 +50,14 @@
 
 	&__or {
 	    background-color: white;
-    position: relative;
-    top: -11px;
-    /* right: 0; */
-    /* left: 92px; */
-    /* text-align: center; */
-    font-size: 14px;
-    font-weight: 400;
-    /* padding: 0 25px; */
-    width: 45px;
-    text-align: center;
-    margin: auto;
-    color: $black-40;
+	    position: relative;
+	    top: -11px;
+	    font-size: 14px;
+	    font-weight: 400;
+	    width: 45px;
+	    text-align: center;
+	    margin: auto;
+	    color: $black-40;
 	}
 
 	&__button {

@@ -196,7 +196,7 @@ label:hover:before {
 /* line 1, ../../scss/modules/_global.scss */
 body {
   padding-top: 71px;
-  font-weight: 200;
+  font-weight: 300;
 }
 @media (min-width: 841px) {
   /* line 1, ../../scss/modules/_global.scss */
@@ -1040,51 +1040,52 @@ body {
 /* line 147, ../../scss/modules/modals/_modal.scss */
 .modal--lg__error-message {
   color: #b01408;
+  font-weight: 600;
 }
 
 @media (min-width: 540px) {
-  /* line 158, ../../scss/modules/modals/_modal.scss */
+  /* line 159, ../../scss/modules/modals/_modal.scss */
   .modal--lg {
     max-width: 540px;
     height: auto;
     min-height: initial;
   }
-  /* line 163, ../../scss/modules/modals/_modal.scss */
+  /* line 164, ../../scss/modules/modals/_modal.scss */
   .modal--lg__category {
     width: 29%;
     height: 30px;
     vertical-align: text-bottom;
     margin: 5px;
   }
-  /* line 170, ../../scss/modules/modals/_modal.scss */
+  /* line 171, ../../scss/modules/modals/_modal.scss */
   .modal--lg__required {
     padding: 0 5px;
     font-size: 12px;
   }
-  /* line 175, ../../scss/modules/modals/_modal.scss */
+  /* line 176, ../../scss/modules/modals/_modal.scss */
   .modal--lg__img-dragbox {
     height: 142px;
     width: 142px;
   }
-  /* line 180, ../../scss/modules/modals/_modal.scss */
+  /* line 181, ../../scss/modules/modals/_modal.scss */
   .modal--lg__dragimage {
     display: inline-block;
   }
-  /* line 184, ../../scss/modules/modals/_modal.scss */
+  /* line 185, ../../scss/modules/modals/_modal.scss */
   .modal--lg__dragbox-cloud {
     width: auto;
   }
-  /* line 188, ../../scss/modules/modals/_modal.scss */
+  /* line 189, ../../scss/modules/modals/_modal.scss */
   .modal--lg__img-preview {
     width: 140px;
     height: 140px;
   }
-  /* line 194, ../../scss/modules/modals/_modal.scss */
+  /* line 195, ../../scss/modules/modals/_modal.scss */
   .modal--lg__button {
     width: 200px;
     display: inline-block;
   }
-  /* line 199, ../../scss/modules/modals/_modal.scss */
+  /* line 200, ../../scss/modules/modals/_modal.scss */
   .modal--lg__img-browse {
     display: inline-block;
     opacity: 1;
@@ -1093,7 +1094,7 @@ body {
     top: 60px;
     left: 160px;
   }
-  /* line 208, ../../scss/modules/modals/_modal.scss */
+  /* line 209, ../../scss/modules/modals/_modal.scss */
   .modal--lg__browse-label {
     border-radius: 5px;
     background-color: #f2f2f2;
@@ -1102,12 +1103,12 @@ body {
     height: auto;
     border: 1px solid #999;
   }
-  /* line 217, ../../scss/modules/modals/_modal.scss */
+  /* line 218, ../../scss/modules/modals/_modal.scss */
   .modal--lg__input {
     width: 320px;
   }
 }
-/* line 226, ../../scss/modules/modals/_modal.scss */
+/* line 227, ../../scss/modules/modals/_modal.scss */
 .modal--sm, .modal--resetpw {
   width: 320px;
   left: 0;
@@ -1116,25 +1117,25 @@ body {
   margin: auto;
   border-radius: 8px;
 }
-/* line 243, ../../scss/modules/modals/_modal.scss */
+/* line 244, ../../scss/modules/modals/_modal.scss */
 .modal--sm__text {
   width: 80%;
   padding-bottom: 20px;
 }
-/* line 248, ../../scss/modules/modals/_modal.scss */
+/* line 249, ../../scss/modules/modals/_modal.scss */
 .modal--sm__title {
   font-weight: 600;
   color: #333;
   font-size: 14px;
   margin-bottom: 20px;
 }
-/* line 255, ../../scss/modules/modals/_modal.scss */
+/* line 256, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--cancel {
   background-color: #999;
   width: 135px;
   display: inline-block;
 }
-/* line 262, ../../scss/modules/modals/_modal.scss */
+/* line 263, ../../scss/modules/modals/_modal.scss */
 .modal--sm__button--confirm {
   background-color: #60AFD7;
   width: 135px;
@@ -1143,25 +1144,25 @@ body {
 }
 
 @media (min-width: 540px) {
-  /* line 272, ../../scss/modules/modals/_modal.scss */
+  /* line 273, ../../scss/modules/modals/_modal.scss */
   .modal--sm, .modal--resetpw {
     width: 400px;
   }
-  /* line 275, ../../scss/modules/modals/_modal.scss */
+  /* line 276, ../../scss/modules/modals/_modal.scss */
   .modal--sm__text {
     width: 100%;
   }
-  /* line 279, ../../scss/modules/modals/_modal.scss */
+  /* line 280, ../../scss/modules/modals/_modal.scss */
   .modal--sm__button--confirm {
     width: 155px;
     vertical-align: top;
   }
-  /* line 284, ../../scss/modules/modals/_modal.scss */
+  /* line 285, ../../scss/modules/modals/_modal.scss */
   .modal--sm__button--cancel {
     width: 155px;
   }
 }
-/* line 291, ../../scss/modules/modals/_modal.scss */
+/* line 292, ../../scss/modules/modals/_modal.scss */
 .more-terms {
   display: none;
 }

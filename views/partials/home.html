@@ -24,7 +24,7 @@
 		<% for(var i=0; i < initData.images.length; i++) { %>
 			<li class="submissions__img-container" data-uid="<%= initData.images[i].uid %>">
 
-				<img class="submissions__img" data-id="<%= initData.images[i].uniqueName %>" src="">
+				<img class="submissions__img" data-id="<%= initData.images[i].id %>" src="">
 				 <div class="submission__info">
 				 <span class="submissions__username"><a href=""><%= initData.images[i].username %></a></span> <span class="submissions__likes">
 				 <span class="submissions__icon-container"><img class="submissions__like-icon" src="/images/hand.svg"/></span>Likes: <span class="like-value"><%= initData.images[i].likesCount %></span></span>

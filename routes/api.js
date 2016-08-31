@@ -12,6 +12,7 @@ var config = require('../config');
 var passport = require('passport');
 var _ = require('lodash');
 var mailer = require('../helpers/mailer');
+var ObjectID = require('mongodb').ObjectID;
 
 var upload = multer({
     limits: { fileSize: 5000000 },
@@ -157,11 +158,10 @@ router.get('/api/remove/:uniqueName', utils.isLoggedIn, function (req, res) {
     
 });
 
-router.get('/api/like/:uniqueName', utils.isLoggedIn, function (req, res) {
+router.get('/api/like/:id', utils.isLoggedIn, function (req, res) {
     var defaultErrorMessage = 'Error liking image! :O';
-    var addedLike = { 'likes': { user: utils.generateUniqueName('test') } };
 
-    db.get().collection('imagePosts').findOne({ name: req.params.uniqueName }, function (error, item) {
+    db.get().collection('imagePosts').findOne({ _id: new ObjectID(req.params.id) }, function (error, item) {
         if (error || !item) {
             res.json({ message: defaultErrorMessage });
         } else {

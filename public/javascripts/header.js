@@ -33,12 +33,6 @@
         $mobileMenu.addClass("slideInAnimation");
         $hamburgerMenu.attr('src', 'images/menu-close.png');
 
-        setTimeout(function () {
-          $mobileMenu.css('transition', '');
-          $mobileMenu.css('transition', 'transform 1s');
-        }, 1000);
-        
-
         menuHidden = !menuHidden;
 
       } else {

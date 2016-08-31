@@ -21,6 +21,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		var $form = $uploadModal.find('form');
 		var $fileInput = $form.find('input[type="file"]');
 		var $confirmBtn = $acceptTermsConfirmation.find('.modal--sm__button--confirm');
+		var $termsLink = $acceptTermsConfirmation.find('#terms-link');
 		var $cancelBtn = $acceptTermsConfirmation.find('.modal--sm__button--cancel');
 		var $closeBtn = $acceptTermsConfirmation.find('.modal__close');
 		var isSubmitting = false;
@@ -28,7 +29,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form.submit(function (e) {
 			e.preventDefault();
 			// unbind events so they dont pile up 
-			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn]);
+			pclnPicMe.unbindClickEvents([$confirmBtn, $cancelBtn, $closeBtn, $termsLink]);
 
 			var formData = new FormData(this);
 			formData.append('datetime', Date.now());
@@ -79,6 +80,11 @@ pclnPicMe.uploadEventHandler = (function () {
 					$.ajax(requestConfig);
 
 				}
+			});
+
+			$termsLink.click(function (e) {
+				e.preventDefault();
+				$acceptTermsConfirmation.find('.modal--smal__text').toggle();
 			});
 
 			$cancelBtn.click(function () {
@@ -164,6 +170,15 @@ pclnPicMe.uploadEventHandler = (function () {
 			$uploadModal.hide();
 			clearUploadForm($uploadModal.find('form'));
 		});
+
+		//   $('body').on('click', '.modal-overlay', function (e) {
+		// 	var $target = $(e.target);
+
+		// 	if ($target.is('.modal-overlay')){
+		// 		$(this).hide();
+		// 	}
+		    
+		// });
 	}
 
 	function addValidationEventFn ($form) {		

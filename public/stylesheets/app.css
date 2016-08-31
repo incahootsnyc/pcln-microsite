@@ -358,7 +358,7 @@ body {
 }
 /* line 72, ../../scss/modules/_navigation.scss */
 .isactive--mobile a {
-  color: #333;
+  color: #ffffff;
 }
 
 @media (min-width: 841px) {
@@ -653,28 +653,29 @@ body {
 @media (min-width: 420px) {
   /* line 124, ../../scss/modules/_main.scss */
   .submissions__img-container {
-    width: auto;
+    width: 150px;
+    float: left;
   }
 
-  /* line 128, ../../scss/modules/_main.scss */
+  /* line 129, ../../scss/modules/_main.scss */
   .submissions__img {
     width: 140px;
     height: 140px;
   }
 }
 @media (min-width: 540px) {
-  /* line 137, ../../scss/modules/_main.scss */
+  /* line 138, ../../scss/modules/_main.scss */
   .submissions__container {
     text-align: left;
     padding-left: 20px;
     padding-top: 5px;
   }
-  /* line 143, ../../scss/modules/_main.scss */
+  /* line 144, ../../scss/modules/_main.scss */
   .submissions__header {
     padding: 20px 10px 10px 25px;
   }
 
-  /* line 149, ../../scss/modules/_main.scss */
+  /* line 150, ../../scss/modules/_main.scss */
   .main {
     min-width: 60%;
     width: calc(100% - 320px);
@@ -682,12 +683,12 @@ body {
   }
 }
 @media (min-width: 841px) {
-  /* line 158, ../../scss/modules/_main.scss */
+  /* line 159, ../../scss/modules/_main.scss */
   .submissions__select-container {
     right: 20px;
   }
 }
-/* line 166, ../../scss/modules/_main.scss */
+/* line 167, ../../scss/modules/_main.scss */
 .pageloader {
   background-attachment: fixed, inherit;
   -webkit-backface-visibility: hidden;
@@ -695,13 +696,13 @@ body {
   margin-bottom: 40px;
 }
 
-/* line 173, ../../scss/modules/_main.scss */
+/* line 174, ../../scss/modules/_main.scss */
 .spinner {
   margin: 100px auto 0;
   text-align: center;
 }
 
-/* line 178, ../../scss/modules/_main.scss */
+/* line 179, ../../scss/modules/_main.scss */
 .spinner > div {
   width: 15px;
   height: 15px;
@@ -712,17 +713,17 @@ body {
   margin-right: 5px;
 }
 
-/* line 189, ../../scss/modules/_main.scss */
+/* line 190, ../../scss/modules/_main.scss */
 .spinner .spinner__item1 {
   animation-delay: -0.60s;
 }
 
-/* line 193, ../../scss/modules/_main.scss */
+/* line 194, ../../scss/modules/_main.scss */
 .spinner .spinner__item2 {
   animation-delay: -0.40s;
 }
 
-/* line 197, ../../scss/modules/_main.scss */
+/* line 198, ../../scss/modules/_main.scss */
 .spinner .spinner__item3 {
   animation-delay: -0.20s;
 }
@@ -803,7 +804,7 @@ body {
 }
 /* line 15, ../../scss/modules/_info-terms.scss */
 .contest-info__tips, .terms__tips {
-  display: none;
+  padding: 20px;
 }
 /* line 18, ../../scss/modules/_info-terms.scss */
 .contest-info__tips__column, .terms__tips__column {

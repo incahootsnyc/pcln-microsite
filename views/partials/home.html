@@ -19,7 +19,7 @@
 			  <option value="popular" <%= sort == "popular" ? "selected" : "" %>>Popular</option> 
 		</select> -->
 	</div>
-	<div class="submissions__container">
+	<div class="submissions__container group">
 		<ul id="image-list">
 		<% for(var i=0; i < initData.images.length; i++) { %>
 			<li class="submissions__img-container" data-uid="<%= initData.images[i].uid %>">

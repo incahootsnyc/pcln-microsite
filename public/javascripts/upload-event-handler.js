@@ -1,6 +1,7 @@
 pclnPicMe.uploadEventHandler = (function () {
 
 	var droppedFile = false;
+	var orientedFileName = undefined;
 	var validationDictionary = {
 		'map': ['#image-error', '#category-error', '#location-error'],
 		'image': function (value) { if (!(value && value.length > 0) && !droppedFile) return this.map[0]; },
@@ -35,7 +36,12 @@ pclnPicMe.uploadEventHandler = (function () {
 			formData.append('datetime', Date.now());
 
 			if (droppedFile) {
-			    formData.append($fileInput.attr('name'), droppedFile);
+				if (orientedFileName) {
+					formData.append($fileInput.attr('name'), droppedFile, orientedFileName);
+				} else {
+					formData.append($fileInput.attr('name'), droppedFile);
+				}
+			    
 			}
 
 			if (!pclnPicMe.isValidForm($form, validationDictionary, droppedFile, true)) {
@@ -158,19 +164,55 @@ pclnPicMe.uploadEventHandler = (function () {
 				filePreview = droppedFile;
 				// clear any existing file that may have 
 				// been added via native upload
+				orientedFileName = undefined;
 				$form.find('#file').val('');
 				$form.trigger('change');
 			} else {
 				filePreview = e.currentTarget.files[0];
 				droppedFile = false;
 			}
-			
-			// read file and set it as source of image when finished
-			var reader = new FileReader();
-		    reader.onload = function (event) {
-		        $form.find('img#preview').attr('src', event.target.result);
-		    };
-		    reader.readAsDataURL(filePreview);		   
+
+		    EXIF.getData(filePreview, function () {
+		    	var orientedImage = new Image();
+		    	var previewImage = new Image(140, 140);
+			    var previewImageElement = $form.find('img#preview')[0];
+				var orientation = EXIF.getTag(this,"Orientation");
+				var canvasPreview = document.createElement("canvas");
+				var canvasOriented = document.createElement("canvas");
+				var ctxPreview = canvasPreview.getContext('2d');
+				var ctxOriented = canvasOriented.getContext('2d');
+				var URL = window.URL || window.webkitURL;
+				var objectUrl = URL.createObjectURL(filePreview);
+
+				if (!orientation) {
+
+					var reader = new FileReader();
+				    reader.onload = function (event) {
+				        $form.find('img#preview').attr('src', event.target.result);
+				    };
+
+				    reader.readAsDataURL(filePreview);	
+
+				} else {
+
+					orientedImage.onload = function() {
+						var dataURL = drawCanvas(orientedImage, orientation, canvasOriented, ctxOriented);
+						orientedFileName = $form.find('#file').val();
+						$form.find('#file').val('');
+						droppedFile = dataURItoBlob(dataURL);
+					};
+
+					previewImage.onload = function() {
+						var previewDataURL = drawCanvas(previewImage, orientation, canvasPreview, ctxPreview);
+						previewImageElement.src = previewDataURL;
+					};
+
+					orientedImage.src = objectUrl;
+					previewImage.src = objectUrl;
+
+				}
+
+			});	   
 		}
 	}
 
@@ -213,8 +255,76 @@ pclnPicMe.uploadEventHandler = (function () {
 		$form.find('img#preview').attr('src', '');
 		$form.find('button[type="submit"]').addClass('disabled');
 		$form.parent().find('.modal--lg__error-message').addClass('ishidden');
+		orientedFileName = undefined;
 		droppedFile = false;
 	}
+
+	// http://stackoverflow.com/a/14930686
+	function dataURItoBlob(dataURI) {
+	    var byteString, 
+	        mimestring;
+
+	    if(dataURI.split(',')[0].indexOf('base64') !== -1 ) {
+	        byteString = atob(dataURI.split(',')[1]);
+	    } else {
+	        byteString = decodeURI(dataURI.split(',')[1]);
+	    }
+
+	    mimestring = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+	    var content = new Array();
+	    for (var i = 0; i < byteString.length; i++) {
+	        content[i] = byteString.charCodeAt(i);
+	    }
+
+	    return new Blob([new Uint8Array(content)], {type: mimestring});
+	}
+
+	// http://stackoverflow.com/a/37750456
+	function drawCanvas (image, orientation, can, ctx) {
+		if (image.width > 140) {
+			var dimensions = calculateAspectRatioFit(image.width, image.height, 2048, 2048);
+			image.width = dimensions.width;
+			image.height = dimensions.height;
+		}	
+
+		can.width  = image.width;
+		can.height = image.height;
+		ctx.save();
+		var width = can.width;  
+		var styleWidth = can.style.width;
+		var height = can.height; 
+		var styleHeight = can.style.height;
+		if (orientation > 4) {
+			can.width = height; 
+			can.style.width = styleHeight;
+			can.height = width; 
+			can.style.height = styleWidth;
+		}
+		switch (orientation) {
+			case 2: ctx.translate(width, 0);     ctx.scale(-1,1); break;
+			case 3: ctx.translate(width,height); ctx.rotate(Math.PI); break;
+			case 4: ctx.translate(0,height);     ctx.scale(1,-1); break;
+			case 5: ctx.rotate(0.5 * Math.PI);   ctx.scale(1,-1); break;
+			case 6: ctx.rotate(0.5 * Math.PI);   ctx.translate(0,-height); break;
+			case 7: ctx.rotate(0.5 * Math.PI);   ctx.translate(width,-height); ctx.scale(-1,1); break;
+			case 8: ctx.rotate(-0.5 * Math.PI);  ctx.translate(-width,0); break;
+		}
+
+		ctx.drawImage(image,0,0,image.width,image.height);
+		
+		ctx.restore();
+		
+		return can.toDataURL();
+	}
+
+	// http://stackoverflow.com/a/14731922
+	function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+
+	    var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+
+	    return { width: srcWidth*ratio, height: srcHeight*ratio };
+	 }
 
 })();
 

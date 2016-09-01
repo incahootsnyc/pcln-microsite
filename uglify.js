@@ -1,6 +1,7 @@
 var UglifyJS = require('uglify-js');
 var fs = require('fs');
 var files = [
+	'./public/javascripts/exif.js',
 	'./public/javascripts/header.js',
 	'./public/javascripts/init.js',
 	'./public/javascripts/likes-event-handler.js',

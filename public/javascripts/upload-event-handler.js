@@ -67,7 +67,7 @@ pclnPicMe.uploadEventHandler = (function () {
 
 							if (response.error) {
 								alert(response.error);
-								clearUploadForm($form);
+								$uploadModal.find('#upload-modal-close').trigger('click');
 								$loader.addClass('ishidden');
 								$acceptTermsConfirmation.hide();
 							} else {
@@ -77,7 +77,7 @@ pclnPicMe.uploadEventHandler = (function () {
 						},
 						error: function () {
 							isSubmitting = false;
-							clearUploadForm($form);
+							$uploadModal.find('#upload-modal-close').trigger('click');
 							$loader.addClass('ishidden');
 							$acceptTermsConfirmation.hide();
 						}
@@ -195,6 +195,9 @@ pclnPicMe.uploadEventHandler = (function () {
 
 				} else {
 
+					$form.find('.modal--lg__dragbox-cloud.rolling').removeClass('ishidden');
+					$form.find('.modal--lg__dragbox-cloud.default').hide();
+
 					orientedImage.onload = function() {
 						var dataURL = drawCanvas(orientedImage, orientation, canvasOriented, ctxOriented);
 						orientedFileName = $form.find('#file').val();
@@ -205,6 +208,8 @@ pclnPicMe.uploadEventHandler = (function () {
 					previewImage.onload = function() {
 						var previewDataURL = drawCanvas(previewImage, orientation, canvasPreview, ctxPreview);
 						previewImageElement.src = previewDataURL;
+						$form.find('.modal--lg__dragbox-cloud.rolling').addClass('ishidden');
+						$form.find('.modal--lg__dragbox-cloud.default').show();
 					};
 
 					orientedImage.src = objectUrl;
@@ -315,7 +320,7 @@ pclnPicMe.uploadEventHandler = (function () {
 		
 		ctx.restore();
 		
-		return can.toDataURL();
+		return can.toDataURL('image/jpeg', 1);
 	}
 
 	// http://stackoverflow.com/a/14731922

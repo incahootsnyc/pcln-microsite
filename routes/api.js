@@ -14,7 +14,7 @@ var _ = require('lodash');
 var mailer = require('../helpers/mailer');
 
 var upload = multer({
-    limits: { fileSize: 5000000 },
+    limits: { fileSize: 6000000 },
     fileFilter: function (req, file, cb) {
         var mimeTypes = ['image/png', 'image/jpeg'];
 

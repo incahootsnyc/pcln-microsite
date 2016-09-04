@@ -36,12 +36,11 @@ var directoryHelper = {
 
     getRequirePathsRecursive: function (fileTree, parentFolders) {
         var filePaths = [],
-            parentPath = '',
             parentFolders = parentFolders || [],
             _this = this;
 
         fileTree.forEach(function (file) {
-
+            var parentPath = '';
             if (!file.children) {
 
                 if (parentFolders.length > 0) {
@@ -57,7 +56,7 @@ var directoryHelper = {
                 }
 
             }
-            else {
+            else if (file.children.length > 0) {
 
                 parentFolders.push(file.name);
                 var children = _this.getRequirePathsRecursive(file.children, parentFolders);

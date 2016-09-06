@@ -286,7 +286,7 @@ router.post('/api/pwreset', function (req, res, next) {
 router.post('/api/pwreset/complete', function (req, res, next) {
 
   db.get().collection('users').findOne({ username: req.body.username }, function (error, user) {
-        if (error || !user) {
+        if (error || !user || (user && user.passwordResetUrl != req.body.uniqueUrl) {
             res.redirect('/password-reset/fail/nouser');
         } else {
 

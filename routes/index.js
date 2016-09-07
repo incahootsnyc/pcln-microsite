@@ -66,4 +66,32 @@ router.get('/home', utils.isLoggedIn, function (req, res, next) {
 
 });
 
+router.get('/stats', utils.isLoggedIn, function (req, res, next) {
+	var genericLayoutSettings = utils.getGenericLayoutProperties(req.query.user);
+	var userStats = {};
+
+	if (config.adminList.indexOf(req.user.username.toLowerCase()) > -1) {
+
+		db.get().collection('imagePosts').find({}).toArray(function (error, imageList) {
+			if (error) {
+				res.render('error');
+			} else {
+				_.each(imageList, function (image) {
+					if (userStats[image.username]) {
+						userStats[image.username]++;
+					} else {
+						userStats[image.username] = 1;
+					}
+				});
+
+				res.json(userStats);
+			}
+		});
+
+	} else {
+		res.render('error');
+	}
+
+});
+
 module.exports = router;

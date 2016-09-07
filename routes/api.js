@@ -151,7 +151,7 @@ router.get('/api/remove/:uniqueName', utils.isLoggedIn, function (req, res) {
 
     db.get().collection('imagePosts').findOne({ name: req.params.uniqueName }, function (error, item) {
 
-        if (!error && item && item.uid.toString() == req.user._id.toString()) {
+        if (!error && item && (item.uid.toString() == req.user._id.toString() || config.adminList.indexOf(req.user.username.toLowerCase()) > -1)) {
 
             db.get().collection('imagePosts').deleteOne({ name: req.params.uniqueName }, function (error, results) {
 

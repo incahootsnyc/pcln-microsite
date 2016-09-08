@@ -22,7 +22,7 @@
 		window.location.href = finalUrl;
 	});
 
-	$('.submissions__username a').click(function (e) {
+	$('#image-list').on('click', '.submissions__username a', function (e) {
 		e.preventDefault();
 
 		var finalUrl;

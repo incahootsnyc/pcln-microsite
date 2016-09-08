@@ -200,7 +200,7 @@ pclnPicMe.uploadEventHandler = (function () {
 
 					orientedImage.onload = function() {
 						var dataURL = drawCanvas(orientedImage, orientation, canvasOriented, ctxOriented);
-						orientedFileName = $form.find('#file').val();
+						orientedFileName = $form.find('#file').val().trim().length > 0 ? $form.find('#file').val() : 'image.jpeg';
 						$form.find('#file').val('');
 						droppedFile = dataURItoBlob(dataURL);
 					};

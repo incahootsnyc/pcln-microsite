@@ -70,6 +70,7 @@ pclnPicMe.detailsEventHandler = (function () {
 		}
 
 		if (imageData.downloadUrl) {
+			$modal.find('.modal--details__location').text('Location: ' + imageData.location);
 			$downloadHiResImg.attr('href', imageData.downloadUrl);
 			$downloadHiResImg.show();
 		} else {

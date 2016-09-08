@@ -11,15 +11,15 @@ router.get('/password-reset/:uniqueUrl', function (req, res) {
     if (req.params.uniqueUrl) {
         db.get().collection('users').findOne({ passwordResetUrl: req.params.uniqueUrl }, function (error, user) {
             if (error || !user) {
-                res.render('pwreset', _.assign(genericLayoutSettings, { error: errorMessage, username: null }));
+                res.render('pwreset', _.assign(genericLayoutSettings, { error: errorMessage, username: null, uniqueUrl: null }));
             } else {
 
-                res.render('pwreset', _.assign(genericLayoutSettings, { error: null, username: user.username }));
+                res.render('pwreset', _.assign(genericLayoutSettings, { error: null, username: user.username, uniqueUrl: req.params.uniqueUrl }));
                         
             }
         });
     } else {
-        res.render('pwreset', _.assign(genericLayoutSettings, { error: errorMessage, username: null }));
+        res.render('pwreset', _.assign(genericLayoutSettings, { error: errorMessage, username: null, uniqueUrl: null }));
     }
 });
 

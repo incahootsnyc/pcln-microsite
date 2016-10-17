@@ -7,6 +7,10 @@ var imagePostHelper = require('../helpers/image-post');
 var config = require('../config');
 
 router.get('/', function (req, res) {
+	res.render('error');
+});
+
+router.get('/chanksy', function (req, res) {
 	var genericLayoutSettings = utils.getGenericLayoutProperties();
 
 	// ALERT ALERT ALERT
